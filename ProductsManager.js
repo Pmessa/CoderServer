@@ -2,7 +2,7 @@ class ProductsManager {
     static #products = [];
   
     create(product) {
-      const user = {
+      const createdProduct = {
         id:
           ProductsManager.#products.length === 0
             ? 1
@@ -14,7 +14,7 @@ class ProductsManager {
         price: product.price,
         stock: product.stock,
       };
-      ProductsManager.#products.push(user);
+      ProductsManager.#products.push(createdProduct);
       console.log("usuario creado");
     }
     read() {
