@@ -28,7 +28,7 @@ class ProductsManager {
     photo: "mantequilla.jpg",
     category: `untable`,
     price: 2500,
-    stock: 1000,
+    stock: 1100,
   });
   productManager.create({
     title: `almendras`,
