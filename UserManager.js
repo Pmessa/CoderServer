@@ -1,15 +1,15 @@
 class UserManager {
   static #users = [];
 
-  create(user) {
+  create(data) {
     const user = {
       id:
         UserManager.#users.length === 0
           ? 1
           : UserManager.#users[UserManager.#users.length - 1].id + 1,
-      photo: user.photo,
-      email: user.email,
-      password: user.password,
+      photo: data.photo,
+      email: data.email,
+      password: data.password,
       role: 0,
     };
     UserManager.#users.push(user);
