@@ -2,7 +2,7 @@ const fs = require("fs");
 // crypto se utiliza para crear ids aleatorios hexadecimales con id:crypto.randomBytes(12).toString('hex').
 const crypto = require('crypto');
 //path es la ruta donde se creará el archivo JSON
-const path = "./data/fs/files/products.json";
+const path = "./fs/files/products.json";
 //Este condicional evalúa si exixte el archivo JSON, si no existe crea un array vacío [].
 if (!fs.existsSync(path)) {
   const array = JSON.stringify([]);
@@ -34,5 +34,5 @@ fs.writeFileSync(path, productString);
 //luego de hacer todo lo anterior se borra con fs.unlink
 console.log(productString);
 
-fs.unlinkSync(path)
+//fs.unlinkSync(path)
 
