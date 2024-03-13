@@ -4,8 +4,9 @@ const crypto = require("crypto");
 class UsersManager {
     constructor() {
         // Ruta del archivo JSON donde se almacenarán los usuarios
-        this.path = "./fs/files/users.json";
+        this.path = "./files/users.json";
         // Inicializa la clase
+        console.log(this.path);
         this.init();
     }
 
