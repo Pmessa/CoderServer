@@ -66,7 +66,7 @@ class UsersManager {
                 const user = {
                     id: crypto.randomBytes(12).toString("hex"),
                     //Si no proporcionan la foto se usa una predeterminada 
-                    photo: data.photo || "default.jpg",
+                    photo: data.photo || "https://www.ghttps://cdn-icons-png.freepik.com/512/266/266033.png",
                     email: data.email,
                     password: data.password,
                     role: data.role,
