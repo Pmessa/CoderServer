@@ -1,3 +1,5 @@
+const { Console } = require("console");
+
 class UsersManager {
   static #users = [];
   create(data) {
@@ -45,14 +47,17 @@ class UsersManager {
   }
   destroy(id) {
     try {
-      this.readOne(id);
-      const userToRemove = UsersManager.#users.filter((each) => each.id !== id);
-      UsersManager.#users = userToRemove;
+      const userToRemove = this.readOne(id);
+      const within = UsersManager.#users.filter((each) => each.id !== id); 
+      UsersManager.#users = within;
+      console.log(within)
       console.log("USUARIO ELIMINADO");
-      } catch (error) {
-      console.log(error);
+      return userToRemove; 
+    } catch (error) {
+      throw error; 
     }
-  }  
+  }
+  
 
 }
 const gestorDeUsuarios = new UsersManager();
@@ -66,6 +71,16 @@ gestorDeUsuarios.create({
   photo: "photocarlos.jpg",
   email: "carlos17@gmail.com",
   password: "PassCarlos",
+}); // crear un nuevo usuario
+gestorDeUsuarios.create({
+  photo: "photoluis.jpg",
+  email: "luis13@gmail.com",
+  password: "Passluis",
+}); // crear un nuevo usuario
+gestorDeUsuarios.create({
+  photo: "photojuan.jpg",
+  email: "juan701@gmail.com",
+  password: "PassJuan",
 }); // crear un nuevo usuario
 
 console.log(gestorDeUsuarios.read());
