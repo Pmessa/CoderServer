@@ -19,8 +19,8 @@ class ProductsManager {
 
   async create(data) {
     try {
-      if (!data.title) {
-        const error = new Error("Ingrese un título");
+      if (!data.title||!data.category||!data.price||!data.stock) {
+        const error = new Error("Por favor, complete todos los campos del producto para crearlo");
         throw error;
       } else {
         const newProduct = {

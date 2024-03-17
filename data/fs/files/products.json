@@ -78,5 +78,181 @@
     "category": "untable",
     "price": 15000,
     "stock": 10
+  },
+  {
+    "id": "33723348425feeecda7278e2",
+    "title": "TOFU",
+    "photo": "\"https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27\" ",
+    "category": "tofu",
+    "price": 150,
+    "stock": 1000
+  },
+  {
+    "id": "16b9a486296a1579976507a3",
+    "title": "MANÍ",
+    "photo": "maní.jpg",
+    "category": "frutos secos",
+    "price": 150,
+    "stock": 3000
+  },
+  {
+    "id": "8452700d9fa831d02a614d64",
+    "title": "TOFU",
+    "photo": "\"https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27\" ",
+    "category": "tofu",
+    "price": 150,
+    "stock": 1000
+  },
+  {
+    "id": "1ed9d342dfbc6948f8cba036",
+    "title": "MANÍ",
+    "photo": "maní.jpg",
+    "category": "frutos secos",
+    "price": 150,
+    "stock": 3000
+  },
+  {
+    "id": "04c110e8dd5cc54402d07deb",
+    "title": "ACEITE DE OLIVA",
+    "photo": "aceiteDeOliva.jpg",
+    "category": "aceites",
+    "price": 150,
+    "stock": 11000
+  },
+  {
+    "id": "9a25d388579f91d62b175b62",
+    "title": "ACEITE DE LINO",
+    "photo": "aceite de lino.jpg",
+    "category": "aceites",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "99fbd3008e5eb9a13202bea8",
+    "title": "QUINOA",
+    "photo": "quinoa.jpg",
+    "category": "untables",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "dcd784c4b48080731568ea0d",
+    "title": "ALMENDRAS",
+    "photo": "almendras.jpg",
+    "category": "Frutos secos",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "89dd969528bca0d3428a04f5",
+    "title": "GIRASOL",
+    "photo": "girasoles.jpg",
+    "category": "semillas",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "0726d48cf1a66e825c06f304",
+    "title": "CHIA",
+    "photo": "semillaDeChia.jpg",
+    "category": "semillas",
+    "price": 10000,
+    "stock": 10
+  },
+  {
+    "id": "93f4fa3c4fc889e47101a50e",
+    "title": "NUEZ PECAN",
+    "photo": "nueces.jpg",
+    "category": "furtos secos",
+    "price": 13000,
+    "stock": 10
+  },
+  {
+    "id": "6cbefdf8b1777ca9990f821a",
+    "title": "MANTEQUILLA DE MANÍ",
+    "photo": "mantequilla_maní.jpg",
+    "category": "untable",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "18bbaf1257bb9c2867372ef4",
+    "title": "TOFU",
+    "photo": "\"https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27\" ",
+    "category": "tofu",
+    "price": 150,
+    "stock": 1000
+  },
+  {
+    "id": "140bbde9715715e7dc966e71",
+    "title": "MANÍ",
+    "photo": "maní.jpg",
+    "category": "frutos secos",
+    "price": 150,
+    "stock": 3000
+  },
+  {
+    "id": "6feab6c00efb5d8a3907d45b",
+    "title": "ACEITE DE OLIVA",
+    "photo": "aceiteDeOliva.jpg",
+    "category": "aceites",
+    "price": 150,
+    "stock": 11000
+  },
+  {
+    "id": "62ed0653e6ae68675928c57a",
+    "title": "ACEITE DE LINO",
+    "photo": "aceite de lino.jpg",
+    "category": "aceites",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "c954ecf23a5f53321706de69",
+    "title": "QUINOA",
+    "photo": "quinoa.jpg",
+    "category": "untables",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "9d99cf13a2c7a7e456fe4f78",
+    "title": "ALMENDRAS",
+    "photo": "almendras.jpg",
+    "category": "Frutos secos",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "bcb1bc5ea823a79c001c9f32",
+    "title": "GIRASOL",
+    "photo": "girasoles.jpg",
+    "category": "semillas",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "49488edbaba7a4e9cdb44f84",
+    "title": "CHIA",
+    "photo": "semillaDeChia.jpg",
+    "category": "semillas",
+    "price": 10000,
+    "stock": 10
+  },
+  {
+    "id": "8781f9a2237c6d5937de2efd",
+    "title": "NUEZ PECAN",
+    "photo": "nueces.jpg",
+    "category": "furtos secos",
+    "price": 13000,
+    "stock": 10
+  },
+  {
+    "id": "5f2e6ecb72735395842a3c69",
+    "title": "MANTEQUILLA DE MANÍ",
+    "photo": "mantequilla_maní.jpg",
+    "category": "untable",
+    "price": 15000,
+    "stock": 10
   }
 ]
