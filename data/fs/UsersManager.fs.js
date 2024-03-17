@@ -66,7 +66,7 @@ class UsersManager {
                 const user = {
                     id: crypto.randomBytes(12).toString("hex"),
                     //Si no proporcionan la foto se usa una predeterminada 
-                    photo: data.photo || "https://www.ghttps://cdn-icons-png.freepik.com/512/266/266033.png",
+                    photo: data.photo || "https://cdn-icons-png.freepik.com/512/266/266033.png",
                     email: data.email,
                     password: data.password,
                     role: data.role,
@@ -161,18 +161,46 @@ class UsersManager {
 async function test() {
     try {
         const users = new UsersManager();
+
+        // Prueba de lectura de usuarios
+        console.log("Prueba de lectura de usuarios:");
         await users.read();
+
+        // Prueba de creación de usuario
+        console.log("Prueba de creación de usuario:");
         await users.create({
             email: "carlos@gmail.com",
             password: "Carlos123",
             role: "user",
         });
+
+        // Prueba de lectura de usuarios después de la creación
+        console.log("Prueba de lectura de usuarios después de la creación:");
         await users.read();
 
+        // Prueba de lectura de un usuario específico
+        console.log("Prueba de lectura de un usuario específico:");
+        const allUsers = await users.read(); // Obtener todos los usuarios
+        const firstUserId = allUsers[0]?.id; // Obtener el ID del primer usuario si existe
+        if (firstUserId) {
+            await users.readOne(firstUserId); // Leer el primer usuario
+        } else {
+            console.log("No se puede realizar la prueba de lectura de un usuario específico porque no hay usuarios en la lista.");
+        }
+
+        // Prueba de eliminación de un usuario
+        console.log("Prueba de eliminación de un usuario:");
+        if (firstUserId) {
+            await users.destroy(firstUserId); // Eliminar el primer usuario
+        } else {
+            console.log("No se puede realizar la prueba de eliminación de usuario porque no hay usuarios en la lista.");
+        }
+
     } catch (error) {
-        console.log(error);
+        console.log("Error en test:", error);
     }
 }
 
 test();
+
 
