@@ -1,84 +1,258 @@
 [
-   {
-      "NUEVO PRODUCTO 1": {
-         "id": "db93b701393855f6cac5f18e",
-         "title": "Vegan Food 1",
-         "photo": "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
-         "category": "Vegan",
-         "price": 1500,
-         "stock": 20
-      },
-      "NUEVO PRODUCTO 2": {
-         "id": "5c23a753a88478592d390162",
-         "title": "Vegan Food 2",
-         "photo": "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
-         "category": "Vegan",
-         "price": 1500,
-         "stock": 20
-      },
-      "NUEVO PRODUCTO 3": {
-         "id": "174c3a03e3ed2a4dd0a7398c",
-         "title": "Vegan Food 3",
-         "photo": "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
-         "category": "Vegan",
-         "price": 1500,
-         "stock": 20
-      },
-      "NUEVO PRODUCTO 4": {
-         "id": "5d3da3175411b5bb7d5ff817",
-         "title": "Vegan Food 4",
-         "photo": "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
-         "category": "Vegan",
-         "price": 1500,
-         "stock": 20
-      },
-      "NUEVO PRODUCTO 5": {
-         "id": "77f914735b78ce2ee20a9ba6",
-         "title": "Vegan Food 5",
-         "photo": "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
-         "category": "Vegan",
-         "price": 1500,
-         "stock": 20
-      },
-      "NUEVO PRODUCTO 6": {
-         "id": "1e4bdf8623f6bd3595b958ab",
-         "title": "Vegan Food 6",
-         "photo": "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
-         "category": "Vegan",
-         "price": 1500,
-         "stock": 20
-      },
-      "NUEVO PRODUCTO 7": {
-         "id": "1a8f37c20ce4749940d70454",
-         "title": "Vegan Food 7",
-         "photo": "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
-         "category": "Vegan",
-         "price": 1500,
-         "stock": 20
-      },
-      "NUEVO PRODUCTO 8": {
-         "id": "cf933724308d60db2307e375",
-         "title": "Vegan Food 8",
-         "photo": "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
-         "category": "Vegan",
-         "price": 1500,
-         "stock": 20
-      },
-      "NUEVO PRODUCTO 9": {
-         "id": "d9616df31bfad100dfa0b847",
-         "title": "Vegan Food 9",
-         "photo": "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
-         "category": "Vegan",
-         "price": 1500,
-         "stock": 20
-      },
-      "NUEVO PRODUCTO 10": {
-         "id": "9df83df841da7f177e095d94",
-         "title": "Vegan Food 10",
-         "photo": "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
-         "category": "Vegan",
-         "price": 1500,
-         "stock": 20
-      }
-   }
+  {
+    "id": "a368556d7e3d2a2f9113efa6",
+    "title": "TOFU",
+    "photo": "\"https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27\" ",
+    "category": "tofu",
+    "price": 150,
+    "stock": 1000
+  },
+  {
+    "id": "c044cf6b1c39dd897aeca2e6",
+    "title": "MANÍ",
+    "photo": "maní.jpg",
+    "category": "frutos secos",
+    "price": 150,
+    "stock": 3000
+  },
+  {
+    "id": "87deeb44452dee4399658b12",
+    "title": "ACEITE DE OLIVA",
+    "photo": "aceiteDeOliva.jpg",
+    "category": "aceites",
+    "price": 150,
+    "stock": 11000
+  },
+  {
+    "id": "6403fe77edf4047ac8d40a7f",
+    "title": "ACEITE DE LINO",
+    "photo": "aceite de lino.jpg",
+    "category": "aceites",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "76dad80db3d881b7f196c38d",
+    "title": "QUINOA",
+    "photo": "quinoa.jpg",
+    "category": "untables",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "ccf9e25a33652fcbca93c65f",
+    "title": "ALMENDRAS",
+    "photo": "almendras.jpg",
+    "category": "Frutos secos",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "cac33139047e0b254bdfebb2",
+    "title": "GIRASOL",
+    "photo": "girasoles.jpg",
+    "category": "semillas",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "0b1366b6d7756a7264a88627",
+    "title": "CHIA",
+    "photo": "semillaDeChia.jpg",
+    "category": "semillas",
+    "price": 10000,
+    "stock": 10
+  },
+  {
+    "id": "4dfbbc5933dcd7e96e2e020f",
+    "title": "NUEZ PECAN",
+    "photo": "nueces.jpg",
+    "category": "furtos secos",
+    "price": 13000,
+    "stock": 10
+  },
+  {
+    "id": "272b4600b93f3b4a1df83cdf",
+    "title": "MANTEQUILLA DE MANÍ",
+    "photo": "mantequilla_maní.jpg",
+    "category": "untable",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "33723348425feeecda7278e2",
+    "title": "TOFU",
+    "photo": "\"https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27\" ",
+    "category": "tofu",
+    "price": 150,
+    "stock": 1000
+  },
+  {
+    "id": "16b9a486296a1579976507a3",
+    "title": "MANÍ",
+    "photo": "maní.jpg",
+    "category": "frutos secos",
+    "price": 150,
+    "stock": 3000
+  },
+  {
+    "id": "8452700d9fa831d02a614d64",
+    "title": "TOFU",
+    "photo": "\"https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27\" ",
+    "category": "tofu",
+    "price": 150,
+    "stock": 1000
+  },
+  {
+    "id": "1ed9d342dfbc6948f8cba036",
+    "title": "MANÍ",
+    "photo": "maní.jpg",
+    "category": "frutos secos",
+    "price": 150,
+    "stock": 3000
+  },
+  {
+    "id": "04c110e8dd5cc54402d07deb",
+    "title": "ACEITE DE OLIVA",
+    "photo": "aceiteDeOliva.jpg",
+    "category": "aceites",
+    "price": 150,
+    "stock": 11000
+  },
+  {
+    "id": "9a25d388579f91d62b175b62",
+    "title": "ACEITE DE LINO",
+    "photo": "aceite de lino.jpg",
+    "category": "aceites",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "99fbd3008e5eb9a13202bea8",
+    "title": "QUINOA",
+    "photo": "quinoa.jpg",
+    "category": "untables",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "dcd784c4b48080731568ea0d",
+    "title": "ALMENDRAS",
+    "photo": "almendras.jpg",
+    "category": "Frutos secos",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "89dd969528bca0d3428a04f5",
+    "title": "GIRASOL",
+    "photo": "girasoles.jpg",
+    "category": "semillas",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "0726d48cf1a66e825c06f304",
+    "title": "CHIA",
+    "photo": "semillaDeChia.jpg",
+    "category": "semillas",
+    "price": 10000,
+    "stock": 10
+  },
+  {
+    "id": "93f4fa3c4fc889e47101a50e",
+    "title": "NUEZ PECAN",
+    "photo": "nueces.jpg",
+    "category": "furtos secos",
+    "price": 13000,
+    "stock": 10
+  },
+  {
+    "id": "6cbefdf8b1777ca9990f821a",
+    "title": "MANTEQUILLA DE MANÍ",
+    "photo": "mantequilla_maní.jpg",
+    "category": "untable",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "18bbaf1257bb9c2867372ef4",
+    "title": "TOFU",
+    "photo": "\"https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27\" ",
+    "category": "tofu",
+    "price": 150,
+    "stock": 1000
+  },
+  {
+    "id": "140bbde9715715e7dc966e71",
+    "title": "MANÍ",
+    "photo": "maní.jpg",
+    "category": "frutos secos",
+    "price": 150,
+    "stock": 3000
+  },
+  {
+    "id": "6feab6c00efb5d8a3907d45b",
+    "title": "ACEITE DE OLIVA",
+    "photo": "aceiteDeOliva.jpg",
+    "category": "aceites",
+    "price": 150,
+    "stock": 11000
+  },
+  {
+    "id": "62ed0653e6ae68675928c57a",
+    "title": "ACEITE DE LINO",
+    "photo": "aceite de lino.jpg",
+    "category": "aceites",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "c954ecf23a5f53321706de69",
+    "title": "QUINOA",
+    "photo": "quinoa.jpg",
+    "category": "untables",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "9d99cf13a2c7a7e456fe4f78",
+    "title": "ALMENDRAS",
+    "photo": "almendras.jpg",
+    "category": "Frutos secos",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "bcb1bc5ea823a79c001c9f32",
+    "title": "GIRASOL",
+    "photo": "girasoles.jpg",
+    "category": "semillas",
+    "price": 15000,
+    "stock": 10
+  },
+  {
+    "id": "49488edbaba7a4e9cdb44f84",
+    "title": "CHIA",
+    "photo": "semillaDeChia.jpg",
+    "category": "semillas",
+    "price": 10000,
+    "stock": 10
+  },
+  {
+    "id": "8781f9a2237c6d5937de2efd",
+    "title": "NUEZ PECAN",
+    "photo": "nueces.jpg",
+    "category": "furtos secos",
+    "price": 13000,
+    "stock": 10
+  },
+  {
+    "id": "5f2e6ecb72735395842a3c69",
+    "title": "MANTEQUILLA DE MANÍ",
+    "photo": "mantequilla_maní.jpg",
+    "category": "untable",
+    "price": 15000,
+    "stock": 10
+  }
 ]
