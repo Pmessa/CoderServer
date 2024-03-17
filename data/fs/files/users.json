@@ -1,0 +1,30 @@
+[
+  {
+    "id": "be566e1857cdd0872a55e42a",
+    "photo": "fotohector.jpg",
+    "email": "hector55@gmail.com",
+    "password": "Hector123",
+    "role": "user"
+  },
+  {
+    "id": "951494389c3ad8d067aca1f4",
+    "photo": "fotocristian.jpg",
+    "email": "cristian33@gmail.com",
+    "password": "Cristian123",
+    "role": "user"
+  },
+  {
+    "id": "687795725f7fbe9c4afacb31",
+    "photo": "fotosebas.jpg",
+    "email": "adminsebas@gmail.com",
+    "password": "admin123",
+    "role": "admin"
+  },
+  {
+    "id": "bd28b7d7c5b65d5af3df1474",
+    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
+    "email": "carlos@gmail.com",
+    "password": "Carlos123",
+    "role": "user"
+  }
+]
