@@ -1,14 +1,11 @@
-const { Console } = require("console");
+const crypto = require("crypto");
 
 class UsersManager {
   static #users = [];
   create(data) {
     try {
       const user = {
-        id:
-          UsersManager.#users.length === 0
-            ? 1
-            : UsersManager.#users[UsersManager.#users.length - 1].id + 1,
+        id:data.id || crypto.randomBytes(12).toString('hex'),
         photo: data.photo,
         email: data.email,
         password: data.password,
@@ -85,4 +82,4 @@ gestorDeUsuarios.create({
 
 console.log(gestorDeUsuarios.read());
 console.log(gestorDeUsuarios.readOne(1));
-gestorDeUsuarios.destroy(24);
+gestorDeUsuarios.destroy(1);
