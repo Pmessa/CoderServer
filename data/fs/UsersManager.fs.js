@@ -1,10 +1,10 @@
-const fs = require("fs");
-const crypto = require("crypto");
+import fs from "fs";
+import crypto from "crypto";
 
 class UsersManager {
     constructor() {
         // Ruta del archivo JSON donde se almacenarán los usuarios
-        this.path = "./files/users.json";
+        this.path = "./data/fs/files/users.json";
         // Inicializa la clase
         console.log(this.path);
         this.init();
@@ -201,6 +201,7 @@ async function test() {
     }
 }
 
-test();
+/* test(); */
 
-
+const usersManager = new UsersManager()
+export default usersManager

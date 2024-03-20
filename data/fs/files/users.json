@@ -26,5 +26,12 @@
     "email": "carlos@gmail.com",
     "password": "Carlos123",
     "role": "user"
+  },
+  {
+    "id": "0b42d008bc941c7882a3aaab",
+    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
+    "email": "jorge@gmail.com",
+    "password": "jorge123",
+    "role": "0"
   }
 ]
