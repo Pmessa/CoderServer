@@ -29,7 +29,8 @@ class ProductsManager {
         const newProduct = {
           id: data.id || crypto.randomBytes(12).toString("hex"),
           title: data.title,
-          photo:data.photo ||
+          photo:
+            data.photo ||
             `"https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27" `,
           category: data.category,
           price: data.price,
@@ -37,10 +38,14 @@ class ProductsManager {
         };
         let all = await fs.promises.readFile(this.path, "utf-8");
         all = JSON.parse(all);
-        all.push(newProduct);
-        all = JSON.stringify(all, null, 2);
-        await fs.promises.writeFile(this.path, all);
-        console.log("created");
+        if(all.length < 10){
+          all.push(newProduct);
+          all = JSON.stringify(all, null, 2);
+          await fs.promises.writeFile(this.path, all);
+          console.log("created");
+        }else{
+          console.log("El array está completo con los 10 productos")
+        }
         return newProduct;
       }
     } catch (error) {
@@ -97,90 +102,89 @@ class ProductsManager {
 const productsManager = new ProductsManager();
 export default productsManager;
 
-// async function test() {
-//   try {
-//     const product = new ProductsManager();
-//     await product.create({
-//       title: `TOFU`,
-//       photo: `"https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27" `,
-//       category: `tofu`,
-//       price: 150,
-//       stock: 1000,
-//     });
-    // await productsManager.create({
-    //   title: `MANÍ`,
-    //   photo: "maní.jpg",
-    //   category: `frutos secos`,
-    //   price: 150,
-    //   stock: 3000,
-    // });
-    // await productsManager.create({
-    //   title: `ACEITE DE OLIVA`,
-    //   photo: "aceiteDeOliva.jpg",
-    //   category: `aceites`,
-    //   price: 150,
-    //   stock: 11000,
-    // });
-    // await productsManager.create({
-    //   title: `ACEITE DE LINO`,
-    //   photo: "aceite de lino.jpg",
-    //   category: `aceites`,
-    //   price: 15000,
-    //   stock: 10,
-    // });
-    // await productsManager.create({
-    //   title: `QUINOA`,
-    //   photo: "quinoa.jpg",
-    //   category: `untables`,
-    //   price: 15000,
-    //   stock: 10,
-    // });
-//     await product.create({
-//       title: `ALMENDRAS`,
-//       photo: "almendras.jpg",
-//       category: `Frutos secos`,
-//       price: 15000,
-//       stock: 10,
-//     });
-//     await product.create({
-//       title: `GIRASOL`,
-//       photo: "girasoles.jpg",
-//       category: `semillas`,
-//       price: 15000,
-//       stock: 10,
-//     });
-//     await product.create({
-//       title: `CHIA`,
-//       photo: "semillaDeChia.jpg",
-//       category: `semillas`,
-//       price: 10000,
-//       stock: 10,
-//     });
-//     await product.create({
-//       title: `NUEZ PECAN`,
-//       photo: "nueces.jpg",
-//       category: `furtos secos`,
-//       price: 13000,
-//       stock: 10,
-//     });
-//     await product.create({
-//       title: `MANTEQUILLA DE MANÍ`,
-//       photo: "mantequilla_maní.jpg",
-//       category: `untable`,
-//       price: 15000,
-//       stock: 10,
-//     });
-//     //await product.read();
-//     await product.readOne(`db6ae5847d36727eda12b9c4`);
-//     await product.destroy(`db6ae5847d36727eda12b9c4`);
-//     await product.readOne(`E57EN0EX157E`);
-//     //await product.readOne(`263b6b7fcb97d7618d3c1b2b`);
+async function test() {
+  try {
+    await productsManager.create({
+      title: `TOFU`,
+      photo: `"https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27" `,
+      category: `tofu`,
+      price: 150,
+      stock: 1000,
+    });
+    await productsManager.create({
+      title: `MANÍ`,
+      photo: "maní.jpg",
+      category: `frutos secos`,
+      price: 150,
+      stock: 3000,
+    });
+    await productsManager.create({
+      title: `ACEITE DE OLIVA`,
+      photo: "aceiteDeOliva.jpg",
+      category: `aceites`,
+      price: 150,
+      stock: 11000,
+    });
+    await productsManager.create({
+      title: `ACEITE DE LINO`,
+      photo: "aceite de lino.jpg",
+      category: `aceites`,
+      price: 15000,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `QUINOA`,
+      photo: "quinoa.jpg",
+      category: `untables`,
+      price: 15000,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `ALMENDRAS`,
+      photo: "almendras.jpg",
+      category: `Frutos secos`,
+      price: 15000,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `GIRASOL`,
+      photo: "girasoles.jpg",
+      category: `semillas`,
+      price: 15000,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `CHIA`,
+      photo: "semillaDeChia.jpg",
+      category: `semillas`,
+      price: 10000,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `NUEZ PECAN`,
+      photo: "nueces.jpg",
+      category: `furtos secos`,
+      price: 13000,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `MANTEQUILLA DE MANÍ`,
+      photo: "mantequilla_maní.jpg",
+      category: `untable`,
+      price: 15000,
+      stock: 10,
+    });
+    //await product.read();
+    // await product.readOne(`db6ae5847d36727eda12b9c4`);
+    // await product.destroy(`db6ae5847d36727eda12b9c4`);
+    // await product.readOne(`E57EN0EX157E`);
+    //await product.readOne(`263b6b7fcb97d7618d3c1b2b`);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-// test();
+test();
 
 // // crypto se utiliza para crear ids aleatorios hexadecimales con id:crypto.randomBytes(12).toString('hex').
 // const crypto = require('crypto');

@@ -1,4 +1,5 @@
 import express from "express";
+import productsManager from "./data/fs/ProductsManager.fs.js";
 
 //server
 const server = express();
