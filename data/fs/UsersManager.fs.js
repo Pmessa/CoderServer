@@ -89,7 +89,7 @@ class UsersManager {
         }
     }
     //Creamos el método read
-    async read() {
+    async read(role) {
         try {
             //Lee todos los usuarios del archivo
             let all = await fs.promises.readFile(this.path, "utf-8");
@@ -201,7 +201,7 @@ async function test() {
     }
 }
 
-test();
+/* test(); */
 
 const usersManager = new UsersManager()
 export default usersManager
