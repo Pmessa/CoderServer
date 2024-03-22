@@ -6,15 +6,15 @@ class UsersManager {
     try {
       const user = {
         id:data.id || crypto.randomBytes(12).toString('hex'),
-        photo: data.photo,
+        photo: data.photo || "https://cdn-icons-png.freepik.com/512/266/266033.png",
         email: data.email,
         password: data.password,
-        role: 0,
+        role: data.role || 0,
       };
       if (!data.email || !data.password || !data.photo) {
         throw new Error("Email, password, and photo are required");
       } else UsersManager.#users.push(user);
-      console.log("usuario creado");
+      console.log("Created User");
     } catch (error) {
       console.log(error);
     }
@@ -22,7 +22,7 @@ class UsersManager {
   read() {
     try {
       if (UsersManager.#users.length === 0) {
-        throw new Error("NO HAY USUARIOS");
+        throw new Error("THERE ARE NO USERS");
       } else {                    
         return UsersManager.#users;
       }
@@ -34,7 +34,7 @@ class UsersManager {
     try {
       const one = UsersManager.#users.find((each) => each.id === id);
       if (!one) {
-        throw new Error("NO EXISTE EL USUARIO");
+        throw new Error("THE USER DOES NOT EXIST");
       } else {
         return one;
       }
@@ -48,7 +48,7 @@ class UsersManager {
       const within = UsersManager.#users.filter((each) => each.id !== id); 
       UsersManager.#users = within;
       console.log(within)
-      console.log("USUARIO ELIMINADO");
+      console.log("USER DELETED");
       return userToRemove; 
     } catch (error) {
       throw error; 

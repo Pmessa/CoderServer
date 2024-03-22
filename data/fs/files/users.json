@@ -1,37 +1,30 @@
 [
   {
-    "id": "be566e1857cdd0872a55e42a",
+    "id": "7b310344eca287356b888d2e",
     "photo": "fotohector.jpg",
     "email": "hector55@gmail.com",
     "password": "Hector123",
-    "role": "user"
+    "role": "0"
   },
   {
-    "id": "951494389c3ad8d067aca1f4",
+    "id": "69dca525fce276f1270b738c",
     "photo": "fotocristian.jpg",
     "email": "cristian33@gmail.com",
     "password": "Cristian123",
-    "role": "user"
+    "role": "0"
   },
   {
-    "id": "687795725f7fbe9c4afacb31",
+    "id": "8ed18557d4de825714825181",
     "photo": "fotosebas.jpg",
     "email": "adminsebas@gmail.com",
     "password": "admin123",
-    "role": "admin"
+    "role": "1"
   },
   {
-    "id": "bd28b7d7c5b65d5af3df1474",
+    "id": "417a8e6ac447485fba1b870c",
     "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
     "email": "carlos@gmail.com",
     "password": "Carlos123",
-    "role": "user"
-  },
-  {
-    "id": "0b42d008bc941c7882a3aaab",
-    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
-    "email": "jorge@gmail.com",
-    "password": "jorge123",
     "role": "0"
   }
 ]
