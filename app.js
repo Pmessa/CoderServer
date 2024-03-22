@@ -28,7 +28,7 @@ server.get("/", async (requerimientos, respuesta) => {
 });
 
 //un parámetro
-server.get("/api/products/:title/:category", async (req, res) => {
+server.get("/home", async (req, res) => {
   try {
     const { title, category } = req.params;
     return res.status(201).json({

@@ -20,39 +20,40 @@ class ProductsManager {
 
   async create(data) {
     try {
-      if (!data.title || !data.category || !data.price || !data.stock) {
-        const error = new Error(
-          "Por favor, complete todos los campos del producto para crearlo"
-        );
-        throw error;
-      } else {
-        const newProduct = {
-          id: data.id || crypto.randomBytes(12).toString("hex"),
-          title: data.title,
-          photo:
-            data.photo ||
-            `"https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27" `,
-          category: data.category,
-          price: data.price,
-          stock: data.stock,
-        };
-        let all = await fs.promises.readFile(this.path, "utf-8");
-        all = JSON.parse(all);
-        if(all.length < 10){
-          all.push(newProduct);
-          all = JSON.stringify(all, null, 2);
-          await fs.promises.writeFile(this.path, all);
-          console.log("created");
-        }else{
-          console.log("El array está completo con los 10 productos")
-        }
-        return newProduct;
-      }
-    } catch (error) {
-      throw error;
-    }
-  }
+        if (!data.title || !data.category || !data.price || !data.stock) {
+            const error = new Error("Por favor, complete todos los campos del producto para crearlo");
+            throw error;
+        } else {
+            const newProduct = {
+                id: data.id || crypto.randomBytes(12).toString("hex"),
+                title: data.title,
+                photo: data.photo || "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
+                category: data.category,
+                price: data.price,
+                stock: data.stock,
+            };
 
+            let all = await fs.promises.readFile(this.path, "utf-8");
+            all = JSON.parse(all);
+
+            // Verificar si el título del nuevo producto ya existe en la lista
+            const isDuplicate = all.find(product => product.title === newProduct.title);
+            if (isDuplicate) {
+                console.log("Este producto ya existe. Omitiendo la inserción.");
+            } else {
+                all.push(newProduct);
+
+                all = JSON.stringify(all, null, 2);
+                await fs.promises.writeFile(this.path, all);
+                console.log("Producto creado:", newProduct.title);
+            }
+
+            return newProduct;
+        }
+    } catch (error) {
+        throw error;
+    }
+}
   async read() {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
@@ -106,7 +107,7 @@ async function test() {
   try {
     await productsManager.create({
       title: `TOFU`,
-      photo: `"https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27" `,
+      photo: "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
       category: `tofu`,
       price: 150,
       stock: 1000,
