@@ -1,6 +1,6 @@
 [
   {
-    "id": "b46a34246548a71709f12752",
+    "id": "267f99703504145860193506",
     "title": "TOFU",
     "photo": "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
     "category": "tofu",
@@ -8,7 +8,7 @@
     "stock": 1000
   },
   {
-    "id": "625aedce0c29fac1dd109128",
+    "id": "3346656d6b8c07f2d1232b85",
     "title": "MANÍ",
     "photo": "maní.jpg",
     "category": "frutos secos",
@@ -16,7 +16,7 @@
     "stock": 3000
   },
   {
-    "id": "233c0711484f26ef1f4adcef",
+    "id": "23fae5f0437f5281a25e0c6b",
     "title": "ACEITE DE OLIVA",
     "photo": "aceiteDeOliva.jpg",
     "category": "aceites",
@@ -24,7 +24,7 @@
     "stock": 11000
   },
   {
-    "id": "f56be8f98d689c0bc56c7c73",
+    "id": "beb806704ead077fc85663d7",
     "title": "ACEITE DE LINO",
     "photo": "aceite de lino.jpg",
     "category": "aceites",
@@ -32,7 +32,7 @@
     "stock": 10
   },
   {
-    "id": "5a36dd1135ab73768e598a8d",
+    "id": "69ef6f0f72ede0b178608f24",
     "title": "QUINOA",
     "photo": "quinoa.jpg",
     "category": "untables",
@@ -40,7 +40,7 @@
     "stock": 10
   },
   {
-    "id": "d9ce1e6606180c2f651e894d",
+    "id": "50992ddb484a1a73cdbf4899",
     "title": "ALMENDRAS",
     "photo": "almendras.jpg",
     "category": "Frutos secos",
@@ -48,7 +48,7 @@
     "stock": 10
   },
   {
-    "id": "5e0951fe12a3062226f21c6b",
+    "id": "c7394e326259f31e691d7e90",
     "title": "GIRASOL",
     "photo": "girasoles.jpg",
     "category": "semillas",
@@ -56,7 +56,7 @@
     "stock": 0
   },
   {
-    "id": "6443c658659666240903c934",
+    "id": "bdf50effe88b1c168161d271",
     "title": "CHIA",
     "photo": "semillaDeChia.jpg",
     "category": "semillas",
@@ -64,7 +64,7 @@
     "stock": 10
   },
   {
-    "id": "a5e26ebc8f589eda32c15522",
+    "id": "75f8e87abc3ceafa9b384ff8",
     "title": "NUEZ PECAN",
     "photo": "nueces.jpg",
     "category": "furtos secos",
@@ -72,7 +72,7 @@
     "stock": 10
   },
   {
-    "id": "093e5a84dfaa5eb743d29681",
+    "id": "0a871c46259892a646f68980",
     "title": "MANTEQUILLA DE MANÍ",
     "photo": "mantequilla_maní.jpg",
     "category": "untable",

@@ -29,8 +29,8 @@ class ProductsManager {
                 title: data.title,
                 photo: data.photo || "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
                 category: data.category,
-                price: data.price,
-                stock: data.stock || 0,
+                price: parseInt(data.price),
+                stock: parseInt(data.stock) || 0,
             };
 
             let all = await fs.promises.readFile(this.path, "utf-8");

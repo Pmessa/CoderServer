@@ -30,9 +30,9 @@ server.get("/", async (requerimientos, respuesta) => {
 //un parámetro
 server.get("/products/:title/:category/:price", async(req, res) => {
   try {
-    const { title, category } = req.params;
+    const { title, category, price } = req.params;
     //data es el objeto con cada producto
-    const data = { title, category} 
+    const data = { title, category, price} 
     const one = await productsManager.create(data)
     return res.status(201).json({
       response: one,
@@ -46,3 +46,22 @@ server.get("/products/:title/:category/:price", async(req, res) => {
     });
   }
 });
+server.get("/products",async ( req, res)=>{
+  try {
+    const {limit} = req.query
+    const all = await productsManager.read()
+    return res.status(200).json({
+      response: all,
+      limit,
+      success: true
+    })
+
+
+  } catch (error) {
+    return res.status(500).json({
+      response: "ERROR",
+      success: false,
+    });
+  }
+
+})
