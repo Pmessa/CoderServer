@@ -28,11 +28,14 @@ server.get("/", async (requerimientos, respuesta) => {
 });
 
 //un parámetro
-server.get("/home", async (req, res) => {
+server.get("/products/:title/:category/:price", async(req, res) => {
   try {
     const { title, category } = req.params;
+    //data es el objeto con cada producto
+    const data = { title, category} 
+    const one = await productsManager.create(data)
     return res.status(201).json({
-      response: {title, category},
+      response: one,
       success: true,
     });
   } catch (error) {
