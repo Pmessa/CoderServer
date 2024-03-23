@@ -21,28 +21,28 @@ class UsersManager {
                     photo: "fotodaniel.jpg",
                     email: "daniel73@gmail.com",
                     password: "Daniel123",
-                    role: 1,
+                    role: "1",
                 },
                 {
                     id: crypto.randomBytes(12).toString("hex"),
                     photo: "fotohector.jpg",
                     email: "hector55@gmail.com",
                     password: "Hector123",
-                    role: 1,
+                    role: "1",
                 },
                 {
                     id: crypto.randomBytes(12).toString("hex"),
                     photo: "fotocristian.jpg",
                     email: "cristian33@gmail.com",
                     password: "Cristian123",
-                    role: 1,
+                    role: "1",
                 },
                 {
                     id: crypto.randomBytes(12).toString("hex"),
                     photo: "fotosebas.jpg",
                     email: "adminsebas@gmail.com",
                     password: "admin123",
-                    role: 0,
+                    role: "0",
                 },
             ];
             //Convierte los usuarios en JSON
@@ -89,22 +89,18 @@ class UsersManager {
         }
     }
     //Creamos el método read
-    async read() {
+    async read(rol) {
         try {
             //Lee todos los usuarios del archivo
             let all = await fs.promises.readFile(this.path, "utf-8");
             //Convierte los usuarios JSON a un objeto JS
             all = JSON.parse(all);
-            //Compruebo si no hay usuarios tiro un error
-            if (all.length === 0) {
-                throw new Error("THERE ARE NO USERS");
-            } else {
-                //Si hay muestro todos los usuarios
-                console.log(all);
-                return all;
-            }
-        } catch (error) {
+            rol && (all = all.filter(each=>each.role === rol))
+            return all 
+        
+            } catch (error) {
             console.log(error);
+            return error
         }
     }
 
@@ -171,7 +167,7 @@ async function test() {
         await users.create({
             email: "carlos@gmail.com",
             password: "Carlos123",
-            role: 1,
+            role: "1",
         });
 
         // Prueba de lectura de usuarios después de la creación

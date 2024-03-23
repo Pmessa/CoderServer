@@ -31,40 +31,59 @@ server.get("/", async (requerimientos, respuesta) => {
     }
 })
 
-server.get("/api/users/", async (req, res) => {
+server.get("/api/users", async (req, res) => {
     try {
-        const all = await usersManager.read()
-        return res.status(200).json({
-            response: all,
-            success: true
-        })
-
+        const { role } = req.query
+        const all = await usersManager.read(role)
+        if (all.length !== 0) {
+            return res.status(200).json({
+                statusCode: 200,
+                response: all,
+                success: true
+            })
+        } else {
+            return res.status(404).json({
+                statusCode: 404,
+                response: null,
+                message: "No users found for the specified role.",
+                success: false
+            });
+        }
     } catch (error) {
         console.log(error);
         return res.status(500).json({
-            response: "ERROR",
+            statusCode: 500,
+            response: "Internal Server Error",
             success: false
         })
     }
-
 })
-//tres parametro
-server.get("/api/users/:email/:password/:role", async (req, res) => {
+server.get("/api/users/:uid" , async (req, res) => {
     try {
-        const { email, password, role } = req.params
-        const data = { email, password, role }
-        const one = await usersManager.create(data)
-        return res.status(201).json({
-            response: one,
-            success: true
-        })
+        const { uid } = req.params
+        const one = await usersManager.readOne(uid)
+        if (one) {
+            return res.status(200).json({
+                statusCode: 200,
+                response: one,
+                success: true
+            })
 
+        } else {
+            return res.status(404).json({
+                statusCode: 404,
+                response: null,
+                message: "User not found.",
+                success: false
+            });
+        }
     } catch (error) {
         console.log(error);
         return res.status(500).json({
-            response: "ERROR",
+            statusCode: 500,
+            response: "Internal Server Error",
             success: false
         })
-
+        
     }
 })
