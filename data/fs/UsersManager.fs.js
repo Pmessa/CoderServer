@@ -21,28 +21,28 @@ class UsersManager {
                     photo: "fotodaniel.jpg",
                     email: "daniel73@gmail.com",
                     password: "Daniel123",
-                    role: 0,
+                    role: 1,
                 },
                 {
                     id: crypto.randomBytes(12).toString("hex"),
                     photo: "fotohector.jpg",
                     email: "hector55@gmail.com",
                     password: "Hector123",
-                    role: 0,
+                    role: 1,
                 },
                 {
                     id: crypto.randomBytes(12).toString("hex"),
                     photo: "fotocristian.jpg",
                     email: "cristian33@gmail.com",
                     password: "Cristian123",
-                    role: 0,
+                    role: 1,
                 },
                 {
                     id: crypto.randomBytes(12).toString("hex"),
                     photo: "fotosebas.jpg",
                     email: "adminsebas@gmail.com",
                     password: "admin123",
-                    role: 1,
+                    role: 0,
                 },
             ];
             //Convierte los usuarios en JSON
@@ -58,7 +58,7 @@ class UsersManager {
     async create(data) {
         try {
             //Si no tengo alguna de las propiedades
-            if (!data.email || !data.password || !data.role) {
+            if (!data.email || !data.password ) {
                 throw new Error("Email, password, and role are required");
             }
             //Si tengo los datos entonces creo un nuevo usuario
@@ -89,7 +89,7 @@ class UsersManager {
         }
     }
     //Creamos el método read
-    async read(role) {
+    async read() {
         try {
             //Lee todos los usuarios del archivo
             let all = await fs.promises.readFile(this.path, "utf-8");
@@ -171,7 +171,7 @@ async function test() {
         await users.create({
             email: "carlos@gmail.com",
             password: "Carlos123",
-            role: 0,
+            role: 1,
         });
 
         // Prueba de lectura de usuarios después de la creación
@@ -197,7 +197,7 @@ async function test() {
         }
 
     } catch (error) {
-        console.log("Error en test:", error);
+        console.log("Error in test:", error);
     }
 }
 
