@@ -21,28 +21,28 @@ class UsersManager {
                     photo: "fotodaniel.jpg",
                     email: "daniel73@gmail.com",
                     password: "Daniel123",
-                    role: "0",
+                    role: 0,
                 },
                 {
                     id: crypto.randomBytes(12).toString("hex"),
                     photo: "fotohector.jpg",
                     email: "hector55@gmail.com",
                     password: "Hector123",
-                    role: "0",
+                    role: 0,
                 },
                 {
                     id: crypto.randomBytes(12).toString("hex"),
                     photo: "fotocristian.jpg",
                     email: "cristian33@gmail.com",
                     password: "Cristian123",
-                    role: "0",
+                    role: 0,
                 },
                 {
                     id: crypto.randomBytes(12).toString("hex"),
                     photo: "fotosebas.jpg",
                     email: "adminsebas@gmail.com",
                     password: "admin123",
-                    role: "1",
+                    role: 1,
                 },
             ];
             //Convierte los usuarios en JSON
@@ -171,7 +171,7 @@ async function test() {
         await users.create({
             email: "carlos@gmail.com",
             password: "Carlos123",
-            role: "0",
+            role: 0,
         });
 
         // Prueba de lectura de usuarios después de la creación
