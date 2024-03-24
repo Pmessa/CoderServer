@@ -1,82 +1,162 @@
 [
   {
-    "id": "267f99703504145860193506",
-    "title": "TOFU",
-    "photo": "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
-    "category": "tofu",
-    "price": 150,
-    "stock": 1000
-  },
-  {
-    "id": "3346656d6b8c07f2d1232b85",
-    "title": "MANÍ",
-    "photo": "maní.jpg",
-    "category": "frutos secos",
-    "price": 150,
-    "stock": 3000
-  },
-  {
-    "id": "23fae5f0437f5281a25e0c6b",
-    "title": "ACEITE DE OLIVA",
-    "photo": "aceiteDeOliva.jpg",
-    "category": "aceites",
-    "price": 150,
-    "stock": 11000
-  },
-  {
-    "id": "beb806704ead077fc85663d7",
-    "title": "ACEITE DE LINO",
-    "photo": "aceite de lino.jpg",
-    "category": "aceites",
-    "price": 15000,
+    "id": "274fa313b1b3e139045ca837",
+    "title": "PRODUCTO N°1",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
+    "category": "firstCategory",
+    "price": 1500,
     "stock": 10
   },
   {
-    "id": "69ef6f0f72ede0b178608f24",
-    "title": "QUINOA",
-    "photo": "quinoa.jpg",
-    "category": "untables",
-    "price": 15000,
+    "id": "d906a2a7115bbd19f6cf0852",
+    "title": "PRODUCTO N°2",
+    "photo": "UNA_FOTO.jgp",
+    "category": "firstCategory",
+    "price": 1200,
     "stock": 10
   },
   {
-    "id": "50992ddb484a1a73cdbf4899",
-    "title": "ALMENDRAS",
-    "photo": "almendras.jpg",
-    "category": "Frutos secos",
-    "price": 15000,
+    "id": "3fcfe8f690cd2dea342e219c",
+    "title": "PRODUCTO N°3",
+    "photo": "UNA_FOTO.jgp",
+    "category": "firstCategory",
+    "price": 195,
     "stock": 10
   },
   {
-    "id": "c7394e326259f31e691d7e90",
-    "title": "GIRASOL",
-    "photo": "girasoles.jpg",
-    "category": "semillas",
-    "price": 15000,
-    "stock": 0
-  },
-  {
-    "id": "bdf50effe88b1c168161d271",
-    "title": "CHIA",
-    "photo": "semillaDeChia.jpg",
-    "category": "semillas",
-    "price": 10000,
+    "id": "eeebf7e14acebcbfc061e940",
+    "title": "PRODUCTO N°4",
+    "photo": "UNA_FOTO.jgp",
+    "category": "secondCategory",
+    "price": 2500,
     "stock": 10
   },
   {
-    "id": "75f8e87abc3ceafa9b384ff8",
-    "title": "NUEZ PECAN",
-    "photo": "nueces.jpg",
-    "category": "furtos secos",
-    "price": 13000,
+    "id": "de8baa875e6cb33d05edbc64",
+    "title": "PRODUCTO N°5",
+    "photo": "UNA_FOTO.jgp",
+    "category": "secondCategory",
+    "price": 2600,
     "stock": 10
   },
   {
-    "id": "0a871c46259892a646f68980",
-    "title": "MANTEQUILLA DE MANÍ",
-    "photo": "mantequilla_maní.jpg",
-    "category": "untable",
-    "price": 15000,
+    "id": "f853fdf68dfc67c97794bf1a",
+    "title": "PRODUCTO N°6",
+    "photo": "UNA_FOTO.jpg",
+    "category": "secondCategory",
+    "price": 3500,
+    "stock": 10
+  },
+  {
+    "id": "46e01af1f0b775449dc1a01a",
+    "title": "PRODUCTO N°7",
+    "photo": "UNA_FOTO.jpg",
+    "category": "secondCategory",
+    "price": 1350,
+    "stock": 10
+  },
+  {
+    "id": "bc15c66ed098bca48fc7d6aa",
+    "title": "PRODUCTO N°8",
+    "photo": "UNA_FOTO.jpg",
+    "category": "secondCategory",
+    "price": 1600,
+    "stock": 10
+  },
+  {
+    "id": "91971d94c433506193b92f37",
+    "title": "PRODUCTO N°9",
+    "photo": "UNA_FOTO.jpg",
+    "category": "thirdCategory",
+    "price": 1250,
+    "stock": 10
+  },
+  {
+    "id": "21164340c406d87f29edb9fc",
+    "title": "PRODUCTO N°10",
+    "photo": "UNA_FOTO.jpg",
+    "category": "thirdCategory",
+    "price": 3500,
+    "stock": 10
+  },
+  {
+    "id": "a04e0c96dd733f18bfab94b4",
+    "title": "PRODUCTO N°11",
+    "photo": "UNA_FOTO.jpg",
+    "category": "thirdCategory",
+    "price": 1300,
+    "stock": 10
+  },
+  {
+    "id": "514f992657a23e49333704e2",
+    "title": "PRODUCTO N°12",
+    "photo": "UNA_FOTO.jpg",
+    "category": "thirdCategory",
+    "price": 1000,
+    "stock": 10
+  },
+  {
+    "id": "5f2ef61831edf64e4d3187c5",
+    "title": "PRODUCTO N°13",
+    "photo": "UNA_FOTO.jpg",
+    "category": "fourthCategory",
+    "price": 1340,
+    "stock": 10
+  },
+  {
+    "id": "4011e1a49a49f96b1dd6ca46",
+    "title": "PRODUCTO N°14",
+    "photo": "UNA_FOTO.jpg",
+    "category": "fourthCategory",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "15fbe36b5f1d2b3dd3ea12ad",
+    "title": "PRODUCTO N°15",
+    "photo": "UNA_FOTO.jpg",
+    "category": "fourthCategory",
+    "price": 1550,
+    "stock": 10
+  },
+  {
+    "id": "d80193b0b2d8461ce2921e66",
+    "title": "PRODUCTO N°16",
+    "photo": "UNA_FOTO.jpg",
+    "category": "fifthCategory",
+    "price": 1150,
+    "stock": 10
+  },
+  {
+    "id": "2bd05d62a24a29735f94cfe3",
+    "title": "PRODUCTO N°17",
+    "photo": "UNA_FOTO.jgp",
+    "category": "fifthCategory",
+    "price": 1950,
+    "stock": 15
+  },
+  {
+    "id": "c69194a0ddf8291118287a0e",
+    "title": "PRODUCTO N°18",
+    "photo": "UNA_FOTO.jpg",
+    "category": "fifthCategory",
+    "price": 1200,
+    "stock": 10
+  },
+  {
+    "id": "b14e3573da9428a34a0a73b1",
+    "title": "PRODUCTO N°19",
+    "photo": "UNA_FOTO.jpg",
+    "category": "fifthCategory",
+    "price": 1100,
+    "stock": 10
+  },
+  {
+    "id": "2fd2150a077695161111d05a",
+    "title": "PRODUCTO N°20",
+    "photo": "UNA_FOTO.jpg",
+    "category": "fifthCategory",
+    "price": 1500,
     "stock": 10
   }
 ]

@@ -20,40 +20,46 @@ class ProductsManager {
 
   async create(data) {
     try {
-        if (!data.title || !data.category || !data.price ) {
-            const error = new Error("Por favor, complete todos los campos del producto para crearlo");
-            throw error;
-        } else {
-            const newProduct = {
-                id: data.id || crypto.randomBytes(12).toString("hex"),
-                title: data.title,
-                photo: data.photo || "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
-                category: data.category,
-                price: parseInt(data.price),
-                stock: parseInt(data.stock) || 0,
-            };
-
-            let all = await fs.promises.readFile(this.path, "utf-8");
-            all = JSON.parse(all);
-
-            // Verificar si el título del nuevo producto ya existe en la lista
-            const isDuplicate = all.find(product => product.title === newProduct.title);
-            if (isDuplicate) {
-                console.log("Este producto ya existe. Omitiendo la inserción.");
-            } else {
-                all.push(newProduct);
-
-                all = JSON.stringify(all, null, 2);
-                await fs.promises.writeFile(this.path, all);
-                console.log("Producto creado:", newProduct.title);
-            }
-
-            return newProduct;
-        }
-    } catch (error) {
+      if (!data.title || !data.category || !data.price) {
+        const error = new Error(
+          "Por favor, complete todos los campos del producto para crearlo"
+        );
         throw error;
+      } else {
+        const newProduct = {
+          id: data.id || crypto.randomBytes(12).toString("hex"),
+          title: data.title,
+          photo:
+            data.photo ||
+            "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
+          category: data.category,
+          price: parseInt(data.price),
+          stock: parseInt(data.stock) || 0,
+        };
+
+        let all = await fs.promises.readFile(this.path, "utf-8");
+        all = JSON.parse(all);
+
+        // Verificar si el título del nuevo producto ya existe en la lista
+        const isDuplicate = all.find(
+          (product) => product.title === newProduct.title
+        );
+        if (isDuplicate) {
+          console.log("Este producto ya existe. Omitiendo la inserción.");
+        } else {
+          all.push(newProduct);
+
+          all = JSON.stringify(all, null, 2);
+          await fs.promises.writeFile(this.path, all);
+          console.log("Producto creado:", newProduct.title);
+        }
+
+        return newProduct;
+      }
+    } catch (error) {
+      throw error;
     }
-}
+  }
   async read() {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
@@ -105,74 +111,149 @@ export default productsManager;
 
 async function test() {
   try {
+
     await productsManager.create({
-      title: `TOFU`,
-      photo: "https://img.freepik.com/foto-gratis/vista-superior-arreglo-vegetal-forma-corazon_23-2148287518.jpg?w=826&t=st=1710260892~exp=1710261492~hmac=630fd8a56369a2ed0c45d9fdaaa2b19f80b9e4c4dddc2eb0ccc43f4ea6d52c27",
-      category: `tofu`,
-      price: 150,
-      stock: 1000,
-    });
-    await productsManager.create({
-      title: `MANÍ`,
-      photo: "maní.jpg",
-      category: `frutos secos`,
-      price: 150,
-      stock: 3000,
-    });
-    await productsManager.create({
-      title: `ACEITE DE OLIVA`,
-      photo: "aceiteDeOliva.jpg",
-      category: `aceites`,
-      price: 150,
-      stock: 11000,
-    });
-    await productsManager.create({
-      title: `ACEITE DE LINO`,
-      photo: "aceite de lino.jpg",
-      category: `aceites`,
-      price: 15000,
+      title: `PRODUCTO N°1`,
+      photo: ``,
+      category: `firstCategory`,
+      price: 1500,
       stock: 10,
     });
     await productsManager.create({
-      title: `QUINOA`,
-      photo: "quinoa.jpg",
-      category: `untables`,
-      price: 15000,
+      title: `PRODUCTO N°2`,
+      photo: `UNA_FOTO.jgp`,
+      category: `firstCategory`,
+      price: 1200,
       stock: 10,
     });
     await productsManager.create({
-      title: `ALMENDRAS`,
-      photo: "almendras.jpg",
-      category: `Frutos secos`,
-      price: 15000,
+      title: `PRODUCTO N°3`,
+      photo: `UNA_FOTO.jgp`,
+      category: `firstCategory`,
+      price: 195,
       stock: 10,
     });
     await productsManager.create({
-      title: `GIRASOL`,
-      photo: "girasoles.jpg",
-      category: `semillas`,
-      price: 15000,
-      
-    });
-    await productsManager.create({
-      title: `CHIA`,
-      photo: "semillaDeChia.jpg",
-      category: `semillas`,
-      price: 10000,
+      title: `PRODUCTO N°4`,
+      photo: `UNA_FOTO.jgp`,
+      category: `secondCategory`,
+      price: 2500,
       stock: 10,
     });
     await productsManager.create({
-      title: `NUEZ PECAN`,
-      photo: "nueces.jpg",
-      category: `furtos secos`,
-      price: 13000,
+      title: `PRODUCTO N°5`,
+      photo: `UNA_FOTO.jgp`,
+      category: `secondCategory`,
+      price: 2600,
       stock: 10,
     });
     await productsManager.create({
-      title: `MANTEQUILLA DE MANÍ`,
-      photo: "mantequilla_maní.jpg",
-      category: `untable`,
-      price: 15000,
+      title: `PRODUCTO N°6`,
+      photo: `UNA_FOTO.jpg`,
+      category: `secondCategory`,
+      price: 3500,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°7`,
+      photo: `UNA_FOTO.jpg`,
+      category: `secondCategory`,
+      price: 1350,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°8`,
+      photo: `UNA_FOTO.jpg`,
+      category: `secondCategory`,
+      price: 1600,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°9`,
+      photo: `UNA_FOTO.jpg`,
+      category: `thirdCategory`,
+      price: 1250,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°10`,
+      photo: `UNA_FOTO.jpg`,
+      category: `thirdCategory`,
+      price: 3500,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: "PRODUCTO N°11",
+      photo: `UNA_FOTO.jpg`,
+      category: `thirdCategory`,
+      price: 1300,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°12`,
+      photo: `UNA_FOTO.jpg`,
+      category: `thirdCategory`,
+      price: 1000,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°13`,
+      photo: `UNA_FOTO.jpg`,
+      category: `fourthCategory`,
+      price: 1340,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: `PRODUCTO N°14`,
+      photo: `UNA_FOTO.jpg`,
+      category: `fourthCategory`,
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: `PRODUCTO N°15`,
+      photo: `UNA_FOTO.jpg`,
+      category: `fourthCategory`,
+      price: 1550,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: `PRODUCTO N°16`,
+      photo: `UNA_FOTO.jpg`,
+      category: `fifthCategory`,
+      price: 1150,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: `PRODUCTO N°17`,
+      photo: `UNA_FOTO.jgp`,
+      category: `fifthCategory`,
+      price: 1950,
+      stock: 15,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°18`,
+      photo: `UNA_FOTO.jpg`,
+      category: `fifthCategory`,
+      price: 1200,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°19`,
+      photo: `UNA_FOTO.jpg`,
+      category: `fifthCategory`,
+      price: 1100,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°20`,
+      photo: `UNA_FOTO.jpg`,
+      category: `fifthCategory`,
+      price: 1500,
       stock: 10,
     });
     //await product.read();
