@@ -1,6 +1,7 @@
 {
   "name": "coderserver",
   "version": "1.0.0",
+
   "description": "TERCERA ENTREGA BACKEND CODERHOUSE",
   "main": "app.js",
   "type": "module",

@@ -1,5 +1,4 @@
 import fs from "fs";
-
 import crypto from "crypto";
 
 class ProductsManager {
