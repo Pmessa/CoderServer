@@ -158,5 +158,21 @@
     "category": "fifthCategory",
     "price": 1500,
     "stock": 10
+  },
+  {
+    "id": "a0e6fe907333a73ffeb43d00",
+    "title": "mi primer producto desde postman",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
+    "category": "postman category",
+    "price": 150,
+    "stock": 0
+  },
+  {
+    "id": "f0b23b88a8a0165f73f57254",
+    "title": "mi segunda producto desde postman",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
+    "category": "postman category",
+    "price": 150,
+    "stock": 0
   }
 ]
