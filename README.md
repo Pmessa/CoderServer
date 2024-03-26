@@ -1,72 +1,11 @@
+TERCERA ENTREGA BACKEND CODERHOUSE
 
+En el código, se utilizan varios métodos en un servidor para gestionar productos. 
 
-PRIMERA ENTREGA BACKEND CODERHOUSE
+1. **server.get("/api/products/:title/:category/:price")**: Este método se encarga de crear un nuevo producto con la información proporcionada a través de los parámetros de la URL.
 
-ProductManager.js
-La clase en JavaScript llamada ProductManager que actúa como un gestor de productos. 
+2. **server.get("/api/products")**: Este método se encarga de recuperar todos los productos o filtrarlos por categoría, según el parámetro de consulta `category`. 
 
-Esta clase tiene dos métodos estáticos:
+3. **server.get("/api/products/:pid")**: Este método se encarga de recuperar un producto específico según su ID proporcionado en los parámetros de la URL. En caso de no encontrar el producto, se devuelve un mensaje de error.
 
-El método create(product) se encarga de crear un nuevo producto. 
-Genera un nuevo objeto de producto con un ID único (incremental), título, foto, categoría, precio y stock, y luego lo agrega al array estático #products. 
-Este método simula la creación de un nuevo producto y lo añade a la lista de productos existentes.
-
-El método read() simplemente devuelve la lista de productos almacenados en el array estático #products.
-
-/*******************************************************************
-
-El código de la clase UserManager en JavaScript, la cual gestiona usuarios.
-
-Tiene un campo estático #users para almacenar la información de los usuarios.
-El método create(user) crea un nuevo usuario con datos proporcionados y lo añade a #users.
-El método read() devuelve la lista de usuarios.
-Se crea una instancia usersManager de UserManager para utilizar sus funcionalidades.
-
-Se entrega en la rama sprint1
-
-/*******************************************************************
-*****************************************************************
-SEGUNDA ENTREGA BACKEND CODERHOUSE
-
-
-
-PRIMERA ENTREGA BACKEND CODERHOUSE
-
-ProductManager.js
-La clase en JavaScript llamada ProductManager que actúa como un gestor de productos.
-
-Esta clase tiene dos métodos estáticos:
-
-El método create(product) se encarga de crear un nuevo producto.
-Genera un nuevo objeto de producto con un ID único (incremental), título, foto, categoría, precio y stock, y luego lo agrega al array estático #products.
-Este método simula la creación de un nuevo producto y lo añade a la lista de productos existentes.
-
-El método read() simplemente devuelve la lista de productos almacenados en el array estático #products.
-
-/********************************\*\*\*********************************
-
-El código de la clase UserManager en JavaScript, la cual gestiona usuarios.
-
-Tiene un campo estático #users para almacenar la información de los usuarios.
-El método create(user) crea un nuevo usuario con datos proporcionados y lo añade a #users.
-El método read() devuelve la lista de usuarios.
-Se crea una instancia usersManager de UserManager para utilizar sus funcionalidades.
-
-Se entrega en la rama sprint1
-
-/********************************\*\*\*********************************
-
----
-
-SEGUNDA ENTREGA BACKEND CODERHOUSE
-
-La clase llamada ProducstManager que se utiliza para gestionar productos.
-La clase tiene métodos para crear nuevos productos, mostrar todos los productos, mostrar un producto específico por su ID y eliminar un producto por su ID.
-Después de definir la clase ProducstManager, se crea una instancia de la clase y se crean varios productos utilizando el método create(). Luego se muestran todos los productos, se muestra un producto específico por su ID y se eliminan dos productos por sus respectivos IDs.
-
-En resumen, este código implementa una funcionalidad básica de gestión de productos utilizando una clase en JavaScript.
-__________________________________________________________________________________________________________
-File System
-
-El código implementa una clase ProductsManager para gestionar productos almacenados en un archivo JSON. Ofrece funciones para crear, leer y eliminar productos. La función test() realiza pruebas de estas funcionalidades. Se utilizan los módulos fs y crypto de Node.js.
-
+Estos métodos hacen uso de la clase `ProductsManager` que contiene los métodos `create`, `read` y `readOne` para la creación, lectura de todos los productos y lectura de un producto específico respectivamente. Cada método realiza operaciones específicas como crear un nuevo producto, filtrar productos por categoría o recuperar un producto por su ID.

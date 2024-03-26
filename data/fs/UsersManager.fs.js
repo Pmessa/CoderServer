@@ -1,10 +1,10 @@
-const fs = require("fs");
-const crypto = require("crypto");
+import fs from "fs";
+import crypto from "crypto";
 
 class UsersManager {
     constructor() {
         // Ruta del archivo JSON donde se almacenarán los usuarios
-        this.path = "./files/users.json";
+        this.path = "./data/fs/files/users.json";
         // Inicializa la clase
         console.log(this.path);
         this.init();
@@ -21,44 +21,44 @@ class UsersManager {
                     photo: "fotodaniel.jpg",
                     email: "daniel73@gmail.com",
                     password: "Daniel123",
-                    role: "user",
+                    role: "1",
                 },
                 {
                     id: crypto.randomBytes(12).toString("hex"),
                     photo: "fotohector.jpg",
                     email: "hector55@gmail.com",
                     password: "Hector123",
-                    role: "user",
+                    role: "1",
                 },
                 {
                     id: crypto.randomBytes(12).toString("hex"),
                     photo: "fotocristian.jpg",
                     email: "cristian33@gmail.com",
                     password: "Cristian123",
-                    role: "user",
+                    role: "1",
                 },
                 {
                     id: crypto.randomBytes(12).toString("hex"),
                     photo: "fotosebas.jpg",
                     email: "adminsebas@gmail.com",
                     password: "admin123",
-                    role: "admin",
+                    role: "0",
                 },
             ];
             //Convierte los usuarios en JSON
             const stringData = JSON.stringify(defaultUsers, null, 2);
             //Escribe los usuarios en el archivo
             fs.writeFileSync(this.path, stringData);
-            console.log("ARCHIVO DE USUARIOS CREADO!");
+            console.log("USER FILE CREATED!");
         } else {
-            console.log("ARCHIVO DE USUARIOS YA EXISTE!");
+            console.log("USER FILE ALREADY EXISTS!");
         }
     }
     //Creo el método create
     async create(data) {
         try {
             //Si no tengo alguna de las propiedades
-            if (!data.email || !data.password || !data.role) {
+            if (!data.email || !data.password ) {
                 throw new Error("Email, password, and role are required");
             }
             //Si tengo los datos entonces creo un nuevo usuario
@@ -69,7 +69,7 @@ class UsersManager {
                     photo: data.photo || "https://cdn-icons-png.freepik.com/512/266/266033.png",
                     email: data.email,
                     password: data.password,
-                    role: data.role,
+                    role: data.role || 0,
                 };
                 //Lee todos los usuarios del archivo
                 let all = await fs.promises.readFile(this.path, "utf-8");
@@ -89,22 +89,18 @@ class UsersManager {
         }
     }
     //Creamos el método read
-    async read() {
+    async read(rol) {
         try {
             //Lee todos los usuarios del archivo
             let all = await fs.promises.readFile(this.path, "utf-8");
             //Convierte los usuarios JSON a un objeto JS
             all = JSON.parse(all);
-            //Compruebo si no hay usuarios tiro un error
-            if (all.length === 0) {
-                throw new Error("NO HAY USUARIOS");
-            } else {
-                //Si hay muestro todos los usuarios
-                console.log(all);
-                return all;
-            }
-        } catch (error) {
+            rol && (all = all.filter(each=>each.role === rol))
+            return all 
+        
+            } catch (error) {
             console.log(error);
+            return error
         }
     }
 
@@ -118,7 +114,7 @@ class UsersManager {
             const user = all.find((user) => user.id === id);
             //Si no encuentra el usuario tira el error
             if (!user) {
-                throw new Error("USUARIO NO ENCONTRADO");
+                throw new Error("USER NOT FOUND");
             } else {//Si lo encuentra lo muestra 
                 console.log(user);
                 return user;
@@ -139,7 +135,7 @@ class UsersManager {
             const deletedUser = all.find((user) => user.id === id);
             //Si el usuario no se encuentra, lanza un error
             if (!deletedUser) {
-                throw new Error("USUARIO NO ENCONTRADO");
+                throw new Error("USER NOT FOUND");
             } else {
                 //Filtra los usuarios excluyendo al usuario con el ID especificado
                 const filteredUsers = all.filter((user) => user.id !== id);
@@ -163,44 +159,45 @@ async function test() {
         const users = new UsersManager();
 
         // Prueba de lectura de usuarios
-        console.log("Prueba de lectura de usuarios:");
+        console.log("User reading test:");
         await users.read();
 
         // Prueba de creación de usuario
-        console.log("Prueba de creación de usuario:");
+        console.log("User creation test:");
         await users.create({
             email: "carlos@gmail.com",
             password: "Carlos123",
-            role: "user",
+            role: "1",
         });
 
         // Prueba de lectura de usuarios después de la creación
-        console.log("Prueba de lectura de usuarios después de la creación:");
+        console.log("User read test after creation:");
         await users.read();
 
         // Prueba de lectura de un usuario específico
-        console.log("Prueba de lectura de un usuario específico:");
+        console.log("Test reading a specific user:");
         const allUsers = await users.read(); // Obtener todos los usuarios
         const firstUserId = allUsers[0]?.id; // Obtener el ID del primer usuario si existe
         if (firstUserId) {
             await users.readOne(firstUserId); // Leer el primer usuario
         } else {
-            console.log("No se puede realizar la prueba de lectura de un usuario específico porque no hay usuarios en la lista.");
+            console.log("A specific user cannot be read tested because there are no users in the list.");
         }
 
         // Prueba de eliminación de un usuario
-        console.log("Prueba de eliminación de un usuario:");
+        console.log("Test deleting a user:");
         if (firstUserId) {
             await users.destroy(firstUserId); // Eliminar el primer usuario
         } else {
-            console.log("No se puede realizar la prueba de eliminación de usuario porque no hay usuarios en la lista.");
+            console.log("The user deletion test cannot be performed because there are no users in the list.");
         }
 
     } catch (error) {
-        console.log("Error en test:", error);
+        console.log("Error in test:", error);
     }
 }
 
-test();
+/* test(); */
 
-
+const usersManager = new UsersManager()
+export default usersManager
