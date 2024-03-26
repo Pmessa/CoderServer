@@ -1,5 +1,5 @@
 import express from "express";
-import productsManager from "./data/fs/ProductsManager.fs.js";
+import productsManager from "./src/data/fs/ProductsManager.fs.js";
 
 const server = express();
 const port = 8080;
