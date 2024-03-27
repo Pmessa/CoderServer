@@ -14,86 +14,59 @@ server.use(express.urlencoded({ extended: true }));
 //permite leer req.params y req.query
 server.use(express.json());
 
-//Router
-server.get("/", async (req, res) => {
-    try {
-        return res.json({
-            statusCode: 200,
-            message: "CODER API OK"
-        })
-    } catch (error) {
-        return res.json({
-            statusCode: 500,
-            message: "CODER API ERROR"
 
-        })
-    }
-})
+
 const create = async (req, res) => {
-    try {
-        const data = req.body
-        const one = usersManager.create(data)
-        return res.json({
-            statusCode: 201,
-            message: "CREATED ID: " + one.id
-        })
-
-    } catch (error) {
-        return res.json({
-            statusCode: error.statusCode || 500,
-            message: error.message || "CODER API ERROR"
-
-        })
-
-    }
-}
-
-const update = async (req, res) => {
-    try {
-        const { uid } = req.params
-        const data = req.body
-        const one = await usersManager.update(uid, data)
-        return res.json({
-            statusCode: 200,
-            message: "UPDATE ID:  " + one.id
-        })
-    } catch (error) {
-        return res.json({
-            statusCode: error.statusCode || 500,
-            message: error.message || "CODER API ERROR"
-
-        })
-    }
-}
-server.post("/api/users", create)
-server.put("/api/users/:uid", update)
-
-
-
-
-
-
-
-
-
-
-
-/* server.get("/", async (requerimientos, respuesta) => {
   try {
-    return respuesta.status(200).json({
-      responce: "CODER API",
-      success: true,
+    const data = req.body;
+    const one = await usersManager.create(data);
+    console.log(one);
+    return res.json({
+      statusCode: 201,
+      message: "CREATED ID: " + one.id,
     });
   } catch (error) {
-    console.log(error);
-    return respuesta.status(500).json({
-      response: "CODER API ERROR",
-      success: false,
+    return res.json({
+      statusCode: error.statusCode || 500,
+      message: error.message || "CODER API ERROR",
     });
   }
-}); */
+};
 
-/* server.get("/api/users", async (req, res) => {
+const update = async (req, res) => {
+  try {
+    const { uid } = req.params;
+    const data = req.body;
+    const one = await usersManager.update(uid, data);
+    return res.json({
+      statusCode: 200,
+      /* message: "UPDATE ID:  " + one.id, */
+      response: one,
+    });
+  } catch (error) {
+    return res.json({
+      statusCode: error.statusCode || 500,
+      message: error.message || "CODER API ERROR",
+    });
+  }
+};
+
+//Router
+server.get("/", async (req, res) => {
+  try {
+    return res.json({
+      statusCode: 200,
+      message: "CODER API OK",
+    });
+  } catch (error) {
+    return res.json({
+      statusCode: 500,
+      message: "CODER API ERROR",
+    });
+  }
+});
+
+server.get("/api/users", async (req, res) => {
   try {
     const { role } = req.query;
     const all = await usersManager.read(role);
@@ -119,8 +92,9 @@ server.put("/api/users/:uid", update)
       success: false,
     });
   }
-}); */
-/* server.get("/api/users/:uid", async (req, res) => {
+});
+
+server.get("/api/users/:uid", async (req, res) => {
   try {
     const { uid } = req.params;
     const one = await usersManager.readOne(uid);
@@ -147,4 +121,23 @@ server.put("/api/users/:uid", update)
     });
   }
 });
- */
+
+const destroy = async(req,res)=>{
+  try {
+    const { uid } = req.params
+    const one = await usersManager.destroy(uid)
+    return res.json({
+      statusCode: 200,
+      response: one
+    })
+  } catch (error) {
+    return res.json({
+      statusCode: error.statusCode || 500,
+      message: error.message || "CODER API ERROR",
+    });
+  }
+}
+
+server.post("/api/users", create);
+server.put("/api/users/:uid", update);
+server.delete("/api/users/:uid", destroy)
