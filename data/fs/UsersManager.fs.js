@@ -58,8 +58,8 @@ class UsersManager {
     async create(data) {
         try {
             //Si no tengo alguna de las propiedades
-            if (!data.email || !data.password ) {
-                throw new Error("Email, password, and role are required");
+            if (!data.email || !data.password) {
+                throw new Error("Email and password are required");
             }
             //Si tengo los datos entonces creo un nuevo usuario
             else {
@@ -95,10 +95,10 @@ class UsersManager {
             let all = await fs.promises.readFile(this.path, "utf-8");
             //Convierte los usuarios JSON a un objeto JS
             all = JSON.parse(all);
-            rol && (all = all.filter(each=>each.role === rol))
-            return all 
-        
-            } catch (error) {
+            rol && (all = all.filter(each => each.role === rol))
+            return all
+
+        } catch (error) {
             console.log(error);
             return error
         }
@@ -122,6 +122,11 @@ class UsersManager {
         } catch (error) {
             console.log(error);
         }
+    }
+    //creamos el metodo update
+    async update(id, data) {
+        const one = this.readOne(id)
+        
     }
 
     async destroy(id) {

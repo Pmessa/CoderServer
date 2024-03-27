@@ -33,5 +33,19 @@
     "email": "carlos@gmail.com",
     "password": "Carlos123",
     "role": "1"
+  },
+  {
+    "id": "c11e87316b24529465645438",
+    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
+    "email": "sebasavila81@gmail.com",
+    "password": "sebas123",
+    "role": 0
+  },
+  {
+    "id": "352d837521988be8bd4789e1",
+    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
+    "email": "sebasavila81@gmail.com",
+    "password": "sebas123",
+    "role": 0
   }
 ]

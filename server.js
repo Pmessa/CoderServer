@@ -15,7 +15,7 @@ server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 
 //Router
-server.get("/", async (req,res)=> {
+server.get("/", async (req, res) => {
     try {
         return res.json({
             statusCode: 200,
@@ -29,26 +29,44 @@ server.get("/", async (req,res)=> {
         })
     }
 })
-const create = async (req,res)=> {
+const create = async (req, res) => {
     try {
         const data = req.body
         const one = usersManager.create(data)
         return res.json({
             statusCode: 201,
-            message: "CREATED ID: "+one.id
+            message: "CREATED ID: " + one.id
         })
-        
+
     } catch (error) {
         return res.json({
             statusCode: error.statusCode || 500,
             message: error.message || "CODER API ERROR"
 
         })
-        
+
+    }
+}
+
+const update = async (req, res) => {
+    try {
+        const { uid } = req.params
+        const data = req.body
+        const one = await usersManager.update(uid, data)
+        return res.json({
+            statusCode: 200,
+            message: "UPDATE ID:  " + one.id
+        })
+    } catch (error) {
+        return res.json({
+            statusCode: error.statusCode || 500,
+            message: error.message || "CODER API ERROR"
+
+        })
     }
 }
 server.post("/api/users", create)
-
+server.put("/api/users/:uid", update)
 
 
 
