@@ -1,6 +1,6 @@
 [
   {
-    "id": "e150b1d09de64e5ffc564810",
+    "id": "247749967fa69fabbf243f06",
     "title": "PRODUCTO N°1",
     "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "firstCategory",
@@ -8,7 +8,7 @@
     "stock": 10
   },
   {
-    "id": "653905c65e685357916870ba",
+    "id": "20aaa3958f9e72f59d31bd79",
     "title": "PRODUCTO N°2",
     "photo": "UNA_FOTO.jgp",
     "category": "firstCategory",
@@ -16,7 +16,7 @@
     "stock": 10
   },
   {
-    "id": "e9fcd0698f05a39b480fcf2b",
+    "id": "5eec8dd138ee6292e0ef024a",
     "title": "PRODUCTO N°3",
     "photo": "UNA_FOTO.jgp",
     "category": "firstCategory",
@@ -24,7 +24,7 @@
     "stock": 10
   },
   {
-    "id": "72cff374fc4f892a3773fb7b",
+    "id": "25a51b6e9e2edcc0f7e5db0c",
     "title": "PRODUCTO N°4",
     "photo": "UNA_FOTO.jgp",
     "category": "secondCategory",
@@ -32,7 +32,7 @@
     "stock": 10
   },
   {
-    "id": "d28bdff84606f6cb378a15e9",
+    "id": "346d20f9d5947b5a201284f4",
     "title": "PRODUCTO N°5",
     "photo": "UNA_FOTO.jgp",
     "category": "secondCategory",
@@ -40,7 +40,7 @@
     "stock": 10
   },
   {
-    "id": "c2be235908386529c889612e",
+    "id": "234e4a34afab6d1eb26feb7d",
     "title": "PRODUCTO N°6",
     "photo": "UNA_FOTO.jpg",
     "category": "secondCategory",
@@ -48,7 +48,7 @@
     "stock": 10
   },
   {
-    "id": "14f065ce087fb99c16fb517d",
+    "id": "806d88df3f88ac7881f718d3",
     "title": "PRODUCTO N°7",
     "photo": "UNA_FOTO.jpg",
     "category": "secondCategory",
@@ -56,7 +56,7 @@
     "stock": 10
   },
   {
-    "id": "2c6242cd2e14692438a2a620",
+    "id": "46dc9682b9e0001ae38799cf",
     "title": "PRODUCTO N°8",
     "photo": "UNA_FOTO.jpg",
     "category": "secondCategory",
@@ -64,7 +64,7 @@
     "stock": 10
   },
   {
-    "id": "180c1f0293f80ab73547ccf6",
+    "id": "3bf622f26dfdbec20522ec6a",
     "title": "PRODUCTO N°9",
     "photo": "UNA_FOTO.jpg",
     "category": "thirdCategory",
@@ -72,7 +72,7 @@
     "stock": 10
   },
   {
-    "id": "4a3411c5cbd2d530af2631e0",
+    "id": "63527f282a13a81c96b66248",
     "title": "PRODUCTO N°10",
     "photo": "UNA_FOTO.jpg",
     "category": "thirdCategory",
@@ -80,7 +80,7 @@
     "stock": 10
   },
   {
-    "id": "87a91b956dab9234dc9ddb57",
+    "id": "9450e5cf81f2fd965a6e3059",
     "title": "PRODUCTO N°11",
     "photo": "UNA_FOTO.jpg",
     "category": "thirdCategory",
@@ -88,7 +88,7 @@
     "stock": 10
   },
   {
-    "id": "9c4bb878418fc86047735589",
+    "id": "5edbfc84b3368afa9f947d2a",
     "title": "PRODUCTO N°12",
     "photo": "UNA_FOTO.jpg",
     "category": "thirdCategory",
@@ -96,7 +96,7 @@
     "stock": 10
   },
   {
-    "id": "059549e6a286da66d077cf4f",
+    "id": "a05f83bcf810eab5a6d77b42",
     "title": "PRODUCTO N°13",
     "photo": "UNA_FOTO.jpg",
     "category": "fourthCategory",
@@ -104,7 +104,7 @@
     "stock": 10
   },
   {
-    "id": "c5037ca0a1c52b521f26b2bc",
+    "id": "560ed97bef2b03f94735354b",
     "title": "PRODUCTO N°14",
     "photo": "UNA_FOTO.jpg",
     "category": "fourthCategory",
@@ -112,7 +112,7 @@
     "stock": 10
   },
   {
-    "id": "e764ad951c0733367e04bb1e",
+    "id": "b1a02e6f56c6d748d8cae05c",
     "title": "PRODUCTO N°15",
     "photo": "UNA_FOTO.jpg",
     "category": "fourthCategory",
@@ -120,7 +120,7 @@
     "stock": 10
   },
   {
-    "id": "e8cd4ab05cf129e7e0726d4c",
+    "id": "7800bed518e9ad32d5ed47b5",
     "title": "PRODUCTO N°16",
     "photo": "UNA_FOTO.jpg",
     "category": "fifthCategory",
@@ -128,7 +128,7 @@
     "stock": 10
   },
   {
-    "id": "2a82d72a78aa0ce2e4b3a8c7",
+    "id": "efce2083be1c0ae83df2d334",
     "title": "PRODUCTO N°17",
     "photo": "UNA_FOTO.jgp",
     "category": "fifthCategory",
@@ -136,7 +136,7 @@
     "stock": 15
   },
   {
-    "id": "f8d9c8d7c7200210547b175c",
+    "id": "bb5dc70adfbc1f08b0c6afdb",
     "title": "PRODUCTO N°18",
     "photo": "UNA_FOTO.jpg",
     "category": "fifthCategory",
@@ -144,7 +144,7 @@
     "stock": 10
   },
   {
-    "id": "9df1229a39945670236440a9",
+    "id": "c2932d15c1b3e24b9e7d3f10",
     "title": "PRODUCTO N°19",
     "photo": "UNA_FOTO.jpg",
     "category": "fifthCategory",
@@ -152,7 +152,7 @@
     "stock": 10
   },
   {
-    "id": "3fc64da3f8873ef44234e94b",
+    "id": "6f5b49a8a521dd2cd7dfd236",
     "title": "PRODUCTO N°20",
     "photo": "UNA_FOTO.jpg",
     "category": "fifthCategory",
@@ -160,19 +160,163 @@
     "stock": 10
   },
   {
-    "id": "a0e6fe907333a73ffeb43d00",
-    "title": "mi primer producto desde postman",
+    "id": "61eec9baf3eae1d5f6a4a766",
+    "title": "PRODUCTO N°21",
     "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
-    "category": "postman category",
-    "price": 150,
-    "stock": 0
+    "category": "firstCategory",
+    "price": 1500,
+    "stock": 10
   },
   {
-    "id": "f0b23b88a8a0165f73f57254",
-    "title": "mi segunda producto desde postman",
-    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
-    "category": "postman category",
-    "price": 150,
-    "stock": 0
+    "id": "ee08b1fd551f395f98b96c4b",
+    "title": "PRODUCTO N°22",
+    "photo": "UNA_FOTO.jgp",
+    "category": "firstCategory",
+    "price": 1200,
+    "stock": 10
+  },
+  {
+    "id": "85582301f56a46699d21cb50",
+    "title": "PRODUCTO N°23",
+    "photo": "UNA_FOTO.jgp",
+    "category": "firstCategory",
+    "price": 195,
+    "stock": 10
+  },
+  {
+    "id": "73b3d9b1f10dad52d8c1f9a0",
+    "title": "PRODUCTO N°24",
+    "photo": "UNA_FOTO.jgp",
+    "category": "secondCategory",
+    "price": 2500,
+    "stock": 10
+  },
+  {
+    "id": "ee793e9b77691177edc37364",
+    "title": "PRODUCTO N°25",
+    "photo": "UNA_FOTO.jgp",
+    "category": "secondCategory",
+    "price": 2600,
+    "stock": 10
+  },
+  {
+    "id": "e9a74cdd299f3a389abc0588",
+    "title": "PRODUCTO N°26",
+    "photo": "UNA_FOTO.jpg",
+    "category": "secondCategory",
+    "price": 3500,
+    "stock": 10
+  },
+  {
+    "id": "6a83c261ca84633216a0ab98",
+    "title": "PRODUCTO N°27",
+    "photo": "UNA_FOTO.jpg",
+    "category": "secondCategory",
+    "price": 1350,
+    "stock": 10
+  },
+  {
+    "id": "4f4c8cbb580ea9bbf141fddc",
+    "title": "PRODUCTO N°28",
+    "photo": "UNA_FOTO.jpg",
+    "category": "secondCategory",
+    "price": 1600,
+    "stock": 10
+  },
+  {
+    "id": "3811be198eb66ec66a0c1e70",
+    "title": "PRODUCTO N°29",
+    "photo": "UNA_FOTO.jpg",
+    "category": "thirdCategory",
+    "price": 1250,
+    "stock": 10
+  },
+  {
+    "id": "e2282b3e87c29d6859e3d30c",
+    "title": "PRODUCTO N°30",
+    "photo": "UNA_FOTO.jpg",
+    "category": "thirdCategory",
+    "price": 3500,
+    "stock": 10
+  },
+  {
+    "id": "dddd37ad6213fbd98ac9d600",
+    "title": "PRODUCTO N°31",
+    "photo": "UNA_FOTO.jpg",
+    "category": "thirdCategory",
+    "price": 1300,
+    "stock": 10
+  },
+  {
+    "id": "288b492c87c9785fff2d31dc",
+    "title": "PRODUCTO N°32",
+    "photo": "UNA_FOTO.jpg",
+    "category": "thirdCategory",
+    "price": 1000,
+    "stock": 10
+  },
+  {
+    "id": "b2a98756750b09fa089898d9",
+    "title": "PRODUCTO N°33",
+    "photo": "UNA_FOTO.jpg",
+    "category": "fourthCategory",
+    "price": 1340,
+    "stock": 10
+  },
+  {
+    "id": "b7c96987f86a0661729f6471",
+    "title": "PRODUCTO N°34",
+    "photo": "UNA_FOTO.jpg",
+    "category": "fourthCategory",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "ce5ad64657b4accb8166daea",
+    "title": "PRODUCTO N°35",
+    "photo": "UNA_FOTO.jpg",
+    "category": "fourthCategory",
+    "price": 1550,
+    "stock": 10
+  },
+  {
+    "id": "e2f672bfba887e3e26300140",
+    "title": "PRODUCTO N°36",
+    "photo": "UNA_FOTO.jpg",
+    "category": "fifthCategory",
+    "price": 1150,
+    "stock": 10
+  },
+  {
+    "id": "ba4b921068312f73732b30ba",
+    "title": "PRODUCTO N°37",
+    "photo": "UNA_FOTO.jgp",
+    "category": "fifthCategory",
+    "price": 1950,
+    "stock": 15
+  },
+  {
+    "id": "b2ed03c52081ae4303cd064d",
+    "title": "PRODUCTO N°38",
+    "photo": "UNA_FOTO.jpg",
+    "category": "fifthCategory",
+    "price": 1200,
+    "stock": 10
+  },
+  {
+    "id": "46b34b7a0f9523490149be9b",
+    "title": "PRODUCTO N°39",
+    "photo": "UNA_FOTO.jpg",
+    "category": "fifthCategory",
+    "price": 1100,
+    "stock": 10
+  },
+  {
+    "id": "ac308fd62ed306be85eb6fbe",
+    "title": "PRODUCTO N°40",
+    "photo": "UNA_FOTO.jpg",
+    "category": "fifthCategory",
+    "price": 1500,
+    "stock": 10
   }
 ]

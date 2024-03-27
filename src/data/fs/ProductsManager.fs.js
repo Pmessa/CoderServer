@@ -44,7 +44,7 @@ class ProductsManager {
           (product) => product.title === newProduct.title
         );
         if (isDuplicate) {
-          console.log("Este producto ya existe. Omitiendo la inserción.");
+            //No hace nada
         } else {
           all.push(newProduct);
 
@@ -79,24 +79,24 @@ class ProductsManager {
       throw error;
     }
   }
-  async update(id, data){
+  async update(id, data) {
     try {
-      let all = await this.read()
-      let one = all.find(each=> each.id===id)
-      if(one){
-        for(let prop in data){
-          one[prop] = data[prop]
+      let all = await this.read();
+      let one = all.find((each) => each.id === id);
+      if (one) {
+        for (let prop in data) {
+          one[prop] = data[prop];
         }
-        all.json.stringify(all, null, 2)
-        await fs.promises.writeFile(this.path, all)
-        return one
-      }else {
-        const error = new Error("Not found")
-        error.statusCode = 404
-        throw  error
+        all.json.stringify(all, null, 2);
+        await fs.promises.writeFile(this.path, all);
+        return one;
+      } else {
+        const error = new Error("Not found");
+        error.statusCode = 404;
+        throw error;
       }
     } catch (error) {
-      throw error
+      throw error;
     }
   }
   async destroy(id) {
@@ -262,6 +262,150 @@ async function test() {
     });
     await productsManager.create({
       title: `PRODUCTO N°20`,
+      photo: `UNA_FOTO.jpg`,
+      category: `fifthCategory`,
+      price: 1500,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°21`,
+      photo: ``,
+      category: `firstCategory`,
+      price: 1500,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°22`,
+      photo: `UNA_FOTO.jgp`,
+      category: `firstCategory`,
+      price: 1200,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°23`,
+      photo: `UNA_FOTO.jgp`,
+      category: `firstCategory`,
+      price: 195,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°24`,
+      photo: `UNA_FOTO.jgp`,
+      category: `secondCategory`,
+      price: 2500,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°25`,
+      photo: `UNA_FOTO.jgp`,
+      category: `secondCategory`,
+      price: 2600,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°26`,
+      photo: `UNA_FOTO.jpg`,
+      category: `secondCategory`,
+      price: 3500,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°27`,
+      photo: `UNA_FOTO.jpg`,
+      category: `secondCategory`,
+      price: 1350,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°28`,
+      photo: `UNA_FOTO.jpg`,
+      category: `secondCategory`,
+      price: 1600,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°29`,
+      photo: `UNA_FOTO.jpg`,
+      category: `thirdCategory`,
+      price: 1250,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°30`,
+      photo: `UNA_FOTO.jpg`,
+      category: `thirdCategory`,
+      price: 3500,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: "PRODUCTO N°31",
+      photo: `UNA_FOTO.jpg`,
+      category: `thirdCategory`,
+      price: 1300,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°32`,
+      photo: `UNA_FOTO.jpg`,
+      category: `thirdCategory`,
+      price: 1000,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°33`,
+      photo: `UNA_FOTO.jpg`,
+      category: `fourthCategory`,
+      price: 1340,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: `PRODUCTO N°34`,
+      photo: `UNA_FOTO.jpg`,
+      category: `fourthCategory`,
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: `PRODUCTO N°35`,
+      photo: `UNA_FOTO.jpg`,
+      category: `fourthCategory`,
+      price: 1550,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: `PRODUCTO N°36`,
+      photo: `UNA_FOTO.jpg`,
+      category: `fifthCategory`,
+      price: 1150,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: `PRODUCTO N°37`,
+      photo: `UNA_FOTO.jgp`,
+      category: `fifthCategory`,
+      price: 1950,
+      stock: 15,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°38`,
+      photo: `UNA_FOTO.jpg`,
+      category: `fifthCategory`,
+      price: 1200,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°39`,
+      photo: `UNA_FOTO.jpg`,
+      category: `fifthCategory`,
+      price: 1100,
+      stock: 10,
+    });
+    await productsManager.create({
+      title: `PRODUCTO N°40`,
       photo: `UNA_FOTO.jpg`,
       category: `fifthCategory`,
       price: 1500,
