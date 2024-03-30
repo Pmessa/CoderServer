@@ -2,6 +2,7 @@ import express from "express";
 import indexRouter from "./src/router/index.router.js";
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
+import morgan from "morgan";
 
 //Server
 const server = express();
@@ -14,7 +15,7 @@ server.listen(port, ready);
 //middelwares
 server.use(express.json());//permite leer req.params y req.query
 server.use(express.urlencoded({ extended: true }));//Obligo a mi servidor a usar la funcion encargada de leer parametros/consultas
-
+server.use(morgan("dev"))
 
 
 //endpoints

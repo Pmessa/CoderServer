@@ -1,7 +1,7 @@
 {
   "name": "coderserver",
   "version": "1.0.0",
-  "description": "TERCERA ENTREGA BACKEND CODERHOUSE",
+  "description": "",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -12,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.1"
+    "express": "^4.19.1",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
