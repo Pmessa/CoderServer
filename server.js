@@ -12,7 +12,7 @@ const ready = () => console.log("server ready on port" + port);
 server.listen(port, ready);
 //Se inicia/levanta el servidor
 
-//middelwares
+//middlewares
 server.use(express.json());//permite leer req.params y req.query
 server.use(express.urlencoded({ extended: true }));//Obligo a mi servidor a usar la funcion encargada de leer parametros/consultas
 server.use(morgan("dev"))
