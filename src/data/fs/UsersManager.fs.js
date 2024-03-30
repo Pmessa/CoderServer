@@ -4,7 +4,7 @@ import crypto from "crypto";
 class UsersManager {
   constructor() {
     // Ruta del archivo JSON donde se almacenarán los usuarios
-    this.path = "./data/fs/files/users.json";
+    this.path = "./src/data/fs/files/users.json";
     // Inicializa la clase
     console.log(this.path);
     this.init();
@@ -21,28 +21,28 @@ class UsersManager {
           photo: "fotodaniel.jpg",
           email: "daniel73@gmail.com",
           password: "Daniel123",
-          role: "1",
+          role: 0,
         },
         {
           id: crypto.randomBytes(12).toString("hex"),
           photo: "fotohector.jpg",
           email: "hector55@gmail.com",
           password: "Hector123",
-          role: "1",
+          role: 0,
         },
         {
           id: crypto.randomBytes(12).toString("hex"),
           photo: "fotocristian.jpg",
           email: "cristian33@gmail.com",
           password: "Cristian123",
-          role: "1",
+          role: 0,
         },
         {
           id: crypto.randomBytes(12).toString("hex"),
           photo: "fotosebas.jpg",
           email: "adminsebas@gmail.com",
           password: "admin123",
-          role: "0",
+          role: 1,
         },
       ];
       //Convierte los usuarios en JSON
@@ -71,7 +71,7 @@ class UsersManager {
             "https://cdn-icons-png.freepik.com/512/266/266033.png",
           email: data.email,
           password: data.password,
-          role: data.role || "0",
+          role: data.role || 0,
         };
         //Lee todos los usuarios del archivo
         let all = await fs.promises.readFile(this.path, "utf-8");
@@ -87,7 +87,7 @@ class UsersManager {
         return user;
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
   //Creamos el método read
@@ -100,8 +100,7 @@ class UsersManager {
       rol && (all = all.filter((each) => each.role === rol));
       return all;
     } catch (error) {
-      console.log(error);
-      return error;
+      throw error;
     }
   }
 
@@ -115,14 +114,16 @@ class UsersManager {
       const user = all.find((user) => user.id === id);
       //Si no encuentra el usuario tira el error
       if (!user) {
-        throw new Error("USER NOT FOUND");
+        const error = new Error("USER NOT FOUND");
+        error.statusCode = 404;
+        throw error;
       } else {
         //Si lo encuentra lo muestra
-        console.log(user);
         return user;
+
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
   //creamos el metodo update
@@ -158,7 +159,9 @@ class UsersManager {
       const deletedUser = all.find((user) => user.id === id);
       //Si el usuario no se encuentra, lanza un error
       if (!deletedUser) {
-        throw new Error("USER NOT FOUND");
+        const error = new Error("USER NOT FOUND");
+        error.statusCode = 404;
+        throw error
       } else {
         //Filtra los usuarios excluyendo al usuario con el ID especificado
         const filteredUsers = all.filter((user) => user.id !== id);
@@ -172,7 +175,7 @@ class UsersManager {
         return deletedUser;
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
 }
@@ -190,7 +193,7 @@ async function test() {
     await users.create({
       email: "carlos@gmail.com",
       password: "Carlos123",
-      role: "1",
+      role: 0,
     });
 
     // Prueba de lectura de usuarios después de la creación
@@ -202,7 +205,8 @@ async function test() {
     const allUsers = await users.read(); // Obtener todos los usuarios
     const firstUserId = allUsers[0]?.id; // Obtener el ID del primer usuario si existe
     if (firstUserId) {
-      await users.readOne(firstUserId); // Leer el primer usuario
+      const user = await users.readOne(firstUserId); // Leer el primer usuario
+      console.log(user);
     } else {
       console.log(
         "A specific user cannot be read tested because there are no users in the list."
@@ -223,7 +227,7 @@ async function test() {
   }
 }
 
-/* test(); */
+//test();
 
 const usersManager = new UsersManager();
 export default usersManager;
