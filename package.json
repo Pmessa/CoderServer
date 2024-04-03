@@ -11,13 +11,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  
   "devDependencies": {
     "nodemon": "^3.1.0"
-  },
+  }
   "dependencies": {
-    "D": "^1.0.0",
     "express": "^4.19.2",
     "handlebars": "^4.7.8",
     "morgan": "^1.10.0"
+
   }
 }

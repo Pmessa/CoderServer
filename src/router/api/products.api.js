@@ -85,3 +85,4 @@ async function destroy(req, res, next) {
   }
 }
 export default productsRouter;
+
