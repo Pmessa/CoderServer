@@ -1,322 +1,330 @@
 [
   {
-    "id": "247749967fa69fabbf243f06",
-    "title": "PRODUCTO N°1",
+    "id": "dd5b74f837821dd8f2de6e6a",
+    "title": "Cúrcuma en Polvo",
+    "photo": "curcuma.jpg",
+    "category": "suplementos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "d0da9c5311bcb96bef95db02",
+    "title": "Maca en Polvo",
+    "photo": "maca.jpg",
+    "category": "suplementos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "4524a9323eff10edb9f5bab6",
+    "title": "Tofu Orgánico",
+    "photo": "tofu.jpg",
+    "category": "proteinas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "ae2f18a2085973419e3244ec",
+    "title": "Batata Orgánica",
+    "photo": "batata.jpg",
+    "category": "verduras",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "02740a46b60b838c1f2a83cd",
+    "title": "Nueces de Brasil",
+    "photo": "nueces.jpg",
+    "category": "frutos secos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "31e44b573f4dc0295394f5e5",
+    "title": "Tempeh de Soja",
+    "photo": "tempeh.jpg",
+    "category": "proteinas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "36134fb39acf88230fc146eb",
+    "title": "Alcachofas en Conserva",
+    "photo": "alcachofas.jpg",
+    "category": "verduras",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "826cf983e16c742893e03cb4",
+    "title": "Polen de Abeja",
+    "photo": "polen.jpg",
+    "category": "suplementos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "0b9ab6474d038d24a2822860",
+    "title": "Sopa de Tomate Casera",
+    "photo": "sopa_tomate.jpg",
+    "category": "sopas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "b76bf1088bfdadce39c5ad19",
+    "title": "Espaguetis de Calabacín",
+    "photo": "espaguetis_calabacin.jpg",
+    "category": "verduras",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "0dd09bcaab43f11f082d6f1e",
+    "title": "Chips de Plátano Verde",
+    "photo": "platano_verde.jpg",
+    "category": "snacks",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "82053300bc4d10de4e60e600",
+    "title": "Chips de Garbanzos",
+    "photo": "garbanzos_especiados.jpg",
+    "category": "snacks",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "b7835eb6268933605480a11c",
+    "title": "Levadura Nutricional",
+    "photo": "levadura.jpg",
+    "category": "suplementos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "167e1c12071298b13084a015",
+    "title": "Kale Orgánico",
+    "photo": "kale.jpg",
+    "category": "verduras",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "19019e664c956fe6d85d12ee",
+    "title": "Pistachos",
+    "photo": "pistachos.jpg",
+    "category": "frutos secos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "839d4a5deb177b10374fe9f0",
+    "title": "Seitan Ahumado",
+    "photo": "seitan.jpg",
+    "category": "proteinas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "5f1607cb1ea612248aa49e26",
+    "title": "Sopa de Lentejas",
+    "photo": "sopa_lentejas.jpg",
+    "category": "sopas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "6e7bc7a40419e2f2c81a4ab7",
+    "title": "Té Verde Matcha",
+    "photo": "te_matcha.jpg",
+    "category": "bebidas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "bf5ed18620a610255dc859c5",
+    "title": "Granola Casera",
+    "photo": "granola.jpg",
+    "category": "cereales",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "97b10ef9be7d975c1f16a0d3",
+    "title": "Aguacates Hass",
+    "photo": "aguacate.jpg",
+    "category": "frutas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "5fe8cd76279898fa81642962",
+    "title": "Chucrut Casero",
+    "photo": "chucrut.jpg",
+    "category": "fermentados",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "3487a1819141a8baf3c41ce9",
+    "title": "Almendras Crudas",
+    "photo": "almendras.jpg",
+    "category": "frutos secos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "b857f9d239fb494ff244bbc8",
+    "title": "Hummus Casero",
+    "photo": "hummus.jpg",
+    "category": "snacks",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "7d02b66320c2f876e53812e3",
+    "title": "Salsa de Tomate",
+    "photo": "salsa_tomate.jpg",
+    "category": "condimentos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "f5cbdb39209260a045196537",
+    "title": "Té de Jengibre",
+    "photo": "te_jengibre.jpg",
+    "category": "bebidas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "d89e98408a0f654fadc4d60c",
+    "title": "Chips de Kale",
+    "photo": "kale_chips.jpg",
+    "category": "snacks",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "f08f4a3de48f55897339b89a",
+    "title": "Quinoa Orgánica",
+    "photo": "quinoa.jpg",
+    "category": "cereales",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "2f973b3a571791e5efc662d9",
+    "title": "Crema de Almendras",
+    "photo": "crema_almendras.jpg",
+    "category": "frutos secos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "c9776e432a31bef268d6583c",
+    "title": "Champiñones Portobello",
+    "photo": "champinones.jpg",
+    "category": "verduras",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "c3eaed94df590d04eb167ab5",
+    "title": "Sopa de Calabaza",
+    "photo": "sopa_calabaza.jpg",
+    "category": "sopas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "1e3963de8c91d34d2f052321",
+    "title": "Tortitas de Maíz",
+    "photo": "tortitas_maiz.jpg",
+    "category": "snacks",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "0e6594899ebe85ed2f4692a8",
+    "title": "Aceite de Coco Virgen",
+    "photo": "aceite_coco.jpg",
+    "category": "condimentos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "a12119c4354e5346c6b7c5af",
+    "title": "Té de Hibisco",
+    "photo": "te_hibisco.jpg",
+    "category": "bebidas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "52a41f1d2831909e3cbc85e8",
+    "title": "Sopa de Verduras",
+    "photo": "sopa_verduras.jpg",
+    "category": "sopas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "ac2829fc27b90ec5eb3de93a",
+    "title": "Mantequilla de Almendras",
+    "photo": "mantequilla_almendras.jpg",
+    "category": "frutos secos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "0b4ee0d7993024076afecd26",
+    "title": "Té de Menta",
+    "photo": "te_menta.jpg",
+    "category": "bebidas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "467ed1e7024ec7c27c9b462c",
+    "title": "Salsa de Soja Orgánica",
+    "photo": "salsa_soja.jpg",
+    "category": "condimentos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "309b408a22c3626b6832c98e",
+    "title": "Harina de Almendras",
+    "photo": "harina_almendras.jpg",
+    "category": "harinas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "1513ab57cba90fd0e6060610",
+    "title": "Galletas de Avena y Pasas",
+    "photo": "galletas_avena.jpg",
+    "category": "snacks",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "94cddf0be042dd2aff5f5da0",
+    "title": "Vinagre de Manzana Orgánico",
+    "photo": "vinagre_manzana.jpg",
+    "category": "condimentos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "5bcd1b486db47b693d65deee",
+    "title": "Producto creado desde postman",
     "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
-    "category": "firstCategory",
-    "price": 1500,
-    "stock": 10
-  },
-  {
-    "id": "20aaa3958f9e72f59d31bd79",
-    "title": "PRODUCTO N°2",
-    "photo": "UNA_FOTO.jgp",
-    "category": "firstCategory",
-    "price": 1200,
-    "stock": 10
-  },
-  {
-    "id": "5eec8dd138ee6292e0ef024a",
-    "title": "PRODUCTO N°3",
-    "photo": "UNA_FOTO.jgp",
-    "category": "firstCategory",
-    "price": 195,
-    "stock": 10
-  },
-  {
-    "id": "25a51b6e9e2edcc0f7e5db0c",
-    "title": "PRODUCTO N°4",
-    "photo": "UNA_FOTO.jgp",
-    "category": "secondCategory",
-    "price": 2500,
-    "stock": 10
-  },
-  {
-    "id": "346d20f9d5947b5a201284f4",
-    "title": "PRODUCTO N°5",
-    "photo": "UNA_FOTO.jgp",
-    "category": "secondCategory",
-    "price": 2600,
-    "stock": 10
-  },
-  {
-    "id": "234e4a34afab6d1eb26feb7d",
-    "title": "PRODUCTO N°6",
-    "photo": "UNA_FOTO.jpg",
-    "category": "secondCategory",
-    "price": 3500,
-    "stock": 10
-  },
-  {
-    "id": "806d88df3f88ac7881f718d3",
-    "title": "PRODUCTO N°7",
-    "photo": "UNA_FOTO.jpg",
-    "category": "secondCategory",
-    "price": 1350,
-    "stock": 10
-  },
-  {
-    "id": "46dc9682b9e0001ae38799cf",
-    "title": "PRODUCTO N°8",
-    "photo": "UNA_FOTO.jpg",
-    "category": "secondCategory",
-    "price": 1600,
-    "stock": 10
-  },
-  {
-    "id": "3bf622f26dfdbec20522ec6a",
-    "title": "PRODUCTO N°9",
-    "photo": "UNA_FOTO.jpg",
-    "category": "thirdCategory",
-    "price": 1250,
-    "stock": 10
-  },
-  {
-    "id": "63527f282a13a81c96b66248",
-    "title": "PRODUCTO N°10",
-    "photo": "UNA_FOTO.jpg",
-    "category": "thirdCategory",
-    "price": 3500,
-    "stock": 10
-  },
-  {
-    "id": "9450e5cf81f2fd965a6e3059",
-    "title": "PRODUCTO N°11",
-    "photo": "UNA_FOTO.jpg",
-    "category": "thirdCategory",
-    "price": 1300,
-    "stock": 10
-  },
-  {
-    "id": "5edbfc84b3368afa9f947d2a",
-    "title": "PRODUCTO N°12",
-    "photo": "UNA_FOTO.jpg",
-    "category": "thirdCategory",
-    "price": 1000,
-    "stock": 10
-  },
-  {
-    "id": "a05f83bcf810eab5a6d77b42",
-    "title": "PRODUCTO N°13",
-    "photo": "UNA_FOTO.jpg",
-    "category": "fourthCategory",
-    "price": 1340,
-    "stock": 10
-  },
-  {
-    "id": "560ed97bef2b03f94735354b",
-    "title": "PRODUCTO N°14",
-    "photo": "UNA_FOTO.jpg",
-    "category": "fourthCategory",
-    "price": 1500,
-    "stock": 10
-  },
-  {
-    "id": "b1a02e6f56c6d748d8cae05c",
-    "title": "PRODUCTO N°15",
-    "photo": "UNA_FOTO.jpg",
-    "category": "fourthCategory",
-    "price": 1550,
-    "stock": 10
-  },
-  {
-    "id": "7800bed518e9ad32d5ed47b5",
-    "title": "PRODUCTO N°16",
-    "photo": "UNA_FOTO.jpg",
-    "category": "fifthCategory",
-    "price": 1150,
-    "stock": 10
-  },
-  {
-    "id": "efce2083be1c0ae83df2d334",
-    "title": "PRODUCTO N°17",
-    "photo": "UNA_FOTO.jgp",
-    "category": "fifthCategory",
-    "price": 1950,
-    "stock": 15
-  },
-  {
-    "id": "bb5dc70adfbc1f08b0c6afdb",
-    "title": "PRODUCTO N°18",
-    "photo": "UNA_FOTO.jpg",
-    "category": "fifthCategory",
-    "price": 1200,
-    "stock": 10
-  },
-  {
-    "id": "c2932d15c1b3e24b9e7d3f10",
-    "title": "PRODUCTO N°19",
-    "photo": "UNA_FOTO.jpg",
-    "category": "fifthCategory",
-    "price": 1100,
-    "stock": 10
-  },
-  {
-    "id": "6f5b49a8a521dd2cd7dfd236",
-    "title": "PRODUCTO N°20",
-    "photo": "UNA_FOTO.jpg",
-    "category": "fifthCategory",
-    "price": 1500,
-    "stock": 10
-  },
-  {
-    "id": "61eec9baf3eae1d5f6a4a766",
-    "title": "PRODUCTO N°21",
-    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
-    "category": "firstCategory",
-    "price": 1500,
-    "stock": 10
-  },
-  {
-    "id": "ee08b1fd551f395f98b96c4b",
-    "title": "PRODUCTO N°22",
-    "photo": "UNA_FOTO.jgp",
-    "category": "firstCategory",
-    "price": 1200,
-    "stock": 10
-  },
-  {
-    "id": "85582301f56a46699d21cb50",
-    "title": "PRODUCTO N°23",
-    "photo": "UNA_FOTO.jgp",
-    "category": "firstCategory",
-    "price": 195,
-    "stock": 10
-  },
-  {
-    "id": "73b3d9b1f10dad52d8c1f9a0",
-    "title": "PRODUCTO N°24",
-    "photo": "UNA_FOTO.jgp",
-    "category": "secondCategory",
-    "price": 2500,
-    "stock": 10
-  },
-  {
-    "id": "ee793e9b77691177edc37364",
-    "title": "PRODUCTO N°25",
-    "photo": "UNA_FOTO.jgp",
-    "category": "secondCategory",
-    "price": 2600,
-    "stock": 10
-  },
-  {
-    "id": "e9a74cdd299f3a389abc0588",
-    "title": "PRODUCTO N°26",
-    "photo": "UNA_FOTO.jpg",
-    "category": "secondCategory",
-    "price": 3500,
-    "stock": 10
-  },
-  {
-    "id": "6a83c261ca84633216a0ab98",
-    "title": "PRODUCTO N°27",
-    "photo": "UNA_FOTO.jpg",
-    "category": "secondCategory",
-    "price": 1350,
-    "stock": 10
-  },
-  {
-    "id": "4f4c8cbb580ea9bbf141fddc",
-    "title": "PRODUCTO N°28",
-    "photo": "UNA_FOTO.jpg",
-    "category": "secondCategory",
-    "price": 1600,
-    "stock": 10
-  },
-  {
-    "id": "3811be198eb66ec66a0c1e70",
-    "title": "PRODUCTO N°29",
-    "photo": "UNA_FOTO.jpg",
-    "category": "thirdCategory",
-    "price": 1250,
-    "stock": 10
-  },
-  {
-    "id": "e2282b3e87c29d6859e3d30c",
-    "title": "PRODUCTO N°30",
-    "photo": "UNA_FOTO.jpg",
-    "category": "thirdCategory",
-    "price": 3500,
-    "stock": 10
-  },
-  {
-    "id": "dddd37ad6213fbd98ac9d600",
-    "title": "PRODUCTO N°31",
-    "photo": "UNA_FOTO.jpg",
-    "category": "thirdCategory",
-    "price": 1300,
-    "stock": 10
-  },
-  {
-    "id": "288b492c87c9785fff2d31dc",
-    "title": "PRODUCTO N°32",
-    "photo": "UNA_FOTO.jpg",
-    "category": "thirdCategory",
-    "price": 1000,
-    "stock": 10
-  },
-  {
-    "id": "b2a98756750b09fa089898d9",
-    "title": "PRODUCTO N°33",
-    "photo": "UNA_FOTO.jpg",
-    "category": "fourthCategory",
-    "price": 1340,
-    "stock": 10
-  },
-  {
-    "id": "b7c96987f86a0661729f6471",
-    "title": "PRODUCTO N°34",
-    "photo": "UNA_FOTO.jpg",
-    "category": "fourthCategory",
-    "price": 1500,
-    "stock": 10
-  },
-  {
-    "id": "ce5ad64657b4accb8166daea",
-    "title": "PRODUCTO N°35",
-    "photo": "UNA_FOTO.jpg",
-    "category": "fourthCategory",
-    "price": 1550,
-    "stock": 10
-  },
-  {
-    "id": "e2f672bfba887e3e26300140",
-    "title": "PRODUCTO N°36",
-    "photo": "UNA_FOTO.jpg",
-    "category": "fifthCategory",
-    "price": 1150,
-    "stock": 10
-  },
-  {
-    "id": "ba4b921068312f73732b30ba",
-    "title": "PRODUCTO N°37",
-    "photo": "UNA_FOTO.jgp",
-    "category": "fifthCategory",
-    "price": 1950,
-    "stock": 15
-  },
-  {
-    "id": "b2ed03c52081ae4303cd064d",
-    "title": "PRODUCTO N°38",
-    "photo": "UNA_FOTO.jpg",
-    "category": "fifthCategory",
-    "price": 1200,
-    "stock": 10
-  },
-  {
-    "id": "46b34b7a0f9523490149be9b",
-    "title": "PRODUCTO N°39",
-    "photo": "UNA_FOTO.jpg",
-    "category": "fifthCategory",
-    "price": 1100,
-    "stock": 10
-  },
-  {
-    "id": "ac308fd62ed306be85eb6fbe",
-    "title": "PRODUCTO N°40",
-    "photo": "UNA_FOTO.jpg",
-    "category": "fifthCategory",
-    "price": 1500,
-    "stock": 10
+    "category": "without category",
+    "price": 1,
+    "stock": 1
   }
 ]

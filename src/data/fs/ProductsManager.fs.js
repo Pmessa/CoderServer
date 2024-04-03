@@ -19,10 +19,8 @@ class ProductsManager {
 
   async create(data) {
     try {
-      if (!data.title || !data.category || !data.price) {
-        const error = new Error(
-          "Por favor, complete todos los campos del producto para crearlo"
-        );
+      if (!data.title) {
+        const error = new Error("DEBE INGRESAR EL TÍTULO DEL PRODUCTO");
         throw error;
       } else {
         const newProduct = {
@@ -31,9 +29,9 @@ class ProductsManager {
           photo:
             data.photo ||
             "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
-          category: data.category,
-          price: parseInt(data.price),
-          stock: parseInt(data.stock) || 0,
+          category: data.category || "without category",
+          price: parseInt(data.price) || 1,
+          stock: parseInt(data.stock) || 1,
         };
 
         let all = await fs.promises.readFile(this.path, "utf-8");
@@ -44,7 +42,7 @@ class ProductsManager {
           (product) => product.title === newProduct.title
         );
         if (isDuplicate) {
-            //No hace nada
+          //No hace nada
         } else {
           all.push(newProduct);
 
@@ -52,7 +50,6 @@ class ProductsManager {
           await fs.promises.writeFile(this.path, all);
           console.log("Producto creado:", newProduct.title);
         }
-
         return newProduct;
       }
     } catch (error) {
@@ -87,11 +84,11 @@ class ProductsManager {
         for (let prop in data) {
           one[prop] = data[prop];
         }
-        all.json.stringify(all, null, 2);
+        all = JSON.stringify(all, null, 2);
         await fs.promises.writeFile(this.path, all);
         return one;
       } else {
-        const error = new Error("Not found");
+        const error = new Error("Not found!");
         error.statusCode = 404;
         throw error;
       }
@@ -103,311 +100,345 @@ class ProductsManager {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
       all = JSON.parse(all);
-      let one = all.find((each) => each.id === id);
-      if (!one) {
-        throw new Error(`EL ID: ${id} A ELIMINAR NO SE ENCONTRÓ`);
-      } else {
+      let product = all.find((each) => each.id === id);
+      if (product) {
         let filtered = all.filter((each) => each.id !== id);
         filtered = JSON.stringify(filtered, null, 2);
         await fs.promises.writeFile(this.path, filtered);
-        return one;
+        return product;
+      } else {
+        const error = new Error("ID Not Found!");
+        error.statusCode = 404;
+        throw error;
       }
     } catch (error) {
       throw error;
     }
   }
+
 }
 
 const productsManager = new ProductsManager();
+
 export default productsManager;
 
 async function test() {
   try {
     await productsManager.create({
-      title: `PRODUCTO N°1`,
-      photo: ``,
-      category: `firstCategory`,
-      price: 1500,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°2`,
-      photo: `UNA_FOTO.jgp`,
-      category: `firstCategory`,
-      price: 1200,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°3`,
-      photo: `UNA_FOTO.jgp`,
-      category: `firstCategory`,
-      price: 195,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°4`,
-      photo: `UNA_FOTO.jgp`,
-      category: `secondCategory`,
-      price: 2500,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°5`,
-      photo: `UNA_FOTO.jgp`,
-      category: `secondCategory`,
-      price: 2600,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°6`,
-      photo: `UNA_FOTO.jpg`,
-      category: `secondCategory`,
-      price: 3500,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°7`,
-      photo: `UNA_FOTO.jpg`,
-      category: `secondCategory`,
-      price: 1350,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°8`,
-      photo: `UNA_FOTO.jpg`,
-      category: `secondCategory`,
-      price: 1600,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°9`,
-      photo: `UNA_FOTO.jpg`,
-      category: `thirdCategory`,
-      price: 1250,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°10`,
-      photo: `UNA_FOTO.jpg`,
-      category: `thirdCategory`,
-      price: 3500,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: "PRODUCTO N°11",
-      photo: `UNA_FOTO.jpg`,
-      category: `thirdCategory`,
-      price: 1300,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°12`,
-      photo: `UNA_FOTO.jpg`,
-      category: `thirdCategory`,
-      price: 1000,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°13`,
-      photo: `UNA_FOTO.jpg`,
-      category: `fourthCategory`,
-      price: 1340,
-      stock: 10,
-    });
-
-    await productsManager.create({
-      title: `PRODUCTO N°14`,
-      photo: `UNA_FOTO.jpg`,
-      category: `fourthCategory`,
+      title: "Cúrcuma en Polvo",
+      photo: "curcuma.jpg",
+      category: "suplementos",
       price: 1500,
       stock: 10,
     });
 
     await productsManager.create({
-      title: `PRODUCTO N°15`,
-      photo: `UNA_FOTO.jpg`,
-      category: `fourthCategory`,
-      price: 1550,
-      stock: 10,
-    });
-
-    await productsManager.create({
-      title: `PRODUCTO N°16`,
-      photo: `UNA_FOTO.jpg`,
-      category: `fifthCategory`,
-      price: 1150,
-      stock: 10,
-    });
-
-    await productsManager.create({
-      title: `PRODUCTO N°17`,
-      photo: `UNA_FOTO.jgp`,
-      category: `fifthCategory`,
-      price: 1950,
-      stock: 15,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°18`,
-      photo: `UNA_FOTO.jpg`,
-      category: `fifthCategory`,
-      price: 1200,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°19`,
-      photo: `UNA_FOTO.jpg`,
-      category: `fifthCategory`,
-      price: 1100,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°20`,
-      photo: `UNA_FOTO.jpg`,
-      category: `fifthCategory`,
-      price: 1500,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°21`,
-      photo: ``,
-      category: `firstCategory`,
-      price: 1500,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°22`,
-      photo: `UNA_FOTO.jgp`,
-      category: `firstCategory`,
-      price: 1200,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°23`,
-      photo: `UNA_FOTO.jgp`,
-      category: `firstCategory`,
-      price: 195,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°24`,
-      photo: `UNA_FOTO.jgp`,
-      category: `secondCategory`,
-      price: 2500,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°25`,
-      photo: `UNA_FOTO.jgp`,
-      category: `secondCategory`,
-      price: 2600,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°26`,
-      photo: `UNA_FOTO.jpg`,
-      category: `secondCategory`,
-      price: 3500,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°27`,
-      photo: `UNA_FOTO.jpg`,
-      category: `secondCategory`,
-      price: 1350,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°28`,
-      photo: `UNA_FOTO.jpg`,
-      category: `secondCategory`,
-      price: 1600,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°29`,
-      photo: `UNA_FOTO.jpg`,
-      category: `thirdCategory`,
-      price: 1250,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°30`,
-      photo: `UNA_FOTO.jpg`,
-      category: `thirdCategory`,
-      price: 3500,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: "PRODUCTO N°31",
-      photo: `UNA_FOTO.jpg`,
-      category: `thirdCategory`,
-      price: 1300,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°32`,
-      photo: `UNA_FOTO.jpg`,
-      category: `thirdCategory`,
-      price: 1000,
-      stock: 10,
-    });
-    await productsManager.create({
-      title: `PRODUCTO N°33`,
-      photo: `UNA_FOTO.jpg`,
-      category: `fourthCategory`,
-      price: 1340,
-      stock: 10,
-    });
-
-    await productsManager.create({
-      title: `PRODUCTO N°34`,
-      photo: `UNA_FOTO.jpg`,
-      category: `fourthCategory`,
+      title: "Maca en Polvo",
+      photo: "maca.jpg",
+      category: "suplementos",
       price: 1500,
       stock: 10,
     });
 
     await productsManager.create({
-      title: `PRODUCTO N°35`,
-      photo: `UNA_FOTO.jpg`,
-      category: `fourthCategory`,
-      price: 1550,
+      title: "Tofu Orgánico",
+      photo: "tofu.jpg",
+      category: "proteinas",
+      price: 1500,
       stock: 10,
     });
 
     await productsManager.create({
-      title: `PRODUCTO N°36`,
-      photo: `UNA_FOTO.jpg`,
-      category: `fifthCategory`,
-      price: 1150,
+      title: "Batata Orgánica",
+      photo: "batata.jpg",
+      category: "verduras",
+      price: 1500,
       stock: 10,
     });
 
     await productsManager.create({
-      title: `PRODUCTO N°37`,
-      photo: `UNA_FOTO.jgp`,
-      category: `fifthCategory`,
-      price: 1950,
-      stock: 15,
+      title: "Nueces de Brasil",
+      photo: "nueces.jpg",
+      category: "frutos secos",
+      price: 1500,
+      stock: 10,
     });
+
     await productsManager.create({
-      title: `PRODUCTO N°38`,
-      photo: `UNA_FOTO.jpg`,
-      category: `fifthCategory`,
-      price: 1200,
+      title: "Tempeh de Soja",
+      photo: "tempeh.jpg",
+      category: "proteinas",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Alcachofas en Conserva",
+      photo: "alcachofas.jpg",
+      category: "verduras",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Polen de Abeja",
+      photo: "polen.jpg",
+      category: "suplementos",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Sopa de Tomate Casera",
+      photo: "sopa_tomate.jpg",
+      category: "sopas",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Espaguetis de Calabacín",
+      photo: "espaguetis_calabacin.jpg",
+      category: "verduras",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Chips de Plátano Verde",
+      photo: "platano_verde.jpg",
+      category: "snacks",
+      price: 1500,
       stock: 10,
     });
     await productsManager.create({
-      title: `PRODUCTO N°39`,
-      photo: `UNA_FOTO.jpg`,
-      category: `fifthCategory`,
-      price: 1100,
+      title: "Chips de Garbanzos",
+      photo: "garbanzos_especiados.jpg",
+      category: "snacks",
+      price: 1500,
       stock: 10,
     });
+
     await productsManager.create({
-      title: `PRODUCTO N°40`,
-      photo: `UNA_FOTO.jpg`,
-      category: `fifthCategory`,
+      title: "Levadura Nutricional",
+      photo: "levadura.jpg",
+      category: "suplementos",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Kale Orgánico",
+      photo: "kale.jpg",
+      category: "verduras",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Pistachos",
+      photo: "pistachos.jpg",
+      category: "frutos secos",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Seitan Ahumado",
+      photo: "seitan.jpg",
+      category: "proteinas",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Sopa de Lentejas",
+      photo: "sopa_lentejas.jpg",
+      category: "sopas",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Té Verde Matcha",
+      photo: "te_matcha.jpg",
+      category: "bebidas",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Granola Casera",
+      photo: "granola.jpg",
+      category: "cereales",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Aguacates Hass",
+      photo: "aguacate.jpg",
+      category: "frutas",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Chucrut Casero",
+      photo: "chucrut.jpg",
+      category: "fermentados",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Almendras Crudas",
+      photo: "almendras.jpg",
+      category: "frutos secos",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Hummus Casero",
+      photo: "hummus.jpg",
+      category: "snacks",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Salsa de Tomate",
+      photo: "salsa_tomate.jpg",
+      category: "condimentos",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Té de Jengibre",
+      photo: "te_jengibre.jpg",
+      category: "bebidas",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Chips de Kale",
+      photo: "kale_chips.jpg",
+      category: "snacks",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Quinoa Orgánica",
+      photo: "quinoa.jpg",
+      category: "cereales",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Crema de Almendras",
+      photo: "crema_almendras.jpg",
+      category: "frutos secos",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Champiñones Portobello",
+      photo: "champinones.jpg",
+      category: "verduras",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Sopa de Calabaza",
+      photo: "sopa_calabaza.jpg",
+      category: "sopas",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Tortitas de Maíz",
+      photo: "tortitas_maiz.jpg",
+      category: "snacks",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Aceite de Coco Virgen",
+      photo: "aceite_coco.jpg",
+      category: "condimentos",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Té de Hibisco",
+      photo: "te_hibisco.jpg",
+      category: "bebidas",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Sopa de Verduras",
+      photo: "sopa_verduras.jpg",
+      category: "sopas",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Mantequilla de Almendras",
+      photo: "mantequilla_almendras.jpg",
+      category: "frutos secos",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Té de Menta",
+      photo: "te_menta.jpg",
+      category: "bebidas",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Salsa de Soja Orgánica",
+      photo: "salsa_soja.jpg",
+      category: "condimentos",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Harina de Almendras",
+      photo: "harina_almendras.jpg",
+      category: "harinas",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Galletas de Avena y Pasas",
+      photo: "galletas_avena.jpg",
+      category: "snacks",
+      price: 1500,
+      stock: 10,
+    });
+
+    await productsManager.create({
+      title: "Vinagre de Manzana Orgánico",
+      photo: "vinagre_manzana.jpg",
+      category: "condimentos",
       price: 1500,
       stock: 10,
     });
