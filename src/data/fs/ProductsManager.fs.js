@@ -3,7 +3,7 @@ import crypto from "crypto";
 
 class ProductsManager {
   constructor() {
-    this.path = "./data/fs/files/products.json";
+    this.path = "./src/data/fs/files/products.json";
     this.init();
   }
   init() {
@@ -50,6 +50,7 @@ class ProductsManager {
           await fs.promises.writeFile(this.path, all);
           console.log("Producto creado:", newProduct.title);
         }
+        
         return newProduct;
       }
     } catch (error) {

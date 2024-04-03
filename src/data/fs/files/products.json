@@ -1,6 +1,6 @@
 [
   {
-    "id": "db25315be446bcea997b76f7",
+    "id": "68d6bfc9b111ecac32dc7e8f",
     "title": "Cúrcuma en Polvo",
     "photo": "curcuma.jpg",
     "category": "suplementos",
@@ -8,7 +8,7 @@
     "stock": 10
   },
   {
-    "id": "c47dad197b4cdd53aebe8cf1",
+    "id": "b1158a11f1c9e43a920dfac4",
     "title": "Maca en Polvo",
     "photo": "maca.jpg",
     "category": "suplementos",
@@ -16,7 +16,7 @@
     "stock": 10
   },
   {
-    "id": "d0058ee5efbc5d18a1fa4a52",
+    "id": "43a6a2c310ea60fb3e460bf8",
     "title": "Tofu Orgánico",
     "photo": "tofu.jpg",
     "category": "proteinas",
@@ -24,7 +24,7 @@
     "stock": 10
   },
   {
-    "id": "ac989487a814739d045a2575",
+    "id": "170894e8a0da4e97659e0298",
     "title": "Batata Orgánica",
     "photo": "batata.jpg",
     "category": "verduras",
@@ -32,7 +32,7 @@
     "stock": 10
   },
   {
-    "id": "9d31c644392f6ed2357bb45d",
+    "id": "76e99ec2d8792e26793576c8",
     "title": "Nueces de Brasil",
     "photo": "nueces.jpg",
     "category": "frutos secos",
@@ -40,7 +40,7 @@
     "stock": 10
   },
   {
-    "id": "c74bc13938c447c5e76984fe",
+    "id": "2afa85b5c4bf1765ae24ebd4",
     "title": "Tempeh de Soja",
     "photo": "tempeh.jpg",
     "category": "proteinas",
@@ -48,7 +48,7 @@
     "stock": 10
   },
   {
-    "id": "bc227b882135f9f5b2aeb7fa",
+    "id": "0bce307677b47af2f19cc9d9",
     "title": "Alcachofas en Conserva",
     "photo": "alcachofas.jpg",
     "category": "verduras",
@@ -56,7 +56,7 @@
     "stock": 10
   },
   {
-    "id": "b9c56d7a7d93fe95a8177cc1",
+    "id": "e4adb8db92e320080bf5794b",
     "title": "Polen de Abeja",
     "photo": "polen.jpg",
     "category": "suplementos",
@@ -64,7 +64,7 @@
     "stock": 10
   },
   {
-    "id": "4fc535c819166cf79749d499",
+    "id": "5d081afb46bcda7bda450002",
     "title": "Sopa de Tomate Casera",
     "photo": "sopa_tomate.jpg",
     "category": "sopas",
@@ -72,7 +72,7 @@
     "stock": 10
   },
   {
-    "id": "215d05e284b8f5690f45ee34",
+    "id": "65090172a4c3dced6bfcc780",
     "title": "Espaguetis de Calabacín",
     "photo": "espaguetis_calabacin.jpg",
     "category": "verduras",
@@ -80,7 +80,7 @@
     "stock": 10
   },
   {
-    "id": "bb0aeaa6a509ee0834e50d3f",
+    "id": "062a81fafe7dad900a170a5f",
     "title": "Chips de Plátano Verde",
     "photo": "platano_verde.jpg",
     "category": "snacks",
@@ -88,7 +88,7 @@
     "stock": 10
   },
   {
-    "id": "b69c5ee6867b1a6cab451bea",
+    "id": "f28ecc5e8b68a91591dfcdc3",
     "title": "Chips de Garbanzos",
     "photo": "garbanzos_especiados.jpg",
     "category": "snacks",
@@ -96,7 +96,7 @@
     "stock": 10
   },
   {
-    "id": "5945548439e0b45e0a69fa33",
+    "id": "100857b85c9d74fa57926647",
     "title": "Levadura Nutricional",
     "photo": "levadura.jpg",
     "category": "suplementos",
@@ -104,7 +104,7 @@
     "stock": 10
   },
   {
-    "id": "41c631cb0cbc9cc52c6fed86",
+    "id": "58b83f277133ce91adb4e804",
     "title": "Kale Orgánico",
     "photo": "kale.jpg",
     "category": "verduras",
@@ -112,7 +112,7 @@
     "stock": 10
   },
   {
-    "id": "3482610de97975eacfe9434f",
+    "id": "588b8b511f501e43b7b8c346",
     "title": "Pistachos",
     "photo": "pistachos.jpg",
     "category": "frutos secos",
@@ -120,7 +120,7 @@
     "stock": 10
   },
   {
-    "id": "3e610527a7116b91d08fe797",
+    "id": "360b37676b381f5cd90f601b",
     "title": "Seitan Ahumado",
     "photo": "seitan.jpg",
     "category": "proteinas",
@@ -128,7 +128,7 @@
     "stock": 10
   },
   {
-    "id": "fc80cb126057b1765739a290",
+    "id": "81241742cbadc5190d800bff",
     "title": "Sopa de Lentejas",
     "photo": "sopa_lentejas.jpg",
     "category": "sopas",
@@ -136,7 +136,7 @@
     "stock": 10
   },
   {
-    "id": "9c365e84c7704d3a6d7b474d",
+    "id": "6d6b440a925c836921b7feeb",
     "title": "Té Verde Matcha",
     "photo": "te_matcha.jpg",
     "category": "bebidas",
@@ -144,7 +144,7 @@
     "stock": 10
   },
   {
-    "id": "231fc4729d75d0ae373bfc3d",
+    "id": "132dff894b3f72dcfe41c34e",
     "title": "Granola Casera",
     "photo": "granola.jpg",
     "category": "cereales",
@@ -152,7 +152,7 @@
     "stock": 10
   },
   {
-    "id": "c3a1aae82e40e95263ead9a1",
+    "id": "db3e3a83e3805269ee82ba1b",
     "title": "Aguacates Hass",
     "photo": "aguacate.jpg",
     "category": "frutas",
@@ -160,7 +160,7 @@
     "stock": 10
   },
   {
-    "id": "09b9b24860a3680bf72d628a",
+    "id": "12f452abd854172c9f8f9708",
     "title": "Chucrut Casero",
     "photo": "chucrut.jpg",
     "category": "fermentados",
@@ -168,7 +168,7 @@
     "stock": 10
   },
   {
-    "id": "5619fb8e9c82afed3ff544c1",
+    "id": "48e7926800d8c68532a61de1",
     "title": "Almendras Crudas",
     "photo": "almendras.jpg",
     "category": "frutos secos",
@@ -176,7 +176,7 @@
     "stock": 10
   },
   {
-    "id": "c3081064df6420f242f6a3f5",
+    "id": "341281396376ca7f0176c74e",
     "title": "Hummus Casero",
     "photo": "hummus.jpg",
     "category": "snacks",
@@ -184,7 +184,7 @@
     "stock": 10
   },
   {
-    "id": "85cc2b2a2964af85617c6285",
+    "id": "4255642fbe81b3ae72c36904",
     "title": "Salsa de Tomate",
     "photo": "salsa_tomate.jpg",
     "category": "condimentos",
@@ -192,7 +192,7 @@
     "stock": 10
   },
   {
-    "id": "1d1c82c36e686238fee8b6b0",
+    "id": "1dec7f720258c643177be4a4",
     "title": "Té de Jengibre",
     "photo": "te_jengibre.jpg",
     "category": "bebidas",
@@ -200,7 +200,7 @@
     "stock": 10
   },
   {
-    "id": "39fa76cf477ea8bb0530f148",
+    "id": "36b8076dd533e5a559d0073d",
     "title": "Chips de Kale",
     "photo": "kale_chips.jpg",
     "category": "snacks",
@@ -208,7 +208,7 @@
     "stock": 10
   },
   {
-    "id": "3fddc3c9319d85ef40cc832f",
+    "id": "a01e196653fedeee4acbbe0d",
     "title": "Quinoa Orgánica",
     "photo": "quinoa.jpg",
     "category": "cereales",
@@ -216,7 +216,7 @@
     "stock": 10
   },
   {
-    "id": "272e3921dbbf308da81f34a7",
+    "id": "b4eac60058a35f27c65c0fbe",
     "title": "Crema de Almendras",
     "photo": "crema_almendras.jpg",
     "category": "frutos secos",
@@ -224,7 +224,7 @@
     "stock": 10
   },
   {
-    "id": "d234afd968fbc7f6d8bede4d",
+    "id": "7e20348d7360535a88ca2f84",
     "title": "Champiñones Portobello",
     "photo": "champinones.jpg",
     "category": "verduras",
@@ -232,7 +232,7 @@
     "stock": 10
   },
   {
-    "id": "2d1ecca0dd2e099b9d2f6f24",
+    "id": "b447afb9f880c4293cac6e95",
     "title": "Sopa de Calabaza",
     "photo": "sopa_calabaza.jpg",
     "category": "sopas",
@@ -240,7 +240,7 @@
     "stock": 10
   },
   {
-    "id": "d326c71c85ee630c91890222",
+    "id": "39c096013b8f0c6235efc201",
     "title": "Tortitas de Maíz",
     "photo": "tortitas_maiz.jpg",
     "category": "snacks",
@@ -248,7 +248,7 @@
     "stock": 10
   },
   {
-    "id": "03bc74a835e5ec6a3e029c35",
+    "id": "3bf6d0cb4f9ce167ad926a25",
     "title": "Aceite de Coco Virgen",
     "photo": "aceite_coco.jpg",
     "category": "condimentos",
@@ -256,7 +256,7 @@
     "stock": 10
   },
   {
-    "id": "2a6736bf9581115190544673",
+    "id": "85e1e41428ac327c3a22a637",
     "title": "Té de Hibisco",
     "photo": "te_hibisco.jpg",
     "category": "bebidas",
@@ -264,7 +264,7 @@
     "stock": 10
   },
   {
-    "id": "64e99152fb9dd9da685844c1",
+    "id": "63fb5570a056cfb079623257",
     "title": "Sopa de Verduras",
     "photo": "sopa_verduras.jpg",
     "category": "sopas",
@@ -272,7 +272,7 @@
     "stock": 10
   },
   {
-    "id": "5cc9fea7ae4888c9455a32d5",
+    "id": "bbde4f8fccc8d40384f9466e",
     "title": "Mantequilla de Almendras",
     "photo": "mantequilla_almendras.jpg",
     "category": "frutos secos",
@@ -280,7 +280,7 @@
     "stock": 10
   },
   {
-    "id": "f1fecbad043df752ac800e56",
+    "id": "df34f0cac53c8bebb8d28681",
     "title": "Té de Menta",
     "photo": "te_menta.jpg",
     "category": "bebidas",
@@ -288,7 +288,7 @@
     "stock": 10
   },
   {
-    "id": "b2581364254a5c9e7c9596ea",
+    "id": "ffaac24f32c0992df5903016",
     "title": "Salsa de Soja Orgánica",
     "photo": "salsa_soja.jpg",
     "category": "condimentos",
@@ -296,7 +296,7 @@
     "stock": 10
   },
   {
-    "id": "7ddd753ab06cc5c7b0065d5c",
+    "id": "db3bb7a6d3dc5d2920e9ef9f",
     "title": "Harina de Almendras",
     "photo": "harina_almendras.jpg",
     "category": "harinas",
@@ -304,7 +304,7 @@
     "stock": 10
   },
   {
-    "id": "1057b02a6fbd4b594671c5ea",
+    "id": "a714fde986c1f77d951a138b",
     "title": "Galletas de Avena y Pasas",
     "photo": "galletas_avena.jpg",
     "category": "snacks",
@@ -312,7 +312,7 @@
     "stock": 10
   },
   {
-    "id": "aff01c46bf01e1f8baf841b0",
+    "id": "6b8267f45bb798d9ab3f6f4e",
     "title": "Vinagre de Manzana Orgánico",
     "photo": "vinagre_manzana.jpg",
     "category": "condimentos",
