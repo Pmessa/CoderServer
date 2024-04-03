@@ -1,5 +1,8 @@
 import express from "express";
-import productsManager from "./data/fs/ProductsManager.fs.js";
+import morgan from "morgan";
+import indexRouter from "./src/router/index.router.js";
+import errorHandler from "./src/middlewares/errorHandler.js";
+import pathHandler from "./src/middlewares/pathHandler.js";
 
 const server = express();
 const port = 8080;
@@ -7,55 +10,11 @@ const ready = () => console.log("server ready on port " + port);
 server.listen(port, ready);
 
 //middleware
-server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+server.use(morgan("dev"));
 
-//routes
-
-server.get("/", async (req, res) => {
-  try {
-    return res.json({
-      statusCode: 200,
-      message: "CODER API OK",
-    });
-  } catch (error) {
-    return res.json({
-      statusCode: 500,
-      message: "CODER API ERROR",
-    });
-  }
-});
-const create = async (req, res) => {
-  try {
-    const data = req.body;
-    const one = await productsManager.create(data);
-    return res.json({
-      statusCode: 201,
-      message: "CREATED ID. " + one.id,
-    });
-  } catch (error) {
-    return res.json({
-      statusCode: error.statusCode || 500,
-      message: error.message || "CODER API ERROR",
-    });
-  }
-};
-
-const update = async (req, res) => {
-  try {
-    const { pid } = req.params;
-    const data = req.body;
-    const one = await productsManager.update(pid, data);
-    return res.json({
-      statusCode: 200,
-      message: "UPDATED ID: " + one.id,
-    });
-  } catch (error) {
-    return res.json({
-      statusCode: error.statusCode || 500,
-      message: error.message || "CODER API ERROR",
-    });
-  }
-};
-server.post("/api/products", create);
-server.put("/api/products/:pid", update);
+// endpoints
+server.use("/", indexRouter);
+server.use(errorHandler);
+server.use(pathHandler);
