@@ -3,6 +3,8 @@ import indexRouter from "./src/router/index.router.js";
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
 import morgan from "morgan";
+import errorHandler from "./src/middlewares/errorHandler.js";
+import pathHandler from "./src/middlewares/pathHandler.js";
 
 //Server
 const server = express();
@@ -22,4 +24,5 @@ server.use(morgan("dev"))
 server.use("/", indexRouter)
 server.use(errorHandler);
 server.use(pathHandler);
+
 

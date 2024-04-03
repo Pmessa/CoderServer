@@ -8,3 +8,4 @@ apiRouter.use("/users", usersRouter)
 apiRouter.use("/products", productsRouter)
 
 export default apiRouter
+
