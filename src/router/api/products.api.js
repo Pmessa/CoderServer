@@ -16,7 +16,7 @@ async function read(req, res, next) {
     if (all.length > 0) {
       return res.json({
         statusCode: 200,
-        response: all,
+        response: all, 
       });
     } else {
       const error = new Error("Not found!");
@@ -38,7 +38,7 @@ async function readOne(req, res, next) {
         success: true,
       });
     } else {
-      const error = new Error("NOT FOUND ID");
+      const error = new Error("NOT FOUND");
       error.statusCode = 404;
       throw error;
     }

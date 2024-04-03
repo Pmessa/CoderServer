@@ -11,16 +11,16 @@ class ProductsManager {
     if (!exists) {
       const stringData = JSON.stringify([], null, 2);
       fs.writeFileSync(this.path, stringData);
-      console.log("archivo creado");
+      console.log("created file");
     } else {
-      console.log("Archivo ya existe");
+      console.log("File already exists");
     }
   }
 
   async create(data) {
     try {
       if (!data.title) {
-        const error = new Error("DEBE INGRESAR EL TÍTULO DEL PRODUCTO");
+        const error = new Error("YOU MUST ENTER THE PRODUCT TITLE");
         throw error;
       } else {
         const newProduct = {
@@ -48,7 +48,7 @@ class ProductsManager {
 
           all = JSON.stringify(all, null, 2);
           await fs.promises.writeFile(this.path, all);
-          console.log("Producto creado:", newProduct.title);
+          console.log("Product created:", newProduct.title);
         }
         
         return newProduct;
