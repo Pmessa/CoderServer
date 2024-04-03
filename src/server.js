@@ -1,5 +1,6 @@
 import express from "express";
-import productsManager from "./src/data/fs/ProductsManager.fs.js";
+import productsManager from "./data/fs/ProductsManager.fs.js";
+import indexRouter from "./ruturer/index.router.js";
 
 const server = express();
 const port = 8080;
@@ -9,6 +10,9 @@ server.listen(port, ready);
 //middleware
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
+
+// endpoints
+server.use("/", indexRouter);
 
 //routes
 
@@ -58,9 +62,9 @@ server.get("/api/products/:pid", async (req, res) => {
     const one = await productsManager.readOne(pid);
     if (one) {
       return res.json({
-        statusCode:200,
+        statusCode: 200,
         response: one,
-        success: true
+        success: true,
       });
     } else {
       const error = new Error("NOT FOUND ID");
@@ -70,7 +74,7 @@ server.get("/api/products/:pid", async (req, res) => {
   } catch (error) {
     return res.status(error.statusCode).json({
       response: error.message,
-      success: false
+      success: false,
     });
   }
 });
@@ -109,23 +113,21 @@ const update = async (req, res) => {
   }
 };
 
-const destroy = async(req, res)=>{
+const destroy = async (req, res) => {
   try {
-    const {pid} = req.params
-    const one = await productsManager.destroy(pid)
+    const { pid } = req.params;
+    const one = await productsManager.destroy(pid);
     return res.json({
-      statusCode:200,
-      response: one
-    })
-    
+      statusCode: 200,
+      response: one,
+    });
   } catch (error) {
     return res.json({
       statusCode: error.statusCode || 500,
       message: error.message || "CODER API ERROR",
     });
   }
-
-}
+};
 server.post("/api/products", create);
 server.put("/api/products/:pid", update);
-server.delete("/api/products/:pid", destroy)
+server.delete("/api/products/:pid", destroy);
