@@ -5,8 +5,6 @@ import pathHandler from "./src/middlewares/pathHandler.mid.js";
 import morgan from "morgan";
 import { engine } from "express-handlebars";
 import __dirname from "./utils.js";
-import errorHandler from "./src/middlewares/errorHandler.js";
-import pathHandler from "./src/middlewares/pathHandler.js";
 
 //Server
 const server = express();
