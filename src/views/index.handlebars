@@ -1,2 +1,24 @@
-<h1>CODER USER</h1>
-<P>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi tempore reprehenderit at eum, fugiat asperiores praesentium beatae nam tenetur adipisci cumque! Quam enim qui excepturi ducimus, minus nobis error ut?Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet sed hic odit ipsam soluta accusantium modi repellendus, praesentium expedita quia, optio vel itaque atque possimus et dolorum consectetur rerum. Eligendi?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil eum accusantium architecto eligendi facilis nesciunt quae temporibus dicta voluptates similique repellendus iusto inventore, tempore numquam voluptatibus est officia nostrum! Velit.</P>
+<h1 class="bg-success-subtle p-2 text-center text-success w-100">CODER USERS</h1>
+<section>
+  <article id="register" class="w-50" ></article>
+  <article id="users" class="d-flex flex-wrap w-50">
+    <h1>REGISTER FORM!</h1>
+  </article>
+</section>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"> </script>
+<script>
+  const socket = io();
+  socket.on("users", data => {
+    console.log(data)
+    let template = ``
+    template = data.map(each=> `
+      <div class="card m-2" style="width: 18rem">
+          <img style="height: 10rem" src="${each.photo}" class="card-img-top" alt="${each.id}">
+          <div class="card-body">
+            <h5 class="card-title">${each.email}</each></h5>
+         </div>
+      </div>
+    `).join("")
+    document.querySelector("#users").innerHTML = template
+  })
+</script>
