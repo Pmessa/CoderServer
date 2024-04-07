@@ -33,5 +33,12 @@
     "email": "sebasavila81@gmail.com",
     "password": "Sebas456",
     "role": 0
+  },
+  {
+    "id": "69d6ef52edcb6aaf6aaa2790",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIkaSAFdxln63Hr1f4PFoaiXEFd-UnXCKI30I23h6TEw&s",
+    "email": "seba@coder.com",
+    "password": "coder",
+    "role": 0
   }
 ]
