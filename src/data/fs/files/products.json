@@ -1,320 +1,320 @@
 [
   {
-    "id": "68d6bfc9b111ecac32dc7e8f",
+    "id": "1bfd22e02c8ee9a06aa2a3bb",
     "title": "Cúrcuma en Polvo",
-    "photo": "curcuma.jpg",
+    "photo": "https://images.hola.com/imagenes/cocina/noticiaslibros/20200525168692/curcuma-polvo-infusion-capsulas-mejor-opcion/0-976-647/curcuma-adobe-t.jpg?tx=w_1200",
     "category": "suplementos",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "b1158a11f1c9e43a920dfac4",
+    "id": "f130f34f53c6788755cd8c18",
     "title": "Maca en Polvo",
-    "photo": "maca.jpg",
+    "photo": "https://http2.mlstatic.com/D_NQ_NP_605365-MLA75036396803_032024-O.webp",
     "category": "suplementos",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "43a6a2c310ea60fb3e460bf8",
+    "id": "aabf088d7319957b0c05315c",
     "title": "Tofu Orgánico",
-    "photo": "tofu.jpg",
+    "photo": "https://http2.mlstatic.com/D_NQ_NP_2X_934310-MLA71639100335_092023-F.webp",
     "category": "proteinas",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "170894e8a0da4e97659e0298",
+    "id": "f233b3eb227ba442718c0bb9",
     "title": "Batata Orgánica",
-    "photo": "batata.jpg",
+    "photo": "https://www.picturethisai.com/image-handle/website_cmsname/image/1080/154214756469702658.jpeg?x-oss-process=image/format,webp",
     "category": "verduras",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "76e99ec2d8792e26793576c8",
+    "id": "4a6dcc6230c4c17905a4f6a4",
     "title": "Nueces de Brasil",
-    "photo": "nueces.jpg",
+    "photo": "https://belleza-estetica.com.ar/wp-content/uploads/2024/02/propiedades_de_las_nueces_de_brasil_para_adelgazar_y_como_tomarlas_46332_orig.jpg",
     "category": "frutos secos",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "2afa85b5c4bf1765ae24ebd4",
+    "id": "cae2197c200c3c339f17a638",
     "title": "Tempeh de Soja",
-    "photo": "tempeh.jpg",
+    "photo": "https://www.conasi.eu/blog/wp-content/uploads/2015/09/Sliced_tempeh.jpg",
     "category": "proteinas",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "0bce307677b47af2f19cc9d9",
+    "id": "7b2f84d14b4deac5eeeef8e3",
     "title": "Alcachofas en Conserva",
-    "photo": "alcachofas.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "verduras",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "e4adb8db92e320080bf5794b",
+    "id": "e2605d2f0bf147f311aaa8f6",
     "title": "Polen de Abeja",
-    "photo": "polen.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "suplementos",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "5d081afb46bcda7bda450002",
+    "id": "740adff8131616b10e4c027e",
     "title": "Sopa de Tomate Casera",
-    "photo": "sopa_tomate.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "sopas",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "65090172a4c3dced6bfcc780",
+    "id": "66ec697d1541986b4181953e",
     "title": "Espaguetis de Calabacín",
-    "photo": "espaguetis_calabacin.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "verduras",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "062a81fafe7dad900a170a5f",
+    "id": "35cf49d6dd9548d507c3aef4",
     "title": "Chips de Plátano Verde",
-    "photo": "platano_verde.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "snacks",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "f28ecc5e8b68a91591dfcdc3",
+    "id": "5aaa30cc1c764c5eae84e239",
     "title": "Chips de Garbanzos",
-    "photo": "garbanzos_especiados.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "snacks",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "100857b85c9d74fa57926647",
+    "id": "4427ef3b5b8615e88ca73d6d",
     "title": "Levadura Nutricional",
-    "photo": "levadura.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "suplementos",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "58b83f277133ce91adb4e804",
+    "id": "bab974a841de3486192803bc",
     "title": "Kale Orgánico",
-    "photo": "kale.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "verduras",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "588b8b511f501e43b7b8c346",
+    "id": "a7a69ef6be312f0022e151e1",
     "title": "Pistachos",
-    "photo": "pistachos.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "frutos secos",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "360b37676b381f5cd90f601b",
+    "id": "891283dd176bf214bd08d822",
     "title": "Seitan Ahumado",
-    "photo": "seitan.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "proteinas",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "81241742cbadc5190d800bff",
+    "id": "b12acc22e2e6402daa4c049d",
     "title": "Sopa de Lentejas",
-    "photo": "sopa_lentejas.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "sopas",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "6d6b440a925c836921b7feeb",
+    "id": "7f6db3c88645875a4f80a93c",
     "title": "Té Verde Matcha",
-    "photo": "te_matcha.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "bebidas",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "132dff894b3f72dcfe41c34e",
+    "id": "5140bcf9434190bbcc1c7e49",
     "title": "Granola Casera",
-    "photo": "granola.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "cereales",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "db3e3a83e3805269ee82ba1b",
+    "id": "0f3af64a1a00de125f4ce167",
     "title": "Aguacates Hass",
-    "photo": "aguacate.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "frutas",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "12f452abd854172c9f8f9708",
+    "id": "b5c95cc0d66da0ac46fb4c46",
     "title": "Chucrut Casero",
-    "photo": "chucrut.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "fermentados",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "48e7926800d8c68532a61de1",
+    "id": "950b576b534f1f3de04a9b80",
     "title": "Almendras Crudas",
-    "photo": "almendras.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "frutos secos",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "341281396376ca7f0176c74e",
+    "id": "9fbd0d0c891b1cf41956808d",
     "title": "Hummus Casero",
-    "photo": "hummus.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "snacks",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "4255642fbe81b3ae72c36904",
+    "id": "82ff2d1a1c741e0552dcc8b1",
     "title": "Salsa de Tomate",
-    "photo": "salsa_tomate.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "condimentos",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "1dec7f720258c643177be4a4",
+    "id": "247a9bfd6e5e77cd05c1f4b5",
     "title": "Té de Jengibre",
-    "photo": "te_jengibre.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "bebidas",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "36b8076dd533e5a559d0073d",
+    "id": "b03807e1dddad399732ddbcb",
     "title": "Chips de Kale",
-    "photo": "kale_chips.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "snacks",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "a01e196653fedeee4acbbe0d",
+    "id": "a5906286f7e56fa02f34b912",
     "title": "Quinoa Orgánica",
-    "photo": "quinoa.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "cereales",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "b4eac60058a35f27c65c0fbe",
+    "id": "b8b1b524e21d634b790543df",
     "title": "Crema de Almendras",
-    "photo": "crema_almendras.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "frutos secos",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "7e20348d7360535a88ca2f84",
+    "id": "a12c6c45de5bec212377c43e",
     "title": "Champiñones Portobello",
-    "photo": "champinones.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "verduras",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "b447afb9f880c4293cac6e95",
+    "id": "6c23ee883687dd5608d3364b",
     "title": "Sopa de Calabaza",
-    "photo": "sopa_calabaza.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "sopas",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "39c096013b8f0c6235efc201",
+    "id": "e1ae0a17b2febb30ed0999c5",
     "title": "Tortitas de Maíz",
-    "photo": "tortitas_maiz.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "snacks",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "3bf6d0cb4f9ce167ad926a25",
+    "id": "c4b7fed90888f596ca9e2d87",
     "title": "Aceite de Coco Virgen",
-    "photo": "aceite_coco.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "condimentos",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "85e1e41428ac327c3a22a637",
+    "id": "afbeec3c7c4fa715cb00cc84",
     "title": "Té de Hibisco",
-    "photo": "te_hibisco.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "bebidas",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "63fb5570a056cfb079623257",
+    "id": "959978e3d70126aef90c9795",
     "title": "Sopa de Verduras",
-    "photo": "sopa_verduras.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "sopas",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "bbde4f8fccc8d40384f9466e",
+    "id": "e38d2c3d0eda7d04f2016548",
     "title": "Mantequilla de Almendras",
-    "photo": "mantequilla_almendras.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "frutos secos",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "df34f0cac53c8bebb8d28681",
+    "id": "8b36071164abb3db540eaa68",
     "title": "Té de Menta",
-    "photo": "te_menta.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "bebidas",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "ffaac24f32c0992df5903016",
+    "id": "dd19436684421e0a524af0bb",
     "title": "Salsa de Soja Orgánica",
-    "photo": "salsa_soja.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "condimentos",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "db3bb7a6d3dc5d2920e9ef9f",
+    "id": "ad9cad5b6289f26f77cd4acd",
     "title": "Harina de Almendras",
-    "photo": "harina_almendras.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "harinas",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "a714fde986c1f77d951a138b",
+    "id": "d01134295b0a7ff933ee14d3",
     "title": "Galletas de Avena y Pasas",
-    "photo": "galletas_avena.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "snacks",
     "price": 1500,
     "stock": 10
   },
   {
-    "id": "6b8267f45bb798d9ab3f6f4e",
+    "id": "cec0b6c4e70d8e6183b0ec4a",
     "title": "Vinagre de Manzana Orgánico",
-    "photo": "vinagre_manzana.jpg",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
     "category": "condimentos",
     "price": 1500,
     "stock": 10
