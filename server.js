@@ -5,8 +5,8 @@ import morgan from "morgan";
 import { engine } from "express-handlebars";
 import __dirname from "./utils.js";
 
-import indexRouter from "./src/router/index.router.js";
-import socketCb from "./src/router/index.socket.js";
+import indexRouter from "./src/routers/index.router.js";
+import socketCb from "./src/routers/index.socket.js";
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
 
