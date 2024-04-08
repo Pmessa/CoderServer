@@ -1,0 +1,42 @@
+<h1 class="bg-success-subtle p-2 text-center text-success w-100">CODER USERS</h1>
+<section class="d-flex">
+  <article class="d-flex flex-column w-50 align-items-center">
+    <h1 class="text-center">REGISTER FORM!</h1>
+    <form class="d-flex flex-column w-50" method="post" action="http://localhost:8080/api/users/register">
+      <input class="m-2" type="email" name="email" id="email" placeholder="EMAIL">
+      <input class="m-2" type="password" name="password" id="password" placeholder="PASSWORD">
+      <input class="m-2" type="text" name="photo" id="photo" placeholder="PHOTO">
+      <input class="m-2" type="submit" id="register" value="REGISTER">
+    </form>
+  </article>
+  <article id="users" class="d-flex flex-wrap w-50">
+
+  </article>
+</section>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"> </script>
+<script>
+  const socket = io();
+  /*
+  socket.on("users", data => {
+    console.log(data)
+    let template = ``
+    template = data.map(each => `
+      <div class="card m-2" style="width: 12rem">
+          <img style="height: 5rem" src="${each.photo}" class="card-img-top object-fit-cover" alt="${each.id}">
+          <div class="card-body">
+            <h5 class="card-title">${each.email}</each></h5>
+         </div>
+      </div>
+    `
+    ).join("")
+    document.querySelector("#users").innerHTML = template
+  })
+  document.querySelector("#register").addEventListener("click", (event) => {
+    const email = document.querySelector("#email").value
+    const password = document.querySelector("#password").value
+    const photo = document.querySelector("#photo").value
+    socket.emit("register", { email, password, photo})
+  }) */
+
+
+</script>

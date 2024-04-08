@@ -14,6 +14,14 @@ usersRouter.get("/", async (req, res, next) => {
     }
 
 })
+usersRouter.get("/register", async (req, res, next)=>{
+    try {
+        return res.render("register")
+    } catch (error) {
+        return next(error)
+    }
+})
+
 usersRouter.get("/:uid", async (req, res, next) => {
     try {
         const { uid } = req.params
@@ -24,5 +32,6 @@ usersRouter.get("/:uid", async (req, res, next) => {
         
     }
 })
+
 
 export default usersRouter;

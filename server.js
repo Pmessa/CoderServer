@@ -13,6 +13,7 @@ import pathHandler from "./src/middlewares/pathHandler.mid.js";
 
 //Server
 const server = express();
+
 //Se crea el servidor
 const port = 8080;
 const ready = () => console.log("server ready on port" + port);

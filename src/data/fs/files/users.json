@@ -40,5 +40,33 @@
     "email": "seba@coder.com",
     "password": "coder",
     "role": 0
+  },
+  {
+    "id": "aba30ddcf13e472436b91cd7",
+    "photo": "123",
+    "email": "sebasavila81@gmail.com",
+    "password": "123456",
+    "role": 0
+  },
+  {
+    "id": "bc5df772f5829f9ef82384c3",
+    "photo": "123456",
+    "email": "sebasavila81@gmail.com",
+    "password": "123",
+    "role": 0
+  },
+  {
+    "id": "3f1f3673c51d0d87bd8bf25d",
+    "photo": "123456",
+    "email": "sebasavila81@gmail.com",
+    "password": "123",
+    "role": 0
+  },
+  {
+    "id": "1795e17852b74c28cbd128fd",
+    "photo": "123",
+    "email": "sebasavila81@gmail.com",
+    "password": "123",
+    "role": 0
   }
 ]

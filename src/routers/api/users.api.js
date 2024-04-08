@@ -3,11 +3,14 @@ import usersManager from "../../data/fs/UsersManager.fs.js";
 
 const usersRouter = Router();
 
+usersRouter.post("/register", create);
 usersRouter.post("/", create);
 usersRouter.get("/", read);
 usersRouter.get("/:uid", readOne);
 usersRouter.put("/:uid", update);
 usersRouter.delete("/:uid", destroy);
+usersRouter.get("/register", read);
+
 
 async function create(req, res, next) {
     try {
