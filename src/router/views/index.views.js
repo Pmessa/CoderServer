@@ -4,7 +4,7 @@ import productsRouter from "./products.views.js";
 const viewsRouter = Router();
 
 viewsRouter.use("/products", productsRouter);
-viewsRouter.get("/home", (req, res, next)=>{
+viewsRouter.get("/", (req, res, next)=>{
     try {
         return res.render("index", {title:"HOME"})
     } catch (error) {
