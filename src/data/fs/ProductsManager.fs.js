@@ -127,7 +127,7 @@ async function test() {
   try {
     await productsManager.create({
       title: "Cúrcuma en Polvo",
-      photo: "curcuma.jpg",
+      photo: "https://images.hola.com/imagenes/cocina/noticiaslibros/20200525168692/curcuma-polvo-infusion-capsulas-mejor-opcion/0-976-647/curcuma-adobe-t.jpg?tx=w_1200",
       category: "suplementos",
       price: 1500,
       stock: 10,
@@ -135,7 +135,7 @@ async function test() {
 
     await productsManager.create({
       title: "Maca en Polvo",
-      photo: "maca.jpg",
+      photo: "https://http2.mlstatic.com/D_NQ_NP_605365-MLA75036396803_032024-O.webp",
       category: "suplementos",
       price: 1500,
       stock: 10,
@@ -143,7 +143,7 @@ async function test() {
 
     await productsManager.create({
       title: "Tofu Orgánico",
-      photo: "tofu.jpg",
+      photo: "https://http2.mlstatic.com/D_NQ_NP_2X_934310-MLA71639100335_092023-F.webp",
       category: "proteinas",
       price: 1500,
       stock: 10,
@@ -151,7 +151,7 @@ async function test() {
 
     await productsManager.create({
       title: "Batata Orgánica",
-      photo: "batata.jpg",
+      photo: "https://www.picturethisai.com/image-handle/website_cmsname/image/1080/154214756469702658.jpeg?x-oss-process=image/format,webp",
       category: "verduras",
       price: 1500,
       stock: 10,
@@ -159,7 +159,7 @@ async function test() {
 
     await productsManager.create({
       title: "Nueces de Brasil",
-      photo: "nueces.jpg",
+      photo: "https://belleza-estetica.com.ar/wp-content/uploads/2024/02/propiedades_de_las_nueces_de_brasil_para_adelgazar_y_como_tomarlas_46332_orig.jpg",
       category: "frutos secos",
       price: 1500,
       stock: 10,
@@ -167,7 +167,7 @@ async function test() {
 
     await productsManager.create({
       title: "Tempeh de Soja",
-      photo: "tempeh.jpg",
+      photo: "https://www.conasi.eu/blog/wp-content/uploads/2015/09/Sliced_tempeh.jpg",
       category: "proteinas",
       price: 1500,
       stock: 10,
@@ -175,7 +175,7 @@ async function test() {
 
     await productsManager.create({
       title: "Alcachofas en Conserva",
-      photo: "alcachofas.jpg",
+      photo: "",
       category: "verduras",
       price: 1500,
       stock: 10,
@@ -183,7 +183,7 @@ async function test() {
 
     await productsManager.create({
       title: "Polen de Abeja",
-      photo: "polen.jpg",
+      photo: "",
       category: "suplementos",
       price: 1500,
       stock: 10,
@@ -191,7 +191,7 @@ async function test() {
 
     await productsManager.create({
       title: "Sopa de Tomate Casera",
-      photo: "sopa_tomate.jpg",
+      photo: "",
       category: "sopas",
       price: 1500,
       stock: 10,
@@ -199,7 +199,7 @@ async function test() {
 
     await productsManager.create({
       title: "Espaguetis de Calabacín",
-      photo: "espaguetis_calabacin.jpg",
+      photo: "",
       category: "verduras",
       price: 1500,
       stock: 10,
@@ -207,14 +207,14 @@ async function test() {
 
     await productsManager.create({
       title: "Chips de Plátano Verde",
-      photo: "platano_verde.jpg",
+      photo: "",
       category: "snacks",
       price: 1500,
       stock: 10,
     });
     await productsManager.create({
       title: "Chips de Garbanzos",
-      photo: "garbanzos_especiados.jpg",
+      photo: "",
       category: "snacks",
       price: 1500,
       stock: 10,
@@ -222,7 +222,7 @@ async function test() {
 
     await productsManager.create({
       title: "Levadura Nutricional",
-      photo: "levadura.jpg",
+      photo: "",
       category: "suplementos",
       price: 1500,
       stock: 10,
@@ -230,7 +230,7 @@ async function test() {
 
     await productsManager.create({
       title: "Kale Orgánico",
-      photo: "kale.jpg",
+      photo: "",
       category: "verduras",
       price: 1500,
       stock: 10,
@@ -238,7 +238,7 @@ async function test() {
 
     await productsManager.create({
       title: "Pistachos",
-      photo: "pistachos.jpg",
+      photo: "",
       category: "frutos secos",
       price: 1500,
       stock: 10,
@@ -246,7 +246,7 @@ async function test() {
 
     await productsManager.create({
       title: "Seitan Ahumado",
-      photo: "seitan.jpg",
+      photo: "",
       category: "proteinas",
       price: 1500,
       stock: 10,
@@ -254,7 +254,7 @@ async function test() {
 
     await productsManager.create({
       title: "Sopa de Lentejas",
-      photo: "sopa_lentejas.jpg",
+      photo: "",
       category: "sopas",
       price: 1500,
       stock: 10,
@@ -262,7 +262,7 @@ async function test() {
 
     await productsManager.create({
       title: "Té Verde Matcha",
-      photo: "te_matcha.jpg",
+      photo: "",
       category: "bebidas",
       price: 1500,
       stock: 10,
@@ -270,7 +270,7 @@ async function test() {
 
     await productsManager.create({
       title: "Granola Casera",
-      photo: "granola.jpg",
+      photo: "",
       category: "cereales",
       price: 1500,
       stock: 10,
@@ -278,7 +278,7 @@ async function test() {
 
     await productsManager.create({
       title: "Aguacates Hass",
-      photo: "aguacate.jpg",
+      photo: "",
       category: "frutas",
       price: 1500,
       stock: 10,
@@ -286,7 +286,7 @@ async function test() {
 
     await productsManager.create({
       title: "Chucrut Casero",
-      photo: "chucrut.jpg",
+      photo: "",
       category: "fermentados",
       price: 1500,
       stock: 10,
@@ -294,7 +294,7 @@ async function test() {
 
     await productsManager.create({
       title: "Almendras Crudas",
-      photo: "almendras.jpg",
+      photo: "",
       category: "frutos secos",
       price: 1500,
       stock: 10,
@@ -302,7 +302,7 @@ async function test() {
 
     await productsManager.create({
       title: "Hummus Casero",
-      photo: "hummus.jpg",
+      photo: "",
       category: "snacks",
       price: 1500,
       stock: 10,
@@ -310,7 +310,7 @@ async function test() {
 
     await productsManager.create({
       title: "Salsa de Tomate",
-      photo: "salsa_tomate.jpg",
+      photo: "",
       category: "condimentos",
       price: 1500,
       stock: 10,
@@ -318,7 +318,7 @@ async function test() {
 
     await productsManager.create({
       title: "Té de Jengibre",
-      photo: "te_jengibre.jpg",
+      photo: "",
       category: "bebidas",
       price: 1500,
       stock: 10,
@@ -326,7 +326,7 @@ async function test() {
 
     await productsManager.create({
       title: "Chips de Kale",
-      photo: "kale_chips.jpg",
+      photo: "",
       category: "snacks",
       price: 1500,
       stock: 10,
@@ -334,7 +334,7 @@ async function test() {
 
     await productsManager.create({
       title: "Quinoa Orgánica",
-      photo: "quinoa.jpg",
+      photo: "",
       category: "cereales",
       price: 1500,
       stock: 10,
@@ -342,7 +342,7 @@ async function test() {
 
     await productsManager.create({
       title: "Crema de Almendras",
-      photo: "crema_almendras.jpg",
+      photo: "",
       category: "frutos secos",
       price: 1500,
       stock: 10,
@@ -350,7 +350,7 @@ async function test() {
 
     await productsManager.create({
       title: "Champiñones Portobello",
-      photo: "champinones.jpg",
+      photo: "",
       category: "verduras",
       price: 1500,
       stock: 10,
@@ -358,7 +358,7 @@ async function test() {
 
     await productsManager.create({
       title: "Sopa de Calabaza",
-      photo: "sopa_calabaza.jpg",
+      photo: "",
       category: "sopas",
       price: 1500,
       stock: 10,
@@ -366,7 +366,7 @@ async function test() {
 
     await productsManager.create({
       title: "Tortitas de Maíz",
-      photo: "tortitas_maiz.jpg",
+      photo: "",
       category: "snacks",
       price: 1500,
       stock: 10,
@@ -374,7 +374,7 @@ async function test() {
 
     await productsManager.create({
       title: "Aceite de Coco Virgen",
-      photo: "aceite_coco.jpg",
+      photo: "",
       category: "condimentos",
       price: 1500,
       stock: 10,
@@ -382,7 +382,7 @@ async function test() {
 
     await productsManager.create({
       title: "Té de Hibisco",
-      photo: "te_hibisco.jpg",
+      photo: "",
       category: "bebidas",
       price: 1500,
       stock: 10,
@@ -390,7 +390,7 @@ async function test() {
 
     await productsManager.create({
       title: "Sopa de Verduras",
-      photo: "sopa_verduras.jpg",
+      photo: "",
       category: "sopas",
       price: 1500,
       stock: 10,
@@ -398,7 +398,7 @@ async function test() {
 
     await productsManager.create({
       title: "Mantequilla de Almendras",
-      photo: "mantequilla_almendras.jpg",
+      photo: "",
       category: "frutos secos",
       price: 1500,
       stock: 10,
@@ -406,7 +406,7 @@ async function test() {
 
     await productsManager.create({
       title: "Té de Menta",
-      photo: "te_menta.jpg",
+      photo: "",
       category: "bebidas",
       price: 1500,
       stock: 10,
@@ -414,7 +414,7 @@ async function test() {
 
     await productsManager.create({
       title: "Salsa de Soja Orgánica",
-      photo: "salsa_soja.jpg",
+      photo: "",
       category: "condimentos",
       price: 1500,
       stock: 10,
@@ -422,7 +422,7 @@ async function test() {
 
     await productsManager.create({
       title: "Harina de Almendras",
-      photo: "harina_almendras.jpg",
+      photo: "",
       category: "harinas",
       price: 1500,
       stock: 10,
@@ -430,7 +430,7 @@ async function test() {
 
     await productsManager.create({
       title: "Galletas de Avena y Pasas",
-      photo: "galletas_avena.jpg",
+      photo: "",
       category: "snacks",
       price: 1500,
       stock: 10,
@@ -438,7 +438,7 @@ async function test() {
 
     await productsManager.create({
       title: "Vinagre de Manzana Orgánico",
-      photo: "vinagre_manzana.jpg",
+      photo: "",
       category: "condimentos",
       price: 1500,
       stock: 10,

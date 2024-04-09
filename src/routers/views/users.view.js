@@ -28,8 +28,7 @@ usersRouter.get("/:uid", async (req, res, next) => {
         const one = await usersManager.readOne(uid)
         return res.render("details", { user: one})
     } catch (error) {
-        return next(error)
-        
+        return res.render("details")
     }
 })
 

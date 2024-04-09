@@ -18,14 +18,14 @@ class UsersManager {
       const defaultUsers = [
         {
           id: crypto.randomBytes(12).toString("hex"),
-          photo: "fotodaniel.jpg",
+          photo: "/img/persona1.jpg",
           email: "daniel73@gmail.com",
           password: "Daniel123",
           role: 0,
         },
         {
           id: crypto.randomBytes(12).toString("hex"),
-          photo: "fotohector.jpg",
+          photo:  "img/persona1.jpg",
           email: "hector55@gmail.com",
           password: "Hector123",
           role: 0,

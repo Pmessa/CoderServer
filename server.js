@@ -11,7 +11,6 @@ import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
 
 
-//Server
 const server = express();
 
 //Se crea el servidor
@@ -31,12 +30,17 @@ server.set('view engine', 'handlebars')
 server.set('views', __dirname+'/src/views')
 
 //middlewares
-server.use(express.json());//permite leer req.params y req.query
-server.use(express.urlencoded({ extended: true }));//Obligo a mi servidor a usar la funcion encargada de leer parametros/consultas
-server.use(morgan("dev"))
+server.use(express.json()); //permite leer req.params y req.query
+server.use(express.urlencoded({ extended: true })); //Obligo a mi servidor a usar la funcion encargada de leer parametros/consultas
+server.use(morgan("dev"));
+server.use(express.static("public"));
 
+//template engine
+server.engine("handlebars", engine());
+server.set("view engine", "handlebars");
+server.set("views", __dirname + "/src/views");
 
 //endpoints
-server.use("/", indexRouter)
+server.use("/", indexRouter);
 server.use(errorHandler);
 server.use(pathHandler);

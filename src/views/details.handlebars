@@ -1,7 +1,13 @@
 {{#if user.id}}
-    <h1>DETAILS OF USERS {{user.id}}</h1>
-    <p>{{user.email}}</p>
-    <p>{{user.password}}</p>
+    
+    <div class="container text-center d-flex flex-column align-items-center">
+        <h1>DETAILS OF USERS {{user.id}}</h1>
+    <div class="card" style="width: 18rem;">
+  <img src="{{user.photo}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">{{user.email}}</p>
+  </div>
+</div></div>
 {{else}}
     <h1>USER NOT FOUND</h1>
 {{/if}}
