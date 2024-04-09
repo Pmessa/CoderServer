@@ -28,7 +28,7 @@ class ProductsManager {
           title: data.title,
           photo:
             data.photo ||
-            "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
+            "https://www.grandespymes.com.ar/wp-content/uploads/2020/10/nuevo-producto-830x518.jpg",
           category: data.category || "without category",
           price: parseInt(data.price) || 1,
           stock: parseInt(data.stock) || 1,
@@ -175,23 +175,23 @@ async function test() {
 
     await productsManager.create({
       title: "Alcachofas en Conserva",
-      photo: "",
+      photo: "https://gastroactivity.com/wp-content/uploads/2020/04/conserva-de-alcachofas-escaldadas.jpg",
       category: "verduras",
       price: 1500,
       stock: 10,
     });
 
     await productsManager.create({
-      title: "Polen de Abeja",
-      photo: "",
-      category: "suplementos",
+      title: "Germen de trigo",
+      photo: "https://cdn0.ecologiaverde.com/es/posts/4/5/6/germen_de_trigo_propiedades_beneficios_y_contraindicaciones_2654_600.webp",
+      category: "cereal",
       price: 1500,
       stock: 10,
     });
 
     await productsManager.create({
       title: "Sopa de Tomate Casera",
-      photo: "",
+      photo: "https://www.alqueria.com.co/sites/default/files/styles/1327_612/public/receta-de-sopa-de-tomate_3_0.jpg?h=2dfa7a18&itok=VFyI4FsH",
       category: "sopas",
       price: 1500,
       stock: 10,
@@ -199,7 +199,7 @@ async function test() {
 
     await productsManager.create({
       title: "Espaguetis de Calabacín",
-      photo: "",
+      photo: "https://imag.bonviveur.com/emplatado-y-presentacion-final-de-los-espaguetis-de-calabacin-crudos-con-tomates-cherry-y-queso-partisano.webp",
       category: "verduras",
       price: 1500,
       stock: 10,
@@ -207,14 +207,14 @@ async function test() {
 
     await productsManager.create({
       title: "Chips de Plátano Verde",
-      photo: "",
+      photo: "https://cdn0.recetasgratis.net/es/posts/9/8/9/chips_de_platano_verde_con_guacamole_50989_600.webp",
       category: "snacks",
       price: 1500,
       stock: 10,
     });
     await productsManager.create({
       title: "Chips de Garbanzos",
-      photo: "",
+      photo: "https://d36fw6y2wq3bat.cloudfront.net/recipes/snack-de-garbanzos-crujientes/900/snack-de-garbanzos-crujientes.jpg",
       category: "snacks",
       price: 1500,
       stock: 10,
@@ -222,7 +222,7 @@ async function test() {
 
     await productsManager.create({
       title: "Levadura Nutricional",
-      photo: "",
+      photo: "https://static.tuasaude.com/media/article/ca/cc/levedura-nutricional_20864_l.jpg",
       category: "suplementos",
       price: 1500,
       stock: 10,
@@ -230,7 +230,7 @@ async function test() {
 
     await productsManager.create({
       title: "Kale Orgánico",
-      photo: "",
+      photo: "https://tienda.gomc.com.ar/wp-content/uploads/kale.jpg",
       category: "verduras",
       price: 1500,
       stock: 10,
@@ -238,7 +238,7 @@ async function test() {
 
     await productsManager.create({
       title: "Pistachos",
-      photo: "",
+      photo: "https://i.blogs.es/2cd175/pistachos/1366_2000.jpeg",
       category: "frutos secos",
       price: 1500,
       stock: 10,
@@ -246,7 +246,7 @@ async function test() {
 
     await productsManager.create({
       title: "Seitan Ahumado",
-      photo: "",
+      photo: "https://happyvegannie.com/wp-content/uploads/2023/06/seitan-1.jpg",
       category: "proteinas",
       price: 1500,
       stock: 10,
@@ -254,7 +254,7 @@ async function test() {
 
     await productsManager.create({
       title: "Sopa de Lentejas",
-      photo: "",
+      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJWz-gDAwBusZBm6ujpv7rcV_tjKNa43rvFpUn8OtiQg&s",
       category: "sopas",
       price: 1500,
       stock: 10,
@@ -262,7 +262,7 @@ async function test() {
 
     await productsManager.create({
       title: "Té Verde Matcha",
-      photo: "",
+      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH5uWliNJww7zDNV-N2G0t13_XAE0BrUZAirOM2-qJ2A&s",
       category: "bebidas",
       price: 1500,
       stock: 10,
@@ -270,7 +270,7 @@ async function test() {
 
     await productsManager.create({
       title: "Granola Casera",
-      photo: "",
+      photo: "https://images.cookforyourlife.org/wp-content/uploads/2018/08/shutterstock_239599594-min.jpg",
       category: "cereales",
       price: 1500,
       stock: 10,
@@ -278,7 +278,7 @@ async function test() {
 
     await productsManager.create({
       title: "Aguacates Hass",
-      photo: "",
+      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7MgpXwanqSArQHGPUmZndhWFu_3oAIYR8N3er2QKXXA&s",
       category: "frutas",
       price: 1500,
       stock: 10,
@@ -286,7 +286,7 @@ async function test() {
 
     await productsManager.create({
       title: "Chucrut Casero",
-      photo: "",
+      photo: "https://www.topgastronomico.es/wp-content/uploads/2021/11/Chucrut.jpg",
       category: "fermentados",
       price: 1500,
       stock: 10,
@@ -294,7 +294,7 @@ async function test() {
 
     await productsManager.create({
       title: "Almendras Crudas",
-      photo: "",
+      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROke8Kb1kw-PHiWWr74H7rNfacciqMpSJtKw&s",
       category: "frutos secos",
       price: 1500,
       stock: 10,
@@ -302,7 +302,7 @@ async function test() {
 
     await productsManager.create({
       title: "Hummus Casero",
-      photo: "",
+      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpMdgXOYZGFOe4H7011x9NcYSmU8DPurkorlxjVYQHjg&s",
       category: "snacks",
       price: 1500,
       stock: 10,
@@ -310,7 +310,7 @@ async function test() {
 
     await productsManager.create({
       title: "Salsa de Tomate",
-      photo: "",
+      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRdSkZ2spjph65I_giIwVou8G1-i2_31hokLRvrp88ww&s",
       category: "condimentos",
       price: 1500,
       stock: 10,
@@ -318,7 +318,7 @@ async function test() {
 
     await productsManager.create({
       title: "Té de Jengibre",
-      photo: "",
+      photo: "https://www.recetas-japonesas.com/base/stock/Recipe/15-image/15-image_web.jpg.webp",
       category: "bebidas",
       price: 1500,
       stock: 10,
@@ -326,7 +326,7 @@ async function test() {
 
     await productsManager.create({
       title: "Chips de Kale",
-      photo: "",
+      photo: "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/2/21/0/MN0405H_crispy-kale-chips_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1580140162715.jpeg",
       category: "snacks",
       price: 1500,
       stock: 10,
@@ -334,7 +334,7 @@ async function test() {
 
     await productsManager.create({
       title: "Quinoa Orgánica",
-      photo: "",
+      photo: "https://cdn.shopify.com/s/files/1/0267/9200/1582/files/La-Cesteria-Mercado-Saludable-Quinoa-Organica3.jpg?v=1654811089",
       category: "cereales",
       price: 1500,
       stock: 10,
@@ -342,7 +342,7 @@ async function test() {
 
     await productsManager.create({
       title: "Crema de Almendras",
-      photo: "",
+      photo: "https://www.conasi.eu/blog/wp-content/uploads/2020/08/crema-de-almendras-con-personal-blender-44-1.jpg",
       category: "frutos secos",
       price: 1500,
       stock: 10,
@@ -350,7 +350,7 @@ async function test() {
 
     await productsManager.create({
       title: "Champiñones Portobello",
-      photo: "",
+      photo: "https://4.bp.blogspot.com/-9ABTFp5qxE4/XIidpjklglI/AAAAAAAAasc/Zspw-qawV3ExHuTV5SPW4LWOq-LVmd6WQCLcBGAs/s640/2895032438_512ba982bc.jpg",
       category: "verduras",
       price: 1500,
       stock: 10,
@@ -358,7 +358,7 @@ async function test() {
 
     await productsManager.create({
       title: "Sopa de Calabaza",
-      photo: "",
+      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUKUxI70r3ef8OqZyDfprK5viYzEoD-0cLM4_NcxIgQg&s",
       category: "sopas",
       price: 1500,
       stock: 10,
@@ -366,7 +366,7 @@ async function test() {
 
     await productsManager.create({
       title: "Tortitas de Maíz",
-      photo: "",
+      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFgfx5q6bWIMvnXi9RluPO-GnVtDOl2k6WO1_bQq8SRA&s",
       category: "snacks",
       price: 1500,
       stock: 10,
@@ -374,7 +374,7 @@ async function test() {
 
     await productsManager.create({
       title: "Aceite de Coco Virgen",
-      photo: "",
+      photo: "https://www.almacenholistico.com/wp-content/uploads/2015/07/aceite_coco2.jpg",
       category: "condimentos",
       price: 1500,
       stock: 10,
@@ -382,7 +382,7 @@ async function test() {
 
     await productsManager.create({
       title: "Té de Hibisco",
-      photo: "",
+      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2GzvcWeLcZoQfFsS127Yb-5gRpVHqf6SkRyjTmEsPtQ&s",
       category: "bebidas",
       price: 1500,
       stock: 10,
@@ -390,7 +390,7 @@ async function test() {
 
     await productsManager.create({
       title: "Sopa de Verduras",
-      photo: "",
+      photo: "https://www.comedera.com/wp-content/uploads/2013/05/sopa-de-verduras-1.jpg",
       category: "sopas",
       price: 1500,
       stock: 10,
@@ -398,7 +398,7 @@ async function test() {
 
     await productsManager.create({
       title: "Mantequilla de Almendras",
-      photo: "",
+      photo: "https://www.tuhogar.com/content/dam/cp-sites/home-care/tu-hogar/es_mx/recetas/comida-saludable/como-hacer-mantequilla-de-almendras/mantequilla-de-almendras-axion-.jpg",
       category: "frutos secos",
       price: 1500,
       stock: 10,
@@ -406,7 +406,7 @@ async function test() {
 
     await productsManager.create({
       title: "Té de Menta",
-      photo: "",
+      photo: "https://content.clara.es/medio/2023/07/31/te-menta-piperita_95ba1dca_230731125424_1280x886.jpg",
       category: "bebidas",
       price: 1500,
       stock: 10,
@@ -414,7 +414,7 @@ async function test() {
 
     await productsManager.create({
       title: "Salsa de Soja Orgánica",
-      photo: "",
+      photo: "https://acdn.mitiendanube.com/stores/001/129/542/products/soja-yamasa-21-c182da47fded8278e317042451379886-1024-1024.jpg",
       category: "condimentos",
       price: 1500,
       stock: 10,
@@ -422,7 +422,7 @@ async function test() {
 
     await productsManager.create({
       title: "Harina de Almendras",
-      photo: "",
+      photo: "https://neufood.com.ar/wp-content/uploads/2022/05/harina-de-almendras1-4d993e44b85fbeb45c15887161412979-640-0.jpg",
       category: "harinas",
       price: 1500,
       stock: 10,
@@ -430,7 +430,7 @@ async function test() {
 
     await productsManager.create({
       title: "Galletas de Avena y Pasas",
-      photo: "",
+      photo: "https://galletasavena.com/wp-content/uploads/2018/08/6.-galletas-de-avena-y-pasas.jpg",
       category: "snacks",
       price: 1500,
       stock: 10,
@@ -438,7 +438,7 @@ async function test() {
 
     await productsManager.create({
       title: "Vinagre de Manzana Orgánico",
-      photo: "",
+      photo: "https://cdn0.ecologiaverde.com/es/posts/2/7/1/como_hacer_vinagre_de_manzana_organico_en_casa_1172_600.webp",
       category: "condimentos",
       price: 1500,
       stock: 10,
