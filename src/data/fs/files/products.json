@@ -1,5 +1,13 @@
 [
   {
+    "id": "7cb819dc1cc9fa5136ac2f64",
+    "title": "nuevo producto",
+    "photo": "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY=",
+    "category": "without category",
+    "price": 1,
+    "stock": 1
+  },
+  {
     "id": "bdefb6ced9eacd65f6fc5c02",
     "title": "Cúrcuma en Polvo",
     "photo": "https://images.hola.com/imagenes/cocina/noticiaslibros/20200525168692/curcuma-polvo-infusion-capsulas-mejor-opcion/0-976-647/curcuma-adobe-t.jpg?tx=w_1200",

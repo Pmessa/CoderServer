@@ -44,7 +44,7 @@ class ProductsManager {
         if (isDuplicate) {
           //No hace nada
         } else {
-          all.push(newProduct);
+          all.unshift(newProduct);
 
           all = JSON.stringify(all, null, 2);
           await fs.promises.writeFile(this.path, all);

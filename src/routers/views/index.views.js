@@ -1,14 +1,16 @@
 import { Router } from "express";
+import productsManager from "../../data/fs/ProductsManager.fs.js";
 import productsRouter from "./products.views.js";
 
 const viewsRouter = Router();
 
-viewsRouter.use("/products", productsRouter);
-viewsRouter.get("/", (req, res, next)=>{
+viewsRouter.use("/products/real", productsRouter);
+viewsRouter.get("/", async(req, res, next)=>{
     try {
-        return res.render("index", {title:"HOME"})
+        const products = await productsManager.read();
+        return res.render("index", {products})
     } catch (error) {
-        next(error)
+       return next(error)
     }
 })
 
