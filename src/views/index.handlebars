@@ -1,78 +1,17 @@
-<h1 class="bg-primary-subtle p-2 text-center text-secondary">PRODUCTS</h1>
-<section class="d-flex">
-  <article id="register" class="w-50">
-    <h1 class="text-center">NEW PRODUCT</h1>
-    <form class="d-flex flex-column m-5">
-      <label for="title">Titulo: </label>
-      <input
-        class="m-2"
-        type="text"
-        name="title"
-        id="title"
-        placeholder="Ingrese el título"
-      />
-      <label for="photo">Imagen: </label>
-      <input
-        class="m-2"
-        type="text"
-        name="photo"
-        id="photo"
-        placeholder="Ingrese la URL de la imágen"
-      />
-      <label for="category">Categoría: </label>
-      <input
-        class="m-2"
-        type="text"
-        name="category"
-        id="category"
-        placeholder="Ingrese la categoría"
-      />
-      <label for="price">Precio: </label>
-      <input
-        class="m-2"
-        type="number"
-        name="price"
-        id="price"
-        placeholder="Ingrese el precio"
-      />
-      <label for="price">Stock: </label>
-      <input
-        class="m-2"
-        type="number"
-        name="stock"
-        id="stock"
-        placeholder="Ingrese el stock"
-      />
 
-      <input
-        style=" width:50%; margin:2rem auto; background-color:rgb(115, 115, 197); border-radius:8px;"
-        type="button"
-        value="CREAR PRODUCTO"
-        id="create"
-      />
+<h1 class="text-center m-2">Productos!</h1>
+<main class="d-flex justify-content-around flex-wrap" style="box-shadow: 0 0 10px rgb(158, 190, 245)">
+  {{#each products}}
+    <div class="card" style="width: 15rem; margin:.5rem;box-shadow: 0 5px 5px rgb(81, 115, 175)">
+      <img style="height:10rem" src={{this.photo}} class="card-img-top" />
+      <div class="card-body">
+        <h5 class="card-title">{{this.title}}</h5>
+        <p class="card-text">Category: {{this.category}}</p>
+        <p class="card-text">Stock: {{this.stock}}</p>
+        <p class="card-text">Price: ${{this.price}}</p>
+        <a href={{this.id}} class="btn btn-primary">DETAILS</a>
+      </div>
+    </div>
 
-    </form>
-  </article>
-  <article id="products" class="d-flex flex-wrap w-50"></article>
-</section>
-
-<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
-<script>
-  const socket = io(); socket.on("products", data=>{ console.log(data) let
-  template = `` template = data.map(each=> ` <div class="card m-3"
-  style="width:18rem;"> <img style="height:10rem" src="${each.photo}"
-  class="card-img-top" alt="imagen del producto ${each.id}"> <div
-  class="card-body"> <h5 class="card-title">${each.title}</h5> <p
-  class="card-text">Category: ${each.category}</p> <p class="card-text">stock:
-  ${each.stock}</p> <p class="card-text">Price $ ${each.price}</p> <a href="#"
-  class="btn btn-primary">Go somewhere</a> </div> </div>` ).join("")
-  document.querySelector("#products").innerHTML = template })
-  document.querySelector("#create").addEventListener("click", (event)=>{ const
-  title = document.querySelector("#title").value const photo =
-  document.querySelector("#photo").value const category =
-  document.querySelector("#category").value const stock =
-  document.querySelector("#stock").value const price =
-  document.querySelector("#price").value socket.emit("createProduct", {title,
-  photo, category, stock, price}) })
-
-</script>
+  {{/each}}
+</main>

@@ -33,6 +33,12 @@
     "email": "sebasavila81@gmail.com",
     "password": "Sebas456",
     "role": 0
+  },
+  {
+    "id": "d485a2eb2ada164fc2f4ac0b",
+    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
+    "email": "sebasavila81@gmail.com",
+    "password": "123",
+    "role": 0
   }
-  
 ]
