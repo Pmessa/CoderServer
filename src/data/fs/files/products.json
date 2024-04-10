@@ -1,5 +1,13 @@
 [
   {
+    "id": "1d217149915968154a9e6c74",
+    "title": "producto creado desde form ",
+    "photo": "https://www.grandespymes.com.ar/wp-content/uploads/2020/10/nuevo-producto-830x518.jpg",
+    "category": "without category",
+    "price": 1,
+    "stock": 1
+  },
+  {
     "id": "381d06f2a48576cd0a2f1d86",
     "title": "Producto creado desde formulario",
     "photo": "https://www.grandespymes.com.ar/wp-content/uploads/2020/10/nuevo-producto-830x518.jpg",

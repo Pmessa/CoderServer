@@ -79,4 +79,3 @@ Error Handler: Middleware para manejar errores y devolver una respuesta JSON con
 Path Handler: Middleware para manejar las rutas no encontradas y devolver un mensaje JSON indicando que la ruta no existe.
 Para el manejo de errores y rutas no encontradas, se utilizan los middlewares errorHandler y pathHandler respectivamente.
 
-

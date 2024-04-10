@@ -18,14 +18,14 @@ class UsersManager {
       const defaultUsers = [
         {
           id: crypto.randomBytes(12).toString("hex"),
-          photo: "fotodaniel.jpg",
+          photo: "/img/persona1.jpg",
           email: "daniel73@gmail.com",
           password: "Daniel123",
           role: 0,
         },
         {
           id: crypto.randomBytes(12).toString("hex"),
-          photo: "fotohector.jpg",
+          photo:  "img/persona1.jpg",
           email: "hector55@gmail.com",
           password: "Hector123",
           role: 0,
@@ -66,13 +66,11 @@ class UsersManager {
         const user = {
           id: crypto.randomBytes(12).toString("hex"),
           //Si no proporcionan la foto se usa una predeterminada
-          photo:
-            data.photo ||
-            "https://cdn-icons-png.freepik.com/512/266/266033.png",
+          photo: data.photo || "https://cdn-icons-png.freepik.com/512/266/266033.png",
           email: data.email,
           password: data.password,
-          role: data.role || 0,
-        };
+          role: data.role || 0, 
+        }
         //Lee todos los usuarios del archivo
         let all = await fs.promises.readFile(this.path, "utf-8");
         //Convierte los usuarios en formato JSON a un objeto JS
@@ -231,3 +229,4 @@ async function test() {
 
 const usersManager = new UsersManager();
 export default usersManager;
+
