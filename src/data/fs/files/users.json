@@ -40,5 +40,12 @@
     "email": "sebasavila81@gmail.com",
     "password": "123",
     "role": 0
+  },
+  {
+    "id": "264f4a7f052815b12bf95723",
+    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
+    "email": "pablo@prueba.com",
+    "password": "1234",
+    "role": 0
   }
 ]
