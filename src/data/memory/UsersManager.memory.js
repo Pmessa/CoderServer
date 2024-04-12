@@ -1,11 +1,13 @@
+import crypto from "crypto";
 const crypto = require("crypto");
 
 class UsersManager {
   static #users = [];
+  static #userId = [];
   create(data) {
     try {
       const user = {
-        id:data.id || crypto.randomBytes(12).toString('hex'),
+        id: data.id || crypto.randomBytes(12).toString('hex'),
         photo: data.photo || "https://cdn-icons-png.freepik.com/512/266/266033.png",
         email: data.email,
         password: data.password,
@@ -45,36 +47,53 @@ class UsersManager {
   destroy(id) {
     try {
       const userToRemove = this.readOne(id);
-      const within = UsersManager.#users.filter((each) => each.id !== id); 
+      const within = UsersManager.#users.filter((each) => each.id !== id);
       UsersManager.#users = within;
       console.log(within)
       console.log("USER DELETED");
       return userToRemove; 
     } catch (error) {
-      throw error; 
+      throw error;
+    }
+  }
+  update(id, newData) {
+    try {
+      const userToUpdate = this.readOne(id);
+
+      if (!userToUpdate) {
+        throw new Error("User not found");
+      }
+
+      for (const prop in newData) {
+        userToUpdate[prop] = newData[prop];
+      }
+
+      return userToUpdate;
+    } catch (error) {
+      throw error;
     }
   }
   
-
 }
 const gestorDeUsuarios = new UsersManager();
 
-gestorDeUsuarios.create({
+
+let user1 = gestorDeUsuarios.create({
   photo: "photojorge.jpg",
   email: "jorge18@gmail.com",
   password: "Passjorge",
 }); // crear un nuevo usuario
-gestorDeUsuarios.create({
+let user2 = gestorDeUsuarios.create({
   photo: "photocarlos.jpg",
   email: "carlos17@gmail.com",
   password: "PassCarlos",
 }); // crear un nuevo usuario
-gestorDeUsuarios.create({
+let user3 = gestorDeUsuarios.create({
   photo: "photoluis.jpg",
   email: "luis13@gmail.com",
   password: "Passluis",
 }); // crear un nuevo usuario
-gestorDeUsuarios.create({
+let user4 = gestorDeUsuarios.create({
   photo: "photojuan.jpg",
   email: "juan701@gmail.com",
   password: "PassJuan",

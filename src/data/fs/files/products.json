@@ -1,0 +1,322 @@
+[
+  {
+    "id": "68d6bfc9b111ecac32dc7e8f",
+    "title": "Cúrcuma en Polvo",
+    "photo": "curcuma.jpg",
+    "category": "suplementos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "b1158a11f1c9e43a920dfac4",
+    "title": "Maca en Polvo",
+    "photo": "maca.jpg",
+    "category": "suplementos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "43a6a2c310ea60fb3e460bf8",
+    "title": "Tofu Orgánico",
+    "photo": "tofu.jpg",
+    "category": "proteinas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "170894e8a0da4e97659e0298",
+    "title": "Batata Orgánica",
+    "photo": "batata.jpg",
+    "category": "verduras",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "76e99ec2d8792e26793576c8",
+    "title": "Nueces de Brasil",
+    "photo": "nueces.jpg",
+    "category": "frutos secos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "2afa85b5c4bf1765ae24ebd4",
+    "title": "Tempeh de Soja",
+    "photo": "tempeh.jpg",
+    "category": "proteinas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "0bce307677b47af2f19cc9d9",
+    "title": "Alcachofas en Conserva",
+    "photo": "alcachofas.jpg",
+    "category": "verduras",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "e4adb8db92e320080bf5794b",
+    "title": "Polen de Abeja",
+    "photo": "polen.jpg",
+    "category": "suplementos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "5d081afb46bcda7bda450002",
+    "title": "Sopa de Tomate Casera",
+    "photo": "sopa_tomate.jpg",
+    "category": "sopas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "65090172a4c3dced6bfcc780",
+    "title": "Espaguetis de Calabacín",
+    "photo": "espaguetis_calabacin.jpg",
+    "category": "verduras",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "062a81fafe7dad900a170a5f",
+    "title": "Chips de Plátano Verde",
+    "photo": "platano_verde.jpg",
+    "category": "snacks",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "f28ecc5e8b68a91591dfcdc3",
+    "title": "Chips de Garbanzos",
+    "photo": "garbanzos_especiados.jpg",
+    "category": "snacks",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "100857b85c9d74fa57926647",
+    "title": "Levadura Nutricional",
+    "photo": "levadura.jpg",
+    "category": "suplementos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "58b83f277133ce91adb4e804",
+    "title": "Kale Orgánico",
+    "photo": "kale.jpg",
+    "category": "verduras",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "588b8b511f501e43b7b8c346",
+    "title": "Pistachos",
+    "photo": "pistachos.jpg",
+    "category": "frutos secos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "360b37676b381f5cd90f601b",
+    "title": "Seitan Ahumado",
+    "photo": "seitan.jpg",
+    "category": "proteinas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "81241742cbadc5190d800bff",
+    "title": "Sopa de Lentejas",
+    "photo": "sopa_lentejas.jpg",
+    "category": "sopas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "6d6b440a925c836921b7feeb",
+    "title": "Té Verde Matcha",
+    "photo": "te_matcha.jpg",
+    "category": "bebidas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "132dff894b3f72dcfe41c34e",
+    "title": "Granola Casera",
+    "photo": "granola.jpg",
+    "category": "cereales",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "db3e3a83e3805269ee82ba1b",
+    "title": "Aguacates Hass",
+    "photo": "aguacate.jpg",
+    "category": "frutas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "12f452abd854172c9f8f9708",
+    "title": "Chucrut Casero",
+    "photo": "chucrut.jpg",
+    "category": "fermentados",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "48e7926800d8c68532a61de1",
+    "title": "Almendras Crudas",
+    "photo": "almendras.jpg",
+    "category": "frutos secos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "341281396376ca7f0176c74e",
+    "title": "Hummus Casero",
+    "photo": "hummus.jpg",
+    "category": "snacks",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "4255642fbe81b3ae72c36904",
+    "title": "Salsa de Tomate",
+    "photo": "salsa_tomate.jpg",
+    "category": "condimentos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "1dec7f720258c643177be4a4",
+    "title": "Té de Jengibre",
+    "photo": "te_jengibre.jpg",
+    "category": "bebidas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "36b8076dd533e5a559d0073d",
+    "title": "Chips de Kale",
+    "photo": "kale_chips.jpg",
+    "category": "snacks",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "a01e196653fedeee4acbbe0d",
+    "title": "Quinoa Orgánica",
+    "photo": "quinoa.jpg",
+    "category": "cereales",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "b4eac60058a35f27c65c0fbe",
+    "title": "Crema de Almendras",
+    "photo": "crema_almendras.jpg",
+    "category": "frutos secos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "7e20348d7360535a88ca2f84",
+    "title": "Champiñones Portobello",
+    "photo": "champinones.jpg",
+    "category": "verduras",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "b447afb9f880c4293cac6e95",
+    "title": "Sopa de Calabaza",
+    "photo": "sopa_calabaza.jpg",
+    "category": "sopas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "39c096013b8f0c6235efc201",
+    "title": "Tortitas de Maíz",
+    "photo": "tortitas_maiz.jpg",
+    "category": "snacks",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "3bf6d0cb4f9ce167ad926a25",
+    "title": "Aceite de Coco Virgen",
+    "photo": "aceite_coco.jpg",
+    "category": "condimentos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "85e1e41428ac327c3a22a637",
+    "title": "Té de Hibisco",
+    "photo": "te_hibisco.jpg",
+    "category": "bebidas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "63fb5570a056cfb079623257",
+    "title": "Sopa de Verduras",
+    "photo": "sopa_verduras.jpg",
+    "category": "sopas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "bbde4f8fccc8d40384f9466e",
+    "title": "Mantequilla de Almendras",
+    "photo": "mantequilla_almendras.jpg",
+    "category": "frutos secos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "df34f0cac53c8bebb8d28681",
+    "title": "Té de Menta",
+    "photo": "te_menta.jpg",
+    "category": "bebidas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "ffaac24f32c0992df5903016",
+    "title": "Salsa de Soja Orgánica",
+    "photo": "salsa_soja.jpg",
+    "category": "condimentos",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "db3bb7a6d3dc5d2920e9ef9f",
+    "title": "Harina de Almendras",
+    "photo": "harina_almendras.jpg",
+    "category": "harinas",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "a714fde986c1f77d951a138b",
+    "title": "Galletas de Avena y Pasas",
+    "photo": "galletas_avena.jpg",
+    "category": "snacks",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "6b8267f45bb798d9ab3f6f4e",
+    "title": "Vinagre de Manzana Orgánico",
+    "photo": "vinagre_manzana.jpg",
+    "category": "condimentos",
+    "price": 1500,
+    "stock": 10
+  }
+]
