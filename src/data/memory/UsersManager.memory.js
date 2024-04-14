@@ -1,5 +1,4 @@
 import crypto from "crypto";
-const crypto = require("crypto");
 
 class UsersManager {
   static #users = [];
@@ -15,8 +14,12 @@ class UsersManager {
       };
       if (!data.email || !data.password || !data.photo) {
         throw new Error("Email, password, and photo are required");
-      } else UsersManager.#users.push(user);
-      console.log("Created User");
+      } else {
+        UsersManager.#users.push(user);
+        UsersManager.#userId.push(user.id);
+        console.log("Created User");
+        return user;
+      }
     } catch (error) {
       console.log(error);
     }
@@ -25,7 +28,7 @@ class UsersManager {
     try {
       if (UsersManager.#users.length === 0) {
         throw new Error("THERE ARE NO USERS");
-      } else {                    
+      } else {
         return UsersManager.#users;
       }
     } catch (error) {
@@ -51,7 +54,7 @@ class UsersManager {
       UsersManager.#users = within;
       console.log(within)
       console.log("USER DELETED");
-      return userToRemove; 
+      return userToRemove;
     } catch (error) {
       throw error;
     }
@@ -100,5 +103,12 @@ let user4 = gestorDeUsuarios.create({
 }); // crear un nuevo usuario
 
 console.log(gestorDeUsuarios.read());
-console.log(gestorDeUsuarios.readOne(1));
-gestorDeUsuarios.destroy(1);
+console.log(gestorDeUsuarios.readOne(user1.id));
+gestorDeUsuarios.destroy(user4.id);
+user1 = gestorDeUsuarios.update(user1.id, {
+  photo: "newphoto.jpg" ,
+  email: "newemail@gmail.com",
+  password: "newpassword"
+
+})
+console.log(user1);
