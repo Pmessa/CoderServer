@@ -47,5 +47,12 @@
     "email": "pablo@prueba.com",
     "password": "1234",
     "role": 0
+  },
+  {
+    "id": "98ff04b81761e19e64f98a23",
+    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
+    "email": "other",
+    "password": "1234",
+    "role": 0
   }
 ]
