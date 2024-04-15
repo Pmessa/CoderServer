@@ -111,4 +111,6 @@ user1 = gestorDeUsuarios.update(user1.id, {
   password: "newpassword"
 
 })
+
 console.log(user1);
+
