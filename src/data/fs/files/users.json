@@ -1,19 +1,30 @@
 [
   {
+
     "id": "b4d3e78ec352c6834ffc00b8",
     "photo": "/img/persona1.jpg",
+
+    "email": "daniel73@gmail.com",
+    "password": "Daniel123",
+    "role": 0
+  },
+  {
+
     "email": "hector55@gmail.com",
     "password": "Hector123",
     "role": 0
   },
   {
+
     "id": "b2aa0f416adf84e4fc3b1abd",
     "photo": "/img/persona2.jpg",
+
     "email": "cristian33@gmail.com",
     "password": "Cristian123",
     "role": 0
   },
   {
+
     "id": "a79d27870d628a170530b62c",
     "photo": "/img/persona3.jpg",
     "email": "adminsebas@gmail.com",
@@ -40,5 +51,6 @@
     "email": "sebasavila81@gmail.com",
     "password": "123",
     "role": 0
+
   }
 ]
