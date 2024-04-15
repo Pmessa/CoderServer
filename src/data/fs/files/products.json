@@ -1,16 +1,8 @@
 [
   {
-    "id": "abf554984828eaafb4dfc4af",
+    "id": "10ee2b239bffac7b2c3c814f",
     "title": "Desde rama products",
-    "photo": "unaFoto.jpg",
-    "category": "without category",
-    "price": 1,
-    "stock": 1
-  },
-  {
-    "id": "d05598f89df0b2ee8447f62e",
-    "title": "Desde New product",
-    "photo": "https://www.grandespymes.com.ar/wp-content/uploads/2020/10/nuevo-producto-830x518.jpg",
+    "photo": "/assets/letraV_tr.png",
     "category": "without category",
     "price": 1,
     "stock": 1
