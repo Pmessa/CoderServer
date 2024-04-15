@@ -1,4 +1,3 @@
-
 class ProductsManager {
     static #products = [];
   
@@ -9,6 +8,7 @@ class ProductsManager {
             ? 1
             : ProductsManager.#products[ProductsManager.#products.length - 1].id +
               1,
+
 
         title: product.title,
         photo: product.photo,
@@ -62,53 +62,51 @@ class ProductsManager {
     stock: 11000,
   });
   console.log(productManager.read());
-=======
-      // Agregar el nuevo producto al array de productos
-      ProducstManager.#products.push(newProduct);
-    } catch (error) {
-      console.log(error);
+
+    }
+    read() {
+      return ProductsManager.#products;
     }
   }
 
-  // Método para mostrar todos los productos
-  read() {
-    try {
-      if (ProducstManager.#products.length === 0) {
-        throw new Error("No hay productos para mostrar");
-      }
-      return ProducstManager.#products;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  // Método para mostrar un producto específico por su ID
-  readOne(id) {
-    try {
-      const product = ProducstManager.#products.find((p) => p.id === id);
-      if (!product) {
-        throw new Error(`Producto con ID ${id} no encontrado`);
-      }
-      return product;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  // Método para eliminar un producto por su ID
-  destroy(id) {
-    try {
-      this.readOne(id); // Verificar si el producto existe
-      // Filtrar el array de productos para excluir el producto con el ID dado
-      const without = ProducstManager.#products.filter(
-        (each) => each.id !== id
-      );
-      ProducstManager.#products = without; // Actualizar el array de productos
-      console.log("PRODUCTO ELIMINADO");
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  const productManager = new ProductsManager();
+  
+  productManager.create({
+    title: `Manteca de maní`,
+    photo: "mantequilla.jpg",
+    category: `untable`,
+    price: 2500,
+    stock: 1000,
+  });
+  productManager.create({
+    title: `almendras`,
+    photo: "almendras.jpg",
+    category: `Frutos secos`,
+    price: 15000,
+    stock: 1000,
+  });
+  productManager.create({
+    title: `Tofu`,
+    photo: "tofu.jpg",
+    category: `tofu`,
+    price: 150,
+    stock: 1000,
+  });
+  productManager.create({
+    title: `maní`,
+    photo: "maní.jpg",
+    category: `frutos secos`,
+    price: 150,
+    stock: 3000,
+  });
+  productManager.create({
+    title: `Aceite de oliva`,
+    photo: "aceiteDeOliva.jpg",
+    category: `aceites`,
+    price: 150,
+    stock: 11000,
+  });
+  console.log(productManager.read());
 }
 
 // Crear una instancia de ProducstManager
@@ -437,4 +435,5 @@ productsManager.create({
 // console.log(productManager.destroy(2));
 // console.log(productManager.readOne(2));
 // console.log(productManager.destroy(13));
+
 
