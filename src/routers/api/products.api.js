@@ -1,5 +1,7 @@
 import { Router } from "express";
 import productsManager from "../../data/fs/ProductsManager.fs.js";
+import uploader from "../../middlewares/multer.mid.js";
+import isPhoto from "../../middlewares/isPhoto.js";
 
 const productsRouter = Router();
 
