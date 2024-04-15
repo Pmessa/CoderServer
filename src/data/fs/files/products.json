@@ -1,13 +1,5 @@
 [
   {
-    "id": "492ca23d117867ece85a912b",
-    "title": "title desde form",
-    "photo": "/assets/letraV_tr.png",
-    "category": "without category",
-    "price": 1,
-    "stock": 1
-  },
-  {
     "id": "f9ccdb6bf065ee1a88450b6b",
     "title": "Vinagre de Manzana Orgánico",
     "photo": "https://cdn0.ecologiaverde.com/es/posts/2/7/1/como_hacer_vinagre_de_manzana_organico_en_casa_1172_600.webp",
