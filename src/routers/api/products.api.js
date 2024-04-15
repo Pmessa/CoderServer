@@ -1,11 +1,13 @@
 import { Router } from "express";
 import productsManager from "../../data/fs/ProductsManager.fs.js";
+import uploader from "../../middlewares/multer.mid.js";
+import isPhoto from "../../middlewares/isPhoto.js"
 
 const productsRouter = Router();
 
 productsRouter.get("/", read);
-productsRouter.get("/:pid", readOne); 
-productsRouter.post("/", create);
+productsRouter.get("/:pid", readOne);
+productsRouter.post("/", uploader.single("photo"),isPhoto, create);
 productsRouter.put("/:pid", update);
 productsRouter.delete("/:pid", destroy);
 
@@ -16,7 +18,7 @@ async function read(req, res, next) {
     if (all.length > 0) {
       return res.json({
         statusCode: 200,
-        response: all, 
+        response: all,
       });
     } else {
       const error = new Error("Not found!");
@@ -49,6 +51,8 @@ async function readOne(req, res, next) {
 async function create(req, res, next) {
   try {
     const data = req.body;
+    console.log(req.file);
+    console.log(req.body);
     const one = await productsManager.create(data);
     return res.json({
       statusCode: 201,
@@ -85,4 +89,3 @@ async function destroy(req, res, next) {
   }
 }
 export default productsRouter;
-
