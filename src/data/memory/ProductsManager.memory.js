@@ -1,42 +1,68 @@
-const crypto = require("crypto");
 
-// Clase ProducstManager para gestionar productos con métodos de creación, lectura y eliminación
-class ProducstManager {
-  static #products = []; // Array privado para almacenar los productos
+class ProductsManager {
+    static #products = [];
+  
+    create(product) {
+      const user = {
+        id:
+          ProductsManager.#products.length === 0
+            ? 1
+            : ProductsManager.#products[ProductsManager.#products.length - 1].id +
+              1,
 
-  // Método para crear un nuevo producto
-  create(product) {
-    try {
-      // Validar que todos los campos del producto estén completos
-      if (
-        !product.title ||
-        product.title === `` ||
-        !product.photo ||
-        product.photo === "https://media.istockphoto.com/id/1191485264/es/foto/lindo-cachorro-reci%C3%A9n-nacido-de-mini-cerdo-sentado-en-las-manos-del-ser-humano.jpg?s=1024x1024&w=is&k=20&c=LQc8dhebSNo2u5VOtXWEFrp0FCO8AD1CxUepyEzAHmY= "||
-        !product.category ||
-        product.category === `` ||
-        !product.price ||
-        product.price === `` ||
-        !product.stock ||
-        product.title === ``
-      ) {
-        throw new Error("Por favor complete todos los campos del producto");
-      }
-      // Crear un nuevo producto con un ID único e incremental
-      const newProduct = {
-        //id:crypto.randomBytes(12).toString('hex'),
-        id: product.id || crypto.randomBytes(12).toString("hex"),
-
-        // ProducstManager.#products.length === 0
-        //   ? 1
-        //   : ProducstManager.#products[ProducstManager.#products.length - 1]
-        //       .id + 1,
         title: product.title,
         photo: product.photo,
         category: product.category,
         price: product.price,
         stock: product.stock,
       };
+
+      ProductsManager.#products.push(user);
+      console.log("usuario creado");
+    }
+    read() {
+      return ProductsManager.#products;
+    }
+  }
+  const productManager = new ProductsManager();
+  
+  productManager.create({
+    title: `Manteca de maní`,
+    photo: "mantequilla.jpg",
+    category: `untable`,
+    price: 2500,
+    stock: 1000,
+  });
+  productManager.create({
+    title: `almendras`,
+    photo: "almendras.jpg",
+    category: `Frutos secos`,
+    price: 15000,
+    stock: 1000,
+  });
+  productManager.create({
+    title: `Tofu`,
+    photo: "tofu.jpg",
+    category: `tofu`,
+    price: 150,
+    stock: 1000,
+  });
+  productManager.create({
+    title: `maní`,
+    photo: "maní.jpg",
+    category: `frutos secos`,
+    price: 150,
+    stock: 3000,
+  });
+  productManager.create({
+    title: `Aceite de oliva`,
+    photo: "aceiteDeOliva.jpg",
+    category: `aceites`,
+    price: 150,
+    stock: 11000,
+  });
+  console.log(productManager.read());
+=======
       // Agregar el nuevo producto al array de productos
       ProducstManager.#products.push(newProduct);
     } catch (error) {
@@ -411,3 +437,4 @@ productsManager.create({
 // console.log(productManager.destroy(2));
 // console.log(productManager.readOne(2));
 // console.log(productManager.destroy(13));
+
