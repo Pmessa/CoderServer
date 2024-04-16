@@ -2,14 +2,13 @@ import { Router } from "express";
 import productsManager from "../../data/fs/ProductsManager.fs.js";
 import uploader from "../../middlewares/multer.mid.js";
 import isPhoto from "../../middlewares/isPhoto.js"
-
+import isTitle from "../../middlewares/isTitle.js";
+//import isCategory from "../../middlewares/isCategory.js";
 const productsRouter = Router();
 
 productsRouter.get("/", read);
 productsRouter.get("/:pid", readOne);
-productsRouter.post("/", uploader.single("photo"),isPhoto, create);
-productsRouter.get("/:pid", readOne);
-productsRouter.post("/", uploader.single("photo"),isPhoto, create);
+productsRouter.post("/", uploader.single("photo"), isPhoto, isTitle, create);
 productsRouter.put("/:pid", update);
 productsRouter.delete("/:pid", destroy);
 

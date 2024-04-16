@@ -19,40 +19,34 @@ class ProductsManager {
 
   async create(data) {
     try {
-      if (!data.title) {
-        const error = new Error("YOU MUST ENTER THE PRODUCT TITLE");
-        throw error;
+      const newProduct = {
+        id: data.id || crypto.randomBytes(12).toString("hex"),
+        title: data.title,
+        photo: data.photo,
+        category: data.category,
+        price: parseInt(data.price) || 1,
+        stock: parseInt(data.stock) || 1,
+      };
+
+      let all = await fs.promises.readFile(this.path, "utf-8");
+      all = JSON.parse(all);
+
+      // Verificar si el título del nuevo producto ya existe en la lista
+      const isDuplicate = all.find(
+        (product) => product.title === newProduct.title
+      );
+      if (isDuplicate) {
+        //No hace nada
       } else {
-        const newProduct = {
-          id: data.id || crypto.randomBytes(12).toString("hex"),
-          title: data.title,
-          photo:
-            data.photo ||
-            "https://www.grandespymes.com.ar/wp-content/uploads/2020/10/nuevo-producto-830x518.jpg",
-          category: data.category || "without category",
-          price: parseInt(data.price) || 1,
-          stock: parseInt(data.stock) || 1,
-        };
+        all.unshift(newProduct);
 
-        let all = await fs.promises.readFile(this.path, "utf-8");
-        all = JSON.parse(all);
-
-        // Verificar si el título del nuevo producto ya existe en la lista
-        const isDuplicate = all.find(
-          (product) => product.title === newProduct.title
-        );
-        if (isDuplicate) {
-          //No hace nada
-        } else {
-          all.unshift(newProduct);
-
-          all = JSON.stringify(all, null, 2);
-          await fs.promises.writeFile(this.path, all);
-          console.log("Product created:", newProduct.title);
-        }
-        
-        return newProduct;
+        all = JSON.stringify(all, null, 2);
+        await fs.promises.writeFile(this.path, all);
+        console.log("Product created:", newProduct.title);
       }
+
+      return newProduct;
+
     } catch (error) {
       throw error;
     }
