@@ -1,5 +1,5 @@
 import fs from "fs";
-import crypto from "crypto";
+
 
 class ProductsManager {
   constructor() {
@@ -20,12 +20,12 @@ class ProductsManager {
   async create(data) {
     try {
       const newProduct = {
-        id: data.id || crypto.randomBytes(12).toString("hex"),
+        id: data.id,
         title: data.title,
         photo: data.photo,
         category: data.category,
-        price: parseInt(data.price) || 1,
-        stock: parseInt(data.stock) || 1,
+        price: parseInt(data.price),
+        stock: parseInt(data.stock),
       };
 
       let all = await fs.promises.readFile(this.path, "utf-8");

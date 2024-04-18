@@ -1,15 +1,18 @@
 function isCategory(req, res, next) {
     try {
-        const { category } = req.body
-        
+
+        let { category } = req.body
+        console.log(category)
+
+         
         if (!category) {
-            req.body.category = "Without Category"
+         
+           category = "without category"
         } else {
-            return next()
+            return next();
         }
     } catch (error) {
-        return next(error)
+        return next(error);
     }
 }
-export default isCategory
-
+export default isCategory;
