@@ -1,20 +1,7 @@
 [
+
   {
-    "id": "a18ba69d02cd1640cff9e35e",
-    "title": "isPropieties\n",
-    "photo": "https://www.grandespymes.com.ar/wp-content/uploads/2020/10/nuevo-producto-830x518.jpg",
-    "category": "Without category",
-    "price": 1,
-    "stock": 1
-  },
-  {
-    "id": "13ecf6ca5bd70b4b67f6e499",
-    "title": "isProps\n",
-    "photo": "https://www.grandespymes.com.ar/wp-content/uploads/2020/10/nuevo-producto-830x518.jpg",
-    "price": null,
-    "stock": null
-  },
-  {
+    "id": "a4a66aab8652af779174f88a",
     "title": "Vinagre de Manzana Orgánico",
     "photo": "https://cdn0.ecologiaverde.com/es/posts/2/7/1/como_hacer_vinagre_de_manzana_organico_en_casa_1172_600.webp",
     "category": "condimentos",
@@ -22,6 +9,7 @@
     "stock": 10
   },
   {
+    "id": "13fd9d028584692826aac7e3",
     "title": "Galletas de Avena y Pasas",
     "photo": "https://galletasavena.com/wp-content/uploads/2018/08/6.-galletas-de-avena-y-pasas.jpg",
     "category": "snacks",
@@ -29,6 +17,7 @@
     "stock": 10
   },
   {
+    "id": "7288fbd5c3ca2ef7eb92e686",
     "title": "Harina de Almendras",
     "photo": "https://neufood.com.ar/wp-content/uploads/2022/05/harina-de-almendras1-4d993e44b85fbeb45c15887161412979-640-0.jpg",
     "category": "harinas",
@@ -36,6 +25,7 @@
     "stock": 10
   },
   {
+    "id": "01eb8af96a524bd1002ac09d",
     "title": "Salsa de Soja Orgánica",
     "photo": "https://acdn.mitiendanube.com/stores/001/129/542/products/soja-yamasa-21-c182da47fded8278e317042451379886-1024-1024.jpg",
     "category": "condimentos",
@@ -43,6 +33,7 @@
     "stock": 10
   },
   {
+    "id": "018d8344a8d8a3d5f2ec2d52",
     "title": "Té de Menta",
     "photo": "https://content.clara.es/medio/2023/07/31/te-menta-piperita_95ba1dca_230731125424_1280x886.jpg",
     "category": "bebidas",
@@ -50,6 +41,7 @@
     "stock": 10
   },
   {
+    "id": "089d286638f425b294fc69aa",
     "title": "Mantequilla de Almendras",
     "photo": "https://www.tuhogar.com/content/dam/cp-sites/home-care/tu-hogar/es_mx/recetas/comida-saludable/como-hacer-mantequilla-de-almendras/mantequilla-de-almendras-axion-.jpg",
     "category": "frutos secos",
@@ -57,6 +49,7 @@
     "stock": 10
   },
   {
+    "id": "8c6f37b81184081a16d14ad3",
     "title": "Sopa de Verduras",
     "photo": "https://www.comedera.com/wp-content/uploads/2013/05/sopa-de-verduras-1.jpg",
     "category": "sopas",
@@ -64,6 +57,7 @@
     "stock": 10
   },
   {
+    "id": "47fd9f587cdd0fb1c0ba0696",
     "title": "Té de Hibisco",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2GzvcWeLcZoQfFsS127Yb-5gRpVHqf6SkRyjTmEsPtQ&s",
     "category": "bebidas",
@@ -71,6 +65,7 @@
     "stock": 10
   },
   {
+    "id": "3df4530683b5486516b4c72c",
     "title": "Aceite de Coco Virgen",
     "photo": "https://www.almacenholistico.com/wp-content/uploads/2015/07/aceite_coco2.jpg",
     "category": "condimentos",
@@ -78,6 +73,7 @@
     "stock": 10
   },
   {
+    "id": "2f96d14744ffcebf5087d8ba",
     "title": "Tortitas de Maíz",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFgfx5q6bWIMvnXi9RluPO-GnVtDOl2k6WO1_bQq8SRA&s",
     "category": "snacks",
@@ -85,6 +81,7 @@
     "stock": 10
   },
   {
+    "id": "19c63b50e78a9ed54043df1d",
     "title": "Sopa de Calabaza",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUKUxI70r3ef8OqZyDfprK5viYzEoD-0cLM4_NcxIgQg&s",
     "category": "sopas",
@@ -92,6 +89,7 @@
     "stock": 10
   },
   {
+    "id": "a12424e40ffcae477c536fd7",
     "title": "Champiñones Portobello",
     "photo": "https://4.bp.blogspot.com/-9ABTFp5qxE4/XIidpjklglI/AAAAAAAAasc/Zspw-qawV3ExHuTV5SPW4LWOq-LVmd6WQCLcBGAs/s640/2895032438_512ba982bc.jpg",
     "category": "verduras",
@@ -99,6 +97,7 @@
     "stock": 10
   },
   {
+    "id": "2b712e9df63e6cde18fe8317",
     "title": "Crema de Almendras",
     "photo": "https://www.conasi.eu/blog/wp-content/uploads/2020/08/crema-de-almendras-con-personal-blender-44-1.jpg",
     "category": "frutos secos",
@@ -106,6 +105,7 @@
     "stock": 10
   },
   {
+    "id": "5809df2786a9576797ce2db0",
     "title": "Quinoa Orgánica",
     "photo": "https://cdn.shopify.com/s/files/1/0267/9200/1582/files/La-Cesteria-Mercado-Saludable-Quinoa-Organica3.jpg?v=1654811089",
     "category": "cereales",
@@ -113,6 +113,7 @@
     "stock": 10
   },
   {
+    "id": "b9c7b1b98658e807cb85a81e",
     "title": "Chips de Kale",
     "photo": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/2/21/0/MN0405H_crispy-kale-chips_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1580140162715.jpeg",
     "category": "snacks",
@@ -120,6 +121,7 @@
     "stock": 10
   },
   {
+    "id": "060187db5dd158120d32d28a",
     "title": "Té de Jengibre",
     "photo": "https://www.recetas-japonesas.com/base/stock/Recipe/15-image/15-image_web.jpg.webp",
     "category": "bebidas",
@@ -127,6 +129,7 @@
     "stock": 10
   },
   {
+    "id": "6b70a8454efb43495cf9bd5a",
     "title": "Salsa de Tomate",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRdSkZ2spjph65I_giIwVou8G1-i2_31hokLRvrp88ww&s",
     "category": "condimentos",
@@ -134,6 +137,7 @@
     "stock": 10
   },
   {
+    "id": "0d9b859e2fef9bd0d55742f9",
     "title": "Hummus Casero",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpMdgXOYZGFOe4H7011x9NcYSmU8DPurkorlxjVYQHjg&s",
     "category": "snacks",
@@ -141,6 +145,7 @@
     "stock": 10
   },
   {
+    "id": "70308c0d29a36f7245c1d5cb",
     "title": "Almendras Crudas",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROke8Kb1kw-PHiWWr74H7rNfacciqMpSJtKw&s",
     "category": "frutos secos",
@@ -148,6 +153,7 @@
     "stock": 10
   },
   {
+    "id": "0ceb3b203f9448df03eddbf4",
     "title": "Chucrut Casero",
     "photo": "https://www.topgastronomico.es/wp-content/uploads/2021/11/Chucrut.jpg",
     "category": "fermentados",
@@ -155,6 +161,7 @@
     "stock": 10
   },
   {
+    "id": "ee67ae00f137fbdddbee3dda",
     "title": "Aguacates Hass",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7MgpXwanqSArQHGPUmZndhWFu_3oAIYR8N3er2QKXXA&s",
     "category": "frutas",
@@ -162,6 +169,7 @@
     "stock": 10
   },
   {
+    "id": "8b7f8e214a4f714cce58056a",
     "title": "Granola Casera",
     "photo": "https://images.cookforyourlife.org/wp-content/uploads/2018/08/shutterstock_239599594-min.jpg",
     "category": "cereales",
@@ -169,6 +177,7 @@
     "stock": 10
   },
   {
+    "id": "c59a523fe46ca5d5641689a9",
     "title": "Té Verde Matcha",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH5uWliNJww7zDNV-N2G0t13_XAE0BrUZAirOM2-qJ2A&s",
     "category": "bebidas",
@@ -176,6 +185,7 @@
     "stock": 10
   },
   {
+    "id": "48fcb746fbf8e7fe5a671dac",
     "title": "Sopa de Lentejas",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJWz-gDAwBusZBm6ujpv7rcV_tjKNa43rvFpUn8OtiQg&s",
     "category": "sopas",
@@ -183,6 +193,7 @@
     "stock": 10
   },
   {
+    "id": "44d80e726dc3b0959e0a9215",
     "title": "Seitan Ahumado",
     "photo": "https://happyvegannie.com/wp-content/uploads/2023/06/seitan-1.jpg",
     "category": "proteinas",
@@ -190,6 +201,7 @@
     "stock": 10
   },
   {
+    "id": "0414644d12d75afea917210f",
     "title": "Pistachos",
     "photo": "https://i.blogs.es/2cd175/pistachos/1366_2000.jpeg",
     "category": "frutos secos",
@@ -197,6 +209,7 @@
     "stock": 10
   },
   {
+    "id": "e979f033c1d9a363ef3afe4e",
     "title": "Kale Orgánico",
     "photo": "https://tienda.gomc.com.ar/wp-content/uploads/kale.jpg",
     "category": "verduras",
@@ -204,6 +217,7 @@
     "stock": 10
   },
   {
+    "id": "3cc44991b02642315d1ea5b1",
     "title": "Levadura Nutricional",
     "photo": "https://static.tuasaude.com/media/article/ca/cc/levedura-nutricional_20864_l.jpg",
     "category": "suplementos",
@@ -211,6 +225,7 @@
     "stock": 10
   },
   {
+    "id": "d3584f4477bed59b99936351",
     "title": "Chips de Garbanzos",
     "photo": "https://d36fw6y2wq3bat.cloudfront.net/recipes/snack-de-garbanzos-crujientes/900/snack-de-garbanzos-crujientes.jpg",
     "category": "snacks",
@@ -218,6 +233,7 @@
     "stock": 10
   },
   {
+    "id": "ae2a9a0bdd58d754549b5f99",
     "title": "Chips de Plátano Verde",
     "photo": "https://cdn0.recetasgratis.net/es/posts/9/8/9/chips_de_platano_verde_con_guacamole_50989_600.webp",
     "category": "snacks",
@@ -225,6 +241,7 @@
     "stock": 10
   },
   {
+    "id": "854eb1349df1c0d01b99cdf1",
     "title": "Espaguetis de Calabacín",
     "photo": "https://imag.bonviveur.com/emplatado-y-presentacion-final-de-los-espaguetis-de-calabacin-crudos-con-tomates-cherry-y-queso-partisano.webp",
     "category": "verduras",
@@ -232,6 +249,7 @@
     "stock": 10
   },
   {
+    "id": "aee42aef13fbaee8eca27f3d",
     "title": "Sopa de Tomate Casera",
     "photo": "https://www.alqueria.com.co/sites/default/files/styles/1327_612/public/receta-de-sopa-de-tomate_3_0.jpg?h=2dfa7a18&itok=VFyI4FsH",
     "category": "sopas",
@@ -239,6 +257,7 @@
     "stock": 10
   },
   {
+    "id": "8a45aa53524499274e7de427",
     "title": "Germen de trigo",
     "photo": "https://cdn0.ecologiaverde.com/es/posts/4/5/6/germen_de_trigo_propiedades_beneficios_y_contraindicaciones_2654_600.webp",
     "category": "cereal",
@@ -246,6 +265,7 @@
     "stock": 10
   },
   {
+    "id": "672842e4ee3cbee7e178388c",
     "title": "Alcachofas en Conserva",
     "photo": "https://gastroactivity.com/wp-content/uploads/2020/04/conserva-de-alcachofas-escaldadas.jpg",
     "category": "verduras",
@@ -253,6 +273,7 @@
     "stock": 10
   },
   {
+    "id": "ce3153f6c3b930a7db4c63e0",
     "title": "Tempeh de Soja",
     "photo": "https://www.conasi.eu/blog/wp-content/uploads/2015/09/Sliced_tempeh.jpg",
     "category": "proteinas",
@@ -260,6 +281,7 @@
     "stock": 10
   },
   {
+    "id": "67c6e2e4fdf432c961399957",
     "title": "Nueces de Brasil",
     "photo": "https://belleza-estetica.com.ar/wp-content/uploads/2024/02/propiedades_de_las_nueces_de_brasil_para_adelgazar_y_como_tomarlas_46332_orig.jpg",
     "category": "frutos secos",
@@ -267,6 +289,7 @@
     "stock": 10
   },
   {
+    "id": "d41b5aa93a93640e858d7eba",
     "title": "Batata Orgánica",
     "photo": "https://www.picturethisai.com/image-handle/website_cmsname/image/1080/154214756469702658.jpeg?x-oss-process=image/format,webp",
     "category": "verduras",
@@ -274,6 +297,7 @@
     "stock": 10
   },
   {
+    "id": "b7c0f2d46a30916c43f40e4e",
     "title": "Tofu Orgánico",
     "photo": "https://http2.mlstatic.com/D_NQ_NP_2X_934310-MLA71639100335_092023-F.webp",
     "category": "proteinas",
@@ -281,6 +305,7 @@
     "stock": 10
   },
   {
+    "id": "7c1695ecf3cb2724890ea686",
     "title": "Maca en Polvo",
     "photo": "https://http2.mlstatic.com/D_NQ_NP_605365-MLA75036396803_032024-O.webp",
     "category": "suplementos",
@@ -288,6 +313,7 @@
     "stock": 10
   },
   {
+    "id": "213dd462337eecc402a6b79a",
     "title": "Cúrcuma en Polvo",
     "photo": "https://images.hola.com/imagenes/cocina/noticiaslibros/20200525168692/curcuma-polvo-infusion-capsulas-mejor-opcion/0-976-647/curcuma-adobe-t.jpg?tx=w_1200",
     "category": "suplementos",
