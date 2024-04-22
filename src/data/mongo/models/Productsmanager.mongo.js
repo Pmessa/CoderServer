@@ -1,10 +1,12 @@
 import Product from "./product.model.js";
 
-class ProductsManager {
-    constructor(){}
+class Manager {
+    constructor(Model){
+        this.Model = Model
+    }
     async create(data){
         try {
-            const one = await Product.create(data)
+            const one = await this.Model.create(data)
             return one
         } catch (error) {
             throw error
@@ -12,7 +14,7 @@ class ProductsManager {
     }
     async read(cat){
         try {
-            const all = await Product.find()
+            const all = await this.Model.find()
             return all
         } catch (error) {
             throw error
@@ -20,8 +22,8 @@ class ProductsManager {
     }
     async readOne(id){
         try {
-            const one = await Product.findById(id)
-            //const one = await Product.findOne({_id: id})
+            const one = await this.Model.findById(id)
+            //const one = await this.Model.findOne({_id: id})
             return one
         } catch (error) {
             throw error
@@ -30,7 +32,7 @@ class ProductsManager {
     }
     async update(id, data){
         try {
-            const one = await Product.findByIdAndUpdate(id, data, {new:true})
+            const one = await this.Model.findByIdAndUpdate(id, data, {new:true})
             return one
         } catch (error){
             throw error
@@ -38,12 +40,12 @@ class ProductsManager {
     }
     async destroy(id){
         try {
-            const one = await Product.findByIdAndDelete(id)
+            const one = await this.Model.findByIdAndDelete(id)
             return one
         } catch (error) {
             throw error
         }
     }
 }
-const productsManager = new ProductsManager
+const productsManager = new Manager(Product)
 export default productsManager
