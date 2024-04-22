@@ -1,4 +1,4 @@
-import "dotenv/config.js"
+import "dotenv/config.js";
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
@@ -10,13 +10,17 @@ import indexRouter from "./src/routers/index.router.js";
 import socketCb from "./src/routers/index.socket.js";
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
+import dbconnect from "./src/utils/dbConnect.util.js";
 
-console.log("TODAS LAS VARIABLES DE ENTORNO: "+ process.env)
-console.log("linea 15: " + process.env.COMMERCE_URI)
+//console.log("TODAS LAS VARIABLES DE ENTORNO: " + process.env);
+//console.log(process.env.MONGO_URI);
 
 const server = express();
-const port = 8080;
-const ready = () => console.log("server ready on port" + port);
+const port = process.env.PORT || 9000;
+const ready = async () => {
+  console.log("server ready on port: " + port);
+  await dbconnect();
+};
 const nodeServer = createServer(server);
 const socketServer = new Server(nodeServer);
 
