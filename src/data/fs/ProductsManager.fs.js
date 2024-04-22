@@ -39,7 +39,7 @@ class ProductsManager {
         (product) => product.title === newProduct.title 
       );
       if (isDuplicate) {
-        console.log("Duplicate product found. Cannot create product");
+        //console.log("Duplicate product found. Cannot create product");
       }else {
         all.unshift(newProduct);
 
