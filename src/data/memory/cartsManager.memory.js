@@ -20,7 +20,7 @@ class CartsManager {
     } else {
       CartsManager.#cartId.push(cart.id);
       CartsManager.#carts.push(cart);
-      console.log("Created cart");
+      console.log("Created cart with memory");
       return cart;
     }
   }

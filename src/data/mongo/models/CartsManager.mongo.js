@@ -7,6 +7,7 @@ class Manager {
     async create(data){
         try {
             const one = await this.Model.create(data)
+            console.log("Mongo Create")
             return one
         } catch (error) {
             throw error
