@@ -1,5 +1,5 @@
 
-to merge a Master BACKEND CODERHOUSE
+to merge a Merge a dev BACKEND CODERHOUSE
 
 
 # API de Gestión de Usuarios con Express

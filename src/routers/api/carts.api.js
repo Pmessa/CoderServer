@@ -1,23 +1,23 @@
 import { Router } from "express";
 
-//import productsManager from "../../data/fs/ProductsManager.fs.js";
-import productsManager from "../../data/mongo/models/Productsmanager.mongo.js";
+//import cartsManager from "../../data/fs/cartsManager.fs.js";
+import cartsManager from "../../data/mongo/models/CartsManager.mongo.js";
 import uploader from "../../middlewares/multer.mid.js";
 import isPhoto from "../../middlewares/isPhoto.js";
 import isPropAndDefault from "../../middlewares/isPropAndDefault.js";
 
-const productsRouter = Router();
+const cartsRouter = Router();
 
-productsRouter.get("/", read);
-productsRouter.get("/:pid", readOne);
-productsRouter.post("/", uploader.single("photo"), isPhoto, isPropAndDefault, create);
-productsRouter.put("/:pid", update);
-productsRouter.delete("/:pid", destroy);
+cartsRouter.get("/", read);
+cartsRouter.get("/:pid", readOne);
+cartsRouter.post("/", uploader.single("photo"), isPhoto, isPropAndDefault, create);
+cartsRouter.put("/:pid", update);
+cartsRouter.delete("/:pid", destroy);
 
 async function read(req, res, next) {
   try {
     const { category } = req.query;
-    const all = await productsManager.read(category);
+    const all = await cartsManager.read(category);
     if (all.length > 0) {
       return res.json({
         statusCode: 200,
@@ -35,7 +35,7 @@ async function read(req, res, next) {
 async function readOne(req, res, next) {
   try {
     const { pid } = req.params;
-    const one = await productsManager.readOne(pid);
+    const one = await cartsManager.readOne(pid);
     if (one) {
       return res.json({
         statusCode: 200,
@@ -56,7 +56,7 @@ async function create(req, res, next) {
     const data = req.body;
     console.log(req.file);
     console.log(req.body);
-    const one = await productsManager.create(data);
+    const one = await cartsManager.create(data);
     return res.json({
       statusCode: 201,
       response: one.id,
@@ -70,7 +70,7 @@ async function update(req, res, next) {
   try {
     const { pid } = req.params;
     const data = req.body;
-    const one = await productsManager.update(pid, data);
+    const one = await cartsManager.update(pid, data);
     return res.json({
       statusCode: 200,
       message: one,
@@ -82,7 +82,7 @@ async function update(req, res, next) {
 async function destroy(req, res, next) {
   try {
     const { pid } = req.params;
-    const one = await productsManager.destroy(pid);
+    const one = await cartsManager.destroy(pid);
     return res.json({
       statusCode: 200,
       response: one,
@@ -91,4 +91,4 @@ async function destroy(req, res, next) {
     return next(error);
   }
 }
-export default productsRouter;
+export default cartsRouter;
