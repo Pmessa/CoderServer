@@ -1,4 +1,4 @@
-import Cart from "./cart.models.js";
+import Cart from "./models/cart.models.js";
 
 class Manager {
     constructor(Model){
