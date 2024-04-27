@@ -3,21 +3,34 @@ import { Schema, model } from "mongoose";
 const collection = "products";
 const schema = new Schema(
   {
-    title: { type: String, required: true },
+    title: { type: String, required: true, unique: true },
+    photo: {
+      type: String,
+      default:
+        "https://www.grandespymes.com.ar/wp-content/uploads/2020/10/nuevo-producto-830x518.jpg",
+    },
     category: {
       type: String,
-      default: "without category",
+      index: true,
+      default: "Without category",
       enum: [
-        "Cereales y granos integrales",
-        "Frutos secos y semillas",
-        "Untables y Humus",
-        "Quesos vegetales y Tofu",
-        "Salsas aceites y aderesos",
+        "condimentos",
+        "snacks",
+        "harinas",
         "bebidas",
-        "Fermentos",
+        "frutos secos",
+        "Sopas",
+        "verduras",
+        "cereales",
+        "fermentados",
+        "frutas",
+        "proteinas",
+        "suplementos",
         "Without category",
       ],
     },
+    stock: { type: Number, default: 1 },
+    price: { type: Number, default: 1 },
   },
   {
     timestamps: true,

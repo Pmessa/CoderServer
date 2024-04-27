@@ -1,16 +1,14 @@
 import { Router } from "express";
 
-//import cartsManager from "../../data/fs/cartsManager.fs.js";
-import cartsManager from "../../data/mongo/models/CartsManager.mongo.js";
-import uploader from "../../middlewares/multer.mid.js";
-import isPhoto from "../../middlewares/isPhoto.js";
-import isPropAndDefault from "../../middlewares/isPropAndDefault.js";
+//import cartsManager from "../../data/fs/CartsManager.fs.js";
+import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
+
 
 const cartsRouter = Router();
 
 cartsRouter.get("/", read);
 cartsRouter.get("/:pid", readOne);
-cartsRouter.post("/", uploader.single("photo"), isPhoto, isPropAndDefault, create);
+cartsRouter.post("/", create);
 cartsRouter.put("/:pid", update);
 cartsRouter.delete("/:pid", destroy);
 
