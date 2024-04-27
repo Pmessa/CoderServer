@@ -1,3 +1,4 @@
+import "dotenv/config.js"
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
@@ -9,10 +10,15 @@ import indexRouter from "./src/routers/index.router.js";
 import socketCb from "./src/routers/index.socket.js"
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
+import dbConnect from "./src/utils/dbConnect.util.js";
 
+/* console.log(process.env.MONGO_URI); */
 const server = express();
-const port = 8080;
-const ready = () => console.log("server ready on port" + port);
+const port = process.env.PORT || 9000;
+const ready = async () => {
+    console.log("server ready on port" + port);
+    await dbConnect()
+}
 const nodeServer = createServer(server);
 const socketServer = new Server(nodeServer);
 
@@ -23,8 +29,8 @@ nodeServer.listen(port, ready);
 //middlewares
 server.use(express.json()); //permite leer req.params y req.query
 server.use(express.urlencoded({ extended: true }));
- //Obligo a mi servidor a usar la funcion encargada de leer parametros/consultas
- server.use(express.static(__dirname + "/public"))
+//Obligo a mi servidor a usar la funcion encargada de leer parametros/consultas
+server.use(express.static(__dirname + "/public"))
 server.use(morgan("dev"));
 
 //template engine
