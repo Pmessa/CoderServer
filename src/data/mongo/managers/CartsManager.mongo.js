@@ -18,6 +18,6 @@ async function test() {
   } catch (error) {
     console.log(error);
   }
-}
+} 
 
-export default [cartManager, test]
+export default { cartManager, test };

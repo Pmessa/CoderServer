@@ -26,5 +26,12 @@
     "email": "adminsebas@gmail.com",
     "password": "admin123",
     "role": 1
+  },
+  {
+    "id": "5ae10c860fe04f3c7c9afeda",
+    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
+    "email": "juan@gmail.com",
+    "password": "juan123",
+    "role": 0
   }
 ]

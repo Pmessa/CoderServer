@@ -10,7 +10,7 @@ const productsRouter = Router();
 
 productsRouter.get("/", read);
 productsRouter.get("/:pid", readOne);
-productsRouter.post("/", uploader.single("photo"), isPhoto, isPropAndDefault, create);
+productsRouter.post("/",  uploader.single("photo"), isPhoto, isPropAndDefault , create);
 productsRouter.put("/:pid", update);
 productsRouter.delete("/:pid", destroy);
 

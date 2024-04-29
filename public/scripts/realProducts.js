@@ -16,6 +16,6 @@ const socket = io(); socket.on("products", data=>{ console.log(data)
       const category = document.querySelector("#category").value
       const stock = document.querySelector("#stock").value
       const price = document.querySelector("#price").value
-     socket.emit("createProduct", {title, photo, category, stock, price,id})
+     socket.emit("createProduct", {title, photo, category, stock, price})
   })
   

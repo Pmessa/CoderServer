@@ -1,13 +1,13 @@
 import { Router } from "express";
 
 //import cartsManager from "../../data/fs/CartsManager.fs.js";
-import {cartsManager, test} from "../../data/mongo/managers/CartsManager.mongo.js";
+import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
 
 
 const cartsRouter = Router();
 
 cartsRouter.get("/", read);
-cartsRouter.get("/test", test);
+/* cartsRouter.get("/test", test); */
 cartsRouter.get("/:pid", readOne);
 cartsRouter.post("/", create);
 cartsRouter.put("/:pid", update);

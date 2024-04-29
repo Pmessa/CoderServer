@@ -16,7 +16,7 @@ import dbconnect from "./src/utils/dbConnect.util.js";
 //console.log(process.env.MONGO_URI);
 
 const server = express();
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 8080;
 const ready = async () => {
 console.log("server ready on port: " + port);
   await dbconnect();
