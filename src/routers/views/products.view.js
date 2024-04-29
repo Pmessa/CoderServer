@@ -12,4 +12,14 @@ productsRouter.get("/", async (req, res, next) => {
   }
 });
 
+productsRouter.get("/:pid", async (req, res, next) => {
+  try {
+    const { pid } = req.params;
+    const one = await productsManager.readOne(pid)
+    return res.render("productDetail", { product: one });
+  } catch (error) {
+    return next(error);
+  }
+});
+
 export default productsRouter;
