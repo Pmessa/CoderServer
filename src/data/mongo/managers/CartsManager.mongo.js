@@ -20,5 +20,4 @@ async function test() {
   }
 }
 
-test();
-export default cartManager
+export default [cartManager, test]
