@@ -24,7 +24,7 @@ nodeServer.listen(port, ready);
 server.use(express.json()); //permite leer req.params y req.query
 server.use(express.urlencoded({ extended: true }));
  //Obligo a mi servidor a usar la funcion encargada de leer parametros/consultas
- server.use(express.static(__dirname + "/public"))
+server.use(express.static(__dirname + "/public"))
 server.use(morgan("dev"));
 
 //template engine
