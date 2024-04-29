@@ -9,9 +9,14 @@
         <p class="card-text">Category: {{this.category}}</p>
         <p class="card-text">Stock: {{this.stock}}</p>
         <p class="card-text">Price: ${{this.price}}</p>
-        <a href={{this.id}} class="btn btn-primary">DETAILS</a>
+        <a href=/products/{{this._id}} class="btn btn-primary">DETAILS</a>
       </div>
     </div>
 
   {{/each}}
 </main>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  console.log("script")
+  const socket = io();
+</script>

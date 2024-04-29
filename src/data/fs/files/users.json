@@ -1,44 +1,30 @@
 [
   {
-    "id": "b4d3e78ec352c6834ffc00b8",
+    "id": "78f0ad880a5186fbba621391",
     "photo": "/img/persona1.jpg",
+    "email": "daniel73@gmail.com",
+    "password": "Daniel123",
+    "role": 0
+  },
+  {
+    "id": "024b9d9c03558eaac32c1b76",
+    "photo": "img/persona1.jpg",
     "email": "hector55@gmail.com",
     "password": "Hector123",
     "role": 0
   },
   {
-    "id": "b2aa0f416adf84e4fc3b1abd",
-    "photo": "/img/persona2.jpg",
+    "id": "4be6ee358223954550913614",
+    "photo": "fotocristian.jpg",
     "email": "cristian33@gmail.com",
     "password": "Cristian123",
     "role": 0
   },
   {
-    "id": "a79d27870d628a170530b62c",
-    "photo": "/img/persona3.jpg",
+    "id": "dfb44d111fb6f8bab1ce1eb1",
+    "photo": "fotosebas.jpg",
     "email": "adminsebas@gmail.com",
     "password": "admin123",
     "role": 1
-  },
-  {
-    "id": "536c8c02179123e2ff37493a",
-    "photo": "/img/persona4.jpg",
-    "email": "carlos@gmail.com",
-    "password": "Carlos123",
-    "role": 0
-  },
-  {
-    "id": "ae333c31f5b6937b93cd8e0d",
-    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
-    "email": "sebasavila81@gmail.com",
-    "password": "Sebas456",
-    "role": 0
-  },
-  {
-    "id": "d485a2eb2ada164fc2f4ac0b",
-    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
-    "email": "sebasavila81@gmail.com",
-    "password": "123",
-    "role": 0
   }
 ]
