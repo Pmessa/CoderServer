@@ -31,12 +31,7 @@ nodeServer.listen(port, ready);
 //middlewares
 server.use(express.json()); //permite leer req.params y req.query
 server.use(express.urlencoded({ extended: true }));
-<<<<<<< HEAD
- //Obligo a mi servidor a usar la funcion encargada de leer parametros/consultas
-server.use(express.static(__dirname + "/public"))
-=======
 server.use(express.static(__dirname + "/public"));
->>>>>>> a99a214c02efc5f98d602160e5cc22033f8cd5ea
 server.use(morgan("dev"));
 
 //template engine
