@@ -20,6 +20,7 @@ class CartsManager {
 
     try{
       const newcart = {
+        id: data.id || crypto.randomBytes(12).toString("hex"),
         user_id: data.id || crypto.randomBytes(12).toString("hex"),
         product_id: data.id || crypto.randomBytes(12).toString("hex"),
         quantity: data.id || 1,
@@ -38,7 +39,7 @@ class CartsManager {
 
         all = JSON.stringify(all, null, 2);
         await fs.promises.writeFile(this.path, all);
-        console.log("cart File System created:", newcart.title);
+        console.log("cart File System created:", newcart.id);
       }
 
       return newcart;
@@ -114,12 +115,17 @@ export default cartsManager;
 async function test() {
   try {
     await cartsManager.create({
+      id:"802b81e18fcefbf26073c387",
       user_id:"User_id",
       product_id:"Product_id",
       quantity:1,
       state:"reserved",
     });
-
+    await cartsManager.read()
+    await cartsManager.readOne("702b81e18fcefbf26073c386")
+    await cartsManager.destroy("702b81e18fcefbf26073c386")
+    await cartsManager.read()
+    console.log("Test exitoso.")
   } catch (error) {
     console.log(error);
   }
