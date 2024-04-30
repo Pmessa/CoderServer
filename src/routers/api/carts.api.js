@@ -1,4 +1,5 @@
 import { Router } from "express";
+import crypto from "crypto";
 
 //import cartsManager from "../../data/fs/CartsManager.fs.js";
 import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
@@ -7,7 +8,7 @@ import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
 const cartsRouter = Router();
 
 cartsRouter.get("/", read);
-/* cartsRouter.get("/test", test); */
+cartsRouter.get("/test", test); 
 cartsRouter.get("/:pid", readOne);
 cartsRouter.post("/", create);
 cartsRouter.put("/:pid", update);
@@ -90,4 +91,30 @@ async function destroy(req, res, next) {
     return next(error);
   }
 }
+async function test() {
+  console.log("test")
+  try {
+    console.log("Crear un documento de prueba:")
+    await cartsManager.create({
+      user_id: crypto.randomBytes(12).toString("hex"),
+      product_id: crypto.randomBytes(12).toString("hex"),
+      quantity:1,
+      state:"reserved",
+    });
+    console.log("Mostrar todos los carts:")
+    const allCarts = await cartsManager.read()
+    console.log(allCarts)
+    console.log("Mostrar solo el primer cart:")
+    const oneCart = await cartsManager.readOne(allCarts[0]._id)
+    console.log(oneCart)
+    console.log("Borrar ese cart:")
+    await cartsManager.destroy(oneCart)
+    console.log("Mostrar el resultado final total:")
+    const allCartsNew = await cartsManager.read()
+    console.log(allCartsNew)
+
+  } catch (error) {
+    console.log(error);
+  }
+} 
 export default cartsRouter;
