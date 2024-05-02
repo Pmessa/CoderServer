@@ -5,8 +5,10 @@ const cartsRouter = Router();
 
 cartsRouter.get("/", async (_req, res, next) => {
   try {
-    const carts = await cartsManager.read();
-    return res.render("carts", { carts });
+    const user_id = '6630d5c3a4d6d14a42a590b2'
+    const carts = await cartsManager.readCart(user_id);
+    console.log(carts)
+    return res.render("cart", { cart: carts });
   } catch (error) {
     return next(error);
   }

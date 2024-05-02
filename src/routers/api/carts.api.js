@@ -16,8 +16,8 @@ cartsRouter.delete("/:pid", destroy);
 
 async function read(req, res, next) {
   try {
-    const { category } = req.query;
-    const all = await cartsManager.read(category);
+    const { user_id } = req.query;
+    const all = await cartsManager.readCart(user_id);
     if (all.length > 0) {
       return res.json({
         statusCode: 200,
