@@ -1,5 +1,5 @@
 
-<h1 class="text-center m-2">Productos!</h1>
+<h1 class="bg-success-subtle p-2 text-center text-success w-100">PRODUCTS</h1>
 <main class="d-flex justify-content-around flex-wrap" style="box-shadow: 0 0 10px rgb(158, 190, 245)">
   {{#each products}}
     <div class="card" style="width: 15rem; margin:.5rem;box-shadow: 0 5px 5px rgb(81, 115, 175)">
@@ -9,7 +9,7 @@
         <p class="card-text">Category: {{this.category}}</p>
         <p class="card-text">Stock: {{this.stock}}</p>
         <p class="card-text">Price: ${{this.price}}</p>
-        <a href=/products/{{this._id}} class="btn btn-primary">DETAILS</a>
+        <a href=/products/{{this._id}} class="btn btn-success">DETAILS</a>
       </div>
     </div>
 
