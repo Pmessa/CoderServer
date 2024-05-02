@@ -1,5 +1,5 @@
-<div class="container d-flex flex-row flex-wrap justify-content-between">
-  <h1 class="w-100 text-center">PRODUCT DETAIL</h1>
+<h1 class="p-2 text-center text-success w-100">PRODUCT DETAIL</h1>
+<div class="container d-flex flex-row flex-wrap justify-content-between"> 
 {{#if product._id}}
     
     <div class="container text-center d-flex flex-column align-items-center">
@@ -10,7 +10,7 @@
     <p class="card-text">$:{{product.price}}</p>
   </div>
 </div>
-<button class="btn bg-primary m-2 ">AGREGAR AL CARRITO</button>
+<button class="btn btn-success m-2 ">AGREGAR AL CARRITO</button>
 </div>
 {{else}}
     <h1>PRODUCT NOT FOUND</h1>
