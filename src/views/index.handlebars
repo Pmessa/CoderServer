@@ -14,7 +14,21 @@
     </div>
 
   {{/each}}
+  
 </main>
+<nav aria-label="Page navigation example">
+<ul class="pagination d-flex justify-content-center align-items-center pt-5">
+    <li class="page-item"><a class="page-link text-success" href="./{{url}}paginate?limit={{limit}}&page={{prevPage}}">Previous</a></li>
+
+  {{#each pagination}}
+      <li class="page-item">
+        <a class="page-link text-success" href="./{{url}}paginate?limit={{../limit}}&page={{this}}">{{this}}</a>
+      </li>
+  {{/each}}
+    <li class="page-item"><a class="page-link text-success" href="./{{url}}paginate?limit={{limit}}&page={{nextPage}}">Next</a></li>
+
+  </ul>
+</nav>
 <script src="/socket.io/socket.io.js"></script>
 <script>
   console.log("script")
