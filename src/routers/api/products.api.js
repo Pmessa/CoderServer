@@ -9,8 +9,9 @@ import isPropAndDefault from "../../middlewares/isPropAndDefault.js";
 const productsRouter = Router();
 
 productsRouter.get("/", read);
+productsRouter.get("/paginte", paginate);
 productsRouter.get("/:pid", readOne);
-productsRouter.post("/",  uploader.single("photo"), isPhoto, isPropAndDefault , create);
+productsRouter.post("/", uploader.single("photo"), isPhoto, isPropAndDefault, create);
 productsRouter.put("/:pid", update);
 productsRouter.delete("/:pid", destroy);
 
@@ -31,6 +32,39 @@ async function read(req, res, next) {
   } catch (error) {
     return next(error);
   }
+}
+async function paginate(req, res, next) {
+  try {
+    const filter = {}
+    const opts = {}
+    if(req.query.limit) {
+      opts.limit = req.query.limit
+    }
+    if(req.query.page) {
+      opts.page = req.query.page
+    }
+    if(req.query.user_id) {
+      filter.user_id = req.query.user_id
+    }
+
+    const all = await productsManager.paginate({ filter, opts })
+    return res.json({
+      statusCode: 200,
+      response: all.docs,
+      info: {
+        page: all.page,
+        totalPage: all.totalPages,
+        limit: all.limit,
+        prevPage: all.prevPage,
+        nextPage: all.nextPage
+
+      }
+    })
+  } catch (error) {
+    return next(error)
+
+  }
+
 }
 async function readOne(req, res, next) {
   try {

@@ -19,6 +19,15 @@ class Manager {
       throw error;
     }
   }
+  async paginate({ filter, opts }) {
+    try {
+      const all = await this.Model.paginate(filter, opts);
+      return all;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async readCart(user_id) {
     try {
       const all = await this.Model.find({user_id: user_id}).lean();
