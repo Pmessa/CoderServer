@@ -13,15 +13,16 @@
   <div id="cart" class="mt-4">
 
   {{#each cart}}
-  <div class="card mb-3">
-    <div class="card-body">
-      <h5 class="card-title">{{this.product_id.title}}</h5>
-      <img src="{{this.product_id.photo}}" style="width: 18rem;" class="card-img-top" alt="...">
-      <p class="card-text">Precio: ${{this.product_id.price}}</p>
-      <p class="card-text">Cantidad: <input type="number" class="form-control quantity-input" value="{{this.quantity}}" min="1"></p>
-      <button class="btn btn-danger remove-btn">Eliminar</button>
-    </div>
+  <div>{{this.user_id.email}}</div>
+<div class="card mb-3" style="max-width: 400px;">
+  <div class="card-body">
+    <h5 class="card-title h6">{{this.product_id.title}}</h5>
+    <img src="{{this.product_id.photo}}" class="card-img-top img-fluid" alt="...">
+    <p class="card-text small">Precio: ${{this.product_id.price}}</p>
+    <p class="card-text small">Cantidad: <input type="number" class="form-control form-control-sm quantity-input" value="{{this.quantity}}" min="1"></p>    <button class="btn btn-sm btn-danger remove-btn">Eliminar</button>
   </div>
+</div>
+
   {{/each}}
 
   </div>

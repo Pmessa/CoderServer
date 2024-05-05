@@ -3,7 +3,7 @@ import { Router } from "express";
 import productsManager from "../../data/mongo/managers/ProductsManager.mongo.js";
 import usersRouter from "./users.view.js";
 import productsRouter from "./products.view.js";
-import cartsRouter from "./carts.views.js";
+import cartsRouter from "./carts.view.js";
 import { paginate } from "mongoose-paginate-v2";
 //import productDetailRouter from "./product.detail.view.js";
 

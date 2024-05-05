@@ -59,7 +59,7 @@ async function create(req, res, next) {
     const one = await cartsManager.create(data);
     return res.json({
       statusCode: 201,
-      response: one.id,
+      response: one,
       message: "CREATED ID. " + one.id,
     });
   } catch (error) {
