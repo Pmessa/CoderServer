@@ -1,6 +1,6 @@
 
 <h1 class="p-2 text-center text-success w-100">PRODUCTS</h1>
-<main class="d-flex justify-content-around flex-wrap" style="box-shadow: 0 0 10px rgb(158, 190, 245)">
+<main class="d-flex justify-content-around flex-wrap" >
   {{#each products}}
     <div class="card" style="width: 15rem; margin:.5rem;box-shadow: 0 5px 5px rgb(81, 115, 175)">
       <img style="height:10rem" src={{this.photo}} class="card-img-top" />
@@ -18,14 +18,14 @@
 </main>
 <nav aria-label="Page navigation example">
 <ul class="pagination d-flex justify-content-center align-items-center pt-5">
-    <li class="page-item"><a class="page-link text-success" href="./{{url}}paginate?limit={{limit}}&page={{prevPage}}">Previous</a></li>
+    <li class="page-item"><a class="page-link text-success" href="/products/paginate?limit={{limit}}&page={{prevPage}}">Previous</a></li>
 
   {{#each pagination}}
       <li class="page-item">
-        <a class="page-link text-success" href="./{{url}}paginate?limit={{../limit}}&page={{this}}">{{this}}</a>
+        <a class="page-link text-success" href="/products/paginate?limit={{../limit}}&page={{this}}">{{this}}</a>
       </li>
   {{/each}}
-    <li class="page-item"><a class="page-link text-success" href="./{{url}}paginate?limit={{limit}}&page={{nextPage}}">Next</a></li>
+    <li class="page-item"><a class="page-link text-success" href="/products/paginate?limit={{limit}}&page={{nextPage}}">Next</a></li>
 
   </ul>
 </nav>
