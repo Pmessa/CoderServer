@@ -1,17 +1,20 @@
-<h1 class="p-2 text-center text-success w-100">PRODUCT DETAIL</h1>
-<div class="container d-flex flex-row flex-wrap justify-content-between"> 
+<h1 class="p-2 m-5 text-center text-success w-100">PRODUCT DETAIL</h1>
+<div class="container d-flex flex-row flex-wrap justify-content-center align-items-centerm-5"> 
 {{#if product._id}}
     
-    <div class="container text-center d-flex flex-column align-items-center">
-        <h1>{{product.title}}</h1>
-    <div class="card" style="width: 18rem;">
-  <img src="{{product.photo}}" class="card-img-top" alt="...">
+  <img src="{{product.photo}}" class="card-img-top" alt="..."style="width: 20rem;>
+    <div class="container text-center d-flex flex-column align-items-center ">
+    <div class="card" style="width: 20rem; margin:.5rem; border: none;">
+       <h1 class="text-center">{{product.title}}</h1>
   <div class="card-body">
-    <p class="card-text">$:{{product.price}}</p>
+    <p class="card-text text-center display-5">$:{{product.price}}</p>
+  <div>
+
   </div>
 </div>
-<button class="btn btn-success m-2 ">AGREGAR AL CARRITO</button>
+<button class="btn btn-success m-2 ">ADD TO CART</button>
 </div>
+  </div>
 {{else}}
     <h1>PRODUCT NOT FOUND</h1>
 {{/if}}
