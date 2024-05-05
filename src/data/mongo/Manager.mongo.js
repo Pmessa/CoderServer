@@ -11,9 +11,9 @@ class Manager {
       throw error;
     }
   }
-  async read(cat) {
+  async read(filter) {
     try {
-      const all = await this.Model.find(cat).lean();
+      const all = await this.Model.find(filter).lean();
       return all;
     } catch (error) {
       throw error;

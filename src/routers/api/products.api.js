@@ -24,7 +24,18 @@ productsRouter.delete("/:pid", destroy);
 async function read(req, res, next) {
   try {
     const { category } = req.query;
-    const all = await productsManager.read(category);
+    let all;
+
+    if (category) {
+      // Si se proporciona una categoría, filtrar por esa categoría
+      all = await productsManager.read({ category });
+      console.log(all);
+
+    } else {
+      // Si no se proporciona ninguna categoría, obtener todos los productos
+      all = await productsManager.read();
+    }
+
     if (all.length > 0) {
       return res.json({
         statusCode: 200,
@@ -39,6 +50,7 @@ async function read(req, res, next) {
     return next(error);
   }
 }
+
 async function paginate(req, res, next) {
   try {
     const filter = {};
