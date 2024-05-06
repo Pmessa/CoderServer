@@ -19,7 +19,7 @@
     <h5 class="card-title h6">{{this.product_id.title}}</h5>
     <img src="{{this.product_id.photo}}" class="card-img-top img-fluid" alt="...">
     <p class="card-text small">Precio: ${{this.product_id.price}}</p>
-    <p class="card-text small">Cantidad: <input type="number" class="form-control form-control-sm quantity-input" value="{{this.quantity}}" min="1"></p>    <button class="btn btn-sm btn-danger remove-btn">Eliminar</button>
+    <p class="card-text small">Cantidad: <input type="number" class="form-control form-control-sm quantity-input" value="{{this.quantity}}" min="1"></p>    <button class="btn btn-sm btn-danger remove-btn" name="{{this._id}}">Eliminar</button>
   </div>
 </div>
 
@@ -33,7 +33,9 @@
 <script>
   // Event listener para eliminar un producto
   document.querySelectorAll('.remove-btn').forEach(item => {
-    item.addEventListener('click', event => {
+    item.addEventListener('click', async event => {
+    await fetch("http://localhost:8080/api/carts/" + event.target.name, { method: "DELETE",
+    headers: {"Content-Type" : "application/json"} });
       event.target.closest('.card').remove();
     });
   });

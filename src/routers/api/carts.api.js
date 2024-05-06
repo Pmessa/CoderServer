@@ -54,9 +54,12 @@ async function readOne(req, res, next) {
 async function create(req, res, next) {
   try {
     const data = req.body;
-    console.log(req.file);
-    console.log(req.body);
-    const one = await cartsManager.create(data);
+    const newProduct={
+      product_id: data.product_id,
+      user_id: '663009a33a3ecb3b9ad81b1a',
+      quantity: 1
+    }
+    const one = await cartsManager.create(newProduct);
     return res.json({
       statusCode: 201,
       response: one,
@@ -82,6 +85,7 @@ async function update(req, res, next) {
 async function destroy(req, res, next) {
   try {
     const { pid } = req.params;
+    console.log(pid)
     const one = await cartsManager.destroy(pid);
     return res.json({
       statusCode: 200,
@@ -92,7 +96,6 @@ async function destroy(req, res, next) {
   }
 }
 async function test() {
-  console.log("test")
   try {
     console.log("Crear un documento de prueba:")
     await cartsManager.create({

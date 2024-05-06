@@ -38,4 +38,19 @@ productsRouter.get("/:pid", async (req, res, next) => {
   }
 });
 
+productsRouter.get("/category/:category", async (req, res, next) => {
+  try {
+    const { category } = req.params;
+    const response = await fetch(`http://localhost:8080/api/products/paginate?category=${category}`);    
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    const fetchedDocs = await response.json();
+    console.log(fetchedDocs)
+    return res.render("index", { products: fetchedDocs.response, pagination: fetchedDocs.info.totalPage, limit: fetchedDocs.info.limit, nextPage: fetchedDocs.info.nextPage, prevPage: fetchedDocs.info.prevPage, url: '/products' });
+  } catch (error) {
+    return next(error);
+  }
+});
+
 export default productsRouter;

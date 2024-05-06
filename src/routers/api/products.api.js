@@ -10,7 +10,7 @@ const productsRouter = Router();
 
 productsRouter.get("/", read);
 productsRouter.get("/paginate", paginate);
-productsRouter.get("/:pid", readOne);
+productsRouter.get("/product/:pid", readOne);
 productsRouter.post(
   "/",
   uploader.single("photo"),
@@ -64,6 +64,9 @@ async function paginate(req, res, next) {
     }
     if (req.query.user_id) {
       filter.user_id = req.query.user_id;
+    }
+    if (req.query.category) {
+      filter.category = req.query.category;
     }
     const all = await productsManager.paginate({ filter, opts });
 

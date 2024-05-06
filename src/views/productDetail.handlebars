@@ -1,3 +1,4 @@
+<form method="POST" action="/carts/agregar">
 <h1 class="p-2 m-5 text-center text-success w-100">PRODUCT DETAIL</h1>
 <div class="container d-flex flex-row flex-wrap justify-content-center align-items-centerm-5"> 
 {{#if product._id}}
@@ -12,7 +13,8 @@
 
   </div>
 </div>
-<button class="btn btn-success m-2 ">ADD TO CART</button>
+<input type="hidden" value="{{product._id}}" name="product">
+<button class="btn btn-success m-2 " type="submit">ADD TO CART</button>
 </div>
   </div>
 {{else}}
@@ -20,3 +22,4 @@
 {{/if}}
 
 </div>
+</form>
