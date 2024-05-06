@@ -20,7 +20,7 @@ class ProductsManager {
     } else {
       ProductsManager.#products.push(product);
       ProductsManager.#productId.push(product.id);
-      console.log("Created Product");
+      console.log("Created Product with Memory File");
       return product;
     }
   }
@@ -81,26 +81,11 @@ class ProductsManager {
       throw error;
     }
   }
-  
+}
 
-  const productManager = new ProductsManager();
-  
-  console.log(productManager.read());
-      ProducstManager.#products.push(newProduct);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-    
-  console.log(productManager.read());
 
-    }
-    read() {
-      return ProductsManager.#products;
-    }
-  }
 
-const productsManager = new ProducstManager();
+const productsManager = new ProductsManager();
  productManager.create({
     title: `Manteca de maní`,
     photo: "mantequilla.jpg",

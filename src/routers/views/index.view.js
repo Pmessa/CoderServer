@@ -1,14 +1,18 @@
 import { Router } from "express";
+//import productsManager from "../../data/fs/ProductsManager.fs.js";
+import productsManager from "../../data/mongo/managers/ProductsManager.mongo.js";
 import usersRouter from "./users.view.js";
 import productsRouter from "./products.view.js";
-import productsManager from "../../data/fs/ProductsManager.fs.js";
-import cartsRouter from "../api/carts.api.js";
+import cartsRouter from "./carts.views.js";
+//import productDetailRouter from "./product.detail.view.js";
 
 const viewsRouter = Router();
 
 viewsRouter.use("/carts", cartsRouter)
 viewsRouter.use("/users",usersRouter);
 viewsRouter.use("/products/real",productsRouter);
+viewsRouter.use("/:pid", productsRouter)
+
 /* viewsRouter.get("/", (req, res, next)=>{
     try {
         return res.render("index", { title: "HOME"})

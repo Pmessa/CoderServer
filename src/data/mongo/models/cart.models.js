@@ -3,12 +3,18 @@ import { Schema, model } from "mongoose";
 const collection = "carts";
 const schema = new Schema(
   {
-    title: { type: String, required: true },
-    category: { type: String, default: "without category", enum: ["Cereales y granos integrales", "Frutos secos y semillas", "Untables y Humus", "Quesos vegetales y Tofu", "Salsas aceites y aderesos", "bebidas", "Fermentos", "Without category"] }
+    user_id: { type: String, required: true, unique: true },
+    product_id: { type: String, required: true, unique: true },
+    quantity: { type: Number, default:1 },
+    state: {
+      type: String,
+      default: "reserved",
+      enum: ["reserved", "paid", "delivered"],
+    },
   },
   {
     timestamps: true,
   }
 );
-const Cart = model(collection, schema)
-export default Cart
+const Cart = model(collection, schema);
+export default Cart;
