@@ -1,8 +1,8 @@
   <h1 class="p-2 text-center text-success w-100">Carrito de Compras</h1>
-  <div class="container d-flex justify-content-between" style="width: 100% !important;">
+  <div class="container d-flex justify-content-center" id="cart" style="width: 100% !important;">
 
     {{#each cart}}
-    <div class="card mb-2 d-flex" style="max-width: 300px;">
+    <div class="card m-2 d-flex"  style="max-width: 300px;">
       <div class="fs-4 p-2"><span>User email: </span>{{this.user_id.email}}</div>
       <div class="card-body">
         <h5 class="card-title h6">{{this.product_id.title}}</h5>
