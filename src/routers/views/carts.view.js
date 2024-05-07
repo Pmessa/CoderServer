@@ -12,7 +12,7 @@ cartsRouter.get("/", async (_req, res, next) => {
     return next(error);
   }
 });
-cartsRouter.post("/agregar", async (req, res, next) => {
+cartsRouter.post("/", async (req, res, next) => {
   try {
     const {product} = req.body
     let user_id = '663009a33a3ecb3b9ad81b1a'
