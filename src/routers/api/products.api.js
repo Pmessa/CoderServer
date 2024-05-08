@@ -9,15 +9,33 @@ import isPropAndDefault from "../../middlewares/isPropAndDefault.js";
 const productsRouter = Router();
 
 productsRouter.get("/", read);
-productsRouter.get("/:pid", readOne);
-productsRouter.post("/",  uploader.single("photo"), isPhoto, isPropAndDefault , create);
+productsRouter.get("/paginate", paginate);
+productsRouter.get("/product/:pid", readOne);
+productsRouter.post(
+  "/",
+  uploader.single("photo"),
+  isPhoto,
+  isPropAndDefault,
+  create
+);
 productsRouter.put("/:pid", update);
 productsRouter.delete("/:pid", destroy);
 
 async function read(req, res, next) {
   try {
     const { category } = req.query;
-    const all = await productsManager.read(category);
+    let all;
+
+    if (category) {
+      // Si se proporciona una categoría, filtrar por esa categoría
+      all = await productsManager.read({ category });
+      console.log(all);
+
+    } else {
+      // Si no se proporciona ninguna categoría, obtener todos los productos
+      all = await productsManager.read();
+    }
+
     if (all.length > 0) {
       return res.json({
         statusCode: 200,
@@ -28,6 +46,47 @@ async function read(req, res, next) {
       error.statusCode = 404;
       throw error;
     }
+  } catch (error) {
+    return next(error);
+  }
+}
+
+async function paginate(req, res, next) {
+  try {
+    const filter = {};
+    const opts = {};
+
+    if (req.query.limit) {
+      opts.limit = req.query.limit;
+    }
+    if (req.query.page) {
+      opts.page = req.query.page;
+    }
+    if (req.query.user_id) {
+      filter.user_id = req.query.user_id;
+    }
+    if (req.query.category) {
+      filter.category = req.query.category;
+    }
+    const all = await productsManager.paginate({ filter, opts });
+
+    const finalPages = [];
+
+    for (let i = 0; i < all.totalPages; i += 1) {
+      finalPages.push(i + 1);
+    }
+
+    return res.json({
+      statusCode: 200,
+      response: all.docs,
+      info: {
+        page: all.page,
+        totalPage: finalPages,
+        limit: all.limit,
+        prevPage: all.prevPage,
+        nextPage: all.nextPage,
+      },
+    });
   } catch (error) {
     return next(error);
   }

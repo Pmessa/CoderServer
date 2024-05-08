@@ -11,14 +11,31 @@ class Manager {
       throw error;
     }
   }
-  async read(cat) {
+  async read(filter) {
     try {
-      const all = await this.Model.find(cat).lean();
+      const all = await this.Model.find(filter).lean();
       return all;
     } catch (error) {
       throw error;
     }
   }
+  async paginate({ filter, opts }) {
+    try {
+      const all = await this.Model.paginate(filter, opts);
+      return all;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async readCart(user_id) {
+    try {
+      const all = await this.Model.find({user_id: user_id}).lean();
+      return all;
+    } catch (error) {
+      throw error;
+    }
+}
   async readOne(id) {
     try {
       const one = await this.Model.findById(id).lean();
@@ -40,6 +57,14 @@ class Manager {
     try {
       const one = await this.Model.findByIdAndDelete(id).lean();
       return one;
+    } catch (error) {
+      throw error;
+    }
+  }
+  async destroyAll(filter) {
+    try {
+      const all = await this.Model.deleteMany(filter).lean();
+      return all;
     } catch (error) {
       throw error;
     }

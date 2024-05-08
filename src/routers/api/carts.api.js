@@ -13,11 +13,12 @@ cartsRouter.get("/:pid", readOne);
 cartsRouter.post("/", create);
 cartsRouter.put("/:pid", update);
 cartsRouter.delete("/:pid", destroy);
+cartsRouter.delete("/all/:uid", destroyAll);
 
 async function read(req, res, next) {
   try {
-    const { category } = req.query;
-    const all = await cartsManager.read(category);
+    const { user_id } = req.query;
+    const all = await cartsManager.readCart(user_id);
     if (all.length > 0) {
       return res.json({
         statusCode: 200,
@@ -54,12 +55,15 @@ async function readOne(req, res, next) {
 async function create(req, res, next) {
   try {
     const data = req.body;
-    console.log(req.file);
-    console.log(req.body);
-    const one = await cartsManager.create(data);
+    const newProduct={
+      product_id: data.product_id,
+      user_id: '663009a33a3ecb3b9ad81b1a',
+      quantity: 1
+    }
+    const one = await cartsManager.create(newProduct);
     return res.json({
       statusCode: 201,
-      response: one.id,
+      response: one,
       message: "CREATED ID. " + one.id,
     });
   } catch (error) {
@@ -82,6 +86,7 @@ async function update(req, res, next) {
 async function destroy(req, res, next) {
   try {
     const { pid } = req.params;
+    console.log(pid)
     const one = await cartsManager.destroy(pid);
     return res.json({
       statusCode: 200,
@@ -91,8 +96,19 @@ async function destroy(req, res, next) {
     return next(error);
   }
 }
+async function destroyAll(req, res, next) {
+  try {
+    const { uid } = req.params;
+    const all = await cartsManager.destroyAll({user_id: uid});
+    return res.json({
+      statusCode: 200,
+      response: all,
+    });
+  } catch (error) {
+    return next(error);
+  }
+}
 async function test() {
-  console.log("test")
   try {
     console.log("Crear un documento de prueba:")
     await cartsManager.create({

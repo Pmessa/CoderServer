@@ -1,29 +1,29 @@
-<h1 class="bg-success-subtle p-2 text-center text-success w-100">CODER USERS</h1>
+<h1 class="p-2 text-center text-success w-100">REGISTER FORM</h1>
 
-  <article class="container d-flex flex-column w-50 align-items-center">
-    <h1 class="text-center w-100">REGISTER FORM!</h1>
-    <form>
-  <div class="mb-3">
-    <label for="email" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control" id="password" name="password">
-  </div>
-  <div class="mb-3">
-    <label for="photo" class="form-label">ADD PHOTO</label>
-    <input type="text" class="form-control" id="photo" name="photo">
-  </div>
-  <button type="button" class="btn btn-primary" id="register" value="REGISTER">Submit</button>
-</form>
-    
-<div id="alert-creado"></div>
-  </article>
+<article class="container d-flex flex-column w-50 align-items-center">
+
+  <form>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password">
+    </div>
+    <div class="mb-3">
+      <label for="photo" class="form-label">ADD PHOTO</label>
+      <input type="text" class="form-control" id="photo" name="photo">
+    </div>
+    <button type="button" class="btn btn-success" id="register" value="REGISTER">Submit</button>
+  </form>
+
+  <div id="alert-creado"></div>
+</article>
 
 
-  
+
 
 <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"> </script>
 <script>
@@ -47,8 +47,8 @@
     const email = document.querySelector("#email").value
     const password = document.querySelector("#password").value
     const photo = document.querySelector("#photo").value
-    const alert = document.querySelector("#alert-creado").innerHTML="Usuario creado"
-    socket.emit("register", { email, password, photo})
+    const alert = document.querySelector("#alert-creado").innerHTML = "Usuario creado"
+    socket.emit("register", { email, password, photo })
   })
 
 

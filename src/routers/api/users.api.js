@@ -13,6 +13,8 @@ usersRouter.delete("/:uid", destroy);
 usersRouter.get("/register", read);
 
 
+
+
 async function create(req, res, next) {
     try {
         const data = req.body;

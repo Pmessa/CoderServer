@@ -22,7 +22,13 @@ usersRouter.get("/register", async (req, res, next)=>{
         return next(error)
     }
 })
-
+usersRouter.get("/login", async (req, res, next)=>{
+    try {
+        return res.render("login")
+    } catch (error) {
+        return next(error)
+    }
+})
 usersRouter.get("/:uid", async (req, res, next) => {
     try {
         const { uid } = req.params
