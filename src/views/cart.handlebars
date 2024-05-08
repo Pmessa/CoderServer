@@ -41,14 +41,26 @@
   });
 
   // Event listener para finalizar compra
-  document.getElementById('checkout-btn').addEventListener('click', function() {
+  document.getElementById('checkout-btn').addEventListener('click', async event => {
+    const url = location.href.split("/")
+    const userId = url[url.length-1]
+    console.log(userId)
+    await fetch("http://localhost:8080/api/carts/all/" + userId, { method: "DELETE",
+    headers: {"Content-Type" : "application/json"} });
     document.getElementById('cart').innerHTML = '';
-  });
+    });
+    
+
 
   // Event listener para cancelar compra
-  document.getElementById('cancel-btn').addEventListener('click', function() {
+  document.getElementById('cancel-btn').addEventListener('click', async event => { 
+    const url = location.href.split("/")
+    const userId = url[url.length-1]
+    console.log(userId)
+    await fetch("http://localhost:8080/api/carts/all/" + userId, { method: "DELETE",
+    headers: {"Content-Type" : "application/json"} });
     document.getElementById('cart').innerHTML = '';
-  });
+    });
 </script>
 
 </body>
