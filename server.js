@@ -6,6 +6,7 @@ import morgan from "morgan";
 import { engine } from "express-handlebars";
 import __dirname from "./utils.js";
 
+import cookieParser from "cookie-parser";
 import indexRouter from "./src/routers/index.router.js";
 import socketCb from "./src/routers/index.socket.js";
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
@@ -29,6 +30,7 @@ nodeServer.listen(port, ready);
 //Se inicia/levanta el servidor
 
 //middlewares
+server.use(cookieParser(process.env.SECRET))
 server.use(express.json()); //permite leer req.params y req.query
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
