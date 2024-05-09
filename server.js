@@ -30,7 +30,7 @@ nodeServer.listen(port, ready);
 //Se inicia/levanta el servidor
 
 //middlewares
-server.use(cookieParser())
+server.use(cookieParser(process.env.SECRET))
 server.use(express.json()); //permite leer req.params y req.query
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
