@@ -13,6 +13,7 @@ cartsRouter.get("/:pid", readOne);
 cartsRouter.post("/", create);
 cartsRouter.put("/:pid", update);
 cartsRouter.delete("/:pid", destroy);
+cartsRouter.delete("/all/:uid", destroyAll);
 
 async function read(req, res, next) {
   try {
@@ -90,6 +91,18 @@ async function destroy(req, res, next) {
     return res.json({
       statusCode: 200,
       response: one,
+    });
+  } catch (error) {
+    return next(error);
+  }
+}
+async function destroyAll(req, res, next) {
+  try {
+    const { uid } = req.params;
+    const all = await cartsManager.destroyAll({user_id: uid});
+    return res.json({
+      statusCode: 200,
+      response: all,
     });
   } catch (error) {
     return next(error);
