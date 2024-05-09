@@ -21,7 +21,7 @@ productsRouter.get("/paginate", async (req, res, next) => {
       throw new Error('Failed to fetch data');
     }
     const fetchedDocs = await response.json();
-    console.log(fetchedDocs.info)
+    //console.log(fetchedDocs.info)
     return res.render("index", { products: fetchedDocs.response, pagination: fetchedDocs.info.totalPage, limit: fetchedDocs.info.limit, nextPage: fetchedDocs.info.nextPage, prevPage: fetchedDocs.info.prevPage, url: '/products' });
   } catch (error) {
     return next(error);
