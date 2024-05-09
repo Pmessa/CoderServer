@@ -113,8 +113,8 @@ async function readOne(req, res, next) {
 async function create(req, res, next) {
   try {
     const data = req.body;
-    console.log(req.file);
-    console.log(req.body);
+    //console.log(req.file);
+    //console.log(req.body);
     const one = await productsManager.create(data);
     return res.json({
       statusCode: 201,
