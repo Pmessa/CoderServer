@@ -4,7 +4,7 @@ class Manager {
   }
   async create(data) {
     try {
-      const one = await this.Model.create(data)/* .lean() */;
+      const one = await this.Model.create(data); /* .lean() */
       console.log("Mongo Create");
       return one;
     } catch (error) {
@@ -30,12 +30,12 @@ class Manager {
 
   async readCart(user_id) {
     try {
-      const all = await this.Model.find({user_id: user_id}).lean();
+      const all = await this.Model.find({ user_id: user_id }).lean();
       return all;
     } catch (error) {
       throw error;
     }
-}
+  }
   async readOne(id) {
     try {
       const one = await this.Model.findById(id).lean();
@@ -45,9 +45,21 @@ class Manager {
       throw error;
     }
   }
+
+  async readByEmail(email) {
+    try {
+      const one = await this.Model.findOne({ email });
+      console.log("readByEmail " + one);
+      return one;
+    } catch (error) {
+      throw error;
+    }
+  }
   async update(id, data) {
     try {
-      const one = await this.Model.findByIdAndUpdate(id, data, { new: true }).lean();
+      const one = await this.Model.findByIdAndUpdate(id, data, {
+        new: true,
+      }).lean();
       return one;
     } catch (error) {
       throw error;
