@@ -14,7 +14,7 @@ cookiesRouter.get("/set", (req, res, next) => {
   }
 });
 
-cookiesRouter.get("/set", (req, res, next) => {
+cookiesRouter.get("/", (req, res, next) => {
   try {
     const cookies = req.cookies;
     const online = req.cookies.online;
