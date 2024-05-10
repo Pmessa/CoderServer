@@ -9,7 +9,7 @@ const apiRouter = Router();
 
 apiRouter.use("/users", usersRouter)
 apiRouter.use("/products", productsRouter)
-apiRouter.use("/cookie", cookiesRouter)
+apiRouter.use("/cookies", cookiesRouter)
 apiRouter.use("/sessions", sessionsRouter)
 apiRouter.use("/carts", cartsRouter)
 

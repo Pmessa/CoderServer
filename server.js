@@ -5,7 +5,7 @@ import { Server } from "socket.io";
 import morgan from "morgan";
 import { engine } from "express-handlebars";
 import __dirname from "./utils.js";
-
+import session from "express-session";
 import cookieParser from "cookie-parser";
 import indexRouter from "./src/routers/index.router.js";
 import socketCb from "./src/routers/index.socket.js";
@@ -30,7 +30,15 @@ nodeServer.listen(port, ready);
 //Se inicia/levanta el servidor
 
 //middlewares
-server.use(cookieParser(process.env.SECRET))
+server.use(
+  session({
+    secret: process.env.SECRET_SESSION,
+    resave: true,
+    saveUninitialized: true,
+    cookie: { maxAge: 60 * 60 * 1000 },
+  })
+);
+server.use(cookieParser(process.env.SECRET_COOKIE))
 server.use(express.json()); //permite leer req.params y req.query
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
