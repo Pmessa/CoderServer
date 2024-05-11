@@ -9,10 +9,9 @@ async function isValidUser(req, res, next) {
       error.statusCode = 401;
       throw error;
     }
-    return next();
+    return next()
   } catch (error) {
     return next(error);
   }
 }
-
-export default isValidUser;
+export default isValidUser

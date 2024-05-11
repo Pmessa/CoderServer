@@ -7,12 +7,11 @@ async function isValidPass(req, res, next) {
     if (one.password === password) {
       return next();
     }
-    const error = new Error("Invalid credentials");
+    const error = new Error("Invalid Credentials");
     error.statusCode = 401;
-    throw error;
+    throw error
   } catch (error) {
     return next(error);
   }
 }
-
-export default isValidPass;
+export default isValidPass
