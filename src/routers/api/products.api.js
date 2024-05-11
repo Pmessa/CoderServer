@@ -1,5 +1,5 @@
 import { Router } from "express";
-
+import isValidAdmin from "../../middlewares/isValidAdmin.mid.js";
 //import productsManager from "../../data/fs/ProductsManager.fs.js";
 import productsManager from "../../data/mongo/managers/ProductsManager.mongo.js";
 import uploader from "../../middlewares/multer.mid.js";
@@ -11,13 +11,7 @@ const productsRouter = Router();
 productsRouter.get("/", read);
 productsRouter.get("/paginate", paginate);
 productsRouter.get("/product/:pid", readOne);
-productsRouter.post(
-  "/",
-  uploader.single("photo"),
-  isPhoto,
-  isPropAndDefault,
-  create
-);
+productsRouter.post("/", isValidAdmin, uploader.single("photo"), isPhoto, isPropAndDefault, create);
 productsRouter.put("/:pid", update);
 productsRouter.delete("/:pid", destroy);
 

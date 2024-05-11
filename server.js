@@ -6,6 +6,7 @@ import morgan from "morgan";
 import { engine } from "express-handlebars";
 import __dirname from "./utils.js";
 import session from "express-session";
+import MongoStore from "connect-mongo";
 import cookieParser from "cookie-parser";
 import indexRouter from "./src/routers/index.router.js";
 import socketCb from "./src/routers/index.socket.js";
@@ -19,7 +20,7 @@ import dbconnect from "./src/utils/dbConnect.util.js";
 const server = express();
 const port = process.env.PORT || 8080;
 const ready = async () => {
-console.log("server ready on port: " + port);
+  console.log("server ready on port: " + port);
   await dbconnect();
 };
 const nodeServer = createServer(server);
@@ -32,10 +33,11 @@ nodeServer.listen(port, ready);
 //middlewares
 server.use(
   session({
+    store: new MongoStore({ mongoUrl: process.env.MONGO_URI, ttl: 60 * 60 }),
     secret: process.env.SECRET_SESSION,
     resave: true,
     saveUninitialized: true,
-    cookie: { maxAge: 60 * 60 * 1000 },
+    //cookie: { maxAge: 60 * 60 * 1000 },
   })
 );
 server.use(cookieParser(process.env.SECRET_COOKIE))
