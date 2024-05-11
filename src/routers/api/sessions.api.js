@@ -3,7 +3,7 @@ import usersManager from "../../data/mongo/managers/UserManager.mongo.js";
 import isValidEmail from "../../middlewares/isValidEmail.mid.js";
 import isValidData from "../../middlewares/isValidData.mid.js";
 import isValidUser from "../../middlewares/isValidUser.mid.js";
-import isValidPass from "../../middlewares/isValidUser.mid.js";
+import isValidPass from "../../middlewares/isValidPass.mid.js";
 
 const sessionsRouter = Router();
 
