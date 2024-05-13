@@ -5,6 +5,7 @@ import usersRouter from "./users.view.js";
 import productsRouter from "./products.view.js";
 import cartsRouter from "./carts.view.js";
 import { paginate } from "mongoose-paginate-v2";
+import sessionsRouter from "../api/sessions.api.js";
 //import productDetailRouter from "./product.detail.view.js";
 
 const viewsRouter = Router();
@@ -13,8 +14,9 @@ viewsRouter.use("/carts", cartsRouter)
 viewsRouter.use("/users",usersRouter);
 viewsRouter.use("/products/real",productsRouter);
 viewsRouter.use("/:pid", productsRouter)
+viewsRouter.use("/",sessionsRouter )
 
-/* viewsRouter.get("/", (req, res, next)=>{
+viewsRouter.get("/login", (req, res, next)=>{
     try {
         return res.render("index", { title: "HOME"})
         
@@ -22,7 +24,7 @@ viewsRouter.use("/:pid", productsRouter)
         return next(error);
         
     }
-}) */
+})
 viewsRouter.get("/", async(req, res, next)=>{
     try {
         const page = 1

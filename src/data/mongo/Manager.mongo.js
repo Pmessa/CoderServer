@@ -45,6 +45,14 @@ class Manager {
       throw error;
     }
   }
+  async readByEmail(email) {
+    try {
+      const one = await this.Model.findOne({ email });
+      return one;
+    } catch (error) {
+      throw error;
+    }
+  }
   async update(id, data) {
     try {
       const one = await this.Model.findByIdAndUpdate(id, data, { new: true }).lean();
@@ -57,6 +65,14 @@ class Manager {
     try {
       const one = await this.Model.findByIdAndDelete(id).lean();
       return one;
+    } catch (error) {
+      throw error;
+    }
+  }
+  async destroyAll(filter) {
+    try {
+      const all = await this.Model.deleteMany(filter).lean();
+      return all;
     } catch (error) {
       throw error;
     }
