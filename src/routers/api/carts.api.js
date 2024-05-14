@@ -86,9 +86,9 @@ async function update(req, res, next) {
 }
 async function destroy(req, res, next) {
   try {
-    console.log("asdasd")
+    //console.log("asdasd")
     const { pid } = req.params;
-    console.log(pid)
+    //console.log(pid)
     const one = await cartsManager.destroy(pid);
     return res.json({
       statusCode: 200,
@@ -100,9 +100,9 @@ async function destroy(req, res, next) {
 }
 async function destroyAll(req, res, next) {
   try {
-    console.log("hola")
+    //console.log("hola")
     const  {user_id}  = req.body;
-    console.log(user_id)
+    //console.log(user_id)
     const all = await cartsManager.destroyAll({user_id: user_id});
     return res.json({
       statusCode: 200,
