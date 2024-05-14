@@ -12,9 +12,8 @@ cartsRouter.get("/test", test);
 cartsRouter.get("/:pid", readOne);
 cartsRouter.post("/", create);
 cartsRouter.put("/:pid", update);
-cartsRouter.delete("/all", destroyAll);
 cartsRouter.delete("/:pid", destroy);
-
+cartsRouter.delete("/all/:uid", destroyAll);
 
 async function read(req, res, next) {
   try {
@@ -58,7 +57,7 @@ async function create(req, res, next) {
     const data = req.body;
     const newProduct={
       product_id: data.product_id,
-      user_id: data.user_id,
+      user_id: '663009a33a3ecb3b9ad81b1a',
       quantity: 1
     }
     const one = await cartsManager.create(newProduct);
@@ -86,9 +85,8 @@ async function update(req, res, next) {
 }
 async function destroy(req, res, next) {
   try {
-    //console.log("asdasd")
     const { pid } = req.params;
-    //console.log(pid)
+    console.log(pid)
     const one = await cartsManager.destroy(pid);
     return res.json({
       statusCode: 200,
@@ -100,10 +98,8 @@ async function destroy(req, res, next) {
 }
 async function destroyAll(req, res, next) {
   try {
-    //console.log("hola")
-    const  {user_id}  = req.body;
-    //console.log(user_id)
-    const all = await cartsManager.destroyAll({user_id: user_id});
+    const { uid } = req.params;
+    const all = await cartsManager.destroyAll({user_id: uid});
     return res.json({
       statusCode: 200,
       response: all,

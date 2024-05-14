@@ -5,7 +5,7 @@ import { Server } from "socket.io";
 import morgan from "morgan";
 import { engine } from "express-handlebars";
 import __dirname from "./utils.js";
-import expressSession from "express-session";
+import session from "express-session";
 import MongoStore from "connect-mongo";
 import cookieParser from "cookie-parser";
 import indexRouter from "./src/routers/index.router.js";
@@ -32,7 +32,7 @@ nodeServer.listen(port, ready);
 
 //middlewares
 server.use(
-  expressSession({
+  session({
     store: new MongoStore({ mongoUrl: process.env.MONGO_URI, ttl: 60 * 60 }),
     secret: process.env.SECRET_SESSION,
     resave: true,
