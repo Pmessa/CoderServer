@@ -61,10 +61,10 @@
               <a class="nav-link fs-5" href="/users">Users</a>
             </li>
             {{#if user_id}}
-            <li class="nav-item">
-              <a class="nav-link fs-5" id="signout" href="#">Signout</a>
-            </li>
-             {{/if}}
+              <li class="nav-item">
+                <a class="nav-link fs-5 signout" href="#">Signout</a>
+              </li>
+            {{/if}}
           </ul>
         </div>
       </div>
@@ -106,21 +106,28 @@
 
       <ul class="nav col-md-4 justify-content-end">
         <li class="nav-item"><a
-            href="/products/real"
+            href="/"
             class="nav-link px-2 text-body-secondary"
           >Home</a></li>
-        <li class="nav-item"><a
-            href="/users/register"
-            class="nav-link px-2 text-body-secondary"
-          >Register</a></li>
-        <li class="nav-item"><a
-            href="/users/login"
-            class="nav-link px-2 text-body-secondary"
-          >Login</a></li>
+        {{#unless user_id}}
+          <li class="nav-item"><a
+              href="/users/register"
+              class="nav-link px-2 text-body-secondary"
+            >Register</a></li>
+          <li class="nav-item"><a
+              href="/users/login"
+              class="nav-link px-2 text-body-secondary"
+            >Login</a></li>
+        {{/unless}}
         <li class="nav-item"><a
             href="/users"
             class="nav-link px-2 text-body-secondary"
           >Users</a></li>
+        {{#if user_id}}
+          <li class="nav-item">
+            <a class="nav-link px-2 text-body-secondary signout" href="#">Signout</a>
+          </li>
+        {{/if}}
         <li class="nav-item"><a
             href="#"
             class="nav-link px-2 text-body-secondary"
@@ -132,13 +139,25 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+   
     <script>
-      document.querySelector("#signout").onclick = async () => { const opts = {
-      method: "POST", headers: { "Content-Type": "application/json" }, }; let
-      response = await fetch("/api/sessions/signout", opts); response = await
-      response.json(); if (response.statusCode === 200) { location.replace("/");
-      } };
-    </script>
+    document.querySelectorAll(".signout").forEach(element => {
+        element.onclick = async () => {
+            const opts = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            };
+            let response = await fetch("/api/sessions/signout", opts);
+            response = await response.json();
+            if (response.statusCode === 200) {
+                location.replace("/");
+            }
+        };
+    });
+</script>
+
   </body>
 
 </html>
