@@ -23,7 +23,7 @@ async function read(req, res, next) {
     if (category) {
       // Si se proporciona una categoría, filtrar por esa categoría
       all = await productsManager.read({ category });
-      console.log(all);
+      //console.log(all);
 
     } else {
       // Si no se proporciona ninguna categoría, obtener todos los productos

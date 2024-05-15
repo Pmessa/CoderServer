@@ -28,6 +28,7 @@ sessionsRouter.post("/login", isValidUser, isValidPass, async (req, res, next) =
       req.session.role = one.role;
       req.session.photo = one.photo;
       req.session.user_id = one._id;
+      console.log(req.session)
       return res.json({ statusCode: 200, message: "Logged in!" });
     } catch (error) {
       return next(error);
