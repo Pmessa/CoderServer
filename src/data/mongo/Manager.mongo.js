@@ -5,7 +5,6 @@ class Manager {
   async create(data) {
     try {
       const one = await this.Model.create(data)/* .lean() */;
-      console.log("Mongo Create");
       return one;
     } catch (error) {
       throw error;
@@ -40,6 +39,14 @@ class Manager {
     try {
       const one = await this.Model.findById(id).lean();
       //const one = await this.Model.findOne({_id: id})
+      return one;
+    } catch (error) {
+      throw error;
+    }
+  }
+  async readByEmail(email) {
+    try {
+      const one = await this.Model.findOne({ email });
       return one;
     } catch (error) {
       throw error;
