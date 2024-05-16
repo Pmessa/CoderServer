@@ -10,7 +10,7 @@ usersRouter.get("/", async (req, res, next) => {
       const one = await usersManager.readOne(req.session.user_id);
       return res.render("details", { user: one, user_id: req.session.user_id });
     } else {
-    const users = await usersManager.read();
+      const users = await usersManager.read();
       return res.render("users", { users });
     }
   } catch (error) {

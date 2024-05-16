@@ -6,8 +6,9 @@ class UsersManager {
   create(data) {
     try {
       const user = {
-        id: data.id || crypto.randomBytes(12).toString('hex'),
-        photo: data.photo || "https://cdn-icons-png.freepik.com/512/266/266033.png",
+        id: data.id || crypto.randomBytes(12).toString("hex"),
+        photo:
+          data.photo || "https://cdn-icons-png.freepik.com/512/266/266033.png",
         email: data.email,
         password: data.password,
         role: data.role || 0,
@@ -52,7 +53,7 @@ class UsersManager {
       const userToRemove = this.readOne(id);
       const within = UsersManager.#users.filter((each) => each.id !== id);
       UsersManager.#users = within;
-      console.log(within)
+      console.log(within);
       console.log("USER DELETED");
       return userToRemove;
     } catch (error) {
@@ -76,10 +77,8 @@ class UsersManager {
       throw error;
     }
   }
-  
 }
 const gestorDeUsuarios = new UsersManager();
-
 
 let user1 = gestorDeUsuarios.create({
   photo: "photojorge.jpg",
@@ -106,11 +105,9 @@ console.log(gestorDeUsuarios.read());
 console.log(gestorDeUsuarios.readOne(user1.id));
 gestorDeUsuarios.destroy(user4.id);
 user1 = gestorDeUsuarios.update(user1.id, {
-  photo: "newphoto.jpg" ,
+  photo: "newphoto.jpg",
   email: "newemail@gmail.com",
-  password: "newpassword"
-
-})
+  password: "newpassword",
+});
 
 console.log(user1);
-

@@ -1,4 +1,5 @@
-document.querySelector("#login").addEventListener("click", async () => {
+document.querySelector("#login").addEventListener("click", async (event) => {
+  event.preventDefault();
   const data = {
     email: document.querySelector("#email").value,
     password: document.querySelector("#password").value,
@@ -12,12 +13,12 @@ document.querySelector("#login").addEventListener("click", async () => {
   response = await response.json();
   if (response.statusCode === 200) {
     return Swal.fire({
-        title: "lOGIN",
-        confirmButtonText: "Ok",
-      }).then((result) => {
-        if (result.isConfirmed) {
-      return location.replace("/");
-        }
+      title: "LOGGED IN",
+      confirmButtonText: "Ok",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        return location.replace("/");
+      }
     });
   }
   return Swal.fire({

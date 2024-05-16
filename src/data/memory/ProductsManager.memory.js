@@ -57,7 +57,7 @@ class ProductsManager {
       const productToRemove = this.readOne(id);
       const within = ProductsManager.#products.filter((each) => each.id !== id);
       ProductsManager.#products = within;
-      console.log(within)
+      console.log(within);
       console.log("PRODUCT DELETED");
       return productToRemove;
     } catch (error) {
@@ -66,7 +66,7 @@ class ProductsManager {
   }
   update(id, newData) {
     try {
-      const  productToUpdate = this.readOne(id);
+      const productToUpdate = this.readOne(id);
 
       if (!productToUpdate) {
         throw new Error("Product not found");
@@ -83,44 +83,42 @@ class ProductsManager {
   }
 }
 
-
-
 const productsManager = new ProductsManager();
- productManager.create({
-    title: `Manteca de maní`,
-    photo: "mantequilla.jpg",
-    category: `untable`,
-    price: 2500,
-    stock: 1000,
-  });
-  productManager.create({
-    title: `almendras`,
-    photo: "almendras.jpg",
-    category: `Frutos secos`,
-    price: 15000,
-    stock: 1000,
-  });
-  productManager.create({
-    title: `Tofu`,
-    photo: "tofu.jpg",
-    category: `tofu`,
-    price: 150,
-    stock: 1000,
-  });
-  productManager.create({
-    title: `maní`,
-    photo: "maní.jpg",
-    category: `frutos secos`,
-    price: 150,
-    stock: 3000,
-  });
-  productManager.create({
-    title: `Aceite de oliva`,
-    photo: "aceiteDeOliva.jpg",
-    category: `aceites`,
-    price: 150,
-    stock: 11000,
-  });
+productManager.create({
+  title: `Manteca de maní`,
+  photo: "mantequilla.jpg",
+  category: `untable`,
+  price: 2500,
+  stock: 1000,
+});
+productManager.create({
+  title: `almendras`,
+  photo: "almendras.jpg",
+  category: `Frutos secos`,
+  price: 15000,
+  stock: 1000,
+});
+productManager.create({
+  title: `Tofu`,
+  photo: "tofu.jpg",
+  category: `tofu`,
+  price: 150,
+  stock: 1000,
+});
+productManager.create({
+  title: `maní`,
+  photo: "maní.jpg",
+  category: `frutos secos`,
+  price: 150,
+  stock: 3000,
+});
+productManager.create({
+  title: `Aceite de oliva`,
+  photo: "aceiteDeOliva.jpg",
+  category: `aceites`,
+  price: 150,
+  stock: 11000,
+});
 
 productsManager.create({
   title: "Cúrcuma en Polvo",
