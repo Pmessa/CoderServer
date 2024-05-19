@@ -37,7 +37,7 @@ productsRouter.get("/paginate", async (req, res, next) => {
         url: "/products",
         user_id: req.session.user_id,
       });
-    }else {
+    } else {
       return res.render("index", {
 
         user_id: req.session.user_id,

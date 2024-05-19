@@ -15,7 +15,7 @@ const cartsRouter = Router();
  */ cartsRouter.post("/", async (req, res, next) => {
   try {
     const { product } = req.body;
-    const  user_id  = req.session.user_id;
+    const user_id = req.session.user_id;
     const result = await fetch("http:/localhost:8080/api/carts/", {
       method: "POST",
       headers: {
@@ -50,7 +50,7 @@ cartsRouter.get("/", async (req, res, next) => {
 
 cartsRouter.delete("/all", async (req, res, next) => {
   try {
-    const  user_id  = req.session.user_id;
+    const user_id = req.session.user_id;
     const result = await fetch("http://localhost:8080/api/carts/all", {
       method: "DELETE",
       headers: {

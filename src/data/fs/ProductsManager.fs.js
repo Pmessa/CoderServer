@@ -22,7 +22,7 @@ class ProductsManager {
     if (!data.title || data.title.trim() === "") {
       console.log("Please enter the product title to create it");
       return null;
-  }
+    }
     try {
       const newProduct = {
         id: data.id || crypto.randomBytes(12).toString("hex"),
@@ -36,11 +36,11 @@ class ProductsManager {
       let all = await fs.promises.readFile(this.path, "utf-8");
       all = JSON.parse(all);
       const isDuplicate = all.find(
-        (product) => product.title === newProduct.title 
+        (product) => product.title === newProduct.title
       );
       if (isDuplicate) {
         //console.log("Duplicate product found. Cannot create product");
-      }else {
+      } else {
         all.unshift(newProduct);
 
         all = JSON.stringify(all, null, 2);
