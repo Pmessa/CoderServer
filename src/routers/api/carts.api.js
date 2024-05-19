@@ -4,17 +4,15 @@ import crypto from "crypto";
 //import cartsManager from "../../data/fs/CartsManager.fs.js";
 import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
 
-
 const cartsRouter = Router();
 
 cartsRouter.get("/", read);
-cartsRouter.get("/test", test); 
+cartsRouter.get("/test", test);
 cartsRouter.get("/:pid", readOne);
 cartsRouter.post("/", create);
 cartsRouter.put("/:pid", update);
 cartsRouter.delete("/all", destroyAll);
 cartsRouter.delete("/:pid", destroy);
-
 
 async function read(req, res, next) {
   try {
@@ -56,11 +54,11 @@ async function readOne(req, res, next) {
 async function create(req, res, next) {
   try {
     const data = req.body;
-    const newProduct={
+    const newProduct = {
       product_id: data.product_id,
       user_id: data.user_id,
-      quantity: 1
-    }
+      quantity: 1,
+    };
     const one = await cartsManager.create(newProduct);
     return res.json({
       statusCode: 201,
@@ -101,9 +99,9 @@ async function destroy(req, res, next) {
 async function destroyAll(req, res, next) {
   try {
     //console.log("hola")
-    const  {user_id}  = req.body;
+    const { user_id } = req.body;
     //console.log(user_id)
-    const all = await cartsManager.destroyAll({user_id: user_id});
+    const all = await cartsManager.destroyAll({ user_id: user_id });
     return res.json({
       statusCode: 200,
       response: all,
@@ -114,27 +112,26 @@ async function destroyAll(req, res, next) {
 }
 async function test() {
   try {
-    console.log("Crear un documento de prueba:")
+    console.log("Crear un documento de prueba:");
     await cartsManager.create({
       user_id: crypto.randomBytes(12).toString("hex"),
       product_id: crypto.randomBytes(12).toString("hex"),
-      quantity:1,
-      state:"reserved",
+      quantity: 1,
+      state: "reserved",
     });
-    console.log("Mostrar todos los carts:")
-    const allCarts = await cartsManager.read()
-    console.log(allCarts)
-    console.log("Mostrar solo el primer cart:")
-    const oneCart = await cartsManager.readOne(allCarts[0]._id)
-    console.log(oneCart)
-    console.log("Borrar ese cart:")
-    await cartsManager.destroy(oneCart)
-    console.log("Mostrar el resultado final total:")
-    const allCartsNew = await cartsManager.read()
-    console.log(allCartsNew)
-
+    console.log("Mostrar todos los carts:");
+    const allCarts = await cartsManager.read();
+    console.log(allCarts);
+    console.log("Mostrar solo el primer cart:");
+    const oneCart = await cartsManager.readOne(allCarts[0]._id);
+    console.log(oneCart);
+    console.log("Borrar ese cart:");
+    await cartsManager.destroy(oneCart);
+    console.log("Mostrar el resultado final total:");
+    const allCartsNew = await cartsManager.read();
+    console.log(allCartsNew);
   } catch (error) {
     console.log(error);
   }
-} 
+}
 export default cartsRouter;
