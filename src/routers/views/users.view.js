@@ -31,6 +31,22 @@ usersRouter.get("/login", async (req, res, next) => {
     return next(error);
   }
 });
+usersRouter.get("/google", async (req, res, next) => {
+  try {
+    let response = await fetch("http://localhost:8080/api/sessions/google", {
+      method: "GET",
+      credentials: "include"
+    });
+    if (response.status === 200) {
+      res.redirect("/");
+    } else {
+      throw new Error("Failed to authenticate with Google");
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
 usersRouter.get("/:uid", async (req, res, next) => {
   try {
     const { uid } = req.params;
