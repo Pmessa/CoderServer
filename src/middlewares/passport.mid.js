@@ -3,6 +3,7 @@ import { Strategy as LocalStrategy } from "passport-local";
 import { Strategy as GoogleStrategy } from "passport-google-oauth2";
 import usersManager from "../data/mongo/managers/UserManager.mongo.js";
 import { createHash, verifyHash } from "../utils/hash.util.js";
+import { createToken } from "../utils/token.util.js";
 
 passport.use(
   "register",
@@ -52,6 +53,15 @@ passport.use(
           req.session.role = one.role;
           req.session.photo = one.photo;
           req.session.user_id = one._id;
+          /* const data = {
+            email,
+            role: one.role,
+            photo: one.photo,
+            _id: one._id,
+            online: true,
+          }; */
+          //const token = createToken(data);
+          //one.token = token;
           return done(null, one);
         }
         const error = new Error("Invalid credentials");
@@ -76,14 +86,14 @@ passport.use(
       try {
         //profile es el objeto que devuelve google con todos los datos del usuaio
         //nosotros vamos a registrar un ID en lugar de un email
-        const { id, coverPhoto } = profile;
-        console.log(profile);
+        const { id, picture } = profile;
+        //console.log(profile);
         let user = await usersManager.readByEmail(id);
         if (!user) {
           user = {
             email: id,
             password: createHash(id),
-            photo: coverPhoto,
+            photo: picture,
           };
           user = await usersManager.create(user);
         }
