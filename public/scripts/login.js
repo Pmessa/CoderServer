@@ -29,3 +29,7 @@ document.querySelector("#login").addEventListener("click", async (event) => {
     confirmButtonColor: "#ff3b3c",
   });
 });
+document.querySelector("#login-google").addEventListener("click", async (event) => {
+  event.preventDefault();
+  window.location.href = "/users/google"; 
+});
