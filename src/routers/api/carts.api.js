@@ -84,9 +84,9 @@ async function update(req, res, next) {
 }
 async function destroy(req, res, next) {
   try {
-    //console.log("asdasd")
+    console.log("asdasd")
     const { pid } = req.params;
-    //console.log(pid)
+    console.log(pid)
     const one = await cartsManager.destroy(pid);
     return res.json({
       statusCode: 200,
