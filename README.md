@@ -48,17 +48,26 @@ Esta es una aplicación web simple que permite a los usuarios navegar, agregar p
 - `/api/productos`: Operaciones CRUD para productos
 - `/api/usuarios`: Operaciones CRUD para usuarios
 - `/api/carritos`: Operaciones CRUD para carritos
+- `/api/sessions/register`: Similar al create de un usuario, implementa la estrategia de passport correspondiente y hashea la contraseña
+- `/api/sessions/login`: Para iniciar sesión, implementa la estrategia de passport correspondiente y compara la contraseña
+- `/api/sessions`: Para ver los datos del usuario online (y renderizar el perfil de usuario o condicionar la barra de navegación), implementa la estrategia de passport correspondiente
+- Login/register con Google
 
 ## Vistas
-- `/`: Página de inicio con listado de productos y filtrado
-- `/productos/:pid`: Página de detalle del producto con botón de agregar al carrito
-- `/usuarios/registro`: Formulario de registro de usuario (no funcional)
-- `/usuarios/iniciar-sesion`: Formulario de inicio de sesión de usuario (no funcional)
-- `/usuarios/:uid`: Página de perfil de usuario
-- `/carritos/:uid`: Página de carrito para gestionar elementos y completar compras
+- `localhost:8080/`: Página de inicio con listado de productos y filtrado
+- `localhost:8080/products/:pid`: Página de detalle del producto con botón de agregar al carrito
+- `localhost:8080/users/register`: Formulario de registro de usuario (funcional)
+- `localhost:8080/users/login`: Formulario de inicio de sesión de usuario (funcional)
+- `localhost:8080/users`: Página de perfil de usuario, funciona sin el parámetro (usa los datos de la sesión para enviar el id del usuario)
+- `localhost:8080/carts`: Página de carrito, funciona sin el parámetro (usa los datos de la sesión para enviar el id del usuario)
+
+## Funcionalidades Adicionales
+- Barra de navegación con la correspondiente protección de rutas (si el usuario está o no con sesión iniciada)
+- Alertas de éxito/fracaso de registro, inicio y cierre de sesión funcionales
 
 ## Autores
-Sebastián Ávila 
-Pablo Messa
+- Sebastián Ávila 
+- Pablo Messa
+
 
 
