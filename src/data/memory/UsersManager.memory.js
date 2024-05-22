@@ -76,7 +76,7 @@ class UsersManager {
       throw error;
     }
   }
-  
+
 }
 const gestorDeUsuarios = new UsersManager();
 
@@ -106,7 +106,7 @@ console.log(gestorDeUsuarios.read());
 console.log(gestorDeUsuarios.readOne(user1.id));
 gestorDeUsuarios.destroy(user4.id);
 user1 = gestorDeUsuarios.update(user1.id, {
-  photo: "newphoto.jpg" ,
+  photo: "newphoto.jpg",
   email: "newemail@gmail.com",
   password: "newpassword"
 

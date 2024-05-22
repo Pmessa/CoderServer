@@ -1,5 +1,5 @@
 import { Router } from "express";
-
+import isValidAdmin from "../../middlewares/isValidAdmin.mid.js";
 //import productsManager from "../../data/fs/ProductsManager.fs.js";
 import productsManager from "../../data/mongo/managers/ProductsManager.mongo.js";
 import uploader from "../../middlewares/multer.mid.js";
@@ -11,13 +11,7 @@ const productsRouter = Router();
 productsRouter.get("/", read);
 productsRouter.get("/paginate", paginate);
 productsRouter.get("/product/:pid", readOne);
-productsRouter.post(
-  "/",
-  uploader.single("photo"),
-  isPhoto,
-  isPropAndDefault,
-  create
-);
+productsRouter.post("/", isValidAdmin, uploader.single("photo"), isPhoto, isPropAndDefault, create);
 productsRouter.put("/:pid", update);
 productsRouter.delete("/:pid", destroy);
 
@@ -29,7 +23,7 @@ async function read(req, res, next) {
     if (category) {
       // Si se proporciona una categoría, filtrar por esa categoría
       all = await productsManager.read({ category });
-      console.log(all);
+      //console.log(all);
 
     } else {
       // Si no se proporciona ninguna categoría, obtener todos los productos
@@ -113,8 +107,8 @@ async function readOne(req, res, next) {
 async function create(req, res, next) {
   try {
     const data = req.body;
-    console.log(req.file);
-    console.log(req.body);
+    //console.log(req.file);
+    //console.log(req.body);
     const one = await productsManager.create(data);
     return res.json({
       statusCode: 201,

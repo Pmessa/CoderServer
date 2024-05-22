@@ -25,7 +25,7 @@ class UsersManager {
         },
         {
           id: crypto.randomBytes(12).toString("hex"),
-          photo:  "img/persona1.jpg",
+          photo: "img/persona1.jpg",
           email: "hector55@gmail.com",
           password: "Hector123",
           role: 0,
@@ -69,7 +69,7 @@ class UsersManager {
           photo: data.photo || "https://cdn-icons-png.freepik.com/512/266/266033.png",
           email: data.email,
           password: data.password,
-          role: data.role || 0, 
+          role: data.role || 0,
         }
         //Lee todos los usuarios del archivo
         let all = await fs.promises.readFile(this.path, "utf-8");

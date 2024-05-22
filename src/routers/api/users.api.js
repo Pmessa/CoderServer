@@ -21,7 +21,7 @@ async function create(req, res, next) {
         const one = await usersManager.create(data);
         return res.json({
             statusCode: 201,
-            response: "ID: "+one.id,
+            response: "ID: " + one.id,
             message: "CREATED USER",
         });
     } catch (error) {

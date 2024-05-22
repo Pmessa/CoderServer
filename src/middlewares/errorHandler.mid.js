@@ -1,6 +1,6 @@
-function errorHandler (error, req, res, next) {
+function errorHandler(error, req, res, next) {
     console.log(error);
-    return res.json ({
+    return res.json({
         statusCode: error.statusCode || 500,
         message: error.message || "CODER API ERROR",
     })

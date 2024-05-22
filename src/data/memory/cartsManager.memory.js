@@ -61,7 +61,7 @@ class CartsManager {
   }
   update(id, newData) {
     try {
-      const  cartToUpdate = this.readOne(id);
+      const cartToUpdate = this.readOne(id);
 
       if (!cartToUpdate) {
         throw new Error("cart not found");
@@ -76,7 +76,7 @@ class CartsManager {
       throw error;
     }
   }
-  
+
 }
 
 
@@ -85,10 +85,10 @@ const cartsManager = new ProducstManager();
 
 cartsManager.create({
 
-    user_id: data.id,
-    product_id: data.id,
-    quantity: data.id || 1,
-    state: data.id || "reserved",
+  user_id: data.id,
+  product_id: data.id,
+  quantity: data.id || 1,
+  state: data.id || "reserved",
 });
 
 // Mostrar todos los carts
