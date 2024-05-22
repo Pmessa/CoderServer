@@ -64,7 +64,7 @@ sessionsRouter.get(
 
 sessionsRouter.get(
   "/google/callback",
-  passport.authenticate("google", { session: false }),
+  passport.authenticate("google", { session: false, successRedirect: '/' }),
   (req, res, next) => {
     try {
       return res.json({ statusCode: 200, message: "Logged in with google!" });

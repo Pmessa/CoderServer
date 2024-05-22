@@ -84,10 +84,9 @@ passport.use(
     },
     async (req, accesToken, refreshToken, profile, done) => {
       try {
-        //profile es el objeto que devuelve google con todos los datos del usuaio
+        //profile es el objeto que devuelve google con todos los datos del usuario
         //nosotros vamos a registrar un ID en lugar de un email
         const { id, picture } = profile;
-        //console.log(profile);
         let user = await usersManager.readByEmail(id);
         if (!user) {
           user = {

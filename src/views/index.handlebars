@@ -34,7 +34,16 @@
       </div>
    </div>
 <main class="d-flex justify-content-around flex-wrap" >
+  {{#if newLogin}}
+<script>
 
+window.addEventListener("load", async (event) => {
+  event.preventDefault();
+  return Swal.fire("LOGGED IN");
+});
+
+</script>
+  {{/if}}
   {{#each products}}
    <div class="card m-5" style="width: 15rem; margin:.5rem; box-shadow: 0 5px 5px rgb(81, 115, 175); height:25rem; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
       <img style="height:10rem" src={{this.photo}} class="card-img-top" />
@@ -63,6 +72,7 @@
   </ul>
 </nav>
 <script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
   console.log("script")
   const socket = io();
