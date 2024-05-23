@@ -1,5 +1,12 @@
 # Readme para Mi Aplicación
 
+
+# Sistema de Sesiones Mejorado
+
+Se ha implementado un nuevo sistema de sesiones que permite a los usuarios registrarse, iniciar sesión, verificar su estado en línea y cerrar sesión de manera segura. Esta mejora proporciona una mayor seguridad y una mejor experiencia de usuario en la aplicación.
+
+En el front se realizaron las funciones necesarias para renderizar el carrito solo si el usuario está  logueado y solo puede agregar al carrito un usuario son su sesión activa.
+
 ## Descripción
 Esta es una aplicación web simple que permite a los usuarios navegar, agregar productos a su carrito y realizar compras. La aplicación incluye funciones como registro de usuario, inicio de sesión y gestión de carrito. Está construida utilizando Node.js y MongoDB para el almacenamiento de datos.
 

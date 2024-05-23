@@ -4,10 +4,10 @@ function isCategory(req, res, next) {
         let { category } = req.body
         console.log(category)
 
-         
+
         if (!category) {
-         
-           category = "without category"
+
+            category = "without category"
         } else {
             return next();
         }
