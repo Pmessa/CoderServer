@@ -4,7 +4,7 @@ class Manager {
   }
   async create(data) {
     try {
-      const one = await this.Model.create(data)/* .lean() */;
+      const one = await this.Model.create(data); /* .lean() */
       return one;
     } catch (error) {
       throw error;
@@ -54,7 +54,9 @@ class Manager {
   }
   async update(id, data) {
     try {
-      const one = await this.Model.findByIdAndUpdate(id, data, { new: true }).lean();
+      const one = await this.Model.findByIdAndUpdate(id, data, {
+        new: true,
+      }).lean();
       return one;
     } catch (error) {
       throw error;

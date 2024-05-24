@@ -3,11 +3,12 @@ function isPhoto(req, res, next) {
     if (req.file) {
       req.body.photo = "/assets/" + req.file.filename;
     } else {
-      req.body.photo = "https://www.grandespymes.com.ar/wp-content/uploads/2020/10/nuevo-producto-830x518.jpg"
+      req.body.photo =
+        "https://www.grandespymes.com.ar/wp-content/uploads/2020/10/nuevo-producto-830x518.jpg";
     }
-    return next()
+    return next();
   } catch (error) {
     return next(error);
   }
 }
-export default isPhoto
+export default isPhoto;

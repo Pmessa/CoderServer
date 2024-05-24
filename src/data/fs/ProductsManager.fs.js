@@ -18,7 +18,6 @@ class ProductsManager {
   }
 
   async create(data) {
-
     if (!data.title || data.title.trim() === "") {
       console.log("Please enter the product title to create it");
       return null;
@@ -27,7 +26,9 @@ class ProductsManager {
       const newProduct = {
         id: data.id || crypto.randomBytes(12).toString("hex"),
         title: data.title,
-        photo: data.photo || "https://www.grandespymes.com.ar/wp-content/uploads/2020/10/nuevo-producto-830x518.jpg",
+        photo:
+          data.photo ||
+          "https://www.grandespymes.com.ar/wp-content/uploads/2020/10/nuevo-producto-830x518.jpg",
         category: data.category || "without category",
         price: parseInt(data.price) || 1,
         stock: parseInt(data.stock) || 1,

@@ -29,12 +29,21 @@ viewsRouter.get("/", async (req, res, next) => {
     const limit = 10
 
     const response = await fetch(`http://localhost:8080/api/products/paginate?limit=${limit}&page=${page}`);
+
+    let newLogin = true
+    if (req.session.firstTimeLogin) {
+      newLogin = false
+    }
+    if (req.session.user_id) {
+      req.session.firstTimeLogin = true
+    }
+
     if (!response.ok) {
       throw new Error('Failed to fetch data');
     }
     const fetchedDocs = await response.json();
     if (req.session.user_id) {
-      return res.render("index", { products: fetchedDocs.response, pagination: fetchedDocs.info.totalPage, limit: fetchedDocs.info.limit, nextPage: fetchedDocs.info.nextPage, prevPage: fetchedDocs.info.prevPage, url: 'products/', user_id: req.session.user_id });
+      return res.render("index", { products: fetchedDocs.response, pagination: fetchedDocs.info.totalPage, limit: fetchedDocs.info.limit, nextPage: fetchedDocs.info.nextPage, prevPage: fetchedDocs.info.prevPage, url: 'products/', newLogin: newLogin, user_id: req.session.user_id });
     }
     else {
       return res.render("index", { products: fetchedDocs.response, pagination: fetchedDocs.info.totalPage, limit: fetchedDocs.info.limit, nextPage: fetchedDocs.info.nextPage, prevPage: fetchedDocs.info.prevPage, url: 'products/' });
@@ -43,8 +52,7 @@ viewsRouter.get("/", async (req, res, next) => {
   } catch (error) {
     return next(error);
   }
-}
-)
+})
 
 
 export default viewsRouter;

@@ -11,7 +11,14 @@ const productsRouter = Router();
 productsRouter.get("/", read);
 productsRouter.get("/paginate", paginate);
 productsRouter.get("/product/:pid", readOne);
-productsRouter.post("/", isValidAdmin, uploader.single("photo"), isPhoto, isPropAndDefault, create);
+productsRouter.post(
+  "/",
+  isValidAdmin,
+  uploader.single("photo"),
+  isPhoto,
+  isPropAndDefault,
+  create
+);
 productsRouter.put("/:pid", update);
 productsRouter.delete("/:pid", destroy);
 
@@ -24,7 +31,6 @@ async function read(req, res, next) {
       // Si se proporciona una categoría, filtrar por esa categoría
       all = await productsManager.read({ category });
       //console.log(all);
-
     } else {
       // Si no se proporciona ninguna categoría, obtener todos los productos
       all = await productsManager.read();

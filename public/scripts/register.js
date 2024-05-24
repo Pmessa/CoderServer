@@ -35,17 +35,3 @@ async function register(e) {
     timerProgressBar: true,
   });
 }
-
-sessionsRouter.post("/signout", (req, res, next) => {
-  try {
-    if (req.session) {
-      req.session.destroy();
-      return res.json({ statusCode: 200, message: "Signed out!" });
-    }
-    const error = new Error("Invalid credentials from signout");
-    error.statusCode = 401;
-    throw error;
-  } catch (error) {
-    return next(error);
-  }
-});

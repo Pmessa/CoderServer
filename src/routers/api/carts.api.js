@@ -4,7 +4,6 @@ import crypto from "crypto";
 //import cartsManager from "../../data/fs/CartsManager.fs.js";
 import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
 
-
 const cartsRouter = Router();
 
 cartsRouter.get("/", read);
@@ -14,7 +13,6 @@ cartsRouter.post("/", create);
 cartsRouter.put("/:pid", update);
 cartsRouter.delete("/all", destroyAll);
 cartsRouter.delete("/:pid", destroy);
-
 
 async function read(req, res, next) {
   try {
@@ -59,8 +57,8 @@ async function create(req, res, next) {
     const newProduct = {
       product_id: data.product_id,
       user_id: data.user_id,
-      quantity: 1
-    }
+      quantity: 1,
+    };
     const one = await cartsManager.create(newProduct);
     return res.json({
       statusCode: 201,
@@ -114,25 +112,24 @@ async function destroyAll(req, res, next) {
 }
 async function test() {
   try {
-    console.log("Crear un documento de prueba:")
+    console.log("Crear un documento de prueba:");
     await cartsManager.create({
       user_id: crypto.randomBytes(12).toString("hex"),
       product_id: crypto.randomBytes(12).toString("hex"),
       quantity: 1,
       state: "reserved",
     });
-    console.log("Mostrar todos los carts:")
-    const allCarts = await cartsManager.read()
-    console.log(allCarts)
-    console.log("Mostrar solo el primer cart:")
-    const oneCart = await cartsManager.readOne(allCarts[0]._id)
-    console.log(oneCart)
-    console.log("Borrar ese cart:")
-    await cartsManager.destroy(oneCart)
-    console.log("Mostrar el resultado final total:")
-    const allCartsNew = await cartsManager.read()
-    console.log(allCartsNew)
-
+    console.log("Mostrar todos los carts:");
+    const allCarts = await cartsManager.read();
+    console.log(allCarts);
+    console.log("Mostrar solo el primer cart:");
+    const oneCart = await cartsManager.readOne(allCarts[0]._id);
+    console.log(oneCart);
+    console.log("Borrar ese cart:");
+    await cartsManager.destroy(oneCart);
+    console.log("Mostrar el resultado final total:");
+    const allCartsNew = await cartsManager.read();
+    console.log(allCartsNew);
   } catch (error) {
     console.log(error);
   }
