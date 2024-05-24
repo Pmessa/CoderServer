@@ -12,14 +12,8 @@ document.querySelector("#login").addEventListener("click", async (event) => {
   let response = await fetch("/api/sessions/login", opts);
   response = await response.json();
   if (response.statusCode === 200) {
-    return Swal.fire({
-      title: "LOGGED IN",
-      confirmButtonText: "Ok",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        return location.replace("/");
-      }
-    });
+    return location.replace("/");
+
   }
   return Swal.fire({
     title: response.message,
@@ -28,4 +22,8 @@ document.querySelector("#login").addEventListener("click", async (event) => {
     timerProgressBar: true,
     confirmButtonColor: "#ff3b3c",
   });
+});
+document.querySelector("#login-google").addEventListener("click", async (event) => {
+  event.preventDefault();
+  window.location.href = "/users/google"; 
 });

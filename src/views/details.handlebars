@@ -1,15 +1,18 @@
 <h1 class="p-2 text-center text-success w-100">DETAILS OF USERS</h1>
 {{#if user._id}}
 
-<div class="container text-center d-flex flex-column align-items-center">
-  <h5>USERS ID {{user._id}}</h5>
-  <div class="card" style="width: 18rem; margin:.5rem;box-shadow: 0 5px 5px rgb(81, 115, 175)">
-    <img src="{{user.photo}}" class="card-img-top" alt="photo_detail" />
-    <div class="card-body">
-      <p class="card-text">{{user.email}}</p>
+  <div class="container text-center d-flex flex-column align-items-center">
+    <h5>USERS ID {{user._id}}</h5>
+    <div
+      class="card"
+      style="width: 18rem; margin:.5rem;box-shadow: 0 5px 5px rgb(81, 115, 175)"
+    >
+      <img src="{{user.photo}}" class="card-img-top" alt="photo_detail" />
+      <div class="card-body">
+        <p class="card-text">{{user.email}}</p>
+      </div>
     </div>
   </div>
-</div>
 {{else}}
 <h1>USER NOT FOUND</h1>
 {{/if}}

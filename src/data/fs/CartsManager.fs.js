@@ -17,7 +17,6 @@ class CartsManager {
     }
   }
   async create(data) {
-
     try {
       const newcart = {
         id: data.id || crypto.randomBytes(12).toString("hex"),
@@ -29,9 +28,7 @@ class CartsManager {
 
       let all = await fs.promises.readFile(this.path, "utf-8");
       all = JSON.parse(all);
-      const isDuplicate = all.find(
-        (cart) => cart.id === newcart.id
-      );
+      const isDuplicate = all.find((cart) => cart.id === newcart.id);
       if (isDuplicate) {
         console.log("The product already exists in the cart.");
       } else {
@@ -122,11 +119,11 @@ async function test() {
       quantity: 1,
       state: "reserved",
     });
-    await cartsManager.read()
-    await cartsManager.readOne("702b81e18fcefbf26073c386")
-    await cartsManager.destroy("702b81e18fcefbf26073c386")
-    await cartsManager.read()
-    console.log("Test exitoso.")
+    await cartsManager.read();
+    await cartsManager.readOne("702b81e18fcefbf26073c386");
+    await cartsManager.destroy("702b81e18fcefbf26073c386");
+    await cartsManager.read();
+    console.log("Test exitoso.");
   } catch (error) {
     console.log(error);
   }

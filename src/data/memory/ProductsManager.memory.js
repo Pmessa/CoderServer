@@ -57,7 +57,7 @@ class ProductsManager {
       const productToRemove = this.readOne(id);
       const within = ProductsManager.#products.filter((each) => each.id !== id);
       ProductsManager.#products = within;
-      console.log(within)
+      console.log(within);
       console.log("PRODUCT DELETED");
       return productToRemove;
     } catch (error) {
@@ -82,8 +82,6 @@ class ProductsManager {
     }
   }
 }
-
-
 
 const productsManager = new ProductsManager();
 productManager.create({

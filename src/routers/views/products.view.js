@@ -39,7 +39,6 @@ productsRouter.get("/paginate", async (req, res, next) => {
       });
     } else {
       return res.render("index", {
-
         user_id: req.session.user_id,
       });
     }

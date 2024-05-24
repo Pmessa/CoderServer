@@ -59,8 +59,8 @@ cartsRouter.delete("/all", async (req, res, next) => {
       body: JSON.stringify({ user_id: user_id }),
     });
     return res.json({
-      statusCode: 200
-    })
+      statusCode: 200,
+    });
   } catch (error) {
     return next(error);
   }

@@ -11,4 +11,4 @@ async function isValidAdmin(req, res, next) {
     return next(error);
   }
 }
-export default isValidAdmin
+export default isValidAdmin;

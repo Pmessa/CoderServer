@@ -40,7 +40,11 @@ server.use(
     //cookie: { maxAge: 60 * 60 * 1000 },
   })
 );
+<<<<<<< HEAD
 server.use(cookieParser(process.env.SECRET_COOKIE))
+=======
+server.use(cookieParser(process.env.SECRET_COOKIE));
+>>>>>>> 117fa6cd852c7ad42cfa4af46e2a7c021e4c0aa4
 server.use(express.json()); //permite leer req.params y req.query
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
