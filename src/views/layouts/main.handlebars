@@ -76,19 +76,19 @@
                 href="/products/real"
               >Products</a>
             </li>
-            {{#unless user_id}}
+            {{!-- {{#unless user_id}}
               <li class="nav-item">
                 <a class="nav-link fs-5" href="/users/register">Register</a>
               </li>
-            {{/unless}}
-            <li class="nav-item">
-              <a class="nav-link fs-5" href="/users">Users</a>
-            </li>
+            {{/unless}} --}}
 
           </ul>
         </div>
       </div>
       {{#if user_id}}
+            <li class="nav-item">
+              <a class="nav-link fs-5" href="/users">Users</a>
+            </li>
               <li class="nav-item d-flex" style="width: 180px;">
           <a
             class="nav-link fs-5 d-flex text-center justify-content-center btn btn-light p-2 signout"
@@ -132,12 +132,6 @@
         </ul>
       </div>
     </div>
-    {{!-- {{#if user_id}}
-    <a href="http://localhost:8080/carts/"><img src="/img/cart-tr.png" alt="Cart Logo" width="50" height="50"
-        class="d-inline-block align-top" style="margin-right: 20px;" /></a>
-    {{/if}}
-    <img src="/img/letraV_tr.png" alt="V Logo" width="50" height="50" class="d-inline-block align-top"
-      style="margin-right: 20px;" /> --}}
   </nav>
 
   {{{body}}}
