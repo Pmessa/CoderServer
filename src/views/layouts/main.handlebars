@@ -70,67 +70,39 @@
             </ul>
           </li>
 
-              <a
-                class="nav-link actives fs-5"
-                aria-current="page"
-                href="/products/real"
-              >Products</a>
-            </li>
-            {{!-- {{#unless user_id}}
-              <li class="nav-item">
-                <a class="nav-link fs-5" href="/users/register">Register</a>
-              </li>
-            {{/unless}} --}}
-
-          </ul>
-        </div>
-      </div>
-      {{#if user_id}}
-            <li class="nav-item">
-              <a class="nav-link fs-5" href="/users">Users</a>
-            </li>
-              <li class="nav-item d-flex" style="width: 180px;">
-          <a
-            class="nav-link fs-5 d-flex text-center justify-content-center btn btn-light p-2 signout"
-            href="/"
-          >
-            <i class="fa-solid fa-user" style="margin: 7px;"></i>
-            Signout
-          </a>
-        </li>
-  
-      {{/if}}
-      {{#unless user_id}}
-        <li class="nav-item d-flex" style="width: 180px;">
-          <a
-            class="nav-link fs-5 d-flex text-center justify-content-center btn btn-light p-2"
-            href="/users/login"
-          >
-            <i class="fa-solid fa-user" style="margin: 7px;"></i>
-            Sign in
-          </a>
-        </li>
-      {{/unless}}
-      {{#if user_id}}
-        <a href="http://localhost:8080/carts/"><img
-            src="/img/cart-tr.png"
-            alt="Cart Logo"
-            width="50"
-            height="50"
-            class="d-inline-block align-top"
-            style="margin-right: 20px;"
-          /></a>
-      {{/if}}
-      <img
-        src="/img/letraV_tr.png"
-        alt="V Logo"
-        width="50"
-        height="50"
-        class="d-inline-block align-top"
-        style="margin-right: 20px;"
-      />
+          <a class="nav-link actives fs-5" aria-current="page" href="/products/real">Products</a>
+          </li>
         </ul>
       </div>
+    </div>
+    {{#if user_id}}
+    <li class="nav-item d-flex" style="width: 180px;"></li>
+    <a class="nav-link fs-5 d-flex text-center justify-content-center btn btn-light p-2 signout" href="/users"><i
+        class="fa-solid fa-user" style="margin: 7px;"></i></a>
+    </li>
+    <li class="nav-item d-flex" style="width: 180px;">
+      <a class="nav-link fs-5 d-flex text-center justify-content-center btn btn-light p-2 signout" href="/">
+       <i class="fa-solid fa-arrow-right-to-bracket"></i>
+      </a>
+    </li>
+
+    {{/if}}
+    {{#unless user_id}}
+    <li class="nav-item d-flex" style="width: 180px;">
+      <a class="nav-link fs-5 d-flex text-center justify-content-center btn btn-light p-2" href="/users/login">
+        <i class="fa-solid fa-user" style="margin: 7px;"></i>
+        Sign in
+      </a>
+    </li>
+    {{/unless}}
+    {{#if user_id}}
+    <a href="http://localhost:8080/carts/"><img src="/img/cart-tr.png" alt="Cart Logo" width="50" height="50"
+        class="d-inline-block align-top" style="margin-right: 20px;" /></a>
+    {{/if}}
+    <img src="/img/letraV_tr.png" alt="V Logo" width="50" height="50" class="d-inline-block align-top"
+      style="margin-right: 20px;" />
+    </ul>
+    </div>
     </div>
   </nav>
 
@@ -172,16 +144,16 @@
   <script>
     document.querySelectorAll(".signout").forEach(element => {
       element.onclick
-      = async () => {
-        const opts = {
-          method: "POST", headers: {
-            "Content-Type":
-              "application/json"
-          }
-        }; let response = await
-          fetch("/api/sessions/signout", opts); response = await response.json(); if
-          (response.statusCode === 200) { location.replace("/"); }
-      };
+        = async () => {
+          const opts = {
+            method: "POST", headers: {
+              "Content-Type":
+                "application/json"
+            }
+          }; let response = await
+            fetch("/api/sessions/signout", opts); response = await response.json(); if
+            (response.statusCode === 200) { location.replace("/"); }
+        };
     });
   </script>
 
