@@ -21,6 +21,44 @@
     .product-title {
       font-family: 'Lato', sans-serif;
     }
+    
+    .hover-text-profile,  .hover-text-signOut{
+  position: relative;
+}
+
+li{
+  align-items: center;
+  justify-content: center;
+}
+.fa-solid{
+  width: 15px;
+}
+.hover-text-signOut:hover::after {
+  content: 'Sign Out';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-25%);
+  background-color: rgb(214, 214, 214);
+  color: rgba(77, 77, 77, 0.7);
+  padding: 0.5rem;
+  margin:10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.hover-text-profile:hover::after {
+  content: 'Profile';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-25%);
+  background-color: rgb(214, 214, 214);
+  color: rgba(77, 77, 77, 0.7);
+  padding: 0.5rem;
+  margin:10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
   </style>
 </head>
 
@@ -76,12 +114,12 @@
       </div>
     </div>
     {{#if user_id}}
-    <li class="nav-item d-flex" style="width: 180px;"></li>
-    <a class="nav-link fs-5 d-flex text-center justify-content-center btn btn-light p-2 signout" href="/users"><i
-        class="fa-solid fa-user" style="margin: 7px;"></i></a>
+    <li class="nav-item d-flex" style="width: 100px;">
+    <a class="nav-link fs-5 d-flex text-center justify-content-center btn btn-light p-2 hover-text-profile" href="/users"><i
+        class="fa-solid fa-user"></i></a>
     </li>
-    <li class="nav-item d-flex" style="width: 180px;">
-      <a class="nav-link fs-5 d-flex text-center justify-content-center btn btn-light p-2 signout" href="/">
+    <li class="nav-item d-flex" style="width: 100px;">
+      <a class="nav-link fs-5 d-flex text-center justify-content-center btn btn-light p-2 hover-text-signOut signout" href="/">
        <i class="fa-solid fa-arrow-right-to-bracket"></i>
       </a>
     </li>
@@ -155,6 +193,19 @@
             (response.statusCode === 200) { location.replace("/"); }
         };
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+  const icons = document.querySelectorAll('.hover-text');
+
+  icons.forEach(icon => {
+    icon.addEventListener('mouseover', function() {
+      icon.setAttribute('data-content', 'Tu texto aquí');
+    });
+    icon.addEventListener('mouseout', function() {
+      icon.removeAttribute('data-content');
+    });
+  });
+});
   </script>
 
 </body>
