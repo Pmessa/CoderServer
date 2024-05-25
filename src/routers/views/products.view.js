@@ -16,6 +16,7 @@ productsRouter.get("/", async (req, res, next) => {
   }
 });
 
+
 productsRouter.get("/paginate", async (req, res, next) => {
   try {
     const { page, limit } = req.query;
@@ -26,7 +27,7 @@ productsRouter.get("/paginate", async (req, res, next) => {
       throw new Error("Failed to fetch data");
     }
     const fetchedDocs = await response.json();
-    //console.log(fetchedDocs.info)
+    
     if (req.session.user_id) {
       return res.render("index", {
         products: fetchedDocs.response,
@@ -39,6 +40,12 @@ productsRouter.get("/paginate", async (req, res, next) => {
       });
     } else {
       return res.render("index", {
+        products: fetchedDocs.response,
+        pagination: fetchedDocs.info.totalPage,
+        limit: fetchedDocs.info.limit,
+        nextPage: fetchedDocs.info.nextPage,
+        prevPage: fetchedDocs.info.prevPage,
+        url: "/products",
         user_id: req.session.user_id,
       });
     }
@@ -46,6 +53,36 @@ productsRouter.get("/paginate", async (req, res, next) => {
     return next(error);
   }
 });
+// productsRouter.get("/paginate", async (req, res, next) => {
+//   try {
+//     const { page, limit } = req.query;
+//     const response = await fetch(
+//       `http://localhost:8080/api/products/paginate?limit=${limit}&page=${page}`
+//     );
+//     if (!response.ok) {
+//       throw new Error("Failed to fetch data");
+//     }
+//     const fetchedDocs = await response.json();
+//     //console.log(fetchedDocs.info)
+//     if (req.session.user_id) {
+//       return res.render("index", {
+//         products: fetchedDocs.response,
+//         pagination: fetchedDocs.info.totalPage,
+//         limit: fetchedDocs.info.limit,
+//         nextPage: fetchedDocs.info.nextPage,
+//         prevPage: fetchedDocs.info.prevPage,
+//         url: "/products",
+//         user_id: req.session.user_id,
+//       });
+//     } else {
+//       return res.render("index", {
+//         user_id: req.session.user_id,
+//       });
+//     }
+//   } catch (error) {
+//     return next(error);
+//   }
+// });
 
 productsRouter.get("/:pid", async (req, res, next) => {
   try {
