@@ -1,3 +1,5 @@
+
+
 document.querySelector("#login").addEventListener("click", async (event) => {
   event.preventDefault();
   const data = {
@@ -11,19 +13,24 @@ document.querySelector("#login").addEventListener("click", async (event) => {
   };
   let response = await fetch("/api/sessions/login", opts);
   response = await response.json();
+  //console.log(response);
   if (response.statusCode === 200) {
+    //console.log(response);
+    //localStorage.setItem("token", response.token)
     return location.replace("/");
+  
 
-  }
-  return Swal.fire({
-    title: response.message,
-    icon: "error",
-    timer: 5000,
-    timerProgressBar: true,
-    confirmButtonColor: "#ff3b3c",
-  });
+  } else {
+    return Swal.fire({
+      title: response.message,
+      icon: "error",
+      timer: 5000,
+      timerProgressBar: true,
+      confirmButtonColor: "#ff3b3c",
+    })
+  };
 });
 document.querySelector("#login-google").addEventListener("click", async (event) => {
   event.preventDefault();
-  window.location.href = "/users/google"; 
+  window.location.href = "/users/google";
 });
