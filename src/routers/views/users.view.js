@@ -6,7 +6,7 @@ const usersRouter = Router();
 
 usersRouter.get("/", async (req, res, next) => {
   try {
-    console.log(req.session);
+    console.log(req.user);
     if (req.session.user_id) {
       //console.log(req.session)
       const one = await usersManager.readOne(req.session.user_id);

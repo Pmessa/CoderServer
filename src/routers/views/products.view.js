@@ -6,7 +6,8 @@ const productsRouter = Router();
 productsRouter.get("/", async (req, res, next) => {
   try {
     const products = await productsManager.read();
-    if (req.session.user_id) {
+    console.log(req.cookies.token);
+    if (req.user._id) {
       return res.render("products", { products, user_id: req.session.user_id });
     } else {
       return res.render("products", { products, user_id: req.session.user_id });

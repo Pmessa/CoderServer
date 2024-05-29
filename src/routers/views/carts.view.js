@@ -1,6 +1,8 @@
 import { Router } from "express";
 import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
 //import cartsManager from "../../data/fs/cartsManager.fs.js";
+import { verifyToken } from "../../utils/token.util.js";
+
 const cartsRouter = Router();
 
 /* cartsRouter.get("/", async (req, res, next) => {
@@ -14,8 +16,12 @@ const cartsRouter = Router();
 });
  */ cartsRouter.post("/", async (req, res, next) => {
   try {
+    let token = req.cookies.token
+    token = verifyToken(token)
+    console.log(token);
     const { product } = req.body;
-    const user_id = req.session.user_id;
+    const user_id = token._id;
+    console.log(user_id);
     const result = await fetch("http:/localhost:8080/api/carts/", {
       method: "POST",
       headers: {
@@ -25,10 +31,10 @@ const cartsRouter = Router();
     });
     const carts = await cartsManager.readCart(user_id);
     //return res.render("cart", { cart: carts });
-    if (req.session.user_id) {
-      return res.render("cart", { cart: carts, user_id: req.session.user_id });
+    if (user_id) {
+      return res.render("cart", { cart: carts, user_id: user_id });
     } else {
-      return res.render("cart", { cart: carts, user_id: req.session.user_id });
+      return res.render("cart", { cart: carts, user_id: user_id });
     }
   } catch (error) {
     return next(error);
@@ -36,12 +42,13 @@ const cartsRouter = Router();
 });
 cartsRouter.get("/", async (req, res, next) => {
   try {
-    const { user_id } = req.session;
-    const carts = await cartsManager.readCart(user_id);
+    const {_id } = req.cookies.token._id;
+    
+    const carts = await cartsManager.readCart(_id);
     if (req.session.user_id) {
-      return res.render("cart", { cart: carts, user_id: req.session.user_id });
+      return res.render("cart", { cart: carts, user_id: _id });
     } else {
-      return res.render("cart", { cart: carts, user_id: req.session.user_id });
+      return res.render("cart", { cart: carts, user_id: _id });
     }
   } catch (error) {
     return next(error);
