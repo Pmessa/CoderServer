@@ -6,9 +6,8 @@ const usersRouter = Router();
 
 usersRouter.get("/", async (req, res, next) => {
   try {
-    console.log(req.user);
-    if (req.session.user_id) {
-      //console.log(req.session)
+    if (req.cookies.token) {
+      console.log(req.user)
       const one = await usersManager.readOne(req.session.user_id);
       return res.render("details", { user: one, user_id: req.session.user_id });
     } else {
@@ -21,30 +20,21 @@ usersRouter.get("/", async (req, res, next) => {
 });
 usersRouter.get("/register", async (req, res, next) => {
   try {
-    if (req.session.user_id){
-      return res.redirect("/users")
-    } else {
     return res.render("register");
-    }
   } catch (error) {
     return next(error);
   }
 });
 usersRouter.get("/login", async (req, res, next) => {
   try {
-    //console.log(req.user);
-    if (req.session.user_id){
-      return res.redirect("/users")
-    } else {
     return res.render("login");
-    }
   } catch (error) {
     return next(error);
   }
 });
 usersRouter.get("/google", async (req, res, next) => {
   try {
-    return res.redirect("http://localhost:8080/api/sessions/google")
+    return res.redirect("http://localhost:8080/api/sessions/google");
     /*
     let response = await fetch("http://localhost:8080/api/sessions/google", {
       method: "GET",
@@ -67,12 +57,12 @@ usersRouter.get("/:uid", async (req, res, next) => {
   try {
     const { uid } = req.params;
     const one = await usersManager.readOne(uid);
-    //return res.render("details", { user: one });
-    if (req.session.user_id) {
+    return res.render("details", { user: one });
+    /* if (req.session.user_id) {
       return res.render("details", { user: one, user_id: req.session.user_id });
     } else {
       return res.render("details", { user: one, user_id: req.session.user_id });
-    }
+    } */
   } catch (error) {
     return res.render("details");
   }

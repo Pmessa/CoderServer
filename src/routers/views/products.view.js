@@ -6,12 +6,12 @@ const productsRouter = Router();
 productsRouter.get("/", async (req, res, next) => {
   try {
     const products = await productsManager.read();
-    console.log(req.cookies.token);
-    if (req.user._id) {
-      return res.render("products", { products, user_id: req.session.user_id });
-    } else {
-      return res.render("products", { products, user_id: req.session.user_id });
-    }
+    //console.log(req.cookies.token);
+    //if (req.user._id) {
+      return res.render("products", { products, /* user_id: req.session.user_id */ });
+    //} //else {
+      //return res.render("products", { products, /* user_id: req.session.user_id */ });
+    //}
   } catch (error) {
     return next(error);
   }
@@ -29,7 +29,7 @@ productsRouter.get("/paginate", async (req, res, next) => {
     }
     const fetchedDocs = await response.json();
     
-    if (req.session.user_id) {
+    //if (req.session.user_id) {
       return res.render("index", {
         products: fetchedDocs.response,
         pagination: fetchedDocs.info.totalPage,
@@ -37,10 +37,10 @@ productsRouter.get("/paginate", async (req, res, next) => {
         nextPage: fetchedDocs.info.nextPage,
         prevPage: fetchedDocs.info.prevPage,
         url: "/products",
-        user_id: req.session.user_id,
+        //user_id: req.session.user_id,
       });
-    } else {
-      return res.render("index", {
+    //} else {
+      /* return res.render("index", {
         products: fetchedDocs.response,
         pagination: fetchedDocs.info.totalPage,
         limit: fetchedDocs.info.limit,
@@ -48,8 +48,8 @@ productsRouter.get("/paginate", async (req, res, next) => {
         prevPage: fetchedDocs.info.prevPage,
         url: "/products",
         user_id: req.session.user_id,
-      });
-    }
+      }); */
+   // }
   } catch (error) {
     return next(error);
   }
@@ -60,17 +60,17 @@ productsRouter.get("/:pid", async (req, res, next) => {
     const { pid } = req.params;
     const one = await productsManager.readOne(pid);
     //return res.render("productDetail", { product: one });
-    if (req.session.user_id) {
+    //if (req.session.user_id) {
       return res.render("productDetail", {
         product: one,
-        user_id: req.session.user_id,
+        //user_id: req.session.user_id,
       });
-    } else {
+    /* } else {
       return res.render("productDetail", {
         product: one,
-        user_id: req.session.user_id,
+        //user_id: req.session.user_id,
       });
-    }
+    } */
   } catch (error) {
     return next(error);
   }
@@ -86,7 +86,7 @@ productsRouter.get("/category/:category", async (req, res, next) => {
       throw new Error("Failed to fetch data");
     }
     const fetchedDocs = await response.json();
-    if (req.session.user_id) {
+    //if (req.session.user_id) {
       return res.render("index", {
         products: fetchedDocs.response,
         pagination: fetchedDocs.info.totalPage,
@@ -94,9 +94,9 @@ productsRouter.get("/category/:category", async (req, res, next) => {
         nextPage: fetchedDocs.info.nextPage,
         prevPage: fetchedDocs.info.prevPage,
         url: "/products",
-        user_id: req.session.user_id,
+        //user_id: req.session.user_id,
       });
-    } else {
+    /* } else {
       return res.render("index", {
         products: fetchedDocs.response,
         pagination: fetchedDocs.info.totalPage,
@@ -104,8 +104,8 @@ productsRouter.get("/category/:category", async (req, res, next) => {
         nextPage: fetchedDocs.info.nextPage,
         prevPage: fetchedDocs.info.prevPage,
         url: "/products",
-      });
-    }
+      }); */
+    //}
   } catch (error) {
     return next(error);
   }

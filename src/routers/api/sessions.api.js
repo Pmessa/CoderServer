@@ -28,6 +28,7 @@ async function login(req, res, next) {
     return res
       .cookie("token", req.user.token, { signedCookie: true })
       .message200("Logged in!");
+      
   } catch (error) {
     return next(error);
   }
@@ -47,7 +48,7 @@ async function profile(req, res, next) {
 function signout(req, res, next) {
   try {
     if (req.user) {
-      return res.message200("Signed out!");
+      return res.clearCookie("token").message200("Signed out!")
     }
     const error = new Error("Invalid credentials from signout");
     error.statusCode = 401;

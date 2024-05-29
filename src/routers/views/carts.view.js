@@ -27,7 +27,7 @@ const cartsRouter = Router();
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ product_id: product, user_id: user_id }),
+      body: JSON.stringify({ product_id: product,  user_id: user_id }),
     });
     const carts = await cartsManager.readCart(user_id);
     //return res.render("cart", { cart: carts });
@@ -42,10 +42,24 @@ const cartsRouter = Router();
 });
 cartsRouter.get("/", async (req, res, next) => {
   try {
-    const {_id } = req.cookies.token._id;
+    let user_id = null
+    if (req.cookies.token){
+    const userOnline = await fetch('http://localhost:8080/api/sessions/online',
+    {
+      method: 'GET', 
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'Cookie': `token=${req.cookies.token}`
+            }}
+    )
+    const fetchedUser = await userOnline.json()
+    user_id = fetchedUser.response._id
+  }
+    const _id  = user_id
     
     const carts = await cartsManager.readCart(_id);
-    if (req.session.user_id) {
+    if (req.cookies.token) {
       return res.render("cart", { cart: carts, user_id: _id });
     } else {
       return res.render("cart", { cart: carts, user_id: _id });
