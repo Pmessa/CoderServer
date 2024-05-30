@@ -36,7 +36,7 @@ async function login(req, res, next) {
 async function profile(req, res, next) {
   try {
     if (req.user.online) {
-      return res.response200(req.user);
+      return res.response200(req.user)
     }
     const error = new Error("Bad auth");
     error.statusCode = 401;

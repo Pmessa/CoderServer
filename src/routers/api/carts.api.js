@@ -3,13 +3,12 @@ import crypto from "crypto";
 //import cartsManager from "../../data/fs/CartsManager.fs.js";
 import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
 
-class CartsRouter extends CustomRouter{
-  init(){
-
+class CartsRouter extends CustomRouter {
+  init() {
+    this.create("/", ["USER"], create);
     this.read("/", ["USER"], read);
     //this.read("/test", ["USER"], test);
     this.read("/:pid", ["USER"], readOne);
-    this.create("/", ["USER"], create);
     this.update("/:pid", ["USER"], update);
     this.destroy("/all", ["USER"], destroyAll);
     this.destroy("/:pid", ["USER"], destroy);
@@ -55,6 +54,7 @@ async function readOne(req, res, next) {
 async function create(req, res, next) {
   try {
     const data = req.body;
+    console.log(data);
     const newProduct = {
       product_id: data.product_id,
       user_id: data.user_id,
@@ -136,7 +136,6 @@ async function test() {
   }
 }
 
-
-const cartsRouter = new CartsRouter;
+const cartsRouter = new CartsRouter();
 
 export default cartsRouter.getRouter();
