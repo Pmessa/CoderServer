@@ -33,15 +33,14 @@ cartsRouter.post("/", async (req, res, next) => {
       );
       const fetchedUser = await userOnline.json();
       user_id = fetchedUser.response._id;
-
+      
       const { product } = req.body;
-
       const result = await fetch("http:/localhost:8080/api/carts/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ product_id: product, user_id: user_id }),
+        body: JSON.stringify({ product_id: product, user_id: user_id, token: req.cookies.token }),
       });
     }
     const carts = await cartsManager.readCart(user_id);
@@ -109,7 +108,7 @@ cartsRouter.delete("/all", async (req, res, next) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user_id: user_id }),
+      body: JSON.stringify({ user_id: user_id, token: req.cookies.token }),
     });
     return res.json({
       statusCode: 200,

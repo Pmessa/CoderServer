@@ -40,9 +40,16 @@ class CustomRouter {
     return next();
   };
   policies = (policies) => async (req, res, next) => {
+    
     if (policies.includes("PUBLIC")) return next();
     else {
-      let token = req.cookies["token"];
+      let token = null
+      console.log(req.body)
+      if (req.body.token){
+      token = req.body.token;
+      } else if (req.cookies){
+      token = req.cookies["token"]
+      }
       if (!token) return res.error401();
       else {
         try {

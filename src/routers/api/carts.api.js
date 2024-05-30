@@ -53,6 +53,7 @@ async function readOne(req, res, next) {
 }
 async function create(req, res, next) {
   try {
+    console.log("test")
     const data = req.body;
     console.log(data);
     const newProduct = {
@@ -99,9 +100,9 @@ async function destroy(req, res, next) {
 }
 async function destroyAll(req, res, next) {
   try {
-    //console.log("hola")
+    console.log("Destroy all:")
     const { user_id } = req.body;
-    //console.log(user_id)
+    console.log(user_id)
     const all = await cartsManager.destroyAll({ user_id: user_id });
     return res.json({
       statusCode: 200,

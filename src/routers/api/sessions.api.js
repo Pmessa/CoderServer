@@ -6,7 +6,7 @@ class SessionsRouter extends CustomRouter {
   init() {
     this.create("/register", ["PUBLIC"], passportCb("register"), register);
     this.create("/login", ["PUBLIC"], passportCb("login"), login);
-    this.read("/online", ["USER", "ADMIN"], passportCb("jwt"), profile);
+    this.read("/online", ["PUBLIC"], passportCb("jwt"), profile);
     this.create("/signout", ["USER", "ADMIN"], signout);
     this.read("/google",["PUBLIC"], passport.authenticate("google", { scope: ["email", "profile"] }));
     this.read("/google/callback", ["PUBLIC"], passport.authenticate("google", { session: false }), google);
@@ -47,7 +47,7 @@ async function profile(req, res, next) {
 }
 function signout(req, res, next) {
   try {
-    if (req.user) {
+    if (req.cookies) {
       return res.clearCookie("token").message200("Signed out!")
     }
     const error = new Error("Invalid credentials from signout");
