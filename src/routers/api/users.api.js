@@ -3,13 +3,13 @@ import usersManager from "../../data/mongo/managers/UserManager.mongo.js";
 
 class UsersRouter extends CustomRouter{
   init(){
-    this.create("/register", create);
-    this.create("/", create);
-    this.read("/", read);
-    this.read("/:uid", readOne);
-    this.update("/:uid", update);
-    this.destroy("/:uid", destroy);
-    this.read("/register", read);
+    this.create("/register", ["PUBLIC"], create);
+    this.create("/", ["PUBLIC"], create);
+    this.read("/", ["ADMIN","USER"], read);
+    this.read("/:uid", ["PUBLIC"], readOne);
+    this.update("/:uid", ["USER"], update);
+    this.destroy("/:uid", ["ADMIN"], destroy);
+    this.read("/register", ["PUBLIC"], read);
   }
 }
 
@@ -29,11 +29,10 @@ async function read(req, res, next) {
     if (all.length > 0) {
       return res.response200(all);
     } else {
-      const error = new Error("Not found!");
-      error.statusCode = 404;
-      throw error;
+      res.error404()
     }
   } catch (error) {
+    
     return next(error);
   }
 }
@@ -45,9 +44,7 @@ async function readOne(req, res, next) {
     if (one) {
       return res.response200(one);
     } else {
-      const error = new Error("Not found!");
-      error.statusCode = 404;
-      throw error;
+      res.error404()
     }
   } catch (error) {
     return next(error);
