@@ -1,6 +1,8 @@
 import { Router } from "express";
 import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
 //import cartsManager from "../../data/fs/cartsManager.fs.js";
+import { verifyToken } from "../../utils/token.util.js";
+
 const cartsRouter = Router();
 
 /* cartsRouter.get("/", async (req, res, next) => {
@@ -12,6 +14,7 @@ const cartsRouter = Router();
     return next(error);
   }
 });
+<<<<<<< HEAD
  */cartsRouter.post("/:uid", async (req, res, next) => {
   try {
     const {product} = req.body
@@ -24,15 +27,113 @@ const cartsRouter = Router();
     })
     const carts = await cartsManager.readCart(uid);
     return res.render("cart", { cart: carts });
+=======
+ */
+
+cartsRouter.post("/", async (req, res, next) => {
+  try {
+    let user_id = null;
+    if (req.cookies.token) {
+      const userOnline = await fetch(
+        "http://localhost:8080/api/sessions/online",
+        {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+            Cookie: `token=${req.cookies.token}`,
+          },
+        }
+      );
+      const fetchedUser = await userOnline.json();
+      user_id = fetchedUser.response._id;
+      
+      const { product } = req.body;
+      const result = await fetch("http:/localhost:8080/api/carts/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ product_id: product, user_id: user_id, token: req.cookies.token }),
+      });
+    }
+    const carts = await cartsManager.readCart(user_id);
+    //return res.render("cart", { cart: carts });
+    if (user_id) {
+      return res.render("cart", { cart: carts, user_id });
+    } else {
+      return res.render("cart", { cart: carts, user_id });
+    }
+>>>>>>> aa038a20601ff7162db969c3223076642dc46e72
   } catch (error) {
     return next(error);
   }
 });
-cartsRouter.get("/:uid", async (req, res, next) => {
+cartsRouter.get("/", async (req, res, next) => {
   try {
+<<<<<<< HEAD
     const { uid } = req.params
     const carts = await cartsManager.readCart(uid);
     return res.render("cart", { cart: carts });
+=======
+    let user_id = null;
+    if (req.cookies.token) {
+      const userOnline = await fetch(
+        "http://localhost:8080/api/sessions/online",
+        {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+            Cookie: `token=${req.cookies.token}`,
+          },
+        }
+      );
+      const fetchedUser = await userOnline.json();
+      user_id = fetchedUser.response._id;
+    }
+    const _id = user_id;
+
+    const carts = await cartsManager.readCart(_id);
+    if (req.cookies.token) {
+      return res.render("cart", { cart: carts, user_id: _id });
+    } else {
+      return res.render("cart", { cart: carts, user_id: _id });
+    }
+  } catch (error) {
+    return next(error);
+  }
+});
+
+cartsRouter.delete("/all", async (req, res, next) => {
+  try {
+    let user_id = null;
+    if (req.cookies.token) {
+      const userOnline = await fetch(
+        "http://localhost:8080/api/sessions/online",
+        {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+            Cookie: `token=${req.cookies.token}`,
+          },
+        }
+      );
+      const fetchedUser = await userOnline.json();
+      user_id = fetchedUser.response._id;
+    }
+    const result = await fetch("http://localhost:8080/api/carts/all", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ user_id: user_id, token: req.cookies.token }),
+    });
+    return res.json({
+      statusCode: 200,
+    });
+>>>>>>> aa038a20601ff7162db969c3223076642dc46e72
   } catch (error) {
     return next(error);
   }

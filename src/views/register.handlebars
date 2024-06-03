@@ -5,51 +5,54 @@
   <form>
     <div class="mb-3">
       <label for="email" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        aria-describedby="emailHelp"
+      />
+      <div id="emailHelp" class="form-text">We'll never share your email with
+        anyone else.</div>
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password" name="password">
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+      />
     </div>
     <div class="mb-3">
       <label for="photo" class="form-label">ADD PHOTO</label>
-      <input type="text" class="form-control" id="photo" name="photo">
+      <input type="text" class="form-control" id="photo" name="photo" />
     </div>
-    <button type="button" class="btn btn-success" id="register" value="REGISTER">Submit</button>
+    <button
+      type="button"
+      class="btn btn-success"
+      id="registration"
+      value="REGISTER"
+    >Register</button>
   </form>
 
   <div id="alert-creado"></div>
 </article>
-
-
-
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/scripts/register.js"></script>
 <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"> </script>
 <script>
-  const socket = io();
-  /*
-  socket.on("users", data => {
-    console.log(data)
-    let template = ``
-    template = data.map(each => `
-      <div class="card m-2" style="width: 12rem">
-          <img style="height: 5rem" src="${each.photo}" class="card-img-top object-fit-cover" alt="${each.id}">
-          <div class="card-body">
-            <h5 class="card-title">${each.email}</each></h5>
-         </div>
-      </div>
-    `
-    ).join("")
-    document.querySelector("#users").innerHTML = template
-  })*/
+  const socket = io(); /* socket.on("users", data => { console.log(data) let
+  template = `` template = data.map(each => ` <div class="card m-2"
+  style="width: 12rem"> <img style="height: 5rem" src="${each.photo}"
+  class="card-img-top object-fit-cover" alt="${each.id}"> <div
+  class="card-body"> <h5 class="card-title">${each.email}</each></h5> </div>
+  </div> ` ).join("") document.querySelector("#users").innerHTML = template })*/
   document.querySelector("#register").addEventListener("click", (event) => {
-    const email = document.querySelector("#email").value
-    const password = document.querySelector("#password").value
-    const photo = document.querySelector("#photo").value
-    const alert = document.querySelector("#alert-creado").innerHTML = "Usuario creado"
-    socket.emit("register", { email, password, photo })
-  })
-
+  const email = document.querySelector("#email").value const password =
+  document.querySelector("#password").value const photo =
+  document.querySelector("#photo").value const alert =
+  document.querySelector("#alert-creado").innerHTML = "Usuario creado"
+  socket.emit("register", { email, password, photo }) })
 
 </script>

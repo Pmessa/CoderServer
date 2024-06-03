@@ -1,29 +1,7 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary ">
-     
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-     CATEGORIES
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/products/category/condimentos">CONDIMENTOS</a></li>
-            <li><a class="dropdown-item" href="/products/category/snacks">SNACKS</a></li>
-            <li><a class="dropdown-item" href="/products/category/harinas">HARINAS</a></li>
-            <li><a class="dropdown-item" href="/products/category/bebidas">BEBIDAS</a></li>
-            <li><a class="dropdown-item" href="/products/category/frutos secos">FRUTOS SECOS</a></li>
-            <li><a class="dropdown-item" href="/products/category/sopas">SOPAS</a></li>
-            <li><a class="dropdown-item" href="/products/category/verduras">VERDURAS</a></li>
-            <li><a class="dropdown-item" href="/products/category/cereales">CEREALES</a></li>
-            <li><a class="dropdown-item" href="/products/category/fermentados">FERMENTADOS</a></li>
-            <li><a class="dropdown-item" href="/products/category/frutas">FRUTAS</a></li>
-            <li><a class="dropdown-item" href="/products/category/proteinas">PROTEINAS</a></li>
-            <li><a class="dropdown-item" href="/products/category/suplementos">SUPLEMETNOS</a></li>
-            <li><a class="dropdown-item" href="/">SIN CATEGORIA</a></li>
-          </ul>
-        </li>
+<div class="d-flex justify-content-center align-items-center flex-wrap">
 
-</nav>
-    <div class="d-flex justify-content-center align-items-center flex-wrap" >
-
-   <img src="/img/logo-tr.png" alt="Logo de inicio" class="d-flex  align-items-center justify-content-center" style="height: 150px; align-items-center; justify-content-center" >
+  <img src="/img/logo-tr.png" alt="Logo de inicio" class="d-flex  align-items-center justify-content-center"
+    style="height: 150px; align-items-center; justify-content-center">
 
     </div>
    
@@ -34,35 +12,49 @@
       </div>
    </div>
 <main class="d-flex justify-content-around flex-wrap" >
+  {{#if newLogin}}
+<script>
 
+window.addEventListener("load", async (event) => {
+  event.preventDefault();
+  return Swal.fire("LOGGED IN");
+});
+
+</script>
+  {{/if}}
   {{#each products}}
-   <div class="card m-5" style="width: 15rem; margin:.5rem; box-shadow: 0 5px 5px rgb(81, 115, 175); height:25rem; transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-      <img style="height:10rem" src={{this.photo}} class="card-img-top" />
-      <div class="card-body">
-        <h5 class="card-title">{{this.title}}</h5>
-        <p class="card-text">Category: {{this.category}}</p>
-        <p class="card-text">Stock: {{this.stock}}</p>
-        <p class="card-text">Price: ${{this.price}}</p>
-        <a href=/products/{{this._id}} class="btn btn-success">DETAILS</a>
-      </div>
+  <div class="card m-5"
+    style="width: 15rem; margin:.5rem; box-shadow: 0 5px 5px rgb(81, 115, 175); height:25rem; transition: transform 0.3s ease-in-out;"
+    onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+    <img style="height:10rem" src={{this.photo}} class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">{{this.title}}</h5>
+      <p class="card-text">Category: {{this.category}}</p>
+      <p class="card-text">Stock: {{this.stock}}</p>
+      <p class="card-text">Price: ${{this.price}}</p>
+      <a href=/products/{{this._id}} class="btn btn-success">DETAILS</a>
     </div>
+  </div>
   {{/each}}
 
 </main>
 <nav aria-label="Page navigation example">
-<ul class="pagination d-flex justify-content-center align-items-center pt-5">
-    <li class="page-item"><a class="page-link text-success" href="/products/paginate?limit={{limit}}&page={{prevPage}}">Previous</a></li>
+  <ul class="pagination d-flex justify-content-center align-items-center pt-5">
+    <li class="page-item"><a class="page-link text-success"
+        href="/products/paginate?limit={{limit}}&page={{prevPage}}">Previous</a></li>
 
-  {{#each pagination}}
-      <li class="page-item">
-        <a class="page-link text-success" href="/products/paginate?limit={{../limit}}&page={{this}}">{{this}}</a>
-      </li>
-  {{/each}}
-    <li class="page-item"><a class="page-link text-success" href="/products/paginate?limit={{limit}}&page={{nextPage}}">Next</a></li>
+    {{#each pagination}}
+    <li class="page-item">
+      <a class="page-link text-success" href="/products/paginate?limit={{../limit}}&page={{this}}">{{this}}</a>
+    </li>
+    {{/each}}
+    <li class="page-item"><a class="page-link text-success"
+        href="/products/paginate?limit={{limit}}&page={{nextPage}}">Next</a></li>
 
   </ul>
 </nav>
 <script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
   console.log("script")
   const socket = io();

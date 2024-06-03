@@ -52,7 +52,7 @@ class CartsManager {
       const cartToRemove = this.readOne(id);
       const within = cartsManager.#carts.filter((each) => each.id !== id);
       cartsManager.#carts = within;
-      console.log(within)
+      console.log(within);
       console.log("cart DELETED");
       return cartToRemove;
     } catch (error) {
@@ -61,7 +61,7 @@ class CartsManager {
   }
   update(id, newData) {
     try {
-      const  cartToUpdate = this.readOne(id);
+      const cartToUpdate = this.readOne(id);
 
       if (!cartToUpdate) {
         throw new Error("cart not found");
@@ -76,19 +76,16 @@ class CartsManager {
       throw error;
     }
   }
-  
 }
-
 
 // Crear una instancia de ProducstManager
 const cartsManager = new ProducstManager();
 
 cartsManager.create({
-
-    user_id: data.id,
-    product_id: data.id,
-    quantity: data.id || 1,
-    state: data.id || "reserved",
+  user_id: data.id,
+  product_id: data.id,
+  quantity: data.id || 1,
+  state: data.id || "reserved",
 });
 
 // Mostrar todos los carts
