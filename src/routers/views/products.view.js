@@ -56,10 +56,6 @@ productsRouter.get("/paginate", async (req, res, next) => {
       throw new Error("Failed to fetch data");
     }
     const fetchedDocs = await response.json();
-<<<<<<< HEAD
-    //console.log(fetchedDocs.info)
-    return res.render("index", { products: fetchedDocs.response, pagination: fetchedDocs.info.totalPage, limit: fetchedDocs.info.limit, nextPage: fetchedDocs.info.nextPage, prevPage: fetchedDocs.info.prevPage, url: '/products' });
-=======
     
     if (user_id) {
       return res.render("index", {
@@ -82,7 +78,6 @@ productsRouter.get("/paginate", async (req, res, next) => {
         user_id: user_id,
       }); 
     }
->>>>>>> aa038a20601ff7162db969c3223076642dc46e72
   } catch (error) {
     return next(error);
   }

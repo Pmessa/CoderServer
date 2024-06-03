@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-import { Router } from "express";
-import usersManager from "../../data/mongo/managers/UserManager.mongo.js"
-
-
-const sessionsRouter = Router();
-
-sessionsRouter.post("/login", async (req, res, next) => {
-  try {
-    const { email, password } = req.body;
-    const one = await usersManager.readByEmail(email);
-    if(one.password === password){
-      req.session.email = email
-      req.session.role = one.role
-      return res.json({ statusCode:200, message: "Logged in"})
-    }
-    return res.json({statusCode:401, message:"Bad auth"})
-  } catch (error) {
-    return next(error);
-  }
-});
-export default sessionsRouter
-=======
 import CustomRouter from "../CustomRouter.js";
 import passport from "../../middlewares/passport.mid.js";
 import passportCb from "../../middlewares/passportCb.mid.js";
@@ -87,4 +64,3 @@ function google(req, res, next) {
     return next(error);
   }
 }
->>>>>>> aa038a20601ff7162db969c3223076642dc46e72

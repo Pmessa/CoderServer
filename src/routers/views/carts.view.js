@@ -14,20 +14,6 @@ const cartsRouter = Router();
     return next(error);
   }
 });
-<<<<<<< HEAD
- */cartsRouter.post("/:uid", async (req, res, next) => {
-  try {
-    const {product} = req.body
-    const { uid } = req.params
-    const result = await fetch("http:/localhost:8080/api/carts/", {method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({product_id: product})
-    })
-    const carts = await cartsManager.readCart(uid);
-    return res.render("cart", { cart: carts });
-=======
  */
 
 cartsRouter.post("/", async (req, res, next) => {
@@ -64,18 +50,12 @@ cartsRouter.post("/", async (req, res, next) => {
     } else {
       return res.render("cart", { cart: carts, user_id });
     }
->>>>>>> aa038a20601ff7162db969c3223076642dc46e72
   } catch (error) {
     return next(error);
   }
 });
 cartsRouter.get("/", async (req, res, next) => {
   try {
-<<<<<<< HEAD
-    const { uid } = req.params
-    const carts = await cartsManager.readCart(uid);
-    return res.render("cart", { cart: carts });
-=======
     let user_id = null;
     if (req.cookies.token) {
       const userOnline = await fetch(
@@ -133,7 +113,6 @@ cartsRouter.delete("/all", async (req, res, next) => {
     return res.json({
       statusCode: 200,
     });
->>>>>>> aa038a20601ff7162db969c3223076642dc46e72
   } catch (error) {
     return next(error);
   }

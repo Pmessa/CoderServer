@@ -5,10 +5,6 @@ class Manager {
   async create(data) {
     try {
       const one = await this.Model.create(data); /* .lean() */
-<<<<<<< HEAD
-      console.log("Mongo Create");
-=======
->>>>>>> aa038a20601ff7162db969c3223076642dc46e72
       return one;
     } catch (error) {
       throw error;
@@ -48,17 +44,9 @@ class Manager {
       throw error;
     }
   }
-<<<<<<< HEAD
-
   async readByEmail(email) {
     try {
       const one = await this.Model.findOne({ email });
-      console.log("readByEmail " + one);
-=======
-  async readByEmail(email) {
-    try {
-      const one = await this.Model.findOne({ email });
->>>>>>> aa038a20601ff7162db969c3223076642dc46e72
       return one;
     } catch (error) {
       throw error;
@@ -90,9 +78,6 @@ class Manager {
       throw error;
     }
   }
-<<<<<<< HEAD
-}
-=======
   async aggregate(obj) {
     try {
       const result = await this.Model.aggregate(obj);
@@ -103,6 +88,5 @@ class Manager {
   }
   }
 
->>>>>>> aa038a20601ff7162db969c3223076642dc46e72
 
 export default Manager;
