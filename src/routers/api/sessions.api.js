@@ -6,9 +6,9 @@ class SessionsRouter extends CustomRouter {
   init() {
     this.create("/register", ["PUBLIC"], passportCb("register"), register);
     this.create("/login", ["PUBLIC"], passportCb("login"), login);
-    this.read("/online", ["PUBLIC"], passportCb("jwt"), profile);
+    this.read("/online", ["USER", "ADMIN"], passportCb("jwt"), profile);
     this.create("/signout", ["USER", "ADMIN"], signout);
-    this.read("/google",["PUBLIC"], passport.authenticate("google", { scope: ["email", "profile"] }));
+    this.read("/google",["PUBLIC"], passport.authenticate("google", { scope: ["email", "profile"] }),passportCb("google"));
     this.read("/google/callback", ["PUBLIC"], passport.authenticate("google", { session: false }), google);
   }
 }
@@ -59,7 +59,8 @@ function signout(req, res, next) {
 }
 function google(req, res, next) {
   try {
-    return res.message200("Logged in with google!");
+    res.cookie("token", req.user.token, { signedCookie: true });
+    res.redirect("/")
   } catch (error) {
     return next(error);
   }

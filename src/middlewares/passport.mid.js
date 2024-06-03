@@ -90,21 +90,39 @@ passport.use(
       try {
         //profile es el objeto que devuelve google con todos los datos del usuario
         //nosotros vamos a registrar un ID en lugar de un email
+        
         const { id, picture } = profile;
-        let user = await usersManager.readByEmail(id);
-        if (!user) {
-          user = {
+        let one = await usersManager.readByEmail(id);
+        if (!one) {
+          one = {
             email: id,
             password: createHash(id),
             photo: picture,
           };
-          user = await usersManager.create(user);
+          one = await usersManager.create(one);
         }
+
+          //req.session.email = email;
+          //req.session.online = true;
+          //req.session.role = one.role;
+          //req.session.photo = one.photo;
+          //req.session.user_id = one._id;
+          const user = {
+            email: one.email,
+            role: one.role,
+            photo: one.photo,
+            _id: one._id,
+            online: true,
+          }; 
+          const token = createToken(user);
+          user.token = token;
+        /*
         req.session.email = user.email;
         req.session.online = true;
         req.session.role = user.role;
         req.session.photo = user.photo;
         req.session.user_id = user._id;
+        */
         return done(null, user);
       } catch (error) {
         return done(error);
@@ -125,6 +143,7 @@ passport.use(
     (data, done) => {
       try {
         if (data) {
+          console.log("jwt "+JSON.stringify(data))
           return done(null, data);
         } else {
           const error = new Error("Forbidden from jwt!");

@@ -35,7 +35,7 @@ ticketsRouter.get("/:uid", async (req, res, next) => {
       },
       { $group: { _id: "user_id", total: { $sum: "$subTotal" } } },
       {
-        $project: { _id: 0, user_id: "_id", total: "$total", date: new Date() },
+        $project: { _id: 0, user_id: uid, total: "$total", date: new Date() },
       },
     //   { $merge: { into: "tickets" } },
     ]);

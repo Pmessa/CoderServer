@@ -44,11 +44,23 @@ cartsRouter.post("/", async (req, res, next) => {
       });
     }
     const carts = await cartsManager.readCart(user_id);
-    //return res.render("cart", { cart: carts });
-    if (user_id) {
-      return res.render("cart", { cart: carts, user_id });
+    const products = carts
+    let productsFinal = []
+    const productMap = products.reduce((acc, product) => {
+      const productId = product.product_id._id;
+      if (acc[productId]) {
+        acc[productId].quantity += product.quantity;
+      } else {
+        acc[productId] = { ...product };
+      }
+      return acc;
+    }, {});
+    
+    productsFinal = Object.values(productMap);
+    if (req.cookies.token) {
+      return res.render("cart", { cart: productsFinal, user_id: user_id });
     } else {
-      return res.render("cart", { cart: carts, user_id });
+      return res.render("cart", { cart: productsFinal, user_id: user_id });
     }
   } catch (error) {
     return next(error);
@@ -75,10 +87,24 @@ cartsRouter.get("/", async (req, res, next) => {
     const _id = user_id;
 
     const carts = await cartsManager.readCart(_id);
+    const products = carts
+    let productsFinal = []
+    const productMap = products.reduce((acc, product) => {
+      const productId = product.product_id._id;
+      if (acc[productId]) {
+        acc[productId].quantity += product.quantity;
+      } else {
+        acc[productId] = { ...product };
+      }
+      return acc;
+    }, {});
+
+    productsFinal = Object.values(productMap);
+
     if (req.cookies.token) {
-      return res.render("cart", { cart: carts, user_id: _id });
+      return res.render("cart", { cart: productsFinal, user_id: _id });
     } else {
-      return res.render("cart", { cart: carts, user_id: _id });
+      return res.render("cart", { cart: productsFinal, user_id: _id });
     }
   } catch (error) {
     return next(error);
