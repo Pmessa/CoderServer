@@ -53,12 +53,12 @@ async function readOne(req, res, next) {
 }
 async function create(req, res, next) {
   try {
-    console.log("test")
+    console.log("Usuario actual: "+req.user)
     const data = req.body;
     console.log(data);
     const newProduct = {
       product_id: data.product_id,
-      user_id: data.user_id,
+      user_id: req.user._id, //esta linea
       quantity: 1,
     };
     const one = await cartsManager.create(newProduct);
