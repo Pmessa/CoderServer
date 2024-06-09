@@ -46,7 +46,7 @@ class Service {
   }
   async paginateService({ filter, opts }) {
     try {
-      const all = await productsManager.paginate({ filter, opts });
+      const all = await this.manager.paginate({ filter, opts } );
       return all;
     } catch (error) {
       throw error;
