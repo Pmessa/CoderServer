@@ -1,4 +1,3 @@
-import productsManager from "../data/mongo/managers/ProductsManager.mongo.js";
 
 class Service {
   constructor(manager) {
@@ -46,7 +45,7 @@ class Service {
   }
   async paginateService({ filter, opts }) {
     try {
-      const all = await this.manager.paginate({ filter, opts } );
+      const all = await this.model.paginate({ filter, opts } );
       return all;
     } catch (error) {
       throw error;
