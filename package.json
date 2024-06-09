@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node ./server.js",
-    "dev": "nodemon ./server.js"
+    "dev": "nodemon ./server.js",
+    "argv": "nodemon ./server.js -p 8080 --dev=prod --persistence=memory"
   },
   "keywords": [],
   "author": "",
