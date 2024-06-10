@@ -7,13 +7,8 @@ cookiesRouter.get("/set", (req, res, next) => {
     return (
       res
         //con el método cookie() seteo una cookie
-<<<<<<< HEAD
-        // .cookie("modo", "nocturno", { maxAge: 60 * 100000 })
-        // .cookie("otra", "cookie nueva", { maxAge: 60 * 60000 })
-=======
         .cookie("modo", "nocturno", { maxAge: 60 * 100000 })
         .cookie("otra", "cookie nueva", { maxAge: 60 * 60000 })
->>>>>>> aa038a20601ff7162db969c3223076642dc46e72
         .cookie("online", "true", { maxAge: 60 * 60 * 1000 })
         .json({ message: "la cookie vence en 10s" })
     );
