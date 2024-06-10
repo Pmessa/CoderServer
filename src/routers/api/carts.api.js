@@ -1,19 +1,19 @@
-import { Router } from "express";
+import CustomRouter from "../CustomRouter.js";
 import crypto from "crypto";
-
 //import cartsManager from "../../data/fs/CartsManager.fs.js";
 import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
 
-const cartsRouter = Router();
-
-cartsRouter.get("/", read);
-cartsRouter.get("/test", test);
-cartsRouter.get("/:pid", readOne);
-cartsRouter.post("/", create);
-cartsRouter.put("/:pid", update);
-cartsRouter.delete("/all", destroyAll);
-cartsRouter.delete("/:pid", destroy);
-
+class CartsRouter extends CustomRouter {
+  init() {
+    this.create("/", ["USER"], create);
+    this.read("/", ["USER"], read);
+    //this.read("/test", ["USER"], test);
+    this.read("/:pid", ["USER"], readOne);
+    this.update("/:pid", ["USER"], update);
+    this.destroy("/all", ["USER"], destroyAll);
+    this.destroy("/:pid", ["USER"], destroy);
+  }
+}
 async function read(req, res, next) {
   try {
     const { user_id } = req.query;
@@ -53,7 +53,9 @@ async function readOne(req, res, next) {
 }
 async function create(req, res, next) {
   try {
+    //console.log("test")
     const data = req.body;
+    //console.log(data);
     const newProduct = {
       product_id: data.product_id,
       user_id: data.user_id,
@@ -98,7 +100,7 @@ async function destroy(req, res, next) {
 }
 async function destroyAll(req, res, next) {
   try {
-    //console.log("hola")
+    //console.log("Destroy all:")
     const { user_id } = req.body;
     //console.log(user_id)
     const all = await cartsManager.destroyAll({ user_id: user_id });
@@ -134,4 +136,7 @@ async function test() {
     console.log(error);
   }
 }
-export default cartsRouter;
+
+const cartsRouter = new CartsRouter();
+
+export default cartsRouter.getRouter();

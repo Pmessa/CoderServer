@@ -31,7 +31,7 @@ nodeServer.listen(port, ready);
 //Se inicia/levanta el servidor
 
 //middlewares
-server.use(
+/* server.use(
   expressSession({
     store: new MongoStore({ mongoUrl: process.env.MONGO_URI, ttl: 60 * 60 }),
     secret: process.env.SECRET_SESSION,
@@ -39,7 +39,7 @@ server.use(
     saveUninitialized: true,
     //cookie: { maxAge: 60 * 60 * 1000 },
   })
-);
+); */
 server.use(cookieParser(process.env.SECRET_COOKIE));
 server.use(express.json()); //permite leer req.params y req.query
 server.use(express.urlencoded({ extended: true }));

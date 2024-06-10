@@ -3,8 +3,8 @@ import { Schema, Types, model } from "mongoose";
 const collection = "carts";
 const schema = new Schema(
   {
-    user_id: { type: Types.ObjectId, required: true, ref: "users" },
-    product_id: { type: Types.ObjectId, required: true, ref: "products" },
+    user_id: { type: Types.ObjectId, required: true, index:true, ref: "users" },
+    product_id: { type: Types.ObjectId, required: true, index:true, ref: "products" },
     quantity: { type: Number, default: 1 },
     state: {
       type: String,

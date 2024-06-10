@@ -1,54 +1,54 @@
-import { Router } from "express";
+import CustomRouter from "../CustomRouter.js";
 import passport from "../../middlewares/passport.mid.js";
+import passportCb from "../../middlewares/passportCb.mid.js";
 
-const sessionsRouter = Router();
-
-sessionsRouter.post(
-  "/register",
-  passport.authenticate("register", { session: false }),
-  async (req, res, next) => {
-    try {
-      return res.json({ statusCode: 201, message: "Registered!" });
-    } catch (error) {
-      return next(error);
-    }
+class SessionsRouter extends CustomRouter {
+  init() {
+    this.create("/register", ["PUBLIC"], passportCb("register"), register);
+    this.create("/login", ["PUBLIC"], passportCb("login"), login);
+    this.read("/online", ["USER", "ADMIN"], passportCb("jwt"), profile);
+    this.create("/signout", ["USER", "ADMIN"], signout);
+    this.read("/google",["PUBLIC"], passport.authenticate("google", { scope: ["email", "profile"] }),passportCb("google"));
+    this.read("/google/callback", ["PUBLIC"], passport.authenticate("google", { session: false }), google);
   }
-);
+}
 
-sessionsRouter.post(
-  "/login",
-  passport.authenticate("login", { session: false }),
-  async (req, res, next) => {
-    try {
-      return res.json({ statusCode: 200, message: "Logged in!", /* token: req.user.token */ });
-    } catch (error) {
-      return next(error);
-    }
-  }
-);
-sessionsRouter.get("/online", async (req, res, next) => {
+const sessionsRouter = new SessionsRouter();
+export default sessionsRouter.getRouter();
+
+async function register(req, res, next) {
   try {
-    if (req.session.online) {
-      return res.json({
-        statusCode: 200,
-        message: "Is online!",
-        user_id: req.session.user_id,
-      });
-    }
-    return res.json({
-      statusCode: 401,
-      message: "Bad auth!",
-    });
+    return res.message201("Registered!");
   } catch (error) {
     return next(error);
   }
-});
-
-sessionsRouter.post("/signout", (req, res, next) => {
+}
+async function login(req, res, next) {
   try {
-    if (req.session) {
-      req.session.destroy();
-      return res.json({ statusCode: 200, message: "Signed out!" });
+    return res
+      .cookie("token", req.user.token, { signedCookie: true })
+      .message200("Logged in!");
+      
+  } catch (error) {
+    return next(error);
+  }
+}
+async function profile(req, res, next) {
+  try {
+    if (req.user.online) {
+      return res.response200(req.user)
+    }
+    const error = new Error("Bad auth");
+    error.statusCode = 401;
+    throw error;
+  } catch (error) {
+    return next(error);
+  }
+}
+function signout(req, res, next) {
+  try {
+    if (req.cookies) {
+      return res.clearCookie("token").message200("Signed out!")
     }
     const error = new Error("Invalid credentials from signout");
     error.statusCode = 401;
@@ -56,22 +56,12 @@ sessionsRouter.post("/signout", (req, res, next) => {
   } catch (error) {
     return next(error);
   }
-});
-sessionsRouter.get(
-  "/google",
-  passport.authenticate("google", { scope: ["email", "profile"] })
-);
-
-sessionsRouter.get(
-  "/google/callback",
-  passport.authenticate("google", { session: false, successRedirect: '/' }),
-  (req, res, next) => {
-    try {
-      return res.json({ statusCode: 200, message: "Logged in with google!" });
-    } catch (error) {
-      return next(error);
-    }
+}
+function google(req, res, next) {
+  try {
+    res.cookie("token", req.user.token, { signedCookie: true });
+    res.redirect("/")
+  } catch (error) {
+    return next(error);
   }
-);
-
-export default sessionsRouter;
+}
