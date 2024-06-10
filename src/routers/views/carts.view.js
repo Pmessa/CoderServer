@@ -20,7 +20,7 @@ cartsRouter.post("/", async (req, res, next) => {
   try {
     let user_id = null;
     if (req.cookies.token) {
-      /* const userOnline = await fetch(
+      const userOnline = await fetch(
         "http://localhost:8080/api/sessions/online",
         {
           method: "GET",
@@ -32,16 +32,15 @@ cartsRouter.post("/", async (req, res, next) => {
         }
       );
       const fetchedUser = await userOnline.json();
-      user_id = fetchedUser.response._id; */
+      user_id = fetchedUser.response._id;
       
       const { product } = req.body;
       const result = await fetch("http:/localhost:8080/api/carts/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Cookie: `token=${req.cookies.token}`
         },
-        body: JSON.stringify({ product_id: product, token: req.cookies.token }),
+        body: JSON.stringify({ product_id: product, user_id: user_id, token: req.cookies.token }),
       });
     }
     const carts = await cartsManager.readCart(user_id);
