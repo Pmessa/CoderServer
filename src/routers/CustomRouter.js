@@ -44,7 +44,7 @@ class CustomRouter {
     if (policies.includes("PUBLIC")) return next();
     else {
       let token = null
-      console.log(req.body)
+      //console.log(req.body)
       if (req.body.token){
       token = req.body.token;
       } else if (req.cookies){

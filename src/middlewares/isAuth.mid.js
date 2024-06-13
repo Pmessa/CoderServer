@@ -4,7 +4,7 @@ function isAuth(req, res, next) {
   try {
     const { token } = req.cookies;
     const data = verifyToken(token);
-    console.log(data);
+    //console.log(data);
     if (data) {
       req.user = data;
       return next();

@@ -1,49 +1,49 @@
 
 class Service {
   constructor(manager) {
-    this.manager = manager;
+    this.model = manager;
   }
-  async createService(data) {
+  createService = async (data) =>{
     try {
-      const one = await this.manager.create(data);
+      const one = await this.model.create(data);
       return one;
     } catch (error) {
       throw error;
     }
   }
-  async readService(role) {
+  readService = async (role) => {
     try {
-      const all = await this.manager.read(role);
+      const all = await this.model.read(role);
       return all;
     } catch (error) {
       throw error;
     }
   }
-  async readOneService(uid) {
+  readOneService = async (uid) => {
     try {
-      const one = await this.manager.readOne(uid);
+      const one = await this.model.readOne(uid);
       return one;
     } catch (error) {
       throw error;
     }
   }
-  async updateService(uid, data) {
+  updateService = async (uid, data) => {
     try {
-      const one = await this.manager.update(uid, data);
+      const one = await this.model.update(uid, data);
       return one;
     } catch (error) {
       throw error;
     }
   }
-  async destroyService(uid) {
+  destroyService = async (uid) => {
     try {
-      const one = await this.manager.destroy(uid);
+      const one = await this.model.destroy(uid);
       return one;
     } catch (error) {
       throw error;
     }
   }
-  async paginateService({ filter, opts }) {
+  paginateService = async ({ filter, opts }) => {
     try {
       const all = await this.model.paginate({ filter, opts } );
       return all;
@@ -51,9 +51,9 @@ class Service {
       throw error;
     }
   }
-  async destroyAllService({ user_id: user_id }) {
+  destroyAllService = async ({ user_id: user_id }) => {
     try {
-      const all = await this.manager.destroyAll({ user_id: user_id });
+      const all = await this.model.destroyAll({ user_id: user_id });
     } catch (error) {
       throw error;
     }
