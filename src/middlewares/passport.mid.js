@@ -143,7 +143,7 @@ passport.use(
     (data, done) => {
       try {
         if (data) {
-          console.log("jwt "+JSON.stringify(data))
+          //console.log("jwt "+JSON.stringify(data))
           return done(null, data);
         } else {
           const error = new Error("Forbidden from jwt!");

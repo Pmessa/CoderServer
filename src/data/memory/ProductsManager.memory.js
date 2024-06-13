@@ -84,35 +84,35 @@ class ProductsManager {
 }
 
 const productsManager = new ProductsManager();
-productsManager.create({
+productManager.create({
   title: `Manteca de maní`,
   photo: "mantequilla.jpg",
   category: `untable`,
   price: 2500,
   stock: 1000,
 });
-productsManager.create({
+productManager.create({
   title: `almendras`,
   photo: "almendras.jpg",
   category: `Frutos secos`,
   price: 15000,
   stock: 1000,
 });
-productsManager.create({
+productManager.create({
   title: `Tofu`,
   photo: "tofu.jpg",
   category: `tofu`,
   price: 150,
   stock: 1000,
 });
-productsManager.create({
+productManager.create({
   title: `maní`,
   photo: "maní.jpg",
   category: `frutos secos`,
   price: 150,
   stock: 3000,
 });
-productsManager.create({
+productManager.create({
   title: `Aceite de oliva`,
   photo: "aceiteDeOliva.jpg",
   category: `aceites`,
@@ -433,12 +433,12 @@ productsManager.create({
 });
 
 // Mostrar todos los productos
-//console.log(productsManager.read());
+//console.log(productManager.read());
 
 // Mostrar un producto específico por su ID
-//console.log(productsManager.readOne(2));
-//console.log(productsManager.readOne(8));
+//console.log(productManager.readOne(2));
+//console.log(productManager.readOne(8));
 // Eliminar productos por su ID
-// console.log(productsManager.destroy(2));
-// console.log(productsManager.readOne(2));
-// console.log(productsManager.destroy(13));
+// console.log(productManager.destroy(2));
+// console.log(productManager.readOne(2));
+// console.log(productManager.destroy(13));
