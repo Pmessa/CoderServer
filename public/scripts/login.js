@@ -13,7 +13,7 @@ document.querySelector("#login").addEventListener("click", async (event) => {
   response = await response.json();
 
   if (response.statusCode === 200) {
-    console.log(response);
+    //console.log(response);
     //localStorage.setItem("token", response.token)
     return Swal.fire({
       title: response.message,
@@ -35,7 +35,7 @@ document.querySelector("#login").addEventListener("click", async (event) => {
       confirmButtonColor: "#ff3b3c",
     })
   }
-  return location.replace("/");
+  
 });
 document
   .querySelector("#login-google")

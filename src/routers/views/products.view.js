@@ -18,9 +18,10 @@ productsRouter.get("/", async (req, res, next) => {
     )
     const fetchedUser = await userOnline.json()
     user_id = fetchedUser.response._id
+   
   }
     const products = await productsManager.read();
-    //console.log(req.cookies.token);
+     console.log(user_id);//console.log(req.cookies.token);
     if (user_id) {
       return res.render("products", { products, user_id });
     } else {
