@@ -2,30 +2,30 @@ import crypto from "crypto";
 
 class UsersManager {
   static #users = [];
-  static #userId = [];
-  create(data) {
+  //static #userId = [];
+  async create(data) {
     try {
-      const user = {
+      /* const user = {
         id: data.id || crypto.randomBytes(12).toString("hex"),
         photo:
           data.photo || "https://cdn-icons-png.freepik.com/512/266/266033.png",
         email: data.email,
         password: data.password,
         role: data.role || 0,
-      };
-      if (!data.email || !data.password || !data.photo) {
-        throw new Error("Email, password, and photo are required");
+      }; */
+      if (!data.email || !data.password) {
+        throw new Error("INGRESE EMAIL/PASSWORD");
       } else {
-        UsersManager.#users.push(user);
-        UsersManager.#userId.push(user.id);
-        console.log("Created User");
-        return user;
+        UsersManager.#users.push(data);
+        //UsersManager.#userId.push(user.id);
+        //console.log("Created User");
+        return data;
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
-  read() {
+  async read(role) {
     try {
       if (UsersManager.#users.length === 0) {
         throw new Error("THERE ARE NO USERS");
@@ -33,10 +33,10 @@ class UsersManager {
         return UsersManager.#users;
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
-  readOne(id) {
+  async readOne(id) {
     try {
       const one = UsersManager.#users.find((each) => each.id === id);
       if (!one) {
@@ -45,42 +45,41 @@ class UsersManager {
         return one;
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
-  destroy(id) {
+
+  async update(id, data) {
     try {
-      const userToRemove = this.readOne(id);
-      const within = UsersManager.#users.filter((each) => each.id !== id);
-      UsersManager.#users = within;
-      console.log(within);
-      console.log("USER DELETED");
-      return userToRemove;
+      let one = UsersManager.#users.find((each) => each.id === id);
+      if (one) {
+        for (let prop in data) {
+          one[prop] = data[prop];
+        }
+      }
+      return one;
     } catch (error) {
       throw error;
     }
   }
-  update(id, newData) {
+  async destroy(id) {
     try {
-      const userToUpdate = this.readOne(id);
-
-      if (!userToUpdate) {
-        throw new Error("User not found");
+      let one = UsersManager.#users.find((each) => each.id === id);
+      if (one) {
+        UsersManager.#users = UsersManager.#users.filter(
+          (each) => each.id !== id
+        );
       }
-
-      for (const prop in newData) {
-        userToUpdate[prop] = newData[prop];
-      }
-
-      return userToUpdate;
+      return one;
     } catch (error) {
       throw error;
     }
   }
 }
-const gestorDeUsuarios = new UsersManager();
+const usersManager = new UsersManager();
+export default usersManager;
 
-let user1 = gestorDeUsuarios.create({
+/* let user1 = gestorDeUsuarios.create({
   photo: "photojorge.jpg",
   email: "jorge18@gmail.com",
   password: "Passjorge",
@@ -111,3 +110,4 @@ user1 = gestorDeUsuarios.update(user1.id, {
 });
 
 console.log(user1);
+ */

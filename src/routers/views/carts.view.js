@@ -1,6 +1,6 @@
 import { Router } from "express";
-import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
-//import cartsManager from "../../data/fs/cartsManager.fs.js";
+import cartsManager from "../../dao/mongo/managers/CartsManager.mongo.js";
+//import cartsManager from "../../dao/fs/cartsManager.fs.js";
 import { verifyToken } from "../../utils/token.util.js";
 
 const cartsRouter = Router();

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { Types } from "mongoose";
-import cartsManager from "../../data/mongo/managers/CartsManager.mongo.js";
+import cartsManager from "../../dao/mongo/managers/CartsManager.mongo.js";
 
 const ticketsRouter = Router();
 

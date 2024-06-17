@@ -1,4 +1,4 @@
-import productsManager from "../data/mongo/managers/ProductsManager.mongo.js";
+import productsManager from "../dao/mongo/managers/ProductsManager.mongo.js";
 import {
   createService,
   destroyService,

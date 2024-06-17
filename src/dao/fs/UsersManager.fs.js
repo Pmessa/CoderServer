@@ -4,7 +4,7 @@ import crypto from "crypto";
 class UsersManager {
   constructor() {
     // Ruta del archivo JSON donde se almacenarán los usuarios
-    this.path = "./src/data/fs/files/users.json";
+    this.path = "./src/dao/fs/files/users.json";
     // Inicializa la clase
     console.log(this.path);
     this.init();
@@ -15,7 +15,7 @@ class UsersManager {
     const exists = fs.existsSync(this.path);
     // Si no existe crea 4 usuarios por defecto
     if (!exists) {
-      const defaultUsers = [
+      /* const defaultUsers = [
         {
           id: crypto.randomBytes(12).toString("hex"),
           photo: "/img/persona1.jpg",
@@ -44,15 +44,15 @@ class UsersManager {
           password: "admin123",
           role: 1,
         },
-      ];
+      ]; */
       //Convierte los usuarios en JSON
-      const stringData = JSON.stringify(defaultUsers, null, 2);
+      const stringData = JSON.stringify([], null, 2);
       //Escribe los usuarios en el archivo
       fs.writeFileSync(this.path, stringData);
-      console.log("USER FILE CREATED!");
-    } else {
+      //console.log("USER FILE CREATED!");
+    } /* else {
       console.log("USER FILE ALREADY EXISTS!");
-    }
+    } */
   }
   //Creo el método create
   async create(data) {
@@ -63,7 +63,7 @@ class UsersManager {
       }
       //Si tengo los datos entonces creo un nuevo usuario
       else {
-        const user = {
+        /* const user = {
           id: crypto.randomBytes(12).toString("hex"),
           //Si no proporcionan la foto se usa una predeterminada
           photo:
@@ -72,32 +72,32 @@ class UsersManager {
           email: data.email,
           password: data.password,
           role: data.role || 0,
-        };
+        }; */
         //Lee todos los usuarios del archivo
         let all = await fs.promises.readFile(this.path, "utf-8");
         //Convierte los usuarios en formato JSON a un objeto JS
         all = JSON.parse(all);
         //Agrega el nuevo usuario al array
-        all.push(user);
+        all.push(data);
         //Convierte el array de usuarios a JSON
         all = JSON.stringify(all, null, 2);
         //Escribe los usuarios actualizados en el archivo
         await fs.promises.writeFile(this.path, all);
-        console.log({ createdUser: user.id });
-        return user;
+        //console.log({ createdUser: user.id });
+        return data;
       }
     } catch (error) {
       throw error;
     }
   }
   //Creamos el método read
-  async read(rol) {
+  async read(role) {
     try {
       //Lee todos los usuarios del archivo
       let all = await fs.promises.readFile(this.path, "utf-8");
       //Convierte los usuarios JSON a un objeto JS
       all = JSON.parse(all);
-      rol && (all = all.filter((each) => each.role === rol));
+      role && (all = all.filter((each) => each.role === role));
       return all;
     } catch (error) {
       throw error;
@@ -111,15 +111,15 @@ class UsersManager {
       //Convierte los usuarios JSON a un objeto JS
       all = JSON.parse(all);
       //Uso el método find para buscar el usuario con el ID especifico
-      const user = all.find((user) => user.id === id);
+      let one = all.find((one) => one.id === id);
       //Si no encuentra el usuario tira el error
-      if (!user) {
+      if (!one) {
         const error = new Error("USER NOT FOUND");
         error.statusCode = 404;
         throw error;
       } else {
         //Si lo encuentra lo muestra
-        return user;
+        return one;
       }
     } catch (error) {
       throw error;
@@ -149,37 +149,22 @@ class UsersManager {
 
   async destroy(id) {
     try {
-      //Lee todos los usuarios del archivo
       let all = await fs.promises.readFile(this.path, "utf-8");
-      //Convierte los usuarios JSON a un objeto JavaScript
       all = JSON.parse(all);
-
-      //Busca el usuario con el ID especificado
-      const deletedUser = all.find((user) => user.id === id);
-      //Si el usuario no se encuentra, lanza un error
-      if (!deletedUser) {
-        const error = new Error("USER NOT FOUND");
-        error.statusCode = 404;
-        throw error;
-      } else {
-        //Filtra los usuarios excluyendo al usuario con el ID especificado
-        const filteredUsers = all.filter((user) => user.id !== id);
-        //Convierte el array de usuarios filtrados de nuevo a formato JSON
-        const stringData = JSON.stringify(filteredUsers, null, 2);
-        //Escribe los usuarios actualizados en el archivo
-        await fs.promises.writeFile(this.path, stringData);
-        //Imprime el usuario eliminado
-        console.log({ deletedUser });
-        //Devuelve el usuario eliminado
-        return deletedUser;
+      let one = all.find((each) => each.id === id);
+      if (one) {
+        let filtered = all.filter((each) => each.id !== id);
+        filtered = JSON.stringify(filtered, null, 2);
+        await fs.promises.writeFile(this.path, filtered);
       }
+      return one;
     } catch (error) {
       throw error;
     }
   }
 }
 
-async function test() {
+/* async function test() {
   try {
     const users = new UsersManager();
 
@@ -226,7 +211,7 @@ async function test() {
   }
 }
 
-//test();
+//test(); */
 
 const usersManager = new UsersManager();
 export default usersManager;
