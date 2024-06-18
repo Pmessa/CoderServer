@@ -5,21 +5,21 @@ import { Server } from "socket.io";
 import morgan from "morgan";
 import { engine } from "express-handlebars";
 import __dirname from "./utils.js";
-import expressSession from "express-session";
-import MongoStore from "connect-mongo";
+//import expressSession from "express-session";
+//import MongoStore from "connect-mongo";
 import cookieParser from "cookie-parser";
 import indexRouter from "./src/routers/index.router.js";
 import socketCb from "./src/routers/index.socket.js";
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
-import dbconnect from "./src/utils/dbConnect.util.js";
+//import dbconnect from "./src/utils/dbConnect.util.js";
 import argsUtil from "./src/utils/args.util.js";
 
 const server = express();
 const port = environment.PORT || argsUtil.p;
 const ready = async () => {
   console.log("server ready on port: " + port);
-  await dbconnect();
+  //await dbconnect();
 };
 const nodeServer = createServer(server);
 const socketServer = new Server(nodeServer);

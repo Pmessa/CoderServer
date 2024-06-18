@@ -3,7 +3,7 @@ import crypto from "crypto";
 
 class CartsManager {
   constructor() {
-    this.path = "./src/data/fs/files/carts.json";
+    this.path = "./src/dao/fs/files/carts.json";
     this.init();
   }
   init() {
@@ -110,7 +110,7 @@ const cartsManager = new CartsManager();
 
 export default cartsManager;
 
-async function test() {
+/* async function test() {
   try {
     await cartsManager.create({
       id: "802b81e18fcefbf26073c387",
@@ -129,4 +129,4 @@ async function test() {
   }
 }
 
-test();
+test(); */

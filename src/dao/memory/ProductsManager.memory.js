@@ -4,29 +4,30 @@ class ProductsManager {
   static #products = [];
   static #productId = [];
 
-  create(product) {
-    const product = {
+  create(data) {
+    const newProduct = {
       id: data.id || crypto.randomBytes(12).toString("hex"),
-      title: product.title,
+      title: data.title,
       photo:
-        product.photo ||
+        data.photo ||
         "https://cdn-icons-png.flaticon.com/512/7466/7466065.png",
-      category: product.category || "without Category",
-      price: product.price || 1,
-      stock: product.stock || 1,
+      category: data.category || "without Category",
+      price: data.price || 1,
+      stock: data.stock || 1,
     };
-    if (!data.title) {
-      throw new Error("Title is required to create a product");
-    } else {
-      ProductsManager.#products.push(product);
-      ProductsManager.#productId.push(product.id);
-      console.log("Created Product with Memory File");
-      return product;
-    }
+    try{
+      if (!data.title) {
+        throw new Error("Title is required to create a product");
+      } else {
+        newProduct.id = newProduct.id || crypto.randomBytes(12).toString("hex");
+        ProductsManager.#products.push(newProduct);
+        ProductsManager.#productId.push(newProduct.id);
+        console.log("Created Product with Memory File");
+        return newProduct;
+      }
+    }catch(error) {
+      throw error
   }
-
-  catch(error) {
-    console.log(error);
   }
 
   read() {
@@ -84,35 +85,35 @@ class ProductsManager {
 }
 
 const productsManager = new ProductsManager();
-productManager.create({
+/* productsManager.create({
   title: `Manteca de maní`,
   photo: "mantequilla.jpg",
   category: `untable`,
   price: 2500,
   stock: 1000,
 });
-productManager.create({
+productsManager.create({
   title: `almendras`,
   photo: "almendras.jpg",
   category: `Frutos secos`,
   price: 15000,
   stock: 1000,
 });
-productManager.create({
+productsManager.create({
   title: `Tofu`,
   photo: "tofu.jpg",
   category: `tofu`,
   price: 150,
   stock: 1000,
 });
-productManager.create({
+productsManager.create({
   title: `maní`,
   photo: "maní.jpg",
   category: `frutos secos`,
   price: 150,
   stock: 3000,
 });
-productManager.create({
+productsManager.create({
   title: `Aceite de oliva`,
   photo: "aceiteDeOliva.jpg",
   category: `aceites`,
@@ -442,3 +443,4 @@ productsManager.create({
 // console.log(productManager.destroy(2));
 // console.log(productManager.readOne(2));
 // console.log(productManager.destroy(13));
+ */

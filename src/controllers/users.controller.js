@@ -10,7 +10,7 @@ class UsersController {
     try {
       const data = req.body;
       const one = await createService(data);
-      return res.message201("CREATED ID: " + one.id);
+      return res.message201("CREATED ID: " + one._id);
     } catch (error) {
       return next(error);
     }

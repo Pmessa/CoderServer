@@ -12,7 +12,7 @@ class UsersManager {
         email: data.email,
         password: data.password,
         role: data.role || 0,
-      }; */
+      };  */
       if (!data.email || !data.password) {
         throw new Error("INGRESE EMAIL/PASSWORD");
       } else {
@@ -39,6 +39,18 @@ class UsersManager {
   async readOne(id) {
     try {
       const one = UsersManager.#users.find((each) => each.id === id);
+      if (!one) {
+        throw new Error("THE USER DOES NOT EXIST");
+      } else {
+        return one;
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
+  async readByEmail(email) {
+    try {
+      const one = UsersManager.#users.find((each) => each.email === email);
       if (!one) {
         throw new Error("THE USER DOES NOT EXIST");
       } else {

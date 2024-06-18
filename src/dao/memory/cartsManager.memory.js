@@ -5,12 +5,12 @@ class CartsManager {
   static #cartId = [];
 
   create(cart) {
-    const cart = {
+    /* const cart = {
       user_id: data.id || crypto.randomBytes(12).toString("hex"),
       product_id: data.id || crypto.randomBytes(12).toString("hex"),
       quantity: data.id || 1,
       state: data.id || "reserved",
-    };
+    }; */
     if (!data.id) {
       throw new Error("Id is required to create a cart");
     } else {
@@ -79,17 +79,17 @@ class CartsManager {
 }
 
 // Crear una instancia de ProducstManager
-const cartsManager = new ProducstManager();
+//const cartsManager = new ProducstManager();
 
-cartsManager.create({
+/* cartsManager.create({
   user_id: data.id,
   product_id: data.id,
   quantity: data.id || 1,
   state: data.id || "reserved",
-});
+}); */
 
 // Mostrar todos los carts
-console.log(cartsManager.read());
+//console.log(cartsManager.read());
 
 // Mostrar un cart específico por su ID
 //console.log(cartManager.readOne(2));

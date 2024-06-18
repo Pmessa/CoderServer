@@ -1,7 +1,9 @@
 import Service from "./service.js";
-import cartsManager from "./../dao/mongo/managers/CartsManager.mongo.js";
+//import cartsManager from "./../dao/mongo/managers/CartsManager.mongo.js";
+import dao from "../dao/dao.factory.js";
 
-const cartsService = new Service(cartsManager)
+const { carts } = dao
+const cartsService = new Service(carts)
 export const {
   createService,
   readService,
