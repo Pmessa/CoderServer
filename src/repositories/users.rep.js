@@ -31,6 +31,14 @@ class UsersRepository {
       throw error;
     }
   };
+  readByEmailRepository = async (email) => {
+    try {
+      const one = await this.model.readByEmail(email);
+      return one;
+    } catch (error) {
+      throw error;
+    }
+  };
   updateRepository = async (uid, data) => {
     try {
       const one = await this.model.update(uid, data);
@@ -63,5 +71,5 @@ class UsersRepository {
     }
   };
 }
-const usersRepository = new UsersRepository(users)
-export default usersRepository
+const usersRepository = new UsersRepository(users);
+export default usersRepository;
