@@ -5,7 +5,7 @@ import { read, readOne, create, update, destroy, destroyAll } from "./../../cont
 class CartsRouter extends CustomRouter {
   init() {
     this.create("/", ["USER"], create);
-    this.read("/", ["USER"], read);
+    this.read("/", ["PUBLIC"], read);
     this.read("/:pid", ["USER"], readOne);
     this.update("/:pid", ["USER"], update);
     this.destroy("/all", ["USER"], destroyAll);

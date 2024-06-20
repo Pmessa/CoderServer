@@ -1,7 +1,9 @@
 import { Router } from "express";
 /* import usersManager from "../../dao/fs/UsersManager.fs.js" */
-import usersManager from "../../dao/mongo/managers/UserManager.mongo.js";
+//import usersManager from "../../dao/mongo/managers/UserManager.mongo.js";
+import dao from "../../dao/dao.factory.js"
 
+const { users } = dao
 const usersRouter = Router();
 
 usersRouter.get("/", async (req, res, next) => {
@@ -25,10 +27,10 @@ usersRouter.get("/", async (req, res, next) => {
   try {
     if (user_id) {
       //console.log(user_id)
-      const one = await usersManager.readOne(user_id);
+      const one = await users.readOne(user_id);
       return res.render("details", { user: one, user_id });
     } else {
-      const users = await usersManager.read();
+      const users = await users.read();
       return res.render("users", { users });
     }
   } catch (error) {

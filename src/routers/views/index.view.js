@@ -1,10 +1,11 @@
 import { Router } from "express";
 //import productsManager from "../../dao/fs/ProductsManager.fs.js";
-import productsManager from "../../dao/mongo/managers/ProductsManager.mongo.js";
+//import productsManager from "../../dao/mongo/managers/ProductsManager.mongo.js";
 import usersRouter from "./users.view.js";
 import productsRouter from "./products.view.js";
 import cartsRouter from "./carts.view.js";
 import { paginate } from "mongoose-paginate-v2";
+
 //import productDetailRouter from "./product.detail.view.js";
 
 const viewsRouter = Router();
@@ -56,6 +57,7 @@ viewsRouter.get("/", async (req, res, next) => {
       throw new Error('Failed to fetch data');
     }
     const fetchedDocs = await response.json();
+    console.log(fetchedDocs);
 
     if (response.ok && req.cookies.token) {      
       return res.render("index", { products: fetchedDocs.response, pagination: fetchedDocs.info.totalPage, limit: fetchedDocs.info.limit, nextPage: fetchedDocs.info.nextPage, prevPage: fetchedDocs.info.prevPage, url: 'products/',  /*newLogin: newLogin,*/ user_id: user_id });

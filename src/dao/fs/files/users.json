@@ -1,60 +1,12 @@
 [
   {
-    "photo": "/img/persona1.jpg",
-    "email": "daniel73@gmail.com",
-    "password": "Daniel123",
-    "role": 0
-  },
-  {
-    "photo": "img/persona1.jpg",
-    "email": "hector55@gmail.com",
-    "password": "Hector123",
-    "role": 0
-  },
-  {
-    "photo": "fotocristian.jpg",
-    "email": "cristian33@gmail.com",
-    "password": "Cristian123",
-    "role": 0
-  },
-  {
-    "photo": "fotosebas.jpg",
-    "email": "adminsebas@gmail.com",
-    "password": "admin123",
-    "role": 1
-  },
-  {
-    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
-    "email": "juan@gmail.com",
-    "password": "juan123",
-    "role": 0
-  },
-  {
-    "_id": "0f28cdfa418aa63d2f4c0fa9",
-    "email": "jorge@gmail.com",
-    "password": "$2b$10$y6hPFJ0XhCPRUS/YlmRsLeyyr84T7Y1rGiEcUn93AyEGwkZJQqGne",
-    "role": 0,
-    "age": 12,
-    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
-    "createdAt": "2024-06-18T14:44:12.416Z",
-    "updatedAt": "2024-06-18T14:44:12.416Z"
-  },
-  {
-    "_id": "ea3db3ff90ceab7d46266ef5",
-    "email": "adrian@gmail.com",
-    "password": "$2b$10$KAVU5OMMIoJoE9ckPcoRT.TryMSnCOyS8bHXqTqyZLeixGEL4y8Ki",
+    "_id": "1a57b7587b45f6e2e910b118",
+    "email": "sebasavila81@gmail.com",
+    "password": "$2b$10$Dhz/WHHp1kl9Ihj1EkS1QO5RIOvXCkWjn9fC.xHyMSUPhGqpB/Y/q",
     "role": 0,
     "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
-    "createdAt": "2024-06-18T14:50:18.350Z",
-    "updatedAt": "2024-06-18T14:50:18.350Z"
-  },
-  {
-    "_id": "9d5c81bcc68632b3d821faa7",
-    "email": "sergio@gmail.com",
-    "password": "$2b$10$m1uNCEe3XEzjPAvfjXIFYe38xkQgvG/b44XcDv2otndpaMwxTzGam",
-    "role": 0,
-    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
-    "createdAt": "2024-06-18T14:57:57.438Z",
-    "updatedAt": "2024-06-18T14:57:57.438Z"
+    "createdAt": "2024-06-20T20:07:06.114Z",
+    "updatedAt": "2024-06-20T20:07:06.114Z",
+    "__v": 0
   }
 ]

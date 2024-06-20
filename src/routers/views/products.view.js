@@ -1,6 +1,8 @@
 import { Router } from "express";
-import productsManager from "../../dao/mongo/managers/ProductsManager.mongo.js";
+//import productsManager from "../../dao/mongo/managers/ProductsManager.mongo.js";
 //import productsManager from "../../dao/fs/ProductsManager.fs.js";
+import dao from "../../dao/dao.factory.js"
+const { products } = dao;
 const productsRouter = Router();
 
 productsRouter.get("/", async (req, res, next) => {
@@ -20,12 +22,12 @@ productsRouter.get("/", async (req, res, next) => {
     user_id = fetchedUser.response._id
    
   }
-    const products = await productsManager.read();
+    const readProducts = await products.read();
      console.log(user_id);//console.log(req.cookies.token);
     if (user_id) {
-      return res.render("products", { products, user_id });
+      return res.render("products", { readProducts, user_id });
     } else {
-      return res.render("products", { products, user_id: user_id });
+      return res.render("products", { readProducts, user_id: user_id });
     }
   } catch (error) {
     return next(error);
@@ -101,7 +103,7 @@ productsRouter.get("/:pid", async (req, res, next) => {
     user_id = fetchedUser.response._id
   }
     const { pid } = req.params;
-    const one = await productsManager.readOne(pid);
+    const one = await products.readOne(pid);
     //return res.render("productDetail", { product: one });
     if (user_id) {
       return res.render("productDetail", {

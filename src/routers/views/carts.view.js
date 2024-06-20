@@ -1,8 +1,10 @@
 import { Router } from "express";
-import cartsManager from "../../dao/mongo/managers/CartsManager.mongo.js";
+//import cartsManager from "../../dao/mongo/managers/CartsManager.mongo.js";
 //import cartsManager from "../../dao/fs/cartsManager.fs.js";
 import { verifyToken } from "../../utils/token.util.js";
+import dao from "../../dao/dao.factory.js"
 
+const { carts } = dao
 const cartsRouter = Router();
 
 /* cartsRouter.get("/", async (req, res, next) => {
@@ -43,8 +45,8 @@ cartsRouter.post("/", async (req, res, next) => {
         body: JSON.stringify({ product_id: product, user_id: user_id, token: req.cookies.token }),
       });
     }
-    const carts = await cartsManager.readCart(user_id);
-    const products = carts
+    const carrito = await carts.readCart(user_id);
+    const products = carrito
     let productsFinal = []
     const productMap = products.reduce((acc, product) => {
       const productId = product.product_id._id;
@@ -86,8 +88,8 @@ cartsRouter.get("/", async (req, res, next) => {
     }
     const _id = user_id;
 
-    const carts = await cartsManager.readCart(_id);
-    const products = carts
+    const all = await carts.readCart(_id);
+    const products = all
     let productsFinal = []
     const productMap = products.reduce((acc, product) => {
       const productId = product.product_id._id;
