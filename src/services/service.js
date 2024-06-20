@@ -10,9 +10,9 @@ class Service {
       throw error;
     }
   };
-  readService = async (role) => {
+  readService = async (filter) => {
     try {
-      const all = await this.repository.readRepository(role);
+      const all = await this.repository.readRepository(filter);
       return all;
     } catch (error) {
       throw error;

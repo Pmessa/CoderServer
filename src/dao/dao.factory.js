@@ -13,7 +13,7 @@ switch (persistence) {
       "./memory/ProductsManager.memory.js"
     );
     const { default: cartsManagerMem } = await import(
-      "./memory/cartsManager.memory.js"
+      "./memory/CartsManager.memory.js"
     );
     const { default: usersManagerMem } = await import(
       "./memory/UsersManager.memory.js"

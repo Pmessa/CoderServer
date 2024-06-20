@@ -25,12 +25,25 @@ class UsersManager {
       throw error;
     }
   }
-  async read(role) {
+  async read(filter) {
     try {
       if (UsersManager.#users.length === 0) {
-        throw new Error("THERE ARE NO USERS");
+        const error = new Error("NOT FOUND");
+        error.statusCode = 404;
+        throw error;
       } else {
-        return UsersManager.#users;
+        if (filter) {
+          const all = UsersManager.#users.filter((user) => user.role === filter);
+          if (!all) {
+            const error = new Error("NOT FOUND");
+            error.statusCode = 404;
+            throw error;
+          }
+          return all;
+        } else {
+          const all = UsersManager.#users;
+          return all;
+        }
       }
     } catch (error) {
       throw error;

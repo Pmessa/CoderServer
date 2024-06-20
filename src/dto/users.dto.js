@@ -17,6 +17,7 @@ class UsersDTO {
     //pero yo acá estoy usando el CRUD de users (/api/users)
     persistence !== "mongo" && (this.createdAt = new Date());
     persistence !== "mongo" && (this.updatedAt = new Date());
+    persistence !== "mongo" && (this.__v = 0);
   }
 }
 

@@ -1,7 +1,8 @@
 import dao from "../dao/dao.factory.js";
 import UsersDTO from "../dto/users.dto.js";
 const { users } = dao;
-
+//REPOSITORIO ES LA CAPA QUE LLAMA A DAO (DAO importa la persistencia que corresponda)
+//ADEMAS ES LA CAPA ENCARGADA DE TRANSFORMAR LOS OBJETOS CON LOS DTO CORRESPONDIENTES
 class UsersRepository {
   constructor(manager) {
     this.model = manager;
@@ -15,9 +16,9 @@ class UsersRepository {
       throw error;
     }
   };
-  readRepository = async (role) => {
+  readRepository = async (filter) => {
     try {
-      const all = await this.model.read(role);
+      const all = await this.model.read(filter);
       return all;
     } catch (error) {
       throw error;

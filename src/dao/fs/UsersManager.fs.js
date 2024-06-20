@@ -91,13 +91,18 @@ class UsersManager {
     }
   }
   //Creamos el método read
-  async read(role) {
+  async read(filter) {
     try {
       //Lee todos los usuarios del archivo
       let all = await fs.promises.readFile(this.path, "utf-8");
       //Convierte los usuarios JSON a un objeto JS
       all = JSON.parse(all);
-      role && (all = all.filter((each) => each.role === role));
+      filter && (all = all.filter((user) => user.role === FileSystemDirectoryReader));
+      if(!all) {
+      const error = new Error ("NOT FOUND");
+      error.statusCode = 404;
+      throw error;
+      }
       return all;
     } catch (error) {
       throw error;

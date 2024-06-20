@@ -18,38 +18,35 @@ class CartsManager {
   }
   async create(data) {
     try {
-      const newcart = {
-        id: data.id || crypto.randomBytes(12).toString("hex"),
-        user_id: data.id || crypto.randomBytes(12).toString("hex"),
-        product_id: data.id || crypto.randomBytes(12).toString("hex"),
-        quantity: data.id || 1,
-        state: data.id || "reserved",
-      };
+      if (data.user_id && data.product_id) {
+        const cart = {
+          id: data.id || crypto.randomBytes(12).toString("hex"),
+          user_id: data.user_id,
+          product_id: data.product_id,
+          quantity: data.quantity || 1,
+          state: data.state || "reserved",
+        };
 
-      let all = await fs.promises.readFile(this.path, "utf-8");
-      all = JSON.parse(all);
-      const isDuplicate = all.find((cart) => cart.id === newcart.id);
-      if (isDuplicate) {
-        console.log("The product already exists in the cart.");
+        let cartFile = await fs.promises.readFile(this.path, "utf-8");
+        cartFile = JSON.parse(cartFile);
+        cartFile.push(cart);
+        cartFile = JSON.stringify(cartFile, null, 2);
+
+        await fs.promises.writeFile(this.path, cartFile);
+        return cart;
       } else {
-        all.unshift(newcart);
-
-        all = JSON.stringify(all, null, 2);
-        await fs.promises.writeFile(this.path, all);
-        console.log("cart File System created:", newcart.id);
+        throw new Error("ENTER THE REQUIRED FIELDS");
       }
-
-      return newcart;
-    } catch (error) {
-      throw error;
+    } catch (err) {
+      throw err;
     }
   }
 
-  async read(cat) {
+  async read(filter) {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
       all = JSON.parse(all);
-      cat && (all = all.filter((each) => each.category === cat));
+      filter.user_id && (all = all.filter((each) => each.user_id === filter.user_id));
       return all;
     } catch (error) {
       throw error;
