@@ -3,7 +3,7 @@ import { create, read, readOne, update, destroy } from "./../../controllers/user
 class UsersRouter extends CustomRouter{
   init(){
     this.create("/register", ["PUBLIC"], create);
-    this.create("/", ["PUBLIC"], create);
+    this.create("/", ["ADMIN"], create);
     this.read("/", ["PUBLIC"], read);
     this.read("/:uid", ["PUBLIC"], readOne);
     this.update("/:uid", ["USER"], update);

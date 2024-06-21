@@ -7,6 +7,18 @@ const productsRouter = Router();
 
 productsRouter.get("/", async (req, res, next) => {
   try {
+    const readProducts = await products.read();
+    return res.render("products", {  readProducts });
+  } catch (error) {
+    return next(error);
+  }
+});
+
+
+
+
+/* productsRouter.get("/", async (req, res, next) => {
+  try {
     let user_id = null
     if (req.cookies.token){
     const userOnline = await fetch('http://localhost:8080/api/sessions/online',
@@ -32,7 +44,7 @@ productsRouter.get("/", async (req, res, next) => {
   } catch (error) {
     return next(error);
   }
-});
+}); */
 
 
 productsRouter.get("/paginate", async (req, res, next) => {

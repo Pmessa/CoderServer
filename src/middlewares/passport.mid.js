@@ -2,9 +2,12 @@ import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import { Strategy as GoogleStrategy } from "passport-google-oauth2";
 import { Strategy as JWTStrategy, ExtractJwt } from "passport-jwt";
-import usersManager from "../dao/mongo/managers/UserManager.mongo.js";
+//import usersManager from "../dao/mongo/managers/UserManager.mongo.js";
 import { createHash, verifyHash } from "../utils/hash.util.js";
 import { createToken } from "../utils/token.util.js";
+import dao from "../dao/dao.factory.js"
+
+const { users } = dao
 
 passport.use(
   "register",
@@ -19,7 +22,7 @@ passport.use(
           error.statusCode = 400;
           return done(null, null, error);
         }
-        const one = await usersManager.readByEmail(email);
+        const one = await users.readByEmail(email);
         if (one) {
           const error = new Error("Bad auth from register!");
           error.statusCode = 401;
@@ -27,7 +30,7 @@ passport.use(
         }
         const hashPassword = createHash(password);
         req.body.password = hashPassword;
-        const user = await usersManager.create(req.body);
+        const user = await users.create(req.body);
         return done(null, user);
       } catch (error) {
         return done(error);
@@ -41,7 +44,7 @@ passport.use(
     { passReqToCallback: true, usernameField: "email" },
     async (req, email, password, done) => {
       try {
-        const one = await usersManager.readByEmail(email);
+        const one = await users.readByEmail(email);
         if (!one) {
           const error = new Error("Bad auth from login!");
           error.statusCode = 401;
@@ -92,14 +95,14 @@ passport.use(
         //nosotros vamos a registrar un ID en lugar de un email
         
         const { id, picture } = profile;
-        let one = await usersManager.readByEmail(id);
+        let one = await users.readByEmail(id);
         if (!one) {
           one = {
             email: id,
             password: createHash(id),
             photo: picture,
           };
-          one = await usersManager.create(one);
+          one = await users.create(one);
         }
 
           //req.session.email = email;

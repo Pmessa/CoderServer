@@ -42,7 +42,7 @@ viewsRouter.get("/", async (req, res, next) => {
             }}
     )
     const fetchedUser = await userOnline.json()
-    //user_id = fetchedUser.response._id
+    user_id = fetchedUser.response._id
   }
     //console.log(req.cookies);
    /*  let newLogin = true
