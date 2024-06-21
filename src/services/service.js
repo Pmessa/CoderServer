@@ -20,7 +20,7 @@ class Service {
   };
   readOneService = async (uid) => {
     try {
-      const one = await this.repository.readOneRipository(uid);
+      const one = await this.repository.readOneRepository(uid);
       return one;
     } catch (error) {
       throw error;

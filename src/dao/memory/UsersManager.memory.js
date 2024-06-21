@@ -104,31 +104,31 @@ class UsersManager {
 const usersManager = new UsersManager();
 export default usersManager;
 
-/* let user1 = gestorDeUsuarios.create({
+let user1 = usersManager.create({
   photo: "photojorge.jpg",
   email: "jorge18@gmail.com",
   password: "Passjorge",
 }); // crear un nuevo usuario
-let user2 = gestorDeUsuarios.create({
+let user2 = usersManager.create({
   photo: "photocarlos.jpg",
   email: "carlos17@gmail.com",
   password: "PassCarlos",
 }); // crear un nuevo usuario
-let user3 = gestorDeUsuarios.create({
+let user3 = usersManager.create({
   photo: "photoluis.jpg",
   email: "luis13@gmail.com",
   password: "Passluis",
 }); // crear un nuevo usuario
-let user4 = gestorDeUsuarios.create({
+let user4 = usersManager.create({
   photo: "photojuan.jpg",
   email: "juan701@gmail.com",
   password: "PassJuan",
 }); // crear un nuevo usuario
 
-console.log(gestorDeUsuarios.read());
-console.log(gestorDeUsuarios.readOne(user1.id));
-gestorDeUsuarios.destroy(user4.id);
-user1 = gestorDeUsuarios.update(user1.id, {
+/*console.log(usersManager.read());
+console.log(usersManager.readOne(user1.id));
+usersManager.destroy(user4.id);
+user1 = usersManager.update(user1.id, {
   photo: "newphoto.jpg",
   email: "newemail@gmail.com",
   password: "newpassword",
