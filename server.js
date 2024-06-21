@@ -20,6 +20,7 @@ const port = environment.PORT || argsUtil.p;
 const ready = async () => {
   console.log("server ready on port: " + port);
   //await dbconnect();
+  //hay que incluir la conexión a mongo desde el patrón factory
 };
 const nodeServer = createServer(server);
 const socketServer = new Server(nodeServer);
