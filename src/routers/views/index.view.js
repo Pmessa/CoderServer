@@ -42,7 +42,7 @@ viewsRouter.get("/", async (req, res, next) => {
             }}
     )
     const fetchedUser = await userOnline.json()
-    user_id = fetchedUser.response._id
+    //user_id = fetchedUser.response._id
   }
     //console.log(req.cookies);
    /*  let newLogin = true
@@ -57,7 +57,7 @@ viewsRouter.get("/", async (req, res, next) => {
       throw new Error('Failed to fetch data');
     }
     const fetchedDocs = await response.json();
-    console.log(fetchedDocs);
+    //console.log(fetchedDocs);
 
     if (response.ok && req.cookies.token) {      
       return res.render("index", { products: fetchedDocs.response, pagination: fetchedDocs.info.totalPage, limit: fetchedDocs.info.limit, nextPage: fetchedDocs.info.nextPage, prevPage: fetchedDocs.info.prevPage, url: 'products/',  /*newLogin: newLogin,*/ user_id: user_id });

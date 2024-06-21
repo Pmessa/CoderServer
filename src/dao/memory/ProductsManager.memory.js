@@ -2,10 +2,10 @@ import crypto from "crypto";
 
 class ProductsManager {
   static #products = [];
-  static #productId = [];
+  //static #productId = [];
 
-  create(data) {
-    const newProduct = {
+  async create(data) {
+    /* const newProduct = {
       id: data.id || crypto.randomBytes(12).toString("hex"),
       title: data.title,
       photo:
@@ -14,34 +14,49 @@ class ProductsManager {
       category: data.category || "without Category",
       price: data.price || 1,
       stock: data.stock || 1,
-    };
-    try{
-      if (!data.title) {
-        throw new Error("Title is required to create a product");
-      } else {
-        newProduct.id = newProduct.id || crypto.randomBytes(12).toString("hex");
-        ProductsManager.#products.push(newProduct);
-        ProductsManager.#productId.push(newProduct.id);
-        console.log("Created Product with Memory File");
-        return newProduct;
-      }
-    }catch(error) {
-      throw error
-  }
-  }
-
-  read() {
+    }; */
     try {
-      if (ProductsManager.#products.length === 0) {
-        throw new Error("THERE ARE NO PRODUCTS TO SHOW");
-      } else {
-        return ProductsManager.#products;
+      //if (!data.title) {
+      //  throw new Error("Title is required to create a product");
+      //} else {
+        //newProduct.id = newProduct.id || crypto.randomBytes(12).toString("hex");
+        ProductsManager.#products.push(data);
+        //ProductsManager.#productId.push(newProduct.id);
+        console.log("Created Product with Memory File");
+        return data;
       }
-    } catch (error) {
-      console.log(error);
+     catch (error) {
+      throw error;
     }
   }
-  readOne(id) {
+
+  async read(filter) {
+    try {
+      if (ProductsManager.#products.length === 0) {
+        const error = new Error("NOT FOUND");
+        error.statusCode = 404;
+        throw error;
+      } else {
+        if (filter) {
+          const all = ProductManager.#products.filter(
+            (prod) => prod.category === filter
+          );
+          if (!all) {
+            const error = new Error("NOT FOUND");
+            error.statusCode = 404;
+            throw error;
+          }
+          return all;
+        } else {
+          const all = ProductManager.#products;
+          return all;
+        }
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
+  async readOne(id) {
     try {
       const one = ProductsManager.#products.find((each) => each.id === id);
       if (!one) {
@@ -53,31 +68,61 @@ class ProductsManager {
       console.log(error);
     }
   }
-  destroy(id) {
+  async paginate({ filter, opts }) {
     try {
-      const productToRemove = this.readOne(id);
-      const within = ProductsManager.#products.filter((each) => each.id !== id);
-      ProductsManager.#products = within;
-      console.log(within);
-      console.log("PRODUCT DELETED");
-      return productToRemove;
+      let products = await this.read();
+      if (filter.category) {
+        products = products.filter((product) =>
+          product.category.includes(filter.category)
+        );
+      }
+      const page = opts.page || 1;
+      const limit = opts.limit || 10;
+      const skip = (page - 1) * limit;
+      const paginatedProducts = products.slice(skip, skip + limit);
+      const totalDocs = products.length;
+      if (totalDocs === 0) {
+        const error = new Error("There aren't any documents");
+        error.statusCode = 404;
+        throw error;
+      }
+      const all = {
+        docs: paginatedProducts,
+        totalDocs,
+        limit,
+        page,
+        totalPages: Math.ceil(totalDocs / limit),
+      };
+      return all;
     } catch (error) {
       throw error;
     }
   }
-  update(id, newData) {
+  async destroy(id) {
     try {
-      const productToUpdate = this.readOne(id);
+      const one = this.readOne(id);
+      const within = ProductsManager.#products.filter((each) => each.id !== id);
+      ProductsManager.#products = within;
+      console.log(within);
+      console.log("PRODUCT DELETED");
+      return one;
+    } catch (error) {
+      throw error;
+    }
+  }
+  update(id, data) {
+    try {
+      const one = this.readOne(id);
 
-      if (!productToUpdate) {
+      if (!one) {
         throw new Error("Product not found");
       }
 
       for (const prop in newData) {
-        productToUpdate[prop] = newData[prop];
+        one[prop] = data[prop];
       }
 
-      return productToUpdate;
+      return one;
     } catch (error) {
       throw error;
     }

@@ -23,7 +23,7 @@ productsRouter.get("/", async (req, res, next) => {
    
   }
     const readProducts = await products.read();
-     console.log(user_id);//console.log(req.cookies.token);
+     //console.log(user_id);//console.log(req.cookies.token);
     if (user_id) {
       return res.render("products", { readProducts, user_id });
     } else {
