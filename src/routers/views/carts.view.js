@@ -62,7 +62,7 @@ cartsRouter.post("/", async (req, res, next) => {
     if (req.cookies.token) {
       return res.render("cart", { cart: productsFinal, user_id: user_id});
     } else {
-      return res.render("cart", { cart: productsFinal, user_id: user_id});
+      return res.render("login", { cart: productsFinal, user_id: user_id});
     }
   } catch (error) {
     return next(error);
