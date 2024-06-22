@@ -35,7 +35,7 @@ cartsRouter.post("/", async (req, res, next) => {
       );
       const fetchedUser = await userOnline.json();
       user_id = fetchedUser.response._id;
-      
+      const userEmail = fetchedUser.response.email;
       const { product } = req.body;
       const result = await fetch("http:/localhost:8080/api/carts/", {
         method: "POST",
@@ -60,9 +60,9 @@ cartsRouter.post("/", async (req, res, next) => {
     
     productsFinal = Object.values(productMap);
     if (req.cookies.token) {
-      return res.render("cart", { cart: productsFinal, user_id: user_id });
+      return res.render("cart", { cart: productsFinal, user_id: user_id});
     } else {
-      return res.render("cart", { cart: productsFinal, user_id: user_id });
+      return res.render("cart", { cart: productsFinal, user_id: user_id});
     }
   } catch (error) {
     return next(error);
