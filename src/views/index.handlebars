@@ -14,12 +14,10 @@
 <main class="d-flex justify-content-around flex-wrap" >
   {{#if newLogin}}
 <script>
-
 window.addEventListener("load", async (event) => {
   event.preventDefault();
   return Swal.fire("LOGGED IN");
 });
-
 </script>
   {{/if}}
   {{#each products}}

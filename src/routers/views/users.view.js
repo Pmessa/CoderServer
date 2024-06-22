@@ -25,7 +25,6 @@ usersRouter.get("/", async (req, res, next) => {
   }
   try {
     if (user_id) {
-      //console.log(user_id)
       const one = await users.readOne(user_id);
       return res.render("details", { user: one, user_id });
     } else {

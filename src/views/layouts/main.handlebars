@@ -11,6 +11,7 @@
   <style>
     body {
       padding-top: 80px !important;
+      background-color: #f4faf6;
     }
 
     h1 {
@@ -21,44 +22,51 @@
     .product-title {
       font-family: 'Lato', sans-serif;
     }
-    
-    .hover-text-profile,  .hover-text-signOut{
-  position: relative;
-}
+    .list{
+      margin-left: 8.5rem !important;
+      background-color: rgba(239, 255, 229, 0.968);
+    }
+    .hover-text-profile,
+    .hover-text-signOut {
+      position: relative;
+    }
 
-li{
-  align-items: center;
-  justify-content: center;
-}
-.fa-solid{
-  width: 15px;
-}
-.hover-text-signOut:hover::after {
-  content: 'Sign Out';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-25%);
-  background-color: rgb(214, 214, 214);
-  color: rgba(77, 77, 77, 0.7);
-  padding: 0.5rem;
-  margin:10px;
-  border-radius: 4px;
-  white-space: nowrap;
-}
-.hover-text-profile:hover::after {
-  content: 'Profile';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-25%);
-  background-color: rgb(214, 214, 214);
-  color: rgba(77, 77, 77, 0.7);
-  padding: 0.5rem;
-  margin:10px;
-  border-radius: 4px;
-  white-space: nowrap;
-}
+    li {
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fa-solid {
+      width: 15px;
+    }
+
+    .hover-text-signOut:hover::after {
+      content: 'Sign Out';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-25%);
+      background-color: rgb(214, 214, 214);
+      color: rgba(77, 77, 77, 0.7);
+      padding: 0.5rem;
+      margin: 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .hover-text-profile:hover::after {
+      content: 'Profile';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-25%);
+      background-color: rgb(214, 214, 214);
+      color: rgba(77, 77, 77, 0.7);
+      padding: 0.5rem;
+      margin: 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
   </style>
 </head>
 
@@ -79,7 +87,7 @@ li{
               aria-expanded="false">
               CATEGORIES
             </a>
-            <ul class="dropdown-menu fs-5 ">
+            <ul class="dropdown-menu fs-5 list">
               <li><a class="dropdown-item" href="/products/category/condimentos">CONDIMENTOS</a></li>
               <li><a class="dropdown-item" href="/products/category/snacks">SNACKS</a></li>
               <li><a class="dropdown-item" href="/products/category/harinas">HARINAS</a></li>
@@ -107,23 +115,29 @@ li{
               <li><a class="dropdown-item" href="/">TODAS LAS CATEGORIAS</a></li>
             </ul>
           </li>
-
+          {{#if user_id}}
+          <a class="nav-link actives fs-5" aria-current="page" href="/users">Profile</a>
+          {{/if}}
+          {{#if admin}}
           <a class="nav-link actives fs-5" aria-current="page" href="/products/real">Products</a>
-          <a class="nav-link actives fs-5" aria-current="page" href="/users">Users</a>
+          {{/if}}
           </li>
         </ul>
       </div>
     </div>
     {{#if user_id}}
     <li class="nav-item d-flex" style="width: 100px;">
-    <a class="nav-link fs-5 d-flex text-center justify-content-center btn btn-light p-2 hover-text-profile" href="/users"><i
-        class="fa-solid fa-user"></i></a>
+      <a class="nav-link fs-5 d-flex text-center justify-content-center btn btn-light p-2 hover-text-profile"
+        href="/users"><i class="fa-solid fa-user"></i></a>
     </li>
     <li class="nav-item d-flex" style="width: 100px;">
-      <a class="nav-link fs-5 d-flex text-center justify-content-center btn btn-light p-2 hover-text-signOut signout" href="/">
-       <i class="fa-solid fa-arrow-right-to-bracket"></i>
+      <a class="nav-link fs-5 d-flex text-center justify-content-center btn btn-light p-2 hover-text-signOut signout"
+        href="/">
+        <i class="fa-solid fa-arrow-right-to-bracket"></i>
       </a>
     </li>
+    <a href="http://localhost:8080/carts/"><img src="/img/cart-tr.png" alt="Cart Logo" width="50" height="50"
+        class="d-inline-block align-top" style="margin-right: 20px;" /></a>
     {{/if}}
     {{#unless user_id}}
     <li class="nav-item d-flex" style="width: 180px;">
@@ -133,10 +147,7 @@ li{
       </a>
     </li>
     {{/unless}}
-    {{#if user_id}}
-    <a href="http://localhost:8080/carts/"><img src="/img/cart-tr.png" alt="Cart Logo" width="50" height="50"
-        class="d-inline-block align-top" style="margin-right: 20px;" /></a>
-    {{/if}}
+
     <img src="/img/letraV_tr.png" alt="V Logo" width="50" height="50" class="d-inline-block align-top"
       style="margin-right: 20px;" />
     </ul>
@@ -178,7 +189,6 @@ li{
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-
   <script>
     document.querySelectorAll(".signout").forEach(element => {
       element.onclick
@@ -189,23 +199,23 @@ li{
                 "application/json"
             }
           }; let response = await
-            fetch("/api/sessions/signout", opts); response = await response.json(); if
-            (response.statusCode === 200) { location.replace("/"); }
+            fetch("/api/sessions/signout", opts); response = await response.json();
+          if (response.statusCode === 200) { location.replace("/"); }
         };
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
-  const icons = document.querySelectorAll('.hover-text');
+    document.addEventListener('DOMContentLoaded', function () {
+      const icons = document.querySelectorAll('.hover-text');
 
-  icons.forEach(icon => {
-    icon.addEventListener('mouseover', function() {
-      icon.setAttribute('data-content', 'Tu texto aquí');
+      icons.forEach(icon => {
+        icon.addEventListener('mouseover', function () {
+          icon.setAttribute('data-content', 'Tu texto aquí');
+        });
+        icon.addEventListener('mouseout', function () {
+          icon.removeAttribute('data-content');
+        });
+      });
     });
-    icon.addEventListener('mouseout', function() {
-      icon.removeAttribute('data-content');
-    });
-  });
-});
   </script>
 
 </body>
