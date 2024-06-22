@@ -23,7 +23,6 @@ usersRouter.get("/", async (req, res, next) => {
     const fetchedUser = await userOnline.json();
     user_id = fetchedUser.response._id;
   }
-
   try {
     if (user_id) {
       //console.log(user_id)
