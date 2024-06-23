@@ -7,6 +7,15 @@ class IndexRouter extends CustomRouter {
   init() {
     this.use("/api", indexApiRouter);
     this.use("/", viewsRouter);
+    this.create("/api/nodemailer", ["PUBLIC"], async (req, res, next) => {
+      try {
+        const { email, name } = req.body;
+        await sendEmail({ to: email, name });
+        return res.message200("EMAIL SENT");
+      } catch (error) {
+        next(error);
+      }
+    });
     this.read("/fork", ["PUBLIC"], (req, res, next) => {
       try {
         const childProcess = fork("./src/processes/sum.proc.js");
