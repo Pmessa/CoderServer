@@ -40,7 +40,28 @@ class CustomRouter {
       res.json({ statusCode: 404, message: "Not found docs" });
     return next();
   };
-  policies = (policies) => async (req, res, next) => {
+  /* policies = (policies) => async (req, res, next) => {
+    try {
+      if (policies.includes("PUBLIC")) return next();
+      const token = req.cookies["token"];
+      if (!token) return res.error401();
+      const dataOfToken = verifyToken(token);
+      const { email, role, _id } = dataOfToken;
+      //console.log(dataOfToken); 
+      if (
+        (policies.includes("USER") && role === 0) ||
+        (policies.includes("ADMIN") && role === 1)
+      ) {
+        const user = await usersRepository.readByEmailRepository(email);
+        req.user = user;
+        //console.log(user._id);
+      }
+      return res.error403();
+    } catch (error) {
+      return next(error);
+    }
+  }; */
+   policies = (policies) => async (req, res, next) => {
     
     if (policies.includes("PUBLIC")) return next();
     else {
@@ -70,19 +91,39 @@ class CustomRouter {
         }
       }
     }
-  };
+  }; 
   //create( "/",  isValidAdmin,  uploader.single("photo"),  isPhoto,  isPropAndDefault, create);
-  create(path, arrayOfPolicies,...callbacks) {
-    this.router.post(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
+  create(path, arrayOfPolicies, ...callbacks) {
+    this.router.post(
+      path,
+      this.response,
+      this.policies(arrayOfPolicies),
+      this.applyCbs(callbacks)
+    );
   }
-  read(path, arrayOfPolicies,...callbacks) {
-    this.router.get(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
+  read(path, arrayOfPolicies, ...callbacks) {
+    this.router.get(
+      path,
+      this.response,
+      this.policies(arrayOfPolicies),
+      this.applyCbs(callbacks)
+    );
   }
-  update(path, arrayOfPolicies,...callbacks) {
-    this.router.put(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
+  update(path, arrayOfPolicies, ...callbacks) {
+    this.router.put(
+      path,
+      this.response,
+      this.policies(arrayOfPolicies),
+      this.applyCbs(callbacks)
+    );
   }
-  destroy(path, arrayOfPolicies,...callbacks) {
-    this.router.delete(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
+  destroy(path, arrayOfPolicies, ...callbacks) {
+    this.router.delete(
+      path,
+      this.response,
+      this.policies(arrayOfPolicies),
+      this.applyCbs(callbacks)
+    );
   }
   use(path, ...callbacks) {
     this.router.use(path, this.response, this.applyCbs(callbacks));
