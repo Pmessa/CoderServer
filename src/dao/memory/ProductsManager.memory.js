@@ -38,7 +38,7 @@ class ProductsManager {
         throw error;
       } else {
         if (filter) {
-          const all = ProductManager.#products.filter(
+          const all = ProductsManager.#products.filter(
             (prod) => prod.category === filter
           );
           if (!all) {
@@ -48,7 +48,7 @@ class ProductsManager {
           }
           return all;
         } else {
-          const all = ProductManager.#products;
+          const all = ProductsManager.#products;
           return all;
         }
       }
