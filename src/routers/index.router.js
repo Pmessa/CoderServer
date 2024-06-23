@@ -2,6 +2,7 @@ import { fork } from "child_process";
 import CustomRouter from "./CustomRouter.js";
 import indexApiRouter from "./api/index.api.router.js";
 import viewsRouter from "./views/index.view.js";
+import sendEmail from "../utils/mailing.utils.js";
 
 class IndexRouter extends CustomRouter {
   init() {

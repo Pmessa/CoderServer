@@ -17,7 +17,7 @@ async function sendEmail(data) {
     await transport.sendMail({
       from: `eVolución <${GOOGLE_EMAIL}>`,
       to: data.to,
-      subject: `USER ${(data.first_name.toUpperCase())} REGISTERED!`,
+      subject: `USER ${(data.name.toUpperCase())} REGISTERED!`,
       html: `
       <h1>BIENVENIDO A eVolución VERDE</h1>
       <p>VERIFY CODE: ${data.code}</p>
