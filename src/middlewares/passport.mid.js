@@ -5,9 +5,12 @@ import { Strategy as JWTStrategy, ExtractJwt } from "passport-jwt";
 //import usersManager from "../dao/mongo/managers/UserManager.mongo.js";
 import { createHash, verifyHash } from "../utils/hash.util.js";
 import { createToken } from "../utils/token.util.js";
-import dao from "../dao/dao.factory.js"
-
-const { users } = dao
+//import dao from "../dao/dao.factory.js"
+import usersRepository from "../repositories/users.rep.js";
+import UsersDTO from "../dto/users.dto.js";
+import crypto from "crypto";
+import sendEmail from "../utils/mailing.utils.js";
+//const { users } = dao
 
 passport.use(
   "register",
@@ -22,15 +25,18 @@ passport.use(
           error.statusCode = 400;
           return done(null, null, error);
         }
-        const one = await users.readByEmail(email);
+        const one = await usersRepository.readByEmailRepository(email);
         if (one) {
           const error = new Error("Bad auth from register!");
           error.statusCode = 401;
           return done(error);
         }
-        const hashPassword = createHash(password);
-        req.body.password = hashPassword;
-        const user = await users.create(req.body);
+        /* const hashPassword = createHash(password);
+        req.body.password = hashPassword; */
+        const data = new UsersDTO(req.body);
+        const user = await usersRepository.createRepository(data);
+        await sendEmail({ to: email, name: user.name, code: user.verifyCode });
+
         return done(null, user);
       } catch (error) {
         return done(error);
@@ -44,14 +50,21 @@ passport.use(
     { passReqToCallback: true, usernameField: "email" },
     async (req, email, password, done) => {
       try {
-        const one = await users.readByEmail(email);
+        const one = await usersRepository.readByEmailRepository(email);
         if (!one) {
           const error = new Error("Bad auth from login!");
           error.statusCode = 401;
           return done(error);
         }
-        const verify = verifyHash(password, one.password);
-        if (verify) {
+        const verifyPass = verifyHash(password, one.password);
+        const verifyAccount = one.verify;
+        if (!verifyPass || !verifyAccount) {
+          const error = new Error("Invalid Credentials");
+          error.statusCode = 400;
+          return done(error);
+        }
+
+        if (verifyPass) {
           //req.session.email = email;
           //req.session.online = true;
           //req.session.role = one.role;
@@ -63,7 +76,7 @@ passport.use(
             photo: one.photo,
             _id: one._id,
             online: true,
-          }; 
+          };
           const token = createToken(user);
           user.token = token;
           //console.log(token);
@@ -93,32 +106,32 @@ passport.use(
       try {
         //profile es el objeto que devuelve google con todos los datos del usuario
         //nosotros vamos a registrar un ID en lugar de un email
-        
+
         const { id, picture } = profile;
-        let one = await users.readByEmail(id);
+        let one = await usersRepository.readByEmailRepository(id);
         if (!one) {
           one = {
             email: id,
             password: createHash(id),
             photo: picture,
           };
-          one = await users.create(one);
+          one = await usersRepository.createRepository(one);
         }
 
-          //req.session.email = email;
-          //req.session.online = true;
-          //req.session.role = one.role;
-          //req.session.photo = one.photo;
-          //req.session.user_id = one._id;
-          const user = {
-            email: one.email,
-            role: one.role,
-            photo: one.photo,
-            _id: one._id,
-            online: true,
-          }; 
-          const token = createToken(user);
-          user.token = token;
+        //req.session.email = email;
+        //req.session.online = true;
+        //req.session.role = one.role;
+        //req.session.photo = one.photo;
+        //req.session.user_id = one._id;
+        const user = {
+          email: one.email,
+          role: one.role,
+          photo: one.photo,
+          _id: one._id,
+          online: true,
+        };
+        const token = createToken(user);
+        user.token = token;
         /*
         req.session.email = user.email;
         req.session.online = true;

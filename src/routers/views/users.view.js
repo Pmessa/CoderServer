@@ -49,6 +49,13 @@ usersRouter.get("/login", async (req, res, next) => {
     return next(error);
   }
 });
+usersRouter.get("/verify", async (req, res, next) => {
+  try {
+    return res.render("verify");
+  } catch (error) {
+    return next(error);
+  }
+});
 usersRouter.get("/google", async (req, res, next) => {
   try {
     return res.redirect("http://localhost:8080/api/sessions/google");

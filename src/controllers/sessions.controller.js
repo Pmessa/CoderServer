@@ -1,3 +1,8 @@
+import {
+  readByEmailService,
+  updateService,
+} from "../services/users.service.js";
+
 class SessionController {
   async register(req, res, next) {
     try {
@@ -11,6 +16,21 @@ class SessionController {
       return res
         .cookie("token", req.user.token, { signedCookie: true })
         .message200("Logged in!");
+    } catch (error) {
+      return next(error);
+    }
+  }
+  async verifyCode(req, res, next) {
+    try {
+      const { email, code } = req.body;
+      const one = await readByEmailService(email);
+      const verify = code === one.verifyCode;
+      if (verify) {
+        await updateService( one._id, { verify });
+        return res.message200("Verified User!");
+      } else {
+        return res.error400("Invalid Credentials");
+      }
     } catch (error) {
       return next(error);
     }
@@ -51,5 +71,4 @@ class SessionController {
 
 const sessionController = new SessionController();
 
-export const  { register, login, profile, signout, google } = sessionController 
-
+export const { register, login, profile, signout, google, verifyCode } = sessionController;

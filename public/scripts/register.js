@@ -6,6 +6,7 @@ async function register(e) {
     email: document.querySelector("#email").value,
     password: document.querySelector("#password").value,
     photo: document.querySelector("#photo").value,
+    name: document.querySelector("#name").value,
     //role: document.querySelector("#role").value,
   };
   const url = "/api/sessions/register";
@@ -24,7 +25,7 @@ async function register(e) {
       confirmButtonText: "Ok",
     }).then((result) => {
       if (result.isConfirmed) {
-        return location.replace("/users/login");
+        return location.replace("/users/verify");
       }
     });
   }
