@@ -40,38 +40,36 @@ class CustomRouter {
       res.json({ statusCode: 404, message: "Not found docs" });
     return next();
   };
-  /* policies = (policies) => async (req, res, next) => {
+   policies = (policies) => async (req, res, next) => {
     try {
       if (policies.includes("PUBLIC")) return next();
       const token = req.cookies["token"];
       if (!token) return res.error401();
       const dataOfToken = verifyToken(token);
       const { email, role, _id } = dataOfToken;
-      //console.log(dataOfToken); 
+      console.log("dataoftoken", dataOfToken); 
       if (
         (policies.includes("USER") && role === 0) ||
         (policies.includes("ADMIN") && role === 1)
       ) {
         const user = await usersRepository.readByEmailRepository(email);
         req.user = user;
-        //console.log(user._id);
+        console.log("req.user: ", req.user);
+        return next();
       }
       return res.error403();
     } catch (error) {
       return next(error);
     }
-  }; */
+  }; 
+
+  /*
    policies = (policies) => async (req, res, next) => {
     
     if (policies.includes("PUBLIC")) return next();
     else {
-      let token = null
-      //console.log(req.body)
-      if (req.body.token){
-      token = req.body.token;
-      } else if (req.cookies){
-      token = req.cookies["token"]
-      }
+      //let token = null
+      const token = req.cookies["token"];
       if (!token) return res.error401();
       else {
         try {
@@ -92,6 +90,7 @@ class CustomRouter {
       }
     }
   }; 
+  */
   //create( "/",  isValidAdmin,  uploader.single("photo"),  isPhoto,  isPropAndDefault, create);
   create(path, arrayOfPolicies, ...callbacks) {
     this.router.post(

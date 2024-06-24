@@ -8,9 +8,9 @@ class SessionsRouter extends CustomRouter {
     this.create("/verify", ["PUBLIC"], verifyCode);
     this.create("/login", ["PUBLIC"], passportCb("login"), login);
     this.read("/online", ["USER", "ADMIN"], passportCb("jwt"), profile);
-    this.create("/signout", ["USER", "ADMIN"], signout);
     this.read("/google",["PUBLIC"], passport.authenticate("google", { scope: ["email", "profile"] }),passportCb("google"));
     this.read("/google/callback", ["PUBLIC"], passport.authenticate("google", { session: false }), google);
+    this.create("/signout", ["USER", "ADMIN"], signout);
   }
 }
 

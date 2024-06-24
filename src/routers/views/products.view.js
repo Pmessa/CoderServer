@@ -1,18 +1,39 @@
 import { Router } from "express";
 //import productsManager from "../../dao/mongo/managers/ProductsManager.mongo.js";
 //import productsManager from "../../dao/fs/ProductsManager.fs.js";
+import CustomRouter from "../CustomRouter.js";
 import dao from "../../dao/dao.factory.js"
+import productsRepository from "../../repositories/products.rep.js";
 const { products } = dao;
-const productsRouter = Router();
+class ProductsRouter extends CustomRouter{
+  init(){
+    this.read("/", ["PUBLIC"],read_prod );
+    
+  }
+}
+async function read_prod (req, res, next) {
+  try {
+    const readProducts = await productsRepository.readRepository();
+    return res.render("products", {  readProducts });
+  } catch (error) {
+    return next(error);
+  }
+};
 
-productsRouter.get("/", async (req, res, next) => {
+const productsRouter = new ProductsRouter
+export default productsRouter.getRouter();
+
+
+//const productsRouter = Router();
+
+/* productsRouter.get("/", async (req, res, next) => {
   try {
     const readProducts = await products.read();
     return res.render("products", {  readProducts });
   } catch (error) {
     return next(error);
   }
-});
+}); */
 
 
 
@@ -182,4 +203,4 @@ productsRouter.get("/category/:category", async (req, res, next) => {
   }
 });
 
-export default productsRouter;
+//export default productsRouter;

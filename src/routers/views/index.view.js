@@ -5,71 +5,61 @@ import usersRouter from "./users.view.js";
 import productsRouter from "./products.view.js";
 import cartsRouter from "./carts.view.js";
 import { paginate } from "mongoose-paginate-v2";
+import CustomRouter from "../CustomRouter.js";
+import passportCb from "../../middlewares/passportCb.mid.js";
+import { readOne } from "../../controllers/users.controller.js";
 
 //import productDetailRouter from "./product.detail.view.js";
 
-const viewsRouter = Router();
+    class IndexRouter extends CustomRouter{
+      init(){
+        this.read("/", ["USER"], passportCb('jwt'), read_index_logged);
+        this.read("/", ["PUBLIC"], read_index);        
+        this.use("/users", usersRouter);
+        this.use("/carts", cartsRouter)
+        this.use("/products/real", productsRouter);
+        this.use("/:pid", productsRouter)
 
-viewsRouter.use("/carts", cartsRouter)
-viewsRouter.use("/users", usersRouter);
-viewsRouter.use("/products/real", productsRouter);
-viewsRouter.use("/:pid", productsRouter)
-
-/* viewsRouter.get("/", (req, res, next)=>{
-    try {
-        return res.render("index", { title: "HOME"})
-        
-    } catch (error) {
-        return next(error);
-        
+      }
     }
-}) */
-viewsRouter.get("/", async (req, res, next) => {
+
+async function read_index_logged(req, res, next){
   try {
     const page = 1
     const limit = 10
-
     const response = await fetch(`http://localhost:8080/api/products/paginate?limit=${limit}&page=${page}`);
-    let user_id = null
-    if (req.cookies.token){
-    const userOnline = await fetch('http://localhost:8080/api/sessions/online',
-    {
-      method: 'GET', 
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'Cookie': `token=${req.cookies.token}`
-            }}
-    )
-    const fetchedUser = await userOnline.json()
-    user_id = fetchedUser.response._id
-  }
-    //console.log(req.cookies);
-   /*  let newLogin = true
-    if (req.session.firstTimeLogin) {
-      newLogin = false
+    const user_id = req.user._id
+    console.log(user_id)
+    
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
     }
-    if (req.session.user_id) {
-      req.session.firstTimeLogin = true
-    }
- */
+    const fetchedDocs = await response.json();  
+      return res.render("index", { products: fetchedDocs.response, pagination: fetchedDocs.info.totalPage, limit: fetchedDocs.info.limit, nextPage: fetchedDocs.info.nextPage, prevPage: fetchedDocs.info.prevPage, url: 'products/', user_id: user_id });
+  } catch (error) {
+    return next(error);
+  }}
+
+async function read_index(req, res, next){
+  try {
+    console.log("test")
+    const page = 1
+    const limit = 10
+    const response = await fetch(`http://localhost:8080/api/products/paginate?limit=${limit}&page=${page}`);
+
     if (!response.ok) {
       throw new Error('Failed to fetch data');
     }
     const fetchedDocs = await response.json();
-    //console.log(fetchedDocs);
 
-    if (response.ok && req.cookies.token) {      
-      return res.render("index", { products: fetchedDocs.response, pagination: fetchedDocs.info.totalPage, limit: fetchedDocs.info.limit, nextPage: fetchedDocs.info.nextPage, prevPage: fetchedDocs.info.prevPage, url: 'products/',  /*newLogin: newLogin,*/ user_id: user_id });
-    }
-    else {
-      return res.render("index", { products: fetchedDocs.response, pagination: fetchedDocs.info.totalPage, limit: fetchedDocs.info.limit, nextPage: fetchedDocs.info.nextPage, prevPage: fetchedDocs.info.prevPage, url: 'products/' });
-    }
+    return res.render("index", { products: fetchedDocs.response, pagination: fetchedDocs.info.totalPage, limit: fetchedDocs.info.limit, nextPage: fetchedDocs.info.nextPage, prevPage: fetchedDocs.info.prevPage, url: 'products/' });
 
   } catch (error) {
     return next(error);
   }
-})
+}
 
 
-export default viewsRouter;
+const indexRouter = new IndexRouter
+
+export default indexRouter.getRouter();
