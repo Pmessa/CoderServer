@@ -45,7 +45,7 @@
   // Event listener para eliminar un producto
   document.querySelectorAll('.remove-btn').forEach(item => {
     item.addEventListener('click', async event => {
-      await fetch("http://localhost:8080/api/carts/" + event.target.name, { 
+      await fetch("http://localhost:8080/carts/" + event.target.name, { 
         method: "DELETE", 
         headers: { 
           "Content-Type": "application/json" 

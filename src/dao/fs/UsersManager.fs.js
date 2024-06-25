@@ -134,14 +134,10 @@ class UsersManager {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
       all = JSON.parse(all);
+      
       let one = all.find((one) => one.email === email);
-      if (!one) {
-        const error = new Error("USER NOT FOUND");
-        error.statusCode = 404;
-        throw error;
-      } else {
+ 
         return one;
-      }
     } catch (error) {
       throw error;
     }

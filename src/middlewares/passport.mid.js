@@ -35,6 +35,7 @@ passport.use(
         req.body.password = hashPassword; */
         const data = new UsersDTO(req.body);
         const user = await usersRepository.createRepository(data);
+        console.log("send email")
         await sendEmail({ to: email, name: user.name, code: user.verifyCode });
 
         return done(null, user);
@@ -50,6 +51,7 @@ passport.use(
     { passReqToCallback: true, usernameField: "email" },
     async (req, email, password, done) => {
       try {
+        console.log(email)
         const one = await usersRepository.readByEmailRepository(email);
         if (!one) {
           const error = new Error("Bad auth from login!");
@@ -57,6 +59,7 @@ passport.use(
           return done(error);
         }
         const verifyPass = verifyHash(password, one.password);
+        console.log(verifyPass)
         const verifyAccount = one.verify;
         if (!verifyPass || !verifyAccount) {
           const error = new Error("Invalid Credentials");

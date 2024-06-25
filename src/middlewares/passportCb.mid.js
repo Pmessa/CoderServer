@@ -16,10 +16,12 @@ function passportCb(strategy) {
         req.user = user;
         return next();
       }
-      return res.json({
+      return next()
+      
+      /*res.json({
         statusCode: info.statusCode || 401,
         message: info.message ? info.message : info.toString,
-      });
+      });*/
     })(req, res, next);
   };
 }

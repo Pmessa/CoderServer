@@ -1,22 +1,21 @@
-import { Router } from "express";
+//import { Router } from "express";
 /* import usersManager from "../../dao/fs/UsersManager.fs.js" */
 //import usersManager from "../../dao/mongo/managers/UserManager.mongo.js";
-import dao from "../../dao/dao.factory.js"
-import { verifyToken } from "../../utils/token.util.js";
+//import dao from "../../dao/dao.factory.js"
+//import { verifyToken } from "../../utils/token.util.js";
 import CustomRouter from "../CustomRouter.js";
-import { create, read, readOne, update, destroy } from "./../../controllers/users.controller.js"
+//import { create, read, readOne, update, destroy } from "./../../controllers/users.controller.js"
 import passportCb from "../../middlewares/passportCb.mid.js";
 import usersRepository from "../../repositories/users.rep.js";
 
-
-
-const { users } = dao
+//const { users } = dao
 
 class UsersRouter extends CustomRouter{
   init(){
+
     
     this.read("/", ["USER"], passportCb("jwt"), read_user);
-    this.read("/", ["PUBLIC"], read_users);
+
     this.read("/register", ["PUBLIC"], register_user);
     this.read("/login", ["PUBLIC"], login_user);
     this.read("/verify", ["PUBLIC"], verify_user);
@@ -26,12 +25,14 @@ class UsersRouter extends CustomRouter{
 
 
 function read_user(req, res, next){
+  try{
   return res.render("details", { user: req.user, user_id: req.user._id });
+  }
+  catch(error){
+    return next(error)
+  }
 }
-async function read_users(req, res, next){
-  const users = await usersRepository.readRepository();
-  return res.render("users", { users });
-}
+
 function register_user(req, res, next) {
   try {
     return res.render("register");

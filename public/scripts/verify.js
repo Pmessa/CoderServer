@@ -25,7 +25,7 @@ document.querySelector("#verify").addEventListener("click", async (event) => {
       
     }).then(okay => {
 
-      location.replace("/")});
+      location.replace("/users/login")});
   } else {
     return Swal.fire({
       title: response.message,

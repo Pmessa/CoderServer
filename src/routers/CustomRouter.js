@@ -47,7 +47,6 @@ class CustomRouter {
       if (!token) return res.error401();
       const dataOfToken = verifyToken(token);
       const { email, role, _id } = dataOfToken;
-      console.log("dataoftoken", dataOfToken); 
       if (
         (policies.includes("USER") && role === 0) ||
         (policies.includes("ADMIN") && role === 1)
