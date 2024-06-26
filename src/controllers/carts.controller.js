@@ -78,7 +78,6 @@ async function destroy(req, res, next) {
 async function destroyAll(req, res, next) {
   try {    
     const user_id  = req.user._id;
-    console.log(user_id);
     const all = await destroyAllService({ user_id: user_id });
     return res.json({
       statusCode: 200,

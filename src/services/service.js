@@ -60,6 +60,7 @@ class Service {
   };
   destroyAllService = async ({ user_id: user_id }) => {
     try {
+      console.log(user_id.user_id)
       const all = await this.repository.destroyAllRepository({ user_id: user_id });
     } catch (error) {
       throw error;

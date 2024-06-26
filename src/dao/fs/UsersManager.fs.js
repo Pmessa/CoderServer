@@ -1,5 +1,6 @@
 import fs from "fs";
 import crypto from "crypto";
+import UsersDTO from "../../dto/users.dto.js";
 
 class UsersManager {
   constructor() {
@@ -118,7 +119,7 @@ class UsersManager {
       //Convierte los usuarios JSON a un objeto JS
       all = JSON.parse(all);
       //Uso el método find para buscar el usuario con el ID especifico
-      let one = all.find((one) => one.id === id);
+      let one = all.find((one) => one._id === id);
       //Si no encuentra el usuario tira el error
       if (!one) {
         const error = new Error("USER NOT FOUND");
@@ -148,7 +149,7 @@ class UsersManager {
   async update(id, data) {
     try {
       let all = await this.read();
-      let one = all.find((each) => each.id === id);
+      let one = all.find((each) => each._id === id);
       if (one) {
         for (let prop in data) {
           one[prop] = data[prop];
@@ -170,9 +171,9 @@ class UsersManager {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
       all = JSON.parse(all);
-      let one = all.find((each) => each.id === id);
+      let one = all.find((each) => each._id === id);
       if (one) {
-        let filtered = all.filter((each) => each.id !== id);
+        let filtered = all.filter((each) => each._id !== id);
         filtered = JSON.stringify(filtered, null, 2);
         await fs.promises.writeFile(this.path, filtered);
       }

@@ -26,7 +26,6 @@ async function cart_read(req, res, next) {
   try {
 
     const _id = req.user._id;
-
     const all = await cartsRepository.readRepository({user_id: _id});
     const products = all
     let productsFinal = []

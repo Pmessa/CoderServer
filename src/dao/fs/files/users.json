@@ -10,16 +10,16 @@
     "__v": 0
   },
   {
-    "_id": "a45bc9a603648287150730cc",
+    "_id": "b987945456788266372c7170",
     "name": "sebas",
     "email": "sebasavila81@gmail.com",
-    "password": "$2b$10$CFagT5PqPtbFD8ZbfOnznuuazHBgDio8/SHwq5k0x0mRJ6HpwTH5u",
+    "password": "$2b$10$EE8zgXTrD823GX1e/7tY3.J8oxM./WqjwOc1JOvvAUHUEwz6Ido02",
     "role": 0,
     "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
-    "verify": false,
-    "verifyCode": "f4d52580bfe96118d880e9a4",
-    "createdAt": "2024-06-25T15:37:11.713Z",
-    "updatedAt": "2024-06-25T15:37:11.713Z",
+    "verify": true,
+    "verifyCode": "ef146714b6dd9fb311ae9d1c",
+    "createdAt": "2024-06-26T15:40:49.218Z",
+    "updatedAt": "2024-06-26T15:40:49.218Z",
     "__v": 0
   }
 ]

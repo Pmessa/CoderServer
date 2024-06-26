@@ -9,7 +9,7 @@ class UsersRepository {
   }
   createRepository = async (data) => {
     try {
-      //data = new UsersDTO(data);
+      data = new UsersDTO(data);
       const one = await this.model.create(data);
       return one;
     } catch (error) {

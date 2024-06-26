@@ -61,7 +61,7 @@ class ProductsManager {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
       all = JSON.parse(all);
-      let one = all.find((each) => each.id === id);
+      let one = all.find((each) => each._id === id);
       return one;
     } catch (error) {
       throw error;
@@ -106,7 +106,7 @@ class ProductsManager {
   async update(id, data) {
     try {
       let all = await this.read();
-      let one = all.find((each) => each.id === id);
+      let one = all.find((each) => each._id === id);
       if (one) {
         for (let prop in data) {
           one[prop] = data[prop];
@@ -128,9 +128,9 @@ class ProductsManager {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
       all = JSON.parse(all);
-      let one = all.find((each) => each.id === id);
+      let one = all.find((each) => each._id === id);
       if (one) {
-        let filtered = all.filter((each) => each.id !== id);
+        let filtered = all.filter((each) => each._id !== id);
         filtered = JSON.stringify(filtered, null, 2);
         await fs.promises.writeFile(this.path, filtered);
         return one;
