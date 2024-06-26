@@ -46,7 +46,9 @@ class CartsManager {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
       all = JSON.parse(all);
-      filter && (all = all.filter((each) => each.user_id === filter.user_id));
+      if (filter) {
+        all = all.filter((each) => each.user_id === filter.user_id);
+      }
       return all;
     } catch (error) {
       throw error;

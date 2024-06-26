@@ -97,7 +97,9 @@ class UsersManager {
       let all = await fs.promises.readFile(this.path, "utf-8");
       //Convierte los usuarios JSON a un objeto JS
       all = JSON.parse(all);
-      filter && (all = all.filter((user) => user.role === FileSystemDirectoryReader));
+      if (filter) {
+        all = all.filter((user) => user.role === filter);
+      }
       if(!all) {
       const error = new Error ("NOT FOUND");
       error.statusCode = 404;

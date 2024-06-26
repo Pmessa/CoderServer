@@ -49,7 +49,9 @@ class ProductsManager {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
       all = JSON.parse(all);
-      filter && (all = all.filter((each) => each.category === filter));
+      if (filter) {
+        all = all.filter((each) => each.category === filter);
+      }
       return all;
     } catch (error) {
       throw error;
@@ -121,7 +123,7 @@ class ProductsManager {
       throw error;
     }
   }
-  
+
   async destroy(id) {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
