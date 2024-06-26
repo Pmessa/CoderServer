@@ -13,15 +13,15 @@ class UsersManager {
         password: data.password,
         role: data.role || 0,
       };  */
-      const one = data
-      if (!data.email || !data.password) {
+      const one = data;
+      /* if (!data.email || !data.password) {
         throw new Error("INGRESE EMAIL/PASSWORD");
-      } else {
+      } else */ 
         UsersManager.#users.push(data);
         //UsersManager.#userId.push(user.id);
-        //console.log("Created User");
+        console.log("Created User");
         return one;
-      }
+      
     } catch (error) {
       throw error;
     }
@@ -34,7 +34,9 @@ class UsersManager {
         throw error;
       } else {
         if (filter) {
-          const all = UsersManager.#users.filter((user) => user.role === filter);
+          const all = UsersManager.#users.filter(
+            (user) => user.role === filter
+          );
           if (!all) {
             const error = new Error("NOT FOUND");
             error.statusCode = 404;
@@ -65,11 +67,7 @@ class UsersManager {
   async readByEmail(email) {
     try {
       const one = UsersManager.#users.find((each) => each.email === email);
-      if (!one) {
-       
-      
-        return one;
-      }
+      return one;
     } catch (error) {
       throw error;
     }
@@ -105,7 +103,7 @@ class UsersManager {
 const usersManager = new UsersManager();
 export default usersManager;
 
-let user1 = usersManager.create({
+/* let user1 = usersManager.create({
   photo: "photojorge.jpg",
   email: "jorge18@gmail.com",
   password: "Passjorge",
@@ -124,7 +122,7 @@ let user4 = usersManager.create({
   photo: "photojuan.jpg",
   email: "juan701@gmail.com",
   password: "PassJuan",
-}); // crear un nuevo usuario
+}); */ // crear un nuevo usuario
 
 /*console.log(usersManager.read());
 console.log(usersManager.readOne(user1.id));
