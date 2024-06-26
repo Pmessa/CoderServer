@@ -13,13 +13,14 @@ class UsersManager {
         password: data.password,
         role: data.role || 0,
       };  */
+      const one = data
       if (!data.email || !data.password) {
         throw new Error("INGRESE EMAIL/PASSWORD");
       } else {
         UsersManager.#users.push(data);
         //UsersManager.#userId.push(user.id);
         //console.log("Created User");
-        return data;
+        return one;
       }
     } catch (error) {
       throw error;
@@ -65,8 +66,8 @@ class UsersManager {
     try {
       const one = UsersManager.#users.find((each) => each.email === email);
       if (!one) {
-        throw new Error("THE USER DOES NOT EXIST");
-      } else {
+       
+      
         return one;
       }
     } catch (error) {

@@ -20,10 +20,11 @@ class ProductsManager {
       //  throw new Error("Title is required to create a product");
       //} else {
         //newProduct.id = newProduct.id || crypto.randomBytes(12).toString("hex");
+        const one = data
         ProductsManager.#products.push(data);
         //ProductsManager.#productId.push(newProduct.id);
         console.log("Created Product with Memory File");
-        return data;
+        return one;
       }
      catch (error) {
       throw error;
