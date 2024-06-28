@@ -14,7 +14,7 @@ class UsersRouter extends CustomRouter{
   init(){
 
     
-    this.read("/", ["USER"], passportCb("jwt"), read_user);
+    this.read("/", ["USER"], read_user);
 
     this.read("/register", ["PUBLIC"], register_user);
     this.read("/login", ["PUBLIC"], login_user);

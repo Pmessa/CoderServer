@@ -17,6 +17,9 @@ class ProductsManager {
     }; */
     try {
       //if (!data.title) {
+
+      
+
       //  throw new Error("Title is required to create a product");
       //} else {
         //newProduct.id = newProduct.id || crypto.randomBytes(12).toString("hex");
@@ -131,6 +134,7 @@ class ProductsManager {
 }
 
 const productsManager = new ProductsManager();
+export default productsManager;
 /* productsManager.create({
   title: `Manteca de maní`,
   photo: "mantequilla.jpg",

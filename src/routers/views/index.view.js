@@ -18,7 +18,7 @@ import { readOne } from "../../controllers/users.controller.js";
         this.use("/products/real", productsRouter);
         this.use("/:pid", productsRouter)
 
-        this.read("/", ["PUBLIC"], passportCb("jwt"), read_index)
+        this.read("/", ["PUBLIC","USER"], read_index)
       }
     }
 

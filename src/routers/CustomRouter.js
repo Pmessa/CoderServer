@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Router, json } from "express";
 import { verifyToken } from "../utils/token.util.js";
 //import usersManager from "../dao/mongo/managers/UserManager.mongo.js";
 import usersRepository from "../repositories/users.rep.js";
@@ -42,9 +42,24 @@ class CustomRouter {
   };
    policies = (policies) => async (req, res, next) => {
     try {
-      if (policies.includes("PUBLIC")) return next();
+      if (policies.includes("PUBLIC") && !policies.includes("USER")) return next();
+      if (policies.includes("PUBLIC") && policies.includes("USER")) {
+        const token = req.cookies["token"];
+        console.log("token: ",token)
+        if (token){
+          const dataOfToken = verifyToken(token);
+          const { email, role, _id } = dataOfToken;
+          const user = await usersRepository.readByEmailRepository(email);
+          req.user = user
+          console.log("req.user: ", req.user);
+          return next();
+        }
+        else{
+          return next()
+        }
+      }
       const token = req.cookies["token"];
-      if (!token) return res.error401();
+      //if (!token) return res.error401();
       const dataOfToken = verifyToken(token);
       const { email, role, _id } = dataOfToken;
       if (
@@ -52,7 +67,7 @@ class CustomRouter {
         (policies.includes("ADMIN") && role === 1)
       ) {
         const user = await usersRepository.readByEmailRepository(email);
-        req.user = user;
+        req.user = user
         console.log("req.user: ", req.user);
         return next();
       }

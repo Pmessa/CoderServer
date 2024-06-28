@@ -8,9 +8,9 @@ import passportCb from "../../middlewares/passportCb.mid.js";
 //const { products } = dao;
 class ProductsRouter extends CustomRouter{
   init(){
-    this.read("/paginate", ["PUBLIC"], passportCb("jwt"), read_paginate)
-    this.read("/:pid", ["PUBLIC"], passportCb("jwt"), read_one);
-    this.read("/category/:category", ["PUBLIC"], passportCb("jwt"), read_category);
+    this.read("/paginate", ["PUBLIC", "USER"], read_paginate)
+    this.read("/:pid", ["PUBLIC","USER"], read_one);
+    this.read("/category/:category", ["PUBLIC","USER"], read_category);
 
   }
 }
@@ -46,7 +46,7 @@ async function read_paginate (req, res, next) {
       throw new Error("Failed to fetch data");
     }
     const fetchedDocs = await response.json();
-    
+    console.log(req.user)
     if (req.user) {
       const user_id = req.user._id
       return res.render("index", {
