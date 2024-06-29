@@ -1,6 +1,7 @@
-import { Router } from "express";
+import { Router, json } from "express";
 import { verifyToken } from "../utils/token.util.js";
-import usersManager from "../data/mongo/managers/UserManager.mongo.js";
+//import usersManager from "../dao/mongo/managers/UserManager.mongo.js";
+import usersRepository from "../repositories/users.rep.js";
 
 class CustomRouter {
   //para construir y configurar cada instancia del enrutador
@@ -39,17 +40,50 @@ class CustomRouter {
       res.json({ statusCode: 404, message: "Not found docs" });
     return next();
   };
-  policies = (policies) => async (req, res, next) => {
+   policies = (policies) => async (req, res, next) => {
+    try {
+      if (policies.includes("PUBLIC") && !policies.includes("USER")) return next();
+      if (policies.includes("PUBLIC") && policies.includes("USER")) {
+        const token = req.cookies["token"];
+        console.log("token: ",token)
+        if (token){
+          const dataOfToken = verifyToken(token);
+          const { email, role, _id } = dataOfToken;
+          const user = await usersRepository.readByEmailRepository(email);
+          req.user = user
+          console.log("req.user: ", req.user);
+          return next();
+        }
+        else{
+          return next()
+        }
+      }
+      const token = req.cookies["token"];
+      //if (!token) return res.error401();
+      const dataOfToken = verifyToken(token);
+      const { email, role, _id } = dataOfToken;
+      if (
+        (policies.includes("USER") && role === 0) ||
+        (policies.includes("ADMIN") && role === 1)
+      ) {
+        const user = await usersRepository.readByEmailRepository(email);
+        req.user = user
+        console.log("req.user: ", req.user);
+        return next();
+      }
+      return res.error403();
+    } catch (error) {
+      return next(error);
+    }
+  }; 
+
+  /*
+   policies = (policies) => async (req, res, next) => {
     
     if (policies.includes("PUBLIC")) return next();
     else {
-      let token = null
-      //console.log(req.body)
-      if (req.body.token){
-      token = req.body.token;
-      } else if (req.cookies){
-      token = req.cookies["token"]
-      }
+      //let token = null
+      const token = req.cookies["token"];
       if (!token) return res.error401();
       else {
         try {
@@ -59,7 +93,7 @@ class CustomRouter {
             (policies.includes("USER") && role === 0) ||
             (policies.includes("ADMIN") && role === 1)
           ) {
-            const user = await usersManager.readByEmail(email);
+            const user = await usersRepository.readByEmailRepository(email);
             //proteger contraseña del usuario!!!
             req.user = user;
             return next();
@@ -69,19 +103,40 @@ class CustomRouter {
         }
       }
     }
-  };
+  }; 
+  */
   //create( "/",  isValidAdmin,  uploader.single("photo"),  isPhoto,  isPropAndDefault, create);
-  create(path, arrayOfPolicies,...callbacks) {
-    this.router.post(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
+  create(path, arrayOfPolicies, ...callbacks) {
+    this.router.post(
+      path,
+      this.response,
+      this.policies(arrayOfPolicies),
+      this.applyCbs(callbacks)
+    );
   }
-  read(path, arrayOfPolicies,...callbacks) {
-    this.router.get(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
+  read(path, arrayOfPolicies, ...callbacks) {
+    this.router.get(
+      path,
+      this.response,
+      this.policies(arrayOfPolicies),
+      this.applyCbs(callbacks)
+    );
   }
-  update(path, arrayOfPolicies,...callbacks) {
-    this.router.put(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
+  update(path, arrayOfPolicies, ...callbacks) {
+    this.router.put(
+      path,
+      this.response,
+      this.policies(arrayOfPolicies),
+      this.applyCbs(callbacks)
+    );
   }
-  destroy(path, arrayOfPolicies,...callbacks) {
-    this.router.delete(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
+  destroy(path, arrayOfPolicies, ...callbacks) {
+    this.router.delete(
+      path,
+      this.response,
+      this.policies(arrayOfPolicies),
+      this.applyCbs(callbacks)
+    );
   }
   use(path, ...callbacks) {
     this.router.use(path, this.response, this.applyCbs(callbacks));

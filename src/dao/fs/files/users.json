@@ -1,0 +1,25 @@
+[
+  {
+    "_id": "1a57b7587b45f6e2e910b118",
+    "email": "sebasavila82@gmail.com",
+    "password": "$2b$10$Dhz/WHHp1kl9Ihj1EkS1QO5RIOvXCkWjn9fC.xHyMSUPhGqpB/Y/q",
+    "role": 0,
+    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
+    "createdAt": "2024-06-20T20:07:06.114Z",
+    "updatedAt": "2024-06-20T20:07:06.114Z",
+    "__v": 0
+  },
+  {
+    "_id": "b987945456788266372c7170",
+    "name": "sebas",
+    "email": "sebasavila81@gmail.com",
+    "password": "$2b$10$EE8zgXTrD823GX1e/7tY3.J8oxM./WqjwOc1JOvvAUHUEwz6Ido02",
+    "role": 0,
+    "photo": "https://cdn-icons-png.freepik.com/512/266/266033.png",
+    "verify": true,
+    "verifyCode": "ef146714b6dd9fb311ae9d1c",
+    "createdAt": "2024-06-26T15:40:49.218Z",
+    "updatedAt": "2024-06-26T15:40:49.218Z",
+    "__v": 0
+  }
+]

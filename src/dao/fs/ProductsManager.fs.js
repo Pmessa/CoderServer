@@ -3,7 +3,7 @@ import crypto from "crypto";
 
 class ProductsManager {
   constructor() {
-    this.path = "./src/data/fs/files/products.json";
+    this.path = "./src/dao/fs/files/products.json";
     this.init();
   }
   init() {
@@ -18,12 +18,12 @@ class ProductsManager {
   }
 
   async create(data) {
-    if (!data.title || data.title.trim() === "") {
+    /* if (!data.title || data.title.trim() === "") {
       console.log("Please enter the product title to create it");
       return null;
-    }
+    } */
     try {
-      const newProduct = {
+      /* const newProduct = {
         id: data.id || crypto.randomBytes(12).toString("hex"),
         title: data.title,
         photo:
@@ -33,32 +33,25 @@ class ProductsManager {
         price: parseInt(data.price) || 1,
         stock: parseInt(data.stock) || 1,
       };
-
+ */
       let all = await fs.promises.readFile(this.path, "utf-8");
       all = JSON.parse(all);
-      const isDuplicate = all.find(
-        (product) => product.title === newProduct.title
-      );
-      if (isDuplicate) {
-        //console.log("Duplicate product found. Cannot create product");
-      } else {
-        all.unshift(newProduct);
-
-        all = JSON.stringify(all, null, 2);
-        await fs.promises.writeFile(this.path, all);
-        console.log("Product created:", newProduct.title);
-      }
-
-      return newProduct;
+      all.push(data);
+      all = JSON.stringify(all, null, 2);
+      await fs.promises.writeFile(this.path, allProd);
+      console.log("Product created successfully");
+      return data;
     } catch (error) {
       throw error;
     }
   }
-  async read(cat) {
+  async read(filter) {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
       all = JSON.parse(all);
-      cat && (all = all.filter((each) => each.category === cat));
+      if (filter) {
+        all = all.filter((each) => each.category === filter);
+      }
       return all;
     } catch (error) {
       throw error;
@@ -68,8 +61,44 @@ class ProductsManager {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
       all = JSON.parse(all);
-      let one = all.find((each) => each.id === id);
+      let one = all.find((each) => each._id === id);
       return one;
+    } catch (error) {
+      throw error;
+    }
+  }
+  async paginate({ filter = {}, opts = {} }) {
+    try {
+      let products = await fs.promises.readFile(this.path, "utf-8");
+      products = JSON.parse(products);
+
+      if (filter.category) {
+        products = products.filter((product) =>
+          product.category.includes(filter.category)
+        );
+      }
+
+      const page = opts.page || 1;
+      const limit = opts.limit || 10;
+      const skip = (page - 1) * limit;
+      const paginatedProducts = products.slice(skip, skip + limit);
+      const totalDocs = products.length;
+
+      if (totalDocs === 0) {
+        const error = new Error("There aren't any documents");
+        error.statusCode = 404;
+        throw error;
+      }
+
+      const all = {
+        docs: paginatedProducts,
+        totalDocs,
+        limit,
+        page,
+        totalPages: Math.ceil(totalDocs / limit),
+      };
+
+      return all;
     } catch (error) {
       throw error;
     }
@@ -77,7 +106,7 @@ class ProductsManager {
   async update(id, data) {
     try {
       let all = await this.read();
-      let one = all.find((each) => each.id === id);
+      let one = all.find((each) => each._id === id);
       if (one) {
         for (let prop in data) {
           one[prop] = data[prop];
@@ -94,16 +123,17 @@ class ProductsManager {
       throw error;
     }
   }
+
   async destroy(id) {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
       all = JSON.parse(all);
-      let product = all.find((each) => each.id === id);
-      if (product) {
-        let filtered = all.filter((each) => each.id !== id);
+      let one = all.find((each) => each._id === id);
+      if (one) {
+        let filtered = all.filter((each) => each._id !== id);
         filtered = JSON.stringify(filtered, null, 2);
         await fs.promises.writeFile(this.path, filtered);
-        return product;
+        return one;
       } else {
         const error = new Error("ID Not Found!");
         error.statusCode = 404;
@@ -482,4 +512,4 @@ async function test() {
   }
 }
 
-test();
+//test();
