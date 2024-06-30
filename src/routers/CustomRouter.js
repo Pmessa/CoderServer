@@ -45,13 +45,13 @@ class CustomRouter {
       if (policies.includes("PUBLIC") && !policies.includes("USER")) return next();
       if (policies.includes("PUBLIC") && policies.includes("USER")) {
         const token = req.cookies["token"];
-        console.log("token: ",token)
+        //console.log("token: ",token)
         if (token){
           const dataOfToken = verifyToken(token);
           const { email, role, _id } = dataOfToken;
           const user = await usersRepository.readByEmailRepository(email);
           req.user = user
-          console.log("req.user: ", req.user);
+          //console.log("req.user: ", req.user);
           return next();
         }
         else{
@@ -68,7 +68,7 @@ class CustomRouter {
       ) {
         const user = await usersRepository.readByEmailRepository(email);
         req.user = user
-        console.log("req.user: ", req.user);
+        //console.log("req.user: ", req.user);
         return next();
       }
       return res.error403();

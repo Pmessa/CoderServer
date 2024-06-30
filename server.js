@@ -34,12 +34,12 @@ server.use(express.json()); //permite leer req.params y req.query
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
 server.use(morgan("dev"));
-server.use(
+/* server.use(
   compression({
     brotli: { enabled: true, zlib: {} },
   })
 );
-
+ */
 //template engine
 server.engine("handlebars", engine());
 server.set("view engine", "handlebars");
