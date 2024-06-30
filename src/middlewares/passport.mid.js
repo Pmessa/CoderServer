@@ -149,7 +149,7 @@ passport.use(
     }
   )
 );
-
+/*
 passport.use(
   "jwt",
   new JWTStrategy(
@@ -174,5 +174,5 @@ passport.use(
       }
     }
   )
-);
+);*/
 export default passport;

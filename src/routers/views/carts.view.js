@@ -13,9 +13,9 @@ import { read, readOne, create, update, destroy, destroyAll } from "./../../cont
 
 class CartsRouter extends CustomRouter{
   init(){
-    this.read("/", ["USER"], passportCb("jwt"), cart_read)
-    this.create("/", ["USER"], passportCb("jwt"), cart_create);
-    this.destroy("/all", ["USER"],passportCb("jwt"), destroyAll);
+    this.read("/", ["USER"], cart_read)
+    this.create("/", ["USER"], cart_create);
+    this.destroy("/all", ["USER"], destroyAll);
     this.destroy("/:pid", ["PUBLIC"], destroy);
   }
 }
