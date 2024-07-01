@@ -5,11 +5,12 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
+    "dev": "nodemon ./src/mocks/products.mock.js --env dev",
     "start": "node ./server.js",
-    "dev": "nodemon ./server.js --env dev",
     "argv": "nodemon ./server.js -p 8080 --env=prod --persistence memory",
     "memory": "nodemon ./server.js -p 8081 --env=prod --persistence memory",
-    "fs": "node ./server.js -p 8082 --env=prod --persistence fs"
+    "fs": "node ./server.js -p 8082 --env=prod --persistence fs",
+    "prod": "nodemon ./server.js --env prod"
   },
   "keywords": [],
   "author": "",
