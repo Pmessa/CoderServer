@@ -6,13 +6,12 @@ import productsRepository from "../repositories/products.rep.js";
 async function createData() {
   try {
     dbConnect();
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 10; i++) {
       const product = {
-        title: faker.commerce.product(),
-        photo: faker.image.avatar(),
-        category: "Without category",
+        title: faker.commerce.productName(),
+        photo: faker.image.urlLoremFlickr({ category: 'food' }),
         stock: Math.floor(Math.random() * 101),
-        price: Math.floor(Math.random() * 100001),
+        price: faker.commerce.price({ min: 100, max: 200 })
       };
       await productsRepository.createRepository(product);
     }

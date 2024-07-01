@@ -38,8 +38,8 @@ server.use(morgan("dev"));
   compression({
     brotli: { enabled: true, zlib: {} },
   })
-);
- */
+); */
+ 
 //template engine
 server.engine("handlebars", engine());
 server.set("view engine", "handlebars");
