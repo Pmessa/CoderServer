@@ -6,11 +6,13 @@
   "type": "module",
   "scripts": {    
    "start": "node ./server.js",
-    "prod": "node ./server.js --env prod",
-    "dev": "nodemon ./src/mocks/products.mock.js --env dev",
+    "prod": "nodemon ./server.js --env prod --persistence mongo",
+    "dev": "nodemon ./server.js --env dev --persistence mongo",
+    "test": "node ./server.js --env test --persistence fs",
     "argv": "nodemon ./server.js -p 8080 --env=prod --persistence memory",
     "memory": "nodemon ./server.js -p 8081 --env=prod --persistence memory",
-    "fs": "node ./server.js -p 8082 --env=prod --persistence fs"
+    "fs": "node ./server.js -p 8082 --env=prod --persistence fs",
+    "mock_products": "node ./src/mocks/products.mock.js --env dev"
   },
   "keywords": [],
   "author": "",
