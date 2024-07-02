@@ -14,6 +14,7 @@ import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
 //import dbconnect from "./src/utils/dbConnect.util.js";
 import argsUtil from "./src/utils/args.util.js";
+import compression from 'compression';
 
 const server = express();
 const port = environment.PORT || argsUtil.p;
@@ -34,11 +35,11 @@ server.use(express.json()); //permite leer req.params y req.query
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
 server.use(morgan("dev"));
-/* server.use(
+server.use(
   compression({
     brotli: { enabled: true, zlib: {} },
   })
-); */
+); 
  
 //template engine
 server.engine("handlebars", engine());

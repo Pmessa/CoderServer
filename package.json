@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "type": "module",
-  "scripts": {    
-   "start": "node ./server.js",
+  "scripts": {
+    "start": "node ./server.js",
     "prod": "nodemon ./server.js --env prod --persistence mongo",
     "dev": "nodemon ./server.js --env dev --persistence mongo",
     "test": "node ./server.js --env test --persistence fs",
