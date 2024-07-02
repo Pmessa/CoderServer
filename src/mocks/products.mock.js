@@ -6,7 +6,7 @@ import productsRepository from "../repositories/products.rep.js";
 async function createData() {
   try {
     dbConnect();
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 1000; i++) {
       const product = {
         title: faker.commerce.productName(),
         photo: faker.image.urlLoremFlickr({ category: 'food' }),
