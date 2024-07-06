@@ -2,12 +2,15 @@ import environment from "./src/utils/env.util.js";
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
-//import morgan from "morgan";
 import { engine } from "express-handlebars";
+import { cpus } from "os";
 import __dirname from "./utils.js";
 //import expressSession from "express-session";
 //import MongoStore from "connect-mongo";
+import cluster from "cluster";
 import cookieParser from "cookie-parser";
+
+//importación de archivos
 import winston from "./src/middlewares/winston.mid.js";
 import indexRouter from "./src/routers/index.router.js";
 import socketCb from "./src/routers/index.socket.js";
@@ -15,8 +18,9 @@ import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
 //import dbconnect from "./src/utils/dbConnect.util.js";
 import argsUtil from "./src/utils/args.util.js";
-import compression from 'compression';
+import compression from "compression";
 
+//http server
 const server = express();
 const port = environment.PORT || argsUtil.p;
 const ready = async () => {
@@ -28,7 +32,17 @@ const nodeServer = createServer(server);
 const socketServer = new Server(nodeServer);
 
 socketServer.on("connection", socketCb);
-nodeServer.listen(port, ready);
+const numOfProc = cpus().length;
+if (cluster.isPrimary) {
+  for (let i = 1; i <= numOfProc; i++) {
+    //con cluster.fork() cero un worker
+    cluster.fork();
+  }
+  console.log("proceso primario");
+} else {
+  console.log("proceso worker"+ process.pid);
+  nodeServer.listen(port, ready);
+}
 //Se inicia/levanta el servidor
 
 server.use(cookieParser(environment.SECRET_COOKIE));
@@ -40,8 +54,8 @@ server.use(
   compression({
     brotli: { enabled: true, zlib: {} },
   })
-); 
- 
+);
+
 //template engine
 server.engine("handlebars", engine());
 server.set("view engine", "handlebars");
