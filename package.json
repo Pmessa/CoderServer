@@ -14,7 +14,8 @@
     "fs": "node ./server.js -p 8082 --env=prod --persistence fs",
     "products": "node ./src/mocks/products.mock.js --env dev",
     "flow": "artillery run ./test/artillery/flow.yaml -o ./test/artillery/flow.json",
-    "report": "artillery report ./test/artillery/flow.json"
+    "report": "artillery report ./test/artillery/flow.json",
+    "image":"docker -t evolucion ."
   },
   "keywords": [],
   "author": "",
