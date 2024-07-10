@@ -12,7 +12,9 @@
     "argv": "nodemon ./server.js -p 8080 --env=prod --persistence memory",
     "memory": "nodemon ./server.js -p 8081 --env=prod --persistence memory",
     "fs": "node ./server.js -p 8082 --env=prod --persistence fs",
-    "products": "node ./src/mocks/products.mock.js --env dev"
+    "products": "node ./src/mocks/products.mock.js --env dev",
+    "flow": "artillery run ./test/artillery/flow.yaml -o ./test/artillery/flow.json",
+    "report": "artillery report ./test/artillery/flow.json"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +24,7 @@
     "nodemon": "^3.1.0"
   },
   "dependencies": {
+    "artillery-plugin-metrics-by-endpoint": "^1.10.0",
     "bcrypt": "^5.1.1",
     "commander": "^12.1.0",
     "compression": "^1.7.4",

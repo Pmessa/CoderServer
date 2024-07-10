@@ -1,7 +1,7 @@
 function isCategory(req, res, next) {
   try {
     let { category } = req.body;
-    console.log(category);
+    //console.log(category);
 
     if (!category) {
       category = "without category";
