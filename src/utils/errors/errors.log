@@ -10,3 +10,6 @@
 [33mERROR[39m: DELETE /6682c7c751722d0acc73803c 403 - 09:32:13 - Forbidden from poliecies!
 [33mERROR[39m: DELETE /6682c7c751722d0acc73803c 403 - 09:37:41 - Forbidden from poliecies!
 [33mERROR[39m: DELETE /6682c7c751722d0acc73803c 403 - 09:44:44 - Forbidden from poliecies!
+[31mFATAL[39m: Este es un mensaje de log FATAL
+[33mERROR[39m: Este es un mensaje de log ERROR
+2024-07-10 20:20:12 [33mERROR[39m: POST /api/sessions/login 401 - 20:20:12 - Bad auth from login!
