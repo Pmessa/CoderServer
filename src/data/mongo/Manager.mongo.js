@@ -38,7 +38,6 @@ class Manager {
   async readOne(id) {
     try {
       const one = await this.Model.findById(id).lean();
-      //const one = await this.Model.findOne({_id: id})
       return one;
     } catch (error) {
       throw error;
@@ -78,6 +77,15 @@ class Manager {
       throw error;
     }
   }
-}
+  async aggregate(obj) {
+    try {
+      const result = await this.Model.aggregate(obj);
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+  }
+
 
 export default Manager;

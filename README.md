@@ -1,5 +1,27 @@
-# Readme para Mi Aplicación
 
+# Implementación de commander 
+ la biblioteca Commander para facilitar la creación de comandos personalizados. Además, se han configurado diferentes archivos .env para gestionar de forma segura las variables de entorno. La carpeta services ha sido creada para establecer la conexión con los diferentes modelos de datos utilizados en la aplicación. 
+
+
+# Implementaciónde Costom router
+Algunas características y funcionalidades clave de este código son:
+
+# Inicialización del enrutador: 
+En el constructor de la clase, se inicializa un enrutador de Express que se puede obtener y utilizar para definir rutas.
+
+# Manejo de respuestas: 
+Se define un conjunto de funciones para facilitar la creación de respuestas HTTP comunes, como respuestas exitosas con diferentes códigos de estado (200, 201) y respuestas de error (400, 401, 403, 404).
+
+# Policies (Políticas de autorización): 
+Se implementa una función de middleware policies que verifica si se cumplen las políticas de autorización especificadas antes de permitir el acceso a una ruta. Estas políticas pueden ser de tipo "PUBLIC", "USER" o "ADMIN", dependiendo del rol del usuario.
+
+# Funciones para crear, leer, actualizar y eliminar recursos: 
+Se proporcionan métodos create, read, update, y destroy que permiten definir fácilmente rutas para la creación, lectura, actualización y eliminación de recursos, respectivamente. Estas rutas pueden estar protegidas por políticas de autorización.
+
+# Middleware personalizados: 
+A través de la función applyCbs, se pueden aplicar callbacks (funciones middleware) de forma dinámica a cada ruta, lo que facilita la modularización y reutilización del código.
+
+Al integrar esta clase CustomRouter en una aplicación Express, se pueden definir y proteger rutas de manera estructurada y segura, asegurando que solo los usuarios autorizados tengan acceso a ciertas funcionalidades.
 
 # Sistema de Sesiones Mejorado
 

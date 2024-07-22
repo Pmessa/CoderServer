@@ -1,77 +1,17 @@
-import { Router } from "express";
+import CustomRouter from "../CustomRouter.js";
 import passport from "../../middlewares/passport.mid.js";
-
-const sessionsRouter = Router();
-
-sessionsRouter.post(
-  "/register",
-  passport.authenticate("register", { session: false }),
-  async (req, res, next) => {
-    try {
-      return res.json({ statusCode: 201, message: "Registered!" });
-    } catch (error) {
-      return next(error);
-    }
+import passportCb from "../../middlewares/passportCb.mid.js";
+import { register, login, profile, signout, google } from "./../../controllers/sessions.controller.js"
+class SessionsRouter extends CustomRouter {
+  init() {
+    this.create("/register", ["PUBLIC"], passportCb("register"), register);
+    this.create("/login", ["PUBLIC"], passportCb("login"), login);
+    this.read("/online", ["USER", "ADMIN"], passportCb("jwt"), profile);
+    this.create("/signout", ["USER", "ADMIN"], signout);
+    this.read("/google",["PUBLIC"], passport.authenticate("google", { scope: ["email", "profile"] }),passportCb("google"));
+    this.read("/google/callback", ["PUBLIC"], passport.authenticate("google", { session: false }), google);
   }
-);
+}
 
-sessionsRouter.post(
-  "/login",
-  passport.authenticate("login", { session: false }),
-  async (req, res, next) => {
-    try {
-      return res.json({ statusCode: 200, message: "Logged in!", /* token: req.user.token */ });
-    } catch (error) {
-      return next(error);
-    }
-  }
-);
-sessionsRouter.get("/online", async (req, res, next) => {
-  try {
-    if (req.session.online) {
-      return res.json({
-        statusCode: 200,
-        message: "Is online!",
-        user_id: req.session.user_id,
-      });
-    }
-    return res.json({
-      statusCode: 401,
-      message: "Bad auth!",
-    });
-  } catch (error) {
-    return next(error);
-  }
-});
-
-sessionsRouter.post("/signout", (req, res, next) => {
-  try {
-    if (req.session) {
-      req.session.destroy();
-      return res.json({ statusCode: 200, message: "Signed out!" });
-    }
-    const error = new Error("Invalid credentials from signout");
-    error.statusCode = 401;
-    throw error;
-  } catch (error) {
-    return next(error);
-  }
-});
-sessionsRouter.get(
-  "/google",
-  passport.authenticate("google", { scope: ["email", "profile"] })
-);
-
-sessionsRouter.get(
-  "/google/callback",
-  passport.authenticate("google", { session: false, successRedirect: '/' }),
-  (req, res, next) => {
-    try {
-      return res.json({ statusCode: 200, message: "Logged in with google!" });
-    } catch (error) {
-      return next(error);
-    }
-  }
-);
-
-export default sessionsRouter;
+const sessionsRouter = new SessionsRouter();
+export default sessionsRouter.getRouter();
