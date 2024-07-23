@@ -3,7 +3,7 @@ import crypto from "crypto";
 
 class CartsManager {
   constructor() {
-    this.path = "./src/data/fs/files/carts.json";
+    this.path = "./src/dao/fs/files/carts.json";
     this.init();
   }
   init() {
@@ -18,38 +18,50 @@ class CartsManager {
   }
   async create(data) {
     try {
-      const newcart = {
-        id: data.id || crypto.randomBytes(12).toString("hex"),
-        user_id: data.id || crypto.randomBytes(12).toString("hex"),
-        product_id: data.id || crypto.randomBytes(12).toString("hex"),
-        quantity: data.id || 1,
-        state: data.id || "reserved",
-      };
+      if (data.user_id && data.product_id) {
+        const cart = {
+          _id: data.id || crypto.randomBytes(12).toString("hex"),
+          user_id: data.user_id,
+          photo: data.photo,
+          product_id: data.product_id,
+          quantity: data.quantity || 1,
+          state: data.state || "reserved",
+        };
 
-      let all = await fs.promises.readFile(this.path, "utf-8");
-      all = JSON.parse(all);
-      const isDuplicate = all.find((cart) => cart.id === newcart.id);
-      if (isDuplicate) {
-        console.log("The product already exists in the cart.");
+        let cartFile = await fs.promises.readFile(this.path, "utf-8");
+        cartFile = JSON.parse(cartFile);
+        cartFile.push(cart);
+        cartFile = JSON.stringify(cartFile, null, 2);
+
+        await fs.promises.writeFile(this.path, cartFile);
+        return cart;
       } else {
-        all.unshift(newcart);
-
-        all = JSON.stringify(all, null, 2);
-        await fs.promises.writeFile(this.path, all);
-        console.log("cart File System created:", newcart.id);
+        throw new Error("ENTER THE REQUIRED FIELDS");
       }
-
-      return newcart;
-    } catch (error) {
-      throw error;
+    } catch (err) {
+      throw err;
     }
   }
 
-  async read(cat) {
+  async read(filter) {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
+      let all_products = await fs.promises.readFile("./src/dao/fs/files/products.json", "utf-8");
+      all_products = JSON.parse(all_products)
       all = JSON.parse(all);
-      cat && (all = all.filter((each) => each.category === cat));
+      if (filter) {
+        all = all.filter((each) => each.user_id === filter.user_id);
+        all.map((el) => {
+          const product_content = all_products.filter((each) => each._id === el.product_id)
+          el.product_id={
+            _id: product_content[0]._id,
+            title: product_content[0].title,
+            price: product_content[0].price, 
+            photo: product_content[0].photo
+          }
+        })
+        console.log(all)
+      }
       return all;
     } catch (error) {
       throw error;
@@ -89,9 +101,30 @@ class CartsManager {
     try {
       let all = await fs.promises.readFile(this.path, "utf-8");
       all = JSON.parse(all);
-      let cart = all.find((each) => each.id === id);
+      let cart = all.find((each) => each._id === id);
+      console.log("id: ",id)
       if (cart) {
-        let filtered = all.filter((each) => each.id !== id);
+        let filtered = all.filter((each) => each._id !== id);
+        filtered = JSON.stringify(filtered, null, 2);
+        await fs.promises.writeFile(this.path, filtered);
+        return cart;
+      } else {
+        const error = new Error("ID Not Found!");
+        error.statusCode = 404;
+        throw error;
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
+  async destroyAll(uid) {
+    try {
+      const {user_id} = uid
+      let all = await fs.promises.readFile(this.path, "utf-8");
+      all = JSON.parse(all);
+      let cart = all.find((each) => each.user_id === user_id);
+      if (cart) {
+        let filtered = all.filter((each) => each.user_id !== user_id);
         filtered = JSON.stringify(filtered, null, 2);
         await fs.promises.writeFile(this.path, filtered);
         return cart;
@@ -106,11 +139,12 @@ class CartsManager {
   }
 }
 
+
 const cartsManager = new CartsManager();
 
 export default cartsManager;
 
-async function test() {
+/* async function test() {
   try {
     await cartsManager.create({
       id: "802b81e18fcefbf26073c387",
@@ -129,4 +163,4 @@ async function test() {
   }
 }
 
-test();
+test(); */

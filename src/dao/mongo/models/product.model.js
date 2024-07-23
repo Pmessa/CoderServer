@@ -20,7 +20,7 @@ const schema = new Schema(
         "harinas",
         "bebidas",
         "frutos secos",
-        "Sopas",
+        "sopas",
         "verduras",
         "cereales",
         "fermentados",
