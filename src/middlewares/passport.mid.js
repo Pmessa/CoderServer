@@ -51,7 +51,7 @@ passport.use(
     { passReqToCallback: true, usernameField: "email" },
     async (req, email, password, done) => {
       try {
-        console.log(email)
+        //console.log(email)
         const one = await usersRepository.readByEmailRepository(email);
         if (!one) {
           const error = new Error("Bad auth from login!");
@@ -59,7 +59,7 @@ passport.use(
           return done(error);
         }
         const verifyPass = verifyHash(password, one.password);
-        console.log(verifyPass)
+        //console.log(verifyPass)
         const verifyAccount = one.verify;
         if (!verifyPass || !verifyAccount) {
           const error = new Error("Invalid Credentials");
