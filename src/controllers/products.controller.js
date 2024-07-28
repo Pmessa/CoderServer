@@ -31,7 +31,7 @@ class ProductController {
   async paginate(req, res, next) {
     try {
       const filter = {};
-      const opts = {};
+      const opts = { sort: "title"};
 
       if (req.query.limit) {
         opts.limit = req.query.limit;
