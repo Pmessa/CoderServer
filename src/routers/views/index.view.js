@@ -28,7 +28,11 @@ async function read_index(req, res, next){
 <<<<<<< HEAD
     const limit = 25
 =======
+<<<<<<< HEAD
+    const limit = 25
+=======
     const limit = 10
+>>>>>>> dev
 >>>>>>> dev
     const response = await fetch(`http://localhost:8080/api/products/paginate?limit=${limit}&page=${page}`);
     

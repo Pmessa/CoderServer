@@ -49,7 +49,11 @@ async function read_paginate (req, res, next) {
 <<<<<<< HEAD
     //console.log(req.user)
 =======
+<<<<<<< HEAD
+    //console.log(req.user)
+=======
     console.log(req.user)
+>>>>>>> dev
 >>>>>>> dev
     if (req.user) {
       const user_id = req.user._id

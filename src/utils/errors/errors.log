@@ -1,0 +1,15 @@
+[33mERROR[39m: undefined {"statusCode":400}
+[33mERROR[39m: Invalid Credentials
+[33mERROR[39m: POST /api/sessions/login - 09:14:39 - Invalid Credentials
+[33mERROR[39m: POST /api/sessions/login - 09:19:15 - Invalid Credentials
+[33mERROR[39m: POST /api/sessions/login - 09:19:21 - Bad auth from login!
+[33mERROR[39m: POST /api/sessions/register - 09:19:42 - Bad auth from register!
+[33mERROR[39m: DELETE /api/users/8c3975e36d92125d4345485f - 09:23:01 - jwt must be provided
+[33mERROR[39m: POST /api/sessions/login - 09:30:35 - Bad auth from login!
+[33mERROR[39m: POST /api/sessions/login - 09:30:48 - Bad auth from login!
+[33mERROR[39m: DELETE /6682c7c751722d0acc73803c 403 - 09:32:13 - Forbidden from poliecies!
+[33mERROR[39m: DELETE /6682c7c751722d0acc73803c 403 - 09:37:41 - Forbidden from poliecies!
+[33mERROR[39m: DELETE /6682c7c751722d0acc73803c 403 - 09:44:44 - Forbidden from poliecies!
+[31mFATAL[39m: Este es un mensaje de log FATAL
+[33mERROR[39m: Este es un mensaje de log ERROR
+2024-07-10 20:20:12 [33mERROR[39m: POST /api/sessions/login 401 - 20:20:12 - Bad auth from login!
