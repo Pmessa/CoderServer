@@ -13,6 +13,10 @@ Se condicionó que si se inicializa el servidor en entorno de desarollo sólo se
  la biblioteca Commander para facilitar la creación de comandos personalizados. Además, se han configurado diferentes archivos .env para gestionar de forma segura las variables de entorno. La carpeta services ha sido creada para establecer la conexión con los diferentes modelos de datos utilizados en la aplicación. 
 
 
+# Implementación de commander 
+ la biblioteca Commander para facilitar la creación de comandos personalizados. Además, se han configurado diferentes archivos .env para gestionar de forma segura las variables de entorno. La carpeta services ha sido creada para establecer la conexión con los diferentes modelos de datos utilizados en la aplicación. 
+
+
 # Implementaciónde Costom router
 Algunas características y funcionalidades clave de este código son:
 
