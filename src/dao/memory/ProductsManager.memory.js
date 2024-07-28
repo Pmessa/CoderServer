@@ -2,45 +2,65 @@ import crypto from "crypto";
 
 class ProductsManager {
   static #products = [];
-  static #productId = [];
+  //static #productId = [];
 
-  create(product) {
-    const product = {
+  async create(data) {
+    /* const newProduct = {
       id: data.id || crypto.randomBytes(12).toString("hex"),
-      title: product.title,
+      title: data.title,
       photo:
-        product.photo ||
+        data.photo ||
         "https://cdn-icons-png.flaticon.com/512/7466/7466065.png",
-      category: product.category || "without Category",
-      price: product.price || 1,
-      stock: product.stock || 1,
-    };
-    if (!data.title) {
-      throw new Error("Title is required to create a product");
-    } else {
-      ProductsManager.#products.push(product);
-      ProductsManager.#productId.push(product.id);
-      console.log("Created Product with Memory File");
-      return product;
+      category: data.category || "without Category",
+      price: data.price || 1,
+      stock: data.stock || 1,
+    }; */
+    try {
+      //if (!data.title) {
+
+      
+
+      //  throw new Error("Title is required to create a product");
+      //} else {
+        //newProduct.id = newProduct.id || crypto.randomBytes(12).toString("hex");
+        const one = data
+        ProductsManager.#products.push(data);
+        //ProductsManager.#productId.push(newProduct.id);
+        console.log("Created Product with Memory File");
+        return one;
+      }
+     catch (error) {
+      throw error;
     }
   }
 
-  catch(error) {
-    console.log(error);
-  }
-
-  read() {
+  async read(filter) {
     try {
       if (ProductsManager.#products.length === 0) {
-        throw new Error("THERE ARE NO PRODUCTS TO SHOW");
+        const error = new Error("NOT FOUND");
+        error.statusCode = 404;
+        throw error;
       } else {
-        return ProductsManager.#products;
+        if (filter) {
+          const all = ProductsManager.#products.filter(
+            (prod) => prod.category === filter
+          );
+          if (!all) {
+            const error = new Error("NOT FOUND");
+            error.statusCode = 404;
+            throw error;
+          }
+          return all;
+        } else {
+          const all = ProductsManager.#products;
+          return all;
+        }
       }
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
-  readOne(id) {
+  async readOne(id) {
     try {
       const one = ProductsManager.#products.find((each) => each.id === id);
       if (!one) {
@@ -52,31 +72,61 @@ class ProductsManager {
       console.log(error);
     }
   }
-  destroy(id) {
+  async paginate({ filter, opts }) {
     try {
-      const productToRemove = this.readOne(id);
-      const within = ProductsManager.#products.filter((each) => each.id !== id);
-      ProductsManager.#products = within;
-      console.log(within);
-      console.log("PRODUCT DELETED");
-      return productToRemove;
+      let products = await this.read();
+      if (filter.category) {
+        products = products.filter((product) =>
+          product.category.includes(filter.category)
+        );
+      }
+      const page = opts.page || 1;
+      const limit = opts.limit || 10;
+      const skip = (page - 1) * limit;
+      const paginatedProducts = products.slice(skip, skip + limit);
+      const totalDocs = products.length;
+      if (totalDocs === 0) {
+        const error = new Error("There aren't any documents");
+        error.statusCode = 404;
+        throw error;
+      }
+      const all = {
+        docs: paginatedProducts,
+        totalDocs,
+        limit,
+        page,
+        totalPages: Math.ceil(totalDocs / limit),
+      };
+      return all;
     } catch (error) {
       throw error;
     }
   }
-  update(id, newData) {
+  async destroy(id) {
     try {
-      const productToUpdate = this.readOne(id);
+      const one = this.readOne(id);
+      const within = ProductsManager.#products.filter((each) => each.id !== id);
+      ProductsManager.#products = within;
+      console.log(within);
+      console.log("PRODUCT DELETED");
+      return one;
+    } catch (error) {
+      throw error;
+    }
+  }
+  update(id, data) {
+    try {
+      const one = this.readOne(id);
 
-      if (!productToUpdate) {
+      if (!one) {
         throw new Error("Product not found");
       }
 
       for (const prop in newData) {
-        productToUpdate[prop] = newData[prop];
+        one[prop] = data[prop];
       }
 
-      return productToUpdate;
+      return one;
     } catch (error) {
       throw error;
     }
@@ -84,35 +134,36 @@ class ProductsManager {
 }
 
 const productsManager = new ProductsManager();
-productManager.create({
+export default productsManager;
+/* productsManager.create({
   title: `Manteca de maní`,
   photo: "mantequilla.jpg",
   category: `untable`,
   price: 2500,
   stock: 1000,
 });
-productManager.create({
+productsManager.create({
   title: `almendras`,
   photo: "almendras.jpg",
   category: `Frutos secos`,
   price: 15000,
   stock: 1000,
 });
-productManager.create({
+productsManager.create({
   title: `Tofu`,
   photo: "tofu.jpg",
   category: `tofu`,
   price: 150,
   stock: 1000,
 });
-productManager.create({
+productsManager.create({
   title: `maní`,
   photo: "maní.jpg",
   category: `frutos secos`,
   price: 150,
   stock: 3000,
 });
-productManager.create({
+productsManager.create({
   title: `Aceite de oliva`,
   photo: "aceiteDeOliva.jpg",
   category: `aceites`,
@@ -442,3 +493,4 @@ productsManager.create({
 // console.log(productManager.destroy(2));
 // console.log(productManager.readOne(2));
 // console.log(productManager.destroy(13));
+ */

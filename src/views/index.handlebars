@@ -5,21 +5,19 @@
 
     </div>
    
-   <div class="container mt-5" style="width: 60%;">
+   {{!-- <div class="container mt-5" style="width: 60%;">
      <div class="input-group mb-3  d-flex justify-content-center align-items-center">
        <input type="text" class="form-control " placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
        <button class="btn  btn-outline-secondary" type="button" id="button-addon2">Search</button>
       </div>
-   </div>
+   </div> --}}
 <main class="d-flex justify-content-around flex-wrap" >
   {{#if newLogin}}
 <script>
-
 window.addEventListener("load", async (event) => {
   event.preventDefault();
   return Swal.fire("LOGGED IN");
 });
-
 </script>
   {{/if}}
   {{#each products}}
@@ -56,6 +54,5 @@ window.addEventListener("load", async (event) => {
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-  console.log("script")
   const socket = io();
 </script>

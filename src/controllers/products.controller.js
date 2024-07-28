@@ -1,4 +1,3 @@
-import productsManager from "../data/mongo/managers/ProductsManager.mongo.js";
 import {
   createService,
   destroyService,
@@ -46,7 +45,7 @@ class ProductController {
       if (req.query.category) {
         filter.category = req.query.category;
       }
-      const all = await productsManager.paginate({ filter, opts });
+      const all = await paginateService({ filter, opts });
       
       const finalPages = [];
 
