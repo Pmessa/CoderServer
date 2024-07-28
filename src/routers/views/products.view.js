@@ -46,15 +46,10 @@ async function read_paginate (req, res, next) {
       throw new Error("Failed to fetch data");
     }
     const fetchedDocs = await response.json();
-<<<<<<< HEAD
+
     //console.log(req.user)
-=======
-<<<<<<< HEAD
-    //console.log(req.user)
-=======
-    console.log(req.user)
->>>>>>> dev
->>>>>>> dev
+
+
     if (req.user) {
       const user_id = req.user._id
       return res.render("index", {
