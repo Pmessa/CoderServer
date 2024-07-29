@@ -14,13 +14,17 @@
     "fs": "node ./server.js -p 8082 --env=prod --persistence fs",
     "products": "node ./src/mocks/products.mock.js --env dev",
     "flow": "artillery run ./test/artillery/flow.yaml -o ./test/artillery/flow.json",
-    "report": "artillery report ./test/artillery/flow.json"
+    "report": "artillery report ./test/artillery/flow.json",
+    "mocha": "mocha ./test/mocha",
+    "chai": "mocha ./test/chai"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
+    "chai": "^5.1.1",
+    "mocha": "^10.7.0",
     "nodemon": "^3.1.0"
   },
   "dependencies": {
