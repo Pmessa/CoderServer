@@ -30,7 +30,7 @@
     "supertest": "^7.0.0"
   },
   "dependencies": {
-    "artillery": "^2.0.18",
+    "artillery": "^2.0.19",
     "artillery-plugin-metrics-by-endpoint": "^1.10.0",
     "bcrypt": "^5.1.1",
     "chai": "^5.1.1",
