@@ -2,7 +2,6 @@ import {expect} from "chai"
 import supertest from "supertest"
 import environment from "../../src/utils/env.util.js"
 import usersRepository from "../../src/repositories/users.rep.js"
-import _ from "mongoose-paginate-v2"
 
 const requester = supertest(`htpp://localhost:${environment.PORT}/api`)
 
