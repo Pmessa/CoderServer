@@ -69,6 +69,7 @@
   // Event listener para cancelar compra
   document.getElementById('cancel-btn').addEventListener('click', async event => {
     await fetch("/carts/all", { 
+
       method: "DELETE", 
       headers: {
         "Content-Type": "application/json"
