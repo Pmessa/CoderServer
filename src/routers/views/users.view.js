@@ -56,7 +56,7 @@ function verify_user (req, res, next) {
 }
 function google_user(req, res, next){
   try {
-    return res.redirect("http://localhost:8080/api/sessions/google");
+    return res.redirect("/api/sessions/google");
   } catch (error) {
     next(error);
   }

@@ -1,7 +1,7 @@
 config:
   pluggins:
     metrics-by-endpoint : {}
-  target: http://localhost:8080/api
+  target: /api
   phases:
    - duration: 10
      arrivalRate: 50

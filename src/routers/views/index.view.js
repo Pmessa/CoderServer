@@ -28,7 +28,7 @@ async function read_index(req, res, next){
 
     const limit = 25
 
-    const response = await fetch(`http://localhost:8080/api/products/paginate?limit=${limit}&page=${page}`);
+    const response = await fetch(`/api/products/paginate?limit=${limit}&page=${page}`);
     
     if (!response.ok) {
       throw new Error('Failed to fetch data');

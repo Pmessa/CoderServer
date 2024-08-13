@@ -40,7 +40,7 @@ async function read_paginate (req, res, next) {
   try {
     const { page, limit } = req.query;
     const response = await fetch(
-      `http://localhost:8080/api/products/paginate?limit=${limit}&page=${page}`
+      `/api/products/paginate?limit=${limit}&page=${page}`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch data");
