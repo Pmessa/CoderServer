@@ -1,150 +1,116 @@
+# sprint_10
 
-to merge a Master BACKEND CODERHOUSE
+En este desafío se crearon 1000 productos con la función "npm run product" que ejecuta un script para crear de forma aleatoria información usando una dependencia de "fakers" para traer información aleatoria. 
 
+También se incorporó compresión al servidor. 
 
-# API de Gestión de Usuarios con Express
+# sprint_11
 
-Este proyecto implementa una API REST para la gestión de usuarios utilizando Express.js. La clase `UsersManager` se encarga de administrar los usuarios, permitiendo crear, leer, actualizar y eliminar usuarios, con persistencia de datos en archivos utilizando el módulo `fs`.
+En este desafío se implemento un Custom Logger utilizando la dependendencia "Winston". Se creó un endpoint "api/loggers" donde se puede probar que el logger está funcionando correctamente. 
 
-## Funcionamiento de la API
-La API ofrece los siguientes endpoints:
-
-POST /api/users: Crea un nuevo usuario.
-GET /api/users: Obtiene todos los usuarios o filtra por rol si se proporciona el parámetro role.
-GET /api/users/:uid: Obtiene un usuario específico por su ID.
-PUT /api/users/:uid: Actualiza los datos de un usuario existente.
-DELETE /api/users/:uid: Elimina un usuario existente por su ID.
-Cómo probar la API con Postman
-Creación de un nuevo usuario:
-
-Abre Postman.
-
-Selecciona el método POST.
-
-Ingresa la URL: http://localhost:8080/api/users.
-
-Selecciona la pestaña "Body" y elige "Raw" como tipo de cuerpo.
-
-Ingresa los datos del nuevo usuario en formato JSON en el cuerpo de la solicitud. Por ejemplo:
-
-{
-  "email": "example@example.com",
-  "password": "password123",
-  "role": 0
-}
-
-Haz clic en "Send" para enviar la solicitud y crear el usuario.
-
-Obtención de todos los usuarios:
-
-Selecciona el método GET.
-Ingresa la URL: http://localhost:8080/api/users.
-Haz clic en "Send" para obtener todos los usuarios.
-Obtención de un usuario específico:
-
-Selecciona el método GET.
-Ingresa la URL: http://localhost:8080/api/users/:uid, donde :uid es el ID del usuario que deseas obtener.
-Haz clic en "Send" para obtener el usuario específico.
-Actualización de un usuario existente:
-
-Selecciona el método PUT.
-
-Ingresa la URL: http://localhost:8080/api/users/:uid, donde :uid es el ID del usuario que deseas actualizar.
-
-Selecciona la pestaña "Body" y elige "Raw" como tipo de cuerpo.
-
-Ingresa los datos actualizados del usuario en formato JSON en el cuerpo de la solicitud. Por ejemplo:
-
-{
-  "email": "new@example.com"
-}
-
-Haz clic en "Send" para actualizar el usuario.
-
-Eliminación de un usuario existente:
-
-Selecciona el método DELETE.
-Ingresa la URL: http://localhost:8080/api/users/:uid, donde :uid es el ID del usuario que deseas eliminar.
-Haz clic en "Send" para eliminar el usuario.
-
-# API de Gestión de Usuarios con Express
-
-Este proyecto implementa una API REST para la gestión de usuarios utilizando Express.js. La clase `UsersManager` se encarga de administrar los usuarios, permitiendo crear, leer, actualizar y eliminar usuarios, con persistencia de datos en archivos utilizando el módulo `fs`.
-
-## Funcionamiento de la API
-La API ofrece los siguientes endpoints:
-
-POST /api/users: Crea un nuevo usuario.
-GET /api/users: Obtiene todos los usuarios o filtra por rol si se proporciona el parámetro role.
-GET /api/users/:uid: Obtiene un usuario específico por su ID.
-PUT /api/users/:uid: Actualiza los datos de un usuario existente.
-DELETE /api/users/:uid: Elimina un usuario existente por su ID.
-Cómo probar la API con Postman
-Creación de un nuevo usuario:
-
-Abre Postman.
-
-Selecciona el método POST.
-
-Ingresa la URL: http://localhost:8080/api/users.
-
-Selecciona la pestaña "Body" y elige "Raw" como tipo de cuerpo.
-
-Ingresa los datos del nuevo usuario en formato JSON en el cuerpo de la solicitud. Por ejemplo:
-
-{
-  "email": "example@example.com",
-  "password": "password123",
-  "role": 0
-}
-
-Haz clic en "Send" para enviar la solicitud y crear el usuario.
-
-Obtención de todos los usuarios:
-
-Selecciona el método GET.
-Ingresa la URL: http://localhost:8080/api/users.
-Haz clic en "Send" para obtener todos los usuarios.
-Obtención de un usuario específico:
-
-Selecciona el método GET.
-Ingresa la URL: http://localhost:8080/api/users/:uid, donde :uid es el ID del usuario que deseas obtener.
-Haz clic en "Send" para obtener el usuario específico.
-Actualización de un usuario existente:
-
-Selecciona el método PUT.
-
-Ingresa la URL: http://localhost:8080/api/users/:uid, donde :uid es el ID del usuario que deseas actualizar.
-
-Selecciona la pestaña "Body" y elige "Raw" como tipo de cuerpo.
-
-Ingresa los datos actualizados del usuario en formato JSON en el cuerpo de la solicitud. Por ejemplo:
-
-{
-  "email": "new@example.com"
-}
-
-Haz clic en "Send" para actualizar el usuario.
-
-Eliminación de un usuario existente:
-
-Selecciona el método DELETE.
-Ingresa la URL: http://localhost:8080/api/users/:uid, donde :uid es el ID del usuario que deseas eliminar.
-Haz clic en "Send" para eliminar el usuario.
+Se condicionó que si se inicializa el servidor en entorno de desarollo sólo se muestra la consola con los diferentes Logs correspondientes. En cambio si se inicializa en producción entonces los errores se guardan también en un archivo dentro de utils/errors/errors.log
+# Implementación de commander 
+ la biblioteca Commander para facilitar la creación de comandos personalizados. Además, se han configurado diferentes archivos .env para gestionar de forma segura las variables de entorno. La carpeta services ha sido creada para establecer la conexión con los diferentes modelos de datos utilizados en la aplicación. 
 
 
-Administrador de Productos
-El Administrador de Productos es una aplicación que permite gestionar productos a través de operaciones básicas como crear, leer, actualizar y eliminar productos. Utiliza un archivo JSON para almacenar los datos de los productos y se comunica con una API REST para exponer estas funcionalidades. Además, garantiza que cada producto tenga un título único y proporciona valores predeterminados para campos como la foto, la categoría, el precio y el stock en caso de que no se proporcionen.
+# Implementación de commander 
+ la biblioteca Commander para facilitar la creación de comandos personalizados. Además, se han configurado diferentes archivos .env para gestionar de forma segura las variables de entorno. La carpeta services ha sido creada para establecer la conexión con los diferentes modelos de datos utilizados en la aplicación. 
 
-Rutas
-GET /api/products: Obtiene todos los productos o filtra por categoría.
-GET /api/products/:pid: Obtiene un producto específico por su ID.
-POST /api/products: Crea un nuevo producto.
-PUT /api/products/:pid: Actualiza un producto existente por su ID.
-DELETE /api/products/:pid: Elimina un producto por su ID.
-Middlewares
-Error Handler: Middleware para manejar errores y devolver una respuesta JSON con el código de estado y el mensaje de error correspondiente.
-Path Handler: Middleware para manejar las rutas no encontradas y devolver un mensaje JSON indicando que la ruta no existe.
-Para el manejo de errores y rutas no encontradas, se utilizan los middlewares errorHandler y pathHandler respectivamente.
 
-Estos métodos hacen uso de la clase `ProductsManager` que contiene los métodos `create`, `read` y `readOne` para la creación, lectura de todos los productos y lectura de un producto específico respectivamente. Cada método realiza operaciones específicas como crear un nuevo producto, filtrar productos por categoría o recuperar un producto por su ID.
+# Implementaciónde Costom router
+Algunas características y funcionalidades clave de este código son:
+
+# Inicialización del enrutador: 
+En el constructor de la clase, se inicializa un enrutador de Express que se puede obtener y utilizar para definir rutas.
+
+# Manejo de respuestas: 
+Se define un conjunto de funciones para facilitar la creación de respuestas HTTP comunes, como respuestas exitosas con diferentes códigos de estado (200, 201) y respuestas de error (400, 401, 403, 404).
+
+# Policies (Políticas de autorización): 
+Se implementa una función de middleware policies que verifica si se cumplen las políticas de autorización especificadas antes de permitir el acceso a una ruta. Estas políticas pueden ser de tipo "PUBLIC", "USER" o "ADMIN", dependiendo del rol del usuario.
+
+# Funciones para crear, leer, actualizar y eliminar recursos: 
+Se proporcionan métodos create, read, update, y destroy que permiten definir fácilmente rutas para la creación, lectura, actualización y eliminación de recursos, respectivamente. Estas rutas pueden estar protegidas por políticas de autorización.
+
+# Middleware personalizados: 
+A través de la función applyCbs, se pueden aplicar callbacks (funciones middleware) de forma dinámica a cada ruta, lo que facilita la modularización y reutilización del código.
+
+Al integrar esta clase CustomRouter en una aplicación Express, se pueden definir y proteger rutas de manera estructurada y segura, asegurando que solo los usuarios autorizados tengan acceso a ciertas funcionalidades.
+
+# Sistema de Sesiones Mejorado
+
+Se ha implementado un nuevo sistema de sesiones que permite a los usuarios registrarse, iniciar sesión, verificar su estado en línea y cerrar sesión de manera segura. Esta mejora proporciona una mayor seguridad y una mejor experiencia de usuario en la aplicación.
+
+En el front se realizaron las funciones necesarias para renderizar el carrito solo si el usuario está  logueado y solo puede agregar al carrito un usuario son su sesión activa.
+
+## Descripción
+Esta es una aplicación web simple que permite a los usuarios navegar, agregar productos a su carrito y realizar compras. La aplicación incluye funciones como registro de usuario, inicio de sesión y gestión de carrito. Está construida utilizando Node.js y MongoDB para el almacenamiento de datos.
+
+## Instalación
+1. Clonar este repositorio
+2. Ejecutar `npm install` para instalar las dependencias
+3. Configurar una base de datos MongoDB y actualizar los detalles de conexión en el archivo `.env`
+4. Ejecutar `npm run dev` para iniciar el servidor
+
+## Características
+- Operaciones CRUD para productos, usuarios y carritos
+- Paginación para ver todos los recursos
+- Manejo de errores con errorHandler y pathHandler
+- Registro de solicitudes con morgan
+- API REST 100% en inglés
+- Conexión a MongoDB
+- Autenticación básica de usuario con roles
+- Página de inicio con listado de productos y filtrado por categoría
+- Página de detalle del producto con funcionalidad de agregar al carrito
+- Formularios de registro e inicio de sesión de usuario
+- Página de carrito para ver y gestionar elementos en el carrito
+
+## Estructura de Datos
+### Producto
+- id (identificador hexadecimal de 12 bytes)
+- título (obligatorio)
+- foto (valor por defecto)
+- categoría (valor por defecto)
+- precio (por defecto 1)
+- stock (por defecto 1)
+
+### Usuario
+- id (identificador hexadecimal de 12 bytes)
+- foto (valor por defecto)
+- email (obligatorio)
+- contraseña (obligatorio)
+- rol (por defecto 0)
+
+### Carrito
+- user_id (referencia al usuario que agregó el producto)
+- product_id (referencia al producto agregado al carrito)
+- cantidad (numérico, obligatorio)
+- estado (estado de la compra: "reservado", "pagado", "entregado")
+
+## Endpoints de la API
+- `/api/productos`: Operaciones CRUD para productos
+- `/api/usuarios`: Operaciones CRUD para usuarios
+- `/api/carritos`: Operaciones CRUD para carritos
+- `/api/sessions/register`: Similar al create de un usuario, implementa la estrategia de passport correspondiente y hashea la contraseña
+- `/api/sessions/login`: Para iniciar sesión, implementa la estrategia de passport correspondiente y compara la contraseña
+- `/api/sessions`: Para ver los datos del usuario online (y renderizar el perfil de usuario o condicionar la barra de navegación), implementa la estrategia de passport correspondiente
+- Login/register con Google
+
+## Vistas
+- `localhost:8080/`: Página de inicio con listado de productos y filtrado
+- `localhost:8080/products/:pid`: Página de detalle del producto con botón de agregar al carrito
+- `localhost:8080/users/register`: Formulario de registro de usuario (funcional)
+- `localhost:8080/users/login`: Formulario de inicio de sesión de usuario (funcional)
+- `localhost:8080/users`: Página de perfil de usuario, funciona sin el parámetro (usa los datos de la sesión para enviar el id del usuario)
+- `localhost:8080/carts`: Página de carrito, funciona sin el parámetro (usa los datos de la sesión para enviar el id del usuario)
+
+## Funcionalidades Adicionales
+- Barra de navegación con la correspondiente protección de rutas (si el usuario está o no con sesión iniciada)
+- Alertas de éxito/fracaso de registro, inicio y cierre de sesión funcionales
+
+## Autores
+- Sebastián Ávila 
+- Pablo Messa
+
+
+

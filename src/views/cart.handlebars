@@ -1,0 +1,79 @@
+<h1 class="p-2 text-center text-success w-100">Carrito de Compras</h1>
+<div
+  class="container d-flex justify-content-center"
+  id="cart"
+  style="width: 100% !important;display: flex; flex-wrap: wrap;"
+>
+  {{#if cart}}
+    {{#each cart}}
+      <div class="card m-2 d-flex" style="max-width: 300px;">
+        <div class="fs-4 p-2"><span>User email:
+          </span>{{this.user_id.email}}</div>
+        <div class="card-body">
+          <h5 class="card-title h6">{{this.product_id.title}}</h5>
+          <img
+            src="{{this.product_id.photo}}"
+            class="card-img-top img-fluid"
+            alt="..."
+          />
+          <p class="card-text small">Precio: ${{this.product_id.price}}</p>
+          <p class="card-text small">Cantidad:
+            <input
+              type="number"
+              class="form-control form-control-sm quantity-input"
+              value="{{this.quantity}}"
+              min="1"
+            /></p>
+          <button
+            class="btn btn-sm btn-danger remove-btn"
+            name="{{this._id}}"
+          >Eliminar</button>
+        </div>
+      </div>
+    {{/each}}
+  {{else}}
+    No hay productos en el carrito
+  {{/if}}
+</div>
+
+<div class="btn-container d-flex justify-content-center">
+  <button id="checkout-btn" class="btn btn-primary mt-3 m-2">Finalizar Compra</button>
+  <button id="cancel-btn" class="btn btn-danger mt-3 m-2">Cancelar Compra</button>
+</div>
+
+<script>
+  // Event listener para eliminar un producto
+  document.querySelectorAll('.remove-btn').forEach(item => {
+    item.addEventListener('click', async event => {
+      await fetch("http://localhost:8080/carts/" + event.target.name, { 
+        method: "DELETE", 
+        headers: { 
+          "Content-Type": "application/json" 
+        } 
+      });
+      event.target.closest('.card').remove();
+    });
+  });
+
+  // Event listener para finalizar compra
+  document.getElementById('checkout-btn').addEventListener('click', async event => {
+    await fetch("http://localhost:8080/carts/all", { 
+      method: "DELETE", 
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    document.getElementById('cart').innerHTML = '';
+  });
+
+  // Event listener para cancelar compra
+  document.getElementById('cancel-btn').addEventListener('click', async event => {
+    await fetch("http://localhost:8080/carts/all", { 
+      method: "DELETE", 
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    document.getElementById('cart').innerHTML = '';
+  });
+</script>

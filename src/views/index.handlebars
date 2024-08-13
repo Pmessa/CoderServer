@@ -1,17 +1,58 @@
+<div class="d-flex justify-content-center align-items-center flex-wrap">
 
-<h1 class="text-center m-2">Productos!</h1>
-<main class="d-flex justify-content-around flex-wrap" style="box-shadow: 0 0 10px rgb(158, 190, 245)">
-  {{#each products}}
-    <div class="card" style="width: 15rem; margin:.5rem;box-shadow: 0 5px 5px rgb(81, 115, 175)">
-      <img style="height:10rem" src={{this.photo}} class="card-img-top" />
-      <div class="card-body">
-        <h5 class="card-title">{{this.title}}</h5>
-        <p class="card-text">Category: {{this.category}}</p>
-        <p class="card-text">Stock: {{this.stock}}</p>
-        <p class="card-text">Price: ${{this.price}}</p>
-        <a href={{this.id}} class="btn btn-primary">DETAILS</a>
-      </div>
+  <img src="/img/logo-tr.png" alt="Logo de inicio" class="d-flex  align-items-center justify-content-center"
+    style="height: 150px; align-items-center; justify-content-center">
+
     </div>
-
+   
+   {{!-- <div class="container mt-5" style="width: 60%;">
+     <div class="input-group mb-3  d-flex justify-content-center align-items-center">
+       <input type="text" class="form-control " placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+       <button class="btn  btn-outline-secondary" type="button" id="button-addon2">Search</button>
+      </div>
+   </div> --}}
+<main class="d-flex justify-content-around flex-wrap" >
+  {{#if newLogin}}
+<script>
+window.addEventListener("load", async (event) => {
+  event.preventDefault();
+  return Swal.fire("LOGGED IN");
+});
+</script>
+  {{/if}}
+  {{#each products}}
+  <div class="card m-5"
+    style="width: 15rem; margin:.5rem; box-shadow: 0 5px 5px rgb(81, 115, 175); height:25rem; transition: transform 0.3s ease-in-out;"
+    onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+    <img style="height:10rem" src={{this.photo}} class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">{{this.title}}</h5>
+      <p class="card-text">Category: {{this.category}}</p>
+      <p class="card-text">Stock: {{this.stock}}</p>
+      <p class="card-text">Price: ${{this.price}}</p>
+      <a href=/products/{{this._id}} class="btn btn-success">DETAILS</a>
+    </div>
+  </div>
   {{/each}}
+
 </main>
+<nav aria-label="Page navigation example">
+  <ul class="pagination d-flex justify-content-center align-items-center pt-5">
+    <li class="page-item"><a class="page-link text-success"
+        href="/products/paginate?limit={{limit}}&page={{prevPage}}">Previous</a></li>
+
+    {{#each pagination}}
+    <li class="page-item">
+      <a class="page-link text-success" href="/products/paginate?limit={{../limit}}&page={{this}}">{{this}}</a>
+    </li>
+    {{/each}}
+    <li class="page-item"><a class="page-link text-success"
+        href="/products/paginate?limit={{limit}}&page={{nextPage}}">Next</a></li>
+
+  </ul>
+</nav>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  const socket = io();
+</script>

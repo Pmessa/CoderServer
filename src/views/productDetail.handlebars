@@ -1,0 +1,25 @@
+<form method="POST" action="/carts">
+  <h1 class="p-2 m-5 text-center text-success">DETALLE DEL PRODUCTO</h1>
+    {{#if product._id}}
+
+  <div class="container d-flex flex-row flex-wrap justify-content-center align-items-center">
+    <div class=" container text-center d-flex flex-column align-items-center" >
+    <img src="{{product.photo}}" class="card-img-top" alt="product_photo" style="width: 20rem; border-radius:5px;box-shadow:5px 1px 10px  rgb(81, 115, 175);" >
+    <div class=" card" style="width: 20rem;  border-radius:5px;box-shadow:5px 1px 10px  rgb(81, 115, 175);">
+    <h1 class="text-center">{{product.title}}</h1>
+    <div class="card-body">
+      <p class="card-text text-center display-5">$:{{product.price}}</p>
+      <div>
+
+      </div>
+    </div>
+    <input type="hidden" value="{{product._id}}" name="product">
+    <button class="btn btn-success m-2 " type="submit">AGREGAR AL CARRITO</button>
+  </div>
+  </div>
+  {{else}}
+  <h1>PRODUCT NOT FOUND</h1>
+  {{/if}}
+
+  </div>
+</form>

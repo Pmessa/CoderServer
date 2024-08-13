@@ -1,88 +1,33 @@
-import { Router } from "express";
-import productsManager from "../../data/fs/ProductsManager.fs.js";
+import CustomRouter from "../CustomRouter.js";
+import isValidAdmin from "../../middlewares/isValidAdmin.mid.js";
+import uploader from "../../middlewares/multer.mid.js";
+import isPhoto from "../../middlewares/isPhoto.js";
+import isPropAndDefault from "../../middlewares/isPropAndDefault.js";
+import { read, paginate, readOne, create, update, destroy } from "./../../controllers/products.controller.js"
 
-const productsRouter = Router();
+class ProductsRouter extends CustomRouter {
+  init(){
 
-productsRouter.get("/", read);
-productsRouter.get("/:pid", readOne); 
-productsRouter.post("/", create);
-productsRouter.put("/:pid", update);
-productsRouter.delete("/:pid", destroy);
+    this.read("/", ["PUBLIC"], read);
+    this.read("/paginate", ["PUBLIC"], paginate);
+    this.read("/:pid", ["PUBLIC"], readOne);
+    this.create(
+      "/",
+      isValidAdmin,
+      uploader.single("photo"),
+      isPhoto,
+      isPropAndDefault,
+      ["ADMIN"],
+      create
+    );
+    this.update("/:pid", ["ADMIN"], update);
+    this.destroy("/:pid", ["ADMIN"], destroy);
 
-async function read(req, res, next) {
-  try {
-    const { category } = req.query;
-    const all = await productsManager.read(category);
-    if (all.length > 0) {
-      return res.json({
-        statusCode: 200,
-        response: all, 
-      });
-    } else {
-      const error = new Error("Not found!");
-      error.statusCode = 404;
-      throw error;
-    }
-  } catch (error) {
-    return next(error);
-  }
-}
-async function readOne(req, res, next) {
-  try {
-    const { pid } = req.params;
-    const one = await productsManager.readOne(pid);
-    if (one) {
-      return res.json({
-        statusCode: 200,
-        response: one,
-        success: true,
-      });
-    } else {
-      const error = new Error("NOT FOUND");
-      error.statusCode = 404;
-      throw error;
-    }
-  } catch (error) {
-    return next(error);
-  }
-}
-async function create(req, res, next) {
-  try {
-    const data = req.body;
-    const one = await productsManager.create(data);
-    return res.json({
-      statusCode: 201,
-      response: one.id,
-      message: "CREATED ID. " + one.id,
-    });
-  } catch (error) {
-    return next(error);
-  }
-}
-async function update(req, res, next) {
-  try {
-    const { pid } = req.params;
-    const data = req.body;
-    const one = await productsManager.update(pid, data);
-    return res.json({
-      statusCode: 200,
-      message: one,
-    });
-  } catch (error) {
-    return next(error);
-  }
-}
-async function destroy(req, res, next) {
-  try {
-    const { pid } = req.params;
-    const one = await productsManager.destroy(pid);
-    return res.json({
-      statusCode: 200,
-      response: one,
-    });
-  } catch (error) {
-    return next(error);
-  }
-}
-export default productsRouter;
+  }  
+}  
 
+
+
+const productsRouter = new ProductsRouter();
+
+export default productsRouter.getRouter();

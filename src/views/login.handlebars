@@ -1,0 +1,46 @@
+<h1 class="p-2 text-center text-success w-100">LOGIN</h1>
+<article class="container d-flex flex-column w-50 align-items-center">
+  <form class="px-4 py-3 align-items-center">
+    <div class="mb-3 align-items-center">
+      <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" type="text" name="email" id="email" placeholder="email@example.com">
+    </div>
+    <div class="mb-3">
+      <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" type="password" name="password" id="password" placeholder="Password">
+    </div>
+    <div class="mb-3 align-items-center">
+      <div class="form-check align-items-center">
+      </div>
+    </div>
+    <input type="button" class="btn btn-success px-5 py-6" style="width: 100%;" id="login" value="Log in!">
+          <p class="m-2 fs-4 text-center" style="width:100%">Or sign in with</p>
+    <a href="#!" class="btn bsb-btn-xl btn-outline-secondary mt-3" style="width: 100%;" id="login-google">
+      <img alt="Archivo:Google &quot;G&quot; logo.svg"
+        src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/24px-Google_%22G%22_logo.svg.png"
+        decoding="async" width="24" height="24"
+        srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/36px-Google_%22G%22_logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/48px-Google_%22G%22_logo.svg.png 2x"
+        data-file-width="24" data-file-height="24">
+      <span class="ms-2 fs-6">Ingresar con Google</span>
+    </a>
+    <a href="#!" class="btn bsb-btn-xl btn-outline-secondary mt-3" style="width: 100%;">
+      <img alt="Miniatura de la versión del 13:34 20 feb 2023"
+        src="//upload.wikimedia.org/wikipedia/commons/thumb/7/7f/WLA_icon_facebook.svg/120px-WLA_icon_facebook.svg.png"
+        decoding="async" width="30">
+      <span class="ms-2 fs-6">Ingresar con Facebook</span>
+    </a>
+      <a href="#!" class="btn bsb-btn-xl btn-outline-secondary mt-3" style="width: 100%;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24"  fill="currentColor" class="bi bi-twitter"
+          viewBox="0 0 16 16">
+          <path
+            d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+        </svg>
+        <span class="ms-2 fs-6">Ingresar con Twitter</span>
+      </a>
+    <div class="registerDiv flex-column">
+      <p>Aún no tienes una cuenta? </p>
+      <a href="/users/register" class="btn bsb-btn-xl btn-outline-success m-4">Regitrate con nosotros!</a>
+    </div>
+</article>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/scripts/login.js" type="module"></script>
