@@ -1,7 +1,13 @@
 config:
+<<<<<<< HEAD
   plugins:
     metrics-by-endpoint: {}
   target: http://localhost:8080/api
+=======
+  pluggins:
+    metrics-by-endpoint : {}
+  target: /api
+>>>>>>> c1026e59073cd36058bcdd5a4302db91096e0ff7
   phases:
     - duration: 10
       arrivalRate: 50

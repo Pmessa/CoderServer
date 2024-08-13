@@ -13,3 +13,27 @@
 [31mFATAL[39m: Este es un mensaje de log FATAL
 [33mERROR[39m: Este es un mensaje de log ERROR
 2024-07-10 20:20:12 [33mERROR[39m: POST /api/sessions/login 401 - 20:20:12 - Bad auth from login!
+2024-08-13 09:43:18 [33mERROR[39m: GET / undefined - 09:43:18 - invalid signature
+2024-08-13 09:47:15 [33mERROR[39m: GET / undefined - 09:47:15 - invalid signature
+2024-08-13 09:50:15 [33mERROR[39m: GET /carts undefined - 09:50:15 - invalid signature
+2024-08-13 09:50:21 [33mERROR[39m: GET / undefined - 09:50:21 - invalid signature
+2024-08-13 09:54:22 [33mERROR[39m: GET / undefined - 09:54:22 - invalid signature
+2024-08-13 09:59:34 [33mERROR[39m: GET / undefined - 09:59:34 - invalid signature
+2024-08-13 10:00:02 [33mERROR[39m: GET / undefined - 10:00:02 - invalid signature
+2024-08-13 10:00:03 [33mERROR[39m: GET / undefined - 10:00:03 - invalid signature
+2024-08-13 10:00:14 [33mERROR[39m: GET / undefined - 10:00:14 - invalid signature
+2024-08-13 10:00:49 [33mERROR[39m: GET / undefined - 10:00:49 - invalid signature
+2024-08-13 10:00:50 [33mERROR[39m: GET / undefined - 10:00:50 - invalid signature
+2024-08-13 10:00:52 [33mERROR[39m: GET / undefined - 10:00:52 - invalid signature
+2024-08-13 10:01:06 [33mERROR[39m: GET / undefined - 10:01:06 - invalid signature
+2024-08-13 10:02:06 [33mERROR[39m: GET / undefined - 10:02:06 - invalid signature
+2024-08-13 10:02:22 [33mERROR[39m: GET / undefined - 10:02:22 - invalid signature
+2024-08-13 10:02:22 [33mERROR[39m: GET / undefined - 10:02:22 - invalid signature
+2024-08-13 10:03:20 [33mERROR[39m: GET / undefined - 10:03:20 - invalid signature
+2024-08-13 10:03:21 [33mERROR[39m: GET / undefined - 10:03:21 - invalid signature
+2024-08-13 10:03:46 [33mERROR[39m: GET / undefined - 10:03:46 - invalid signature
+2024-08-13 10:21:04 [33mERROR[39m: GET / undefined - 10:21:04 - invalid signature
+2024-08-13 10:21:18 [33mERROR[39m: GET / undefined - 10:21:18 - invalid signature
+2024-08-13 10:21:29 [33mERROR[39m: GET / undefined - 10:21:29 - invalid signature
+2024-08-13 10:21:44 [33mERROR[39m: GET / undefined - 10:21:44 - invalid signature
+2024-08-13 10:23:02 [33mERROR[39m: GET / undefined - 10:23:02 - invalid signature

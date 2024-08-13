@@ -15,15 +15,26 @@
     "products": "node ./src/mocks/products.mock.js --env dev",
     "flow": "artillery run ./test/artillery/flow.yaml -o ./test/artillery/flow.json",
     "report": "artillery report ./test/artillery/flow.json",
+<<<<<<< HEAD
     "super": "mocha ./test/supertest"
+=======
+    "mocha": "mocha ./test/mocha",
+    "chai": "mocha ./test/chai"
+>>>>>>> c1026e59073cd36058bcdd5a4302db91096e0ff7
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
+<<<<<<< HEAD
     "nodemon": "^3.1.0",
     "supertest": "^7.0.0"
+=======
+    "chai": "^5.1.1",
+    "mocha": "^10.7.0",
+    "nodemon": "^3.1.0"
+>>>>>>> c1026e59073cd36058bcdd5a4302db91096e0ff7
   },
   "dependencies": {
     "artillery": "^2.0.18",
