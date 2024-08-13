@@ -40,7 +40,7 @@ async function read_paginate (req, res, next) {
   try {
     const { page, limit } = req.query;
     const response = await fetch(
-      `/api/products/paginate?limit=${limit}&page=${page}`
+      `${req.protocol}://${req.get('host')}/api/products/paginate?limit=${limit}&page=${page}`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch data");
@@ -82,7 +82,7 @@ async function read_category(req, res, next) {
     
     const { category } = req.params;
     const response = await fetch(
-      `http://localhost:8080/api/products/paginate?category=${category}`
+      `${req.protocol}://${req.get('host')}/api/products/paginate?category=${category}`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch data");
