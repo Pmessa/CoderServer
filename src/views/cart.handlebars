@@ -45,7 +45,7 @@
   // Event listener para eliminar un producto
   document.querySelectorAll('.remove-btn').forEach(item => {
     item.addEventListener('click', async event => {
-      await fetch("http://localhost:8080/carts/" + event.target.name, { 
+      await fetch("/carts/" + event.target.name, { 
         method: "DELETE", 
         headers: { 
           "Content-Type": "application/json" 
@@ -57,7 +57,7 @@
 
   // Event listener para finalizar compra
   document.getElementById('checkout-btn').addEventListener('click', async event => {
-    await fetch("http://localhost:8080/carts/all", { 
+    await fetch("/carts/all", { 
       method: "DELETE", 
       headers: {
         "Content-Type": "application/json"
@@ -68,7 +68,8 @@
 
   // Event listener para cancelar compra
   document.getElementById('cancel-btn').addEventListener('click', async event => {
-    await fetch("http://localhost:8080/carts/all", { 
+    await fetch("/carts/all", { 
+
       method: "DELETE", 
       headers: {
         "Content-Type": "application/json"
