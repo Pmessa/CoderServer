@@ -58,7 +58,7 @@ async function cart_create(req, res, next){
       const userEmail = req.user.email
       const { product } = req.body;
 
-      const result = await fetch("http:/localhost:8080/api/carts/", {
+      const result = await fetch(`${req.protocol}://${req.get('host')}/api/carts/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
