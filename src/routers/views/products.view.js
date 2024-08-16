@@ -38,9 +38,9 @@ async function read_one(req, res, next){
 
 async function read_paginate (req, res, next) {
   try {
-    const { page, limit } = req.query;
+    const { page, limit, supplier_id } = req.query;
     const response = await fetch(
-      `${req.protocol}://${req.get('host')}/api/products/paginate?limit=${limit}&page=${page}`
+      `${req.protocol}://${req.get('host')}/api/products/paginate?limit=${limit}&page=${page}&supplier_id=${supplier_id}`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch data");

@@ -32,7 +32,7 @@ class ProductController {
     try {
       const filter = {};
       const opts = { sort: "title"};
-
+      console.log(req.query)
       if (req.query.limit) {
         opts.limit = req.query.limit;
       }

@@ -4,7 +4,7 @@ import mongoosePaginate from "mongoose-paginate-v2";
 const collection = "products";
 const schema = new Schema(
   {
-    title: { type: String, required: true},
+    title: { type: String, required: true },
     photo: {
       type: String,
       default:
@@ -32,6 +32,7 @@ const schema = new Schema(
     },
     stock: { type: Number, default: 1 },
     price: { type: Number, default: 1 },
+    supplier_id: { type: String, default: null },
   },
   {
     timestamps: true,

@@ -17,7 +17,8 @@
     "report": "artillery report ./test/artillery/flow.json",
     "mocha": "mocha ./test/mocha",
     "chai": "mocha ./test/chai",
-    "super": "mocha ./test/supertest --env dev --persistence mongo"
+    "super": "mocha ./test/supertest --env dev --persistence mongo",
+    "dbMod": "node ./src/updateDb.js"
   },
   "keywords": [],
   "author": "",
