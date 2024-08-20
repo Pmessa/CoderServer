@@ -30,5 +30,105 @@ components:
        password: example1234
        name: ExampleUserName
   responses:
+    Message 200:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente a la solicitud de éxito
+        message:
+          type: string
+          description:Texto descriptivo con el éxito en la operación
+      example:
+    Message 201:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente a la solicitud al éxito en la creación
+        message:
+          type: string
+          description:Texto descriptivo con el éxito en la creación
+      example:
+    Response 200:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente a la solicitud al éxito devolviendo datos
+        response:
+          type: object
+          description: Objeto con los datos del objeto solicitado
+      example:
+    Response 200 one:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente a la solicitud al éxito devolviendo datos
+        response:
+          type: array
+          description: array de objetos del resurso solicitado
+      example:
+    Error 400:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente a la solicitud al fracaso por problemas del cliente
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error por parte del cliente
+      example:
+    Error 401:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente a la solicitud al fracaso de autenticación
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error de autenticación
+      example:
+    Error 403:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente a la solicitud al fracaso de autorización
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error de autorización
+      example:
+    Error 404:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente a la solicitud al fracaso por no encontrar lo solicitado
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error de recurso no encontrado
+      example:
+    Error 500:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Código de estado correspondiente a la solicitud al fracaso por error fatal en el servidor
+        message:
+          type: string
+          description: Texto descriptivo con mensaje de error del servidos
+      example:
+    
 
 
