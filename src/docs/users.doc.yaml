@@ -1,0 +1,34 @@
+components:
+  schemas:
+    User:
+      type: object
+      properties: 
+        photo:
+          type: string
+          description: Url de la foto que el usuario usará para su perfil
+        email:
+          type: string
+          description: email del usuario
+        password:
+          type: string
+          description: contraseña que usará el usuario para loguearse a la app
+        role:
+          type: number
+          description: para definir permisos de acceso a la app
+        verify:
+          type: boolean
+          description: para definir si una cuenta fué o no verificada
+        verifyCode:
+          type: string
+          description: para definir el código de verificación de la cuenta
+        name:
+          type: string
+          description: nombre del usuario
+      example:
+       photo: https://cdn-icons-png.freepik.com/512/266/266033.png
+       email: example@gmail.com
+       password: example1234
+       name: ExampleUserName
+  responses:
+
+
