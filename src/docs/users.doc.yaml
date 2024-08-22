@@ -41,8 +41,13 @@ components:
           type: string
           description: Texto descriptivo con el éxito en la operación
       example:
-        statusCode:
+        statusCode: 200
         message: 
+          _id: 66bd3942d5dc6ae78ebef547
+          photo: "https://cdn-icons-png.freepik.com/512/266/266033.png"
+          email: "pablomessa@hotmail.com"
+          password: "$2b$10$UsP8hvkiIVZZo75/f8U9L.wSz16x4NrjaEwSaF08z92AwK768mXa."
+          role: 0
 
     Message 201:
       type: object
@@ -55,8 +60,8 @@ components:
           type: string
           description: Texto descriptivo con el éxito en la creación
       example:
-      statusCode:
-      message:
+      statusCode: 201
+      message: "CREATED ID: 66bd3942d5dc6ae78ebef547" 
     Response 200 all:
       type: object
       properties:
