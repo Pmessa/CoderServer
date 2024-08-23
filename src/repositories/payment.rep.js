@@ -8,7 +8,6 @@ const stripe = new Stripe(process.env.STRIPE_KEY_SECRET);
 const createPaymentRepository = async (user_id) => {
   try {
     let productsOnCart = await cartsManager.readCart( user_id );
-    console.log(productsOnCart);
     productsOnCart = productsOnCart.map(
       (product) => new CheckoutProduct(product)
     );

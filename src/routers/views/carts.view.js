@@ -15,13 +15,18 @@ import isProductOwner from "../../middlewares/isProductOwner.js";
 class CartsRouter extends CustomRouter{
   init(){
     this.read("/", ["PUBLIC", "USER"], cart_read)
-    this.create("/", ["PUBLIC", "USER"], cart_create);
+    this.read("/payment", ["PUBLIC", "USER"], cart_read)
+    this.create("/", ["PUBLIC", "USER", "PREM"], cart_create);
     this.destroy("/all", ["USER"], destroyAll);
     this.destroy("/:pid", ["PUBLIC"], destroy);
   }
 }
 const cartsRouter = new CartsRouter
 export default cartsRouter.getRouter();
+
+async function cart_payment(req, res, next){
+  
+}
 
 async function cart_read(req, res, next) {
   try {

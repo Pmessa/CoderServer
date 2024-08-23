@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<h1 class="p-2 text-center text-success w-100">PRODUCTS</h1>
+<section class="d-flex">
+  <article id="register" class="w-50">
+    <h1 class="text-center">UPDATE PRODUCT</h1>
+    <form class="d-flex flex-column m-5" method="POST" action="/products/register">
+      <label for="title">Titulo: </label>
+      <input class="m-2" type="text" name="title" id="title" value="{{title}}" />
+      <label for="photo">Imagen: </label>
+      <input class="m-2" type="text" name="photo" id="photo" value="{{photo}}" />
+      <input type="hidden" id="user_id" value={{user_id}} />
+      <input type="hidden" id="pid" value={{pid}} />
+      {{! <label for="category">Categoría: </label>
+      <input class="m-2" type="text" name="category" id="category" placeholder="Ingrese la categoría" /> }}
+      <label for="category">Categoría: </label>
+      <select class="m-2" name="category" id="category">
+        <option value="" disabled selected>Seleccione la categoría del producto</option>
+        <option value="condimentos">Condimentos</option>
+        <option value="snacks">Snacks</option>
+        <option value="harinas">Harinas</option>
+        <option value="bebidas">Bebidas</option>
+        <option value="frutos secos">Frutos Secos</option>
+        <option value="sopas">Sopas</option>
+        <option value="verduras">Verduras</option>
+        <option value="cereales">Cereales</option>
+        <option value="fermentados">Fermentados</option>
+        <option value="frutas">Frutas</option>
+        <option value="proteinas">Proteinas</option>
+        <option value="suplementos">Suplementos</option>
+        <option value="Without category">Without category</option>
+
+        <!-- Agrega más opciones según sea necesario -->
+      </select>
+      <!-- Agrega más opciones según sea necesario -->
+      </select>
+      <label for="stock">Stock: </label>
+      <input class="m-2" type="number" name="stock" id="stock" value="{{stock}}" />
+      <label for="price">Precio: </label>
+      <input class="m-2" type="number" name="price" id="price" value="{{price}}" />
+
+      <input class="btn btn-warning" style=" width:50%; margin:2rem auto; border-radius:8px;" type="button"
+        value="ACTUALIZAR PRODUCTO" id="update" />
+
+    </form>
+  </article>
+  <article id="products" class="d-flex flex-wrap w-50"></article>
+</section>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script src="/scripts/updateProducts.js"></script>

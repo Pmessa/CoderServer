@@ -88,6 +88,7 @@ class ProductController {
   async readOne(req, res, next) {
     try {
       const { pid } = req.params;
+      console.log("asd " + pid)
       const one = await readOneService(pid);
       if (one) {
         return res.response200(one);

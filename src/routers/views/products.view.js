@@ -11,6 +11,7 @@ class ProductsRouter extends CustomRouter{
     this.read("/paginate", ["PUBLIC", "USER"], read_paginate)
     this.read("/me", ["PREM"], read_paginate)
     this.read("/register", ["PUBLIC", "USER", "PREM"], registerProducts)
+    this.read("/update/:pid", ["PUBLIC", "USER", "PREM"], updateProducts)
     this.read("/:pid", ["PUBLIC","USER", "PREM"], read_one);
     this.read("/category/:category", ["PUBLIC","USER"], read_category);
    
@@ -31,6 +32,26 @@ async function registerProducts(req, res, next){
     console.log(req.user._id.toString())
   return res.render("products", {
     user_id: req.user._id.toString()
+      }
+    )
+  }
+
+  catch (e) {
+    console.log(e)
+  }
+}
+async function updateProducts(req, res, next){
+  try {
+    const result = await productsRepository.readOneRepository(req.params.pid)
+    console.log(result)
+  return res.render("updateProducts", {
+    user_id: req.user._id.toString(),
+    pid: req.params.pid,
+    title: result.title,
+    photo: result.photo,
+    category: result.category,
+    stock: result.stock,
+    price: result.price
       }
     )
   }
