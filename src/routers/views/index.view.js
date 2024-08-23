@@ -17,7 +17,6 @@ import { readOne } from "../../controllers/users.controller.js";
         this.use("/carts", cartsRouter)
         this.use("/products/real", productsRouter);
         this.use("/:pid", productsRouter)
-
         this.read("/", ["PUBLIC","USER"], read_index)
       }
     }
@@ -27,8 +26,18 @@ async function read_index(req, res, next){
     const page = 1
 
     const limit = 25
+    let supplier_id = null
+    let response = null
 
-    const response = await fetch(`${req.protocol}://${req.get('host')}/api/products/paginate?limit=${limit}&page=${page}`);
+    if (req.user && req.user.role==2){ 
+      supplier_id = req.user._id
+      response = await fetch(`${req.protocol}://${req.get('host')}/api/products/paginate?limit=${limit}&page=${page}&supplier=${supplier_id}`);
+    } else {
+      response = await fetch(`${req.protocol}://${req.get('host')}/api/products/paginate?limit=${limit}&page=${page}`);
+    }
+
+
+    
 
     if (!response.ok) {
       throw new Error('Failed to fetch data');

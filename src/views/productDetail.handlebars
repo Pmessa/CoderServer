@@ -16,7 +16,17 @@
       </div>
     </div>
     <input type="hidden" value="{{product._id}}" name="product">
+    {{#if user_id}}
+      {{#if isOwner}}
+    <button class="btn btn-warning m-2 " type="button">GESTIONAR PRODUCTOS</button>
+    {{else}}
     <button class="btn btn-success m-2 " type="submit">AGREGAR AL CARRITO</button>
+      {{/if}}  
+    {{else}}
+    <a href="/users/login">
+    <button class="btn btn-danger m-2" type="button">INICIE SESIÓN</button>
+    </a>
+    {{/if}}
   </div>
   </div>
   {{else}}

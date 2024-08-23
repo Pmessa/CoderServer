@@ -23,5 +23,20 @@ document.querySelector("#create").addEventListener("click", (event) => {
   const category = document.querySelector("#category").value;
   const stock = document.querySelector("#stock").value;
   const price = document.querySelector("#price").value;
-  socket.emit("createProduct", { title, photo, category, stock, price });
+  const supplier_id = document.querySelector("#user_id").value;
+  console.log(supplier_id)
+  //socket.emit("createProduct", { title, photo, category, stock, price });
+  const result = fetch("http://localhost:8080/api/products", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      title, 
+      photo, 
+      category, 
+      stock, 
+      price,
+      supplier_id
+    })})
 });

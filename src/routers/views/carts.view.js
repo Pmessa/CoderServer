@@ -7,14 +7,15 @@ import passportCb from "../../middlewares/passportCb.mid.js";
 import CustomRouter from "../CustomRouter.js";
 import cartsRepository from "../../repositories/carts.rep.js";
 import { read, readOne, create, update, destroy, destroyAll } from "./../../controllers/carts.controller.js"
+import isProductOwner from "../../middlewares/isProductOwner.js";
 
 
 ////const { carts } = dao
 
 class CartsRouter extends CustomRouter{
   init(){
-    this.read("/", ["USER"], cart_read)
-    this.create("/", ["USER"], cart_create);
+    this.read("/", ["PUBLIC", "USER"], cart_read)
+    this.create("/", ["PUBLIC", "USER"], cart_create);
     this.destroy("/all", ["USER"], destroyAll);
     this.destroy("/:pid", ["PUBLIC"], destroy);
   }
@@ -53,19 +54,16 @@ async function cart_read(req, res, next) {
 
 async function cart_create(req, res, next){
   try {
-    
       const user_id = req.user._id
       const userEmail = req.user.email
       const { product } = req.body;
-
       const result = await fetch(`${req.protocol}://${req.get('host')}/api/carts/`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({ product_id: product, user_id: user_id, token: req.cookies.token }),
       });
-    
     const carrito = await cartsRepository.readRepository({user_id: user_id});
     const products = carrito
     let productsFinal = []

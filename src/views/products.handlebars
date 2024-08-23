@@ -4,11 +4,12 @@
 <section class="d-flex">
   <article id="register" class="w-50">
     <h1 class="text-center">NEW PRODUCT</h1>
-    <form class="d-flex flex-column m-5">
+    <form class="d-flex flex-column m-5" method="POST" action="/products/register">
       <label for="title">Titulo: </label>
       <input class="m-2" type="text" name="title" id="title" placeholder="Ingrese el título" />
       <label for="photo">Imagen: </label>
       <input class="m-2" type="text" name="photo" id="photo" placeholder="Ingrese la URL de la imágen" />
+      <input type="hidden" id="user_id" value={{user_id}} />
       {{! <label for="category">Categoría: </label>
       <input class="m-2" type="text" name="category" id="category" placeholder="Ingrese la categoría" /> }}
       <label for="category">Categoría: </label>

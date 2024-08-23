@@ -52,7 +52,7 @@ class ProductsRepository {
   paginateRepository = async ({ filter, opts }) => {
     try {
       const all = await this.model.paginate({ filter, opts });
-      return all;
+      return all
     } catch (error) {
       throw error;
     }
