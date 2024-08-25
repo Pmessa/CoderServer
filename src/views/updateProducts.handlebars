@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <h1 class="p-2 text-center text-success w-100">PRODUCTS</h1>
-<section class="d-flex">
+<section class="d-flex justify-content-center">
   <article id="register" class="w-50">
     <h1 class="text-center">UPDATE PRODUCT</h1>
     <form class="d-flex flex-column m-5" method="POST" action="/products/register">
@@ -44,16 +44,8 @@
 
     </form>
   </article>
-  <article id="products" class="d-flex flex-wrap w-50"></article>
+  
 </section>
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
+
 <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 <script src="/scripts/updateProducts.js"></script>

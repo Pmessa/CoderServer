@@ -36,14 +36,14 @@ async function registerProducts(req, res, next){
     )
   }
 
-  catch (e) {
-    console.log(e)
+  catch (error) {
+    next(error);
   }
 }
 async function updateProducts(req, res, next){
   try {
     const result = await productsRepository.readOneRepository(req.params.pid)
-    console.log(result)
+    //console.log(result)
   return res.render("updateProducts", {
     user_id: req.user._id.toString(),
     pid: req.params.pid,
@@ -56,8 +56,8 @@ async function updateProducts(req, res, next){
     )
   }
 
-  catch (e) {
-    console.log(e)
+  catch (error) {
+    next(error);
   }
 }
 
@@ -69,7 +69,7 @@ async function read_one(req, res, next){
     if (req.user) {
       const user_id = req.user._id
       const isOwner = (user_id == one.supplier_id.toString()) || req.user.role == 1
-      console.log(isOwner)
+      //console.log(isOwner)
       return res.render("productDetail", {
         product: one,
         user_id: user_id,
@@ -91,7 +91,7 @@ async function read_paginate (req, res, next) {
     let supplier_id = null
     req.user ? supplier_id = req.user._id : req.query.supplier_id.toString()
 
-    console.log(supplier_id)
+    //console.log(supplier_id)
     const response = await fetch(
       `${req.protocol}://${req.get('host')}/api/products${req.path}?limit=${limit}&page=${page}&supplier=${supplier_id}`
     );

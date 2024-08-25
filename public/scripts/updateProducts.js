@@ -1,4 +1,4 @@
-const socket = io();
+/* const socket = io();
 socket.on("products", (data) => {
   let template = ``;
   template = data
@@ -14,7 +14,7 @@ socket.on("products", (data) => {
     )
     .join("");
   document.querySelector("#products").innerHTML = template;
-});
+}); */
 
 
   const title = document.querySelector("#title").value;
@@ -24,7 +24,7 @@ socket.on("products", (data) => {
   const price = document.querySelector("#price").value;
   const supplier_id = document.querySelector("#user_id").value;
   const pid = document.querySelector("#pid").value
-  console.log("asd "+pid)
+  //console.log("asd "+pid)
   //socket.emit("createProduct", { title, photo, category, stock, price });
   const result = fetch("http://localhost:8080/api/products/"+pid, {
     method: "GET",
@@ -41,7 +41,7 @@ document.querySelector("#update").addEventListener("click", (event) => {
   const price = document.querySelector("#price").value;
   const supplier_id = document.querySelector("#user_id").value;
   const pid = document.querySelector("#pid").value
-  console.log("asd "+pid)
+  //console.log("asd "+pid)
   //socket.emit("createProduct", { title, photo, category, stock, price });
   const result = fetch("http://localhost:8080/api/products/"+pid, {
     method: "PUT",

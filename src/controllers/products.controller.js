@@ -63,7 +63,7 @@ class ProductController {
         filter.supplier_id = { $eq: req.query.supplier };
         }
       }
-      console.log(req.query)
+      //console.log(req.query)
       const all = await paginateService({ filter, opts });
       
       const finalPages = [];
@@ -88,7 +88,7 @@ class ProductController {
   async readOne(req, res, next) {
     try {
       const { pid } = req.params;
-      console.log("asd " + pid)
+      //console.log("asd " + pid)
       const one = await readOneService(pid);
       if (one) {
         return res.response200(one);
@@ -108,7 +108,7 @@ class ProductController {
       return res.response200("CREATED ID. " + one.id);*/
       const data = req.body;
       const one = await createService(data);
-      console.log(data)
+      //console.log(data)
     } catch (error) {
       return next(error);
     }
