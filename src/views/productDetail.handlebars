@@ -16,7 +16,20 @@
       </div>
     </div>
     <input type="hidden" value="{{product._id}}" name="product">
+    {{#if user_id}}
+      {{#if isOwner}}
+      <a href="/products/update/{{product._id}}">
+    <button class="btn btn-warning m-2 " type="button">GESTIONAR PRODUCTO</button>
+      </a>
+    <button class="btn btn-danger m-2 " type="button" id="delete" >ELIMINAR PRODUCTO</button>    
+    {{else}}
     <button class="btn btn-success m-2 " type="submit">AGREGAR AL CARRITO</button>
+      {{/if}}  
+    {{else}}
+    <a href="/users/login">
+    <button class="btn btn-danger m-2" type="button">INICIE SESIÓN</button>
+    </a>
+    {{/if}}
   </div>
   </div>
   {{else}}
@@ -25,3 +38,15 @@
 
   </div>
 </form>
+<script>
+  document.querySelector("#delete").addEventListener("click", (event) => { 
+  const product = document.querySelector('[name="product"]').value;
+  console.log(product)
+  const result = fetch("http://localhost:8080/api/products/"+product, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(window.location.href="/")
+})
+</script>

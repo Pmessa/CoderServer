@@ -14,10 +14,11 @@ class ProductsDTO {
       (this.category = data.category || "Without category"),
       (this.stock = data.stock);
     this.price = data.price;
+    this.supplier_id = data.supplier_id;
     persistence !== "mongo" && (this.createdAt = new Date());
     persistence !== "mongo" && (this.updatedAt = new Date());
     persistence !== "mongo" && (this.__v = 0);
   }
 }
 
-export default ProductsDTO
+export default ProductsDTO;

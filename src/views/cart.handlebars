@@ -58,13 +58,23 @@
 
   // Event listener para finalizar compra
   document.getElementById('checkout-btn').addEventListener('click', async event => {
+    /*
     await fetch("/carts/all", { 
       method: "DELETE", 
       headers: {
         "Content-Type": "application/json"
       }
     });
-    document.getElementById('cart').innerHTML = '';
+    document.getElementById('cart').innerHTML = '';*/
+    const result = await fetch("api/payment", { 
+      method: "POST", 
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(response => response.json())
+   .then(result => {
+    window.location.href=result.url;
+  })
   });
 
   // Event listener para cancelar compra

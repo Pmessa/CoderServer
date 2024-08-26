@@ -4,24 +4,29 @@ import uploader from "../../middlewares/multer.mid.js";
 import isPhoto from "../../middlewares/isPhoto.js";
 import isPropAndDefault from "../../middlewares/isPropAndDefault.js";
 import { read, paginate, readOne, create, update, destroy } from "./../../controllers/products.controller.js"
+import isPremOrAdmin from "../../middlewares/isPremOrAdmin.js";
+import isProductOwner from "../../middlewares/isProductOwner.js";
 
 class ProductsRouter extends CustomRouter {
   init(){
 
-    this.read("/", ["PUBLIC"], read);
+    this.read("/", ["PUBLIC", "USER"], read);
+    this.read("/me", ["PUBLIC", "PREM"], paginate);
+    //this.read("/products/real", ["PUBLIC", "USER"], read);
     this.read("/paginate", ["PUBLIC"], paginate);
+    //this.read("/paginate", ["PREM"], paginate);
     this.read("/:pid", ["PUBLIC"], readOne);
     this.create(
-      "/",
-      isValidAdmin,
+      "/",/*
+      isPremOrAdmin,
       uploader.single("photo"),
       isPhoto,
-      isPropAndDefault,
-      ["ADMIN"],
+      isPropAndDefault,*/
+      ["PREM", "ADMIN"],
       create
     );
-    this.update("/:pid", ["ADMIN"], update);
-    this.destroy("/:pid", ["ADMIN"], destroy);
+    this.update("/:pid", ["ADMIN", "PREM"], isPremOrAdmin, update);
+    this.destroy("/:pid", ["ADMIN", "PREM"], isPremOrAdmin, destroy);
 
   }  
 }  
