@@ -12,20 +12,18 @@ class ProductController {
     try {
       const { category } = req.query;
       let all;
-      if (req.user && req.user.role==2) {
-        const user_id = req.user._id
-        const isMe = req.path=="/me" ? user_id : {$ne: user_id} 
-        const filter = {supplier_id: isMe}
-        console.log(filter)
-        all = await readService( filter );
-        
-      } else if (req.user && req.user.role==2 && category){
-        const user_id = req.user._id
-        const isMe = req.path=="/me" ? {$ne: user_id} : user_id 
-        const filter = {supplier_id: isMe}
-        all = await readService( filter );   
-      }
-      else{
+      if (req.user && req.user.role == 2) {
+        const user_id = req.user._id;
+        const isMe = req.path == "/me" ? user_id : { $ne: user_id };
+        const filter = { supplier_id: isMe };
+        console.log(filter);
+        all = await readService(filter);
+      } else if (req.user && req.user.role == 2 && category) {
+        const user_id = req.user._id;
+        const isMe = req.path == "/me" ? { $ne: user_id } : user_id;
+        const filter = { supplier_id: isMe };
+        all = await readService(filter);
+      } else {
         all = await readService();
       }
       if (all.length > 0) {
@@ -42,7 +40,7 @@ class ProductController {
   async paginate(req, res, next) {
     try {
       const filter = {};
-      const opts = { sort: "title"};
+      const opts = { sort: "title" };
 
       if (req.query.limit) {
         opts.limit = req.query.limit;
@@ -57,15 +55,15 @@ class ProductController {
         filter.category = req.query.category;
       }
       if (req.query.supplier) {
-        if (req.path=='/paginate'){
-        filter.supplier_id = { $ne: req.query.supplier };
-        } else if (req.path=='/me') {
-        filter.supplier_id = { $eq: req.query.supplier };
+        if (req.path == "/paginate") {
+          filter.supplier_id = { $ne: req.query.supplier };
+        } else if (req.path == "/me") {
+          filter.supplier_id = { $eq: req.query.supplier };
         }
       }
       //console.log(req.query)
       const all = await paginateService({ filter, opts });
-      
+
       const finalPages = [];
 
       for (let i = 0; i < all.totalPages; i += 1) {
@@ -103,11 +101,9 @@ class ProductController {
   }
   async create(req, res, next) {
     try {
-/*      console.log("asdasd")
-      const one = await createService(data);
-      return res.response200("CREATED ID. " + one.id);*/
       const data = req.body;
       const one = await createService(data);
+      return res.message201("CREATED ID: " + one._id);
       //console.log(data)
     } catch (error) {
       return next(error);

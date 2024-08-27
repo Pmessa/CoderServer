@@ -25,25 +25,25 @@ class ProductsRepository {
       throw error;
     }
   };
-  readOneRepository = async (uid) => {
+  readOneRepository = async (pid) => {
     try {
-      const one = await this.model.readOne(uid);
+      const one = await this.model.readOne(pid);
       return one;
     } catch (error) {
       throw error;
     }
   };
-  updateRepository = async (uid, data) => {
+  updateRepository = async (pid, data) => {
     try {
-      const one = await this.model.update(uid, data);
+      const one = await this.model.update(pid, data);
       return one;
     } catch (error) {
       throw error;
     }
   };
-  destroyRepository = async (uid) => {
+  destroyRepository = async (pid) => {
     try {
-      const one = await this.model.destroy(uid);
+      const one = await this.model.destroy(pid);
       return one;
     } catch (error) {
       throw error;
