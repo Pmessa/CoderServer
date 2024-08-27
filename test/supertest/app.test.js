@@ -29,8 +29,8 @@ describe("Testeando eVolución API", function () {
   it("Inicio de sesión de un usuario admin", async () => {
     const response = await requester.post("/sessions/login").send(user);
     const { _body, headers } = response;
-    console.log(_body);
-    console.log(headers);
+    //console.log(_body);
+    //console.log(headers);
     token = headers["set-cookie"][0].split(";")[0];
     expect(_body.statusCode).to.be.equals(200);
   });
@@ -38,7 +38,8 @@ describe("Testeando eVolución API", function () {
     const email = user.email
     const foundUser = await usersRepository.readByEmailRepository(email);
     console.log(foundUser)
-    const response = await requester.delete("/users/" + foundUser._id.toString());
+    const response = await requester.delete("/users/" + foundUser._id.toString()).set("Cookie", token);
+    //console.log(response)
     const { _body } = response;
     expect(_body.statusCode).to.be.equals(200);
   });

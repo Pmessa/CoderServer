@@ -10,10 +10,8 @@ import usersRepository from "../../repositories/users.rep.js";
 
 //const { users } = dao
 
-class UsersRouter extends CustomRouter{
-  init(){
-
-    
+class UsersRouter extends CustomRouter {
+  init() {
     this.read("/", ["USER", "PREM", "ADMIN"], read_user);
 
     this.read("/register", ["PUBLIC"], register_user);
@@ -23,13 +21,11 @@ class UsersRouter extends CustomRouter{
   }
 }
 
-
-function read_user(req, res, next){
-  try{
-  return res.render("details", { user: req.user, user_id: req.user._id });
-  }
-  catch(error){
-    return next(error)
+function read_user(req, res, next) {
+  try {
+    return res.render("details", { user: req.user, user_id: req.user._id });
+  } catch (error) {
+    return next(error);
   }
 }
 
@@ -47,14 +43,14 @@ function login_user(req, res, next) {
     return next(error);
   }
 }
-function verify_user (req, res, next) {
+function verify_user(req, res, next) {
   try {
     return res.render("verify");
   } catch (error) {
     return next(error);
   }
 }
-function google_user(req, res, next){
+function google_user(req, res, next) {
   try {
     return res.redirect("/api/sessions/google");
   } catch (error) {
@@ -140,6 +136,6 @@ usersRouter.get("/google", async (req, res, next) => {
     return res.render("details");
   }
 }); */
-const usersRouter = new UsersRouter
+const usersRouter = new UsersRouter();
 
-export default usersRouter.getRouter()
+export default usersRouter.getRouter();

@@ -12,9 +12,9 @@
           </span>{{this.user_id.email}}</div>
         <div class="card-body">
           <h5 class="card-title h6">{{this.product_id.title}}</h5>
-          <img
+          <img style="max-height:200px"
             src="{{this.product_id.photo}}"
-            class="card-img-top img-fluid"
+            class="card-img-top img-fluid "
             alt="..."
           />
           <p class="card-text small">Precio: ${{this.product_id.price}}</p>
@@ -40,6 +40,9 @@
 <div class="btn-container d-flex justify-content-center">
   <button id="checkout-btn" class="btn btn-primary mt-3 m-2">Finalizar Compra</button>
   <button id="cancel-btn" class="btn btn-danger mt-3 m-2">Cancelar Compra</button>
+</div>
+<div class="container d-flex justify-content-center">
+  <h3>Total: $<span id="total-amount">0</span></h3>
 </div>
 
 <script>
@@ -87,4 +90,39 @@
     });
     document.getElementById('cart').innerHTML = '';
   });
+  document.addEventListener('DOMContentLoaded', () => {
+  calculateTotal();
+
+  // Event listener para eliminar un producto
+  document.querySelectorAll('.remove-btn').forEach(item => {
+    item.addEventListener('click', async event => {
+      await fetch("/carts/" + event.target.name, { 
+        method: "DELETE", 
+        headers: { 
+          "Content-Type": "application/json" 
+        } 
+      });
+      event.target.closest('.card').remove();
+      calculateTotal();
+    });
+  });
+
+  // Event listener para actualizar el total al cambiar la cantidad
+  document.querySelectorAll('.quantity-input').forEach(input => {
+    input.addEventListener('change', () => {
+      calculateTotal();
+    });
+  });
+
+  // Función para calcular el total
+  function calculateTotal() {
+    let total = 0;
+    document.querySelectorAll('.card').forEach(card => {
+      const price = parseFloat(card.querySelector('.card-text').textContent.replace('Precio: $', ''));
+      const quantity = parseInt(card.querySelector('.quantity-input').value);
+      total += price * quantity;
+    });
+    document.getElementById('total-amount').textContent = total.toFixed(2);
+  }
+});
 </script>

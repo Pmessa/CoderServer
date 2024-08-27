@@ -11,49 +11,77 @@ import { readOne } from "../../controllers/users.controller.js";
 
 //import productDetailRouter from "./product.detail.view.js";
 
-    class IndexRouter extends CustomRouter{
-      init(){
-        this.use("/users", usersRouter);
-        this.use("/carts", cartsRouter)
-        this.use("/products/real", productsRouter);
-        this.use("/:pid", productsRouter)
-        this.read("/", ["PUBLIC","USER"], read_index)
-      }
-    }
+class IndexRouter extends CustomRouter {
+  init() {
+    this.use("/users", usersRouter);
+    this.use("/carts", cartsRouter);
+    this.use("/products/real", productsRouter);
+    this.read("/thanks", ["PUBLIC"], thanks);
+    this.use("/:pid", productsRouter);
+    this.read("/", ["PUBLIC", "USER"], read_index);
+  }
+}
 
-async function read_index(req, res, next){
+async function thanks(req, res, next) {
   try {
-    const page = 1
+    return res.render("thanks");
+  } catch (error) {
+    return next(error);
+  }
+}
+async function read_index(req, res, next) {
+  try {
+    const page = 1;
 
-    const limit = 25
-    let supplier_id = null
-    let response = null
+    const limit = 25;
+    let supplier_id = null;
+    let response = null;
 
-    if (req.user && req.user.role==2){ 
-      supplier_id = req.user._id
-      response = await fetch(`${req.protocol}://${req.get('host')}/api/products/paginate?limit=${limit}&page=${page}&supplier=${supplier_id}`);
+    if (req.user && req.user.role == 2) {
+      supplier_id = req.user._id;
+      response = await fetch(
+        `${req.protocol}://${req.get(
+          "host"
+        )}/api/products/paginate?limit=${limit}&page=${page}&supplier=${supplier_id}`
+      );
     } else {
-      response = await fetch(`${req.protocol}://${req.get('host')}/api/products/paginate?limit=${limit}&page=${page}`);
+      response = await fetch(
+        `${req.protocol}://${req.get(
+          "host"
+        )}/api/products/paginate?limit=${limit}&page=${page}`
+      );
     }
-
-
-    
 
     if (!response.ok) {
-      throw new Error('Failed to fetch data');
+      throw new Error("Failed to fetch data");
     }
-    const fetchedDocs = await response.json();  
-    if(req.user){
-      const user_id = req.user._id
-      return res.render("index", { products: fetchedDocs.response, pagination: fetchedDocs.info.totalPage, limit: fetchedDocs.info.limit, nextPage: fetchedDocs.info.nextPage, prevPage: fetchedDocs.info.prevPage, url: 'products/', user_id: user_id });
+    const fetchedDocs = await response.json();
+    if (req.user) {
+      const user_id = req.user._id;
+      return res.render("index", {
+        products: fetchedDocs.response,
+        pagination: fetchedDocs.info.totalPage,
+        limit: fetchedDocs.info.limit,
+        nextPage: fetchedDocs.info.nextPage,
+        prevPage: fetchedDocs.info.prevPage,
+        url: "products/",
+        user_id: user_id,
+      });
     } else {
-      return res.render("index", { products: fetchedDocs.response, pagination: fetchedDocs.info.totalPage, limit: fetchedDocs.info.limit, nextPage: fetchedDocs.info.nextPage, prevPage: fetchedDocs.info.prevPage, url: 'products/' });
+      return res.render("index", {
+        products: fetchedDocs.response,
+        pagination: fetchedDocs.info.totalPage,
+        limit: fetchedDocs.info.limit,
+        nextPage: fetchedDocs.info.nextPage,
+        prevPage: fetchedDocs.info.prevPage,
+        url: "products/",
+      });
     }
-    } catch (error) {
+  } catch (error) {
     return next(error);
-  }}
+  }
+}
 
-
-const indexRouter = new IndexRouter
+const indexRouter = new IndexRouter();
 
 export default indexRouter.getRouter();

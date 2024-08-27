@@ -68,11 +68,19 @@ class CustomRouter {
   };
   policies = (policies) => async (req, res, next) => {
     try {
-      if (policies.includes("PUBLIC") && !policies.includes("USER") && !policies.includes("PREM"))
+      if (
+        policies.includes("PUBLIC") &&
+        !policies.includes("USER") &&
+        !policies.includes("PREM")
+      )
         return next();
-      if (policies.includes("PUBLIC") && 
-      (policies.includes("USER") || policies.includes("PREM") || policies.includes("ADMIN")) || 
-      (policies.includes("USER") && policies.includes("PREM"))) {
+      if (
+        (policies.includes("PUBLIC") &&
+          (policies.includes("USER") ||
+            policies.includes("PREM") ||
+            policies.includes("ADMIN"))) ||
+        (policies.includes("USER") && policies.includes("PREM"))
+      ) {
         const token = req.cookies["token"];
         //console.log("token: ",token)
         if (token) {
