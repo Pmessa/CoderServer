@@ -4,6 +4,7 @@ import productsRepository from "../repositories/products.rep.js";
 async function isProductOwner(req, res, next) {
   try {
     let token = req.body.token;
+    console.log(token)
     token = verifyToken(token);
     const { _id, role } = token;
     const { product_id } = req.body;

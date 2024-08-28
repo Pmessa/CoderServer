@@ -3,6 +3,7 @@ import supertest from "supertest";
 import environment from "../../src/utils/env.util.js";
 import usersRepository from "../../src/repositories/users.rep.js";
 import productsRepository from "../../src/repositories/products.rep.js";
+import cartsRepository from "../../src/repositories/carts.rep.js";
 
 const requester = supertest(`http://localhost:${environment.PORT}/api`);
 
@@ -10,28 +11,41 @@ const requester = supertest(`http://localhost:${environment.PORT}/api`);
 
 describe("Testeando eVolución API", function () {
   this.timeout(20000);
-  const user = {
-    name: "TestingUser",
+  const userAdmin = {
+    name: "TestingUserAdmin",
     email: "pablomessa@hotmail.com",
     password: "hola1234",
     role: 1,
+    verify: true,
+  };
+  const userComun = {
+    name: "TestingUser",
+    email: "sebas@hotmail.com",
+    password: "123",
+    role: 0,
     verify: true,
   };
   const product = {
     title: "Producto creado para test",
     stock: 5,
     price: 1250,
-    supplier_id: "6682c7c751722d0acc73803c"
+    supplier_id: "6682c7c751722d0acc73803c",
+  };
+  const productDelete = {
+    title: "Producto creado para test y ser eliminado",
+    stock: 5,
+    price: 1250,
+    supplier_id: "6682c7c751722d0acc73803c",
   };
   let token = "";
   it("Registro de un usuario", async () => {
-    const response = await requester.post("/sessions/register").send(user);
+    const response = await requester.post("/sessions/register").send(userAdmin);
     const { _body } = response;
-    console.log(_body);
+    //console.log(_body);
     expect(_body.statusCode).to.be.equals(201);
   });
   it("Inicio de sesión de un usuario admin", async () => {
-    const response = await requester.post("/sessions/login").send(user);
+    const response = await requester.post("/sessions/login").send(userAdmin);
     const { _body, headers } = response;
     //console.log(_body);
     //console.log(headers);
@@ -46,42 +60,124 @@ describe("Testeando eVolución API", function () {
       .set("Cookie", token);
     const { _body } = response;
     //console.log(_body)
-    product._id = _body.message.split(': ')[1]
+    product._id = _body.message.split(": ")[1];
     //console.log(product._id)
     expect(_body.statusCode).to.be.equals(201);
   });
   it("Leemos el producto creado", async () => {
-    const foundProduct = await productsRepository.readOneRepository(product._id);
+    const foundProduct = await productsRepository.readOneRepository(
+      product._id
+    );
     const response = await requester.get("/products/" + foundProduct._id);
     const { _body } = response;
     expect(_body.statusCode).to.be.equals(200);
   });
   it("Actualización de un producto por parte del usuario", async () => {
-    const foundProduct = await productsRepository.readOneRepository(product._id);;
+    const foundProduct = await productsRepository.readOneRepository(
+      product._id
+    );
     const response = await requester
       .put("/products/" + foundProduct._id)
       .send({
         title: "Producto de Prueba Testing Modificado",
-      
       })
       .set("Cookie", token);
     const { _body } = response;
     expect(_body.statusCode).to.be.equals(200);
   });
+  it("Creación de un producto por un usuario admin, que luego eliminamos", async () => {
+    const response = await requester
+      .post("/products")
+      .send(productDelete)
+      .set("Cookie", token);
+    const { _body } = response;
+    //console.log(_body)
+    product._id = _body.message.split(": ")[1];
+    //console.log(product._id)
+    expect(_body.statusCode).to.be.equals(201);
+  });
 
-  
+  it("Eliminación de un producto por parte del usuario admin", async () => {
+    const foundProduct = await productsRepository.readRepository({
+      title: productDelete.title,
+    });
+    const response = await requester
+      .delete("/products/" + foundProduct[0]._id.toString())
+      .set("Cookie", token);
+    const { _body } = response;
+    expect(_body.statusCode).to.be.equals(200);
+  });
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  it("Cerrado de sesión", async () => {
+    const response = await requester
+      .post("/sessions/signout")
+      .set("Cookie", token);
+    const { _body } = response;
+    expect(_body.statusCode).to.be.equals(200);
+  });
+  it("Eliminación de un usuario Admin", async () => {
+    const email = userAdmin.email;
+    const foundUser = await usersRepository.readByEmailRepository(email);
+    const response = await requester
+      .delete("/users/" + foundUser._id.toString())
+      .set("Cookie", token);
+    const { _body } = response;
+    expect(_body.statusCode).to.be.equals(200);
+  });
+  it("Registro de un usuario", async () => {
+    const response = await requester.post("/sessions/register").send(userComun);
+    const { _body } = response;
+    //console.log(_body);
+    expect(_body.statusCode).to.be.equals(201);
+  });
+
+  it("Inicio de sesión de un usuario común", async () => {
+    const response = await requester.post("/sessions/login").send(userComun);
+    const { _body, headers } = response;
+    token = headers["set-cookie"][0].split(";")[0];
+    expect(_body.statusCode).to.be.equals(200);
+  });
+
+  it("Agregar un producto al carrito por parte del usuario", async () => {
+    // Obtenemos el user_id desde el repositorio de usuarios.
+    const foundUser = await usersRepository.readByEmailRepository(
+      userComun.email
+    );
+    userComun._id = foundUser._id.toString();
+    // Datos para agregar el producto al carrito.
+    const cartData = {
+      user_id: foundUser._id.toString(),
+      product_id: product._id,
+      token: token.split("=")[1],
+    };
+
+    // Hacemos la solicitud para agregar el producto al carrito.
+    const response = await requester
+      .post("/carts")
+      .send(cartData)
+      .set("Cookie", token);
+
+    const { _body } = response;
+
+    // Validamos que la respuesta sea correcta.
+    expect(_body.statusCode).to.be.equals(201);
+  });
+  it("Leemos el carrito del usuario.", async () => {
+    /*const foundCart = await cartsRepository.readRepository(
+      { user_id: userComun._id }
+    );
+    console.log(foundCart[0]._id.toString())*/
+    const response = await requester.get("/carts/" + userComun._id);
+    const { _body } = response;
+    expect(_body.statusCode).to.be.equals(200);
+  });
+
+  it("Vaciar el carrito.", async () => {
+    const response = await requester.delete("/carts/all").set("Cookie", token);
+    const { _body } = response;
+    expect(_body.statusCode).to.be.equals(200);
+  });
+
   /* it("Eliminación de un producto por parte del usuario admin", async () => {
     const foundProduct = await productsRepository.readByRepository({
       title: product.title,
@@ -89,22 +185,6 @@ describe("Testeando eVolución API", function () {
     const response = await requester
       .delete("/products/" + foundProduct._id)
       .set("Cookie", token);
-    const { _body } = response;
-    expect(_body.statusCode).to.be.equals(200);
-  });
-  it("Cerrado de sesión", async () => {
-    const response = await requester
-      .post("/sessions/logout")
-      .set("Cookie", token);
-    const { _body } = response;
-    expect(_body.statusCode).to.be.equals(200);
-  }); */
-  /* it("Eliminación de un usuario", async () => {
-    const email = user.email
-    const foundUser = await usersRepository.readByEmailRepository(email);
-    console.log(foundUser)
-    const response = await requester.delete("/users/" + foundUser._id.toString()).set("Cookie", token);
-    //console.log(response)
     const { _body } = response;
     expect(_body.statusCode).to.be.equals(200);
   }); */

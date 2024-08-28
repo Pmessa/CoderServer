@@ -33,8 +33,8 @@ async function read(req, res, next) {
 }
 async function readOne(req, res, next) {
   try {
-    const { cid } = req.params;
-    const one = await readOneService(cid);
+    const { uid } = req.params;
+    const one = await readService({user_id: uid});
     if (one) {
       return res.json({
         statusCode: 200,
