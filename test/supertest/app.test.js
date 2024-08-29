@@ -92,7 +92,7 @@ describe("Testeando eVolución API", function () {
       .set("Cookie", token);
     const { _body } = response;
     //console.log(_body)
-    product._id = _body.message.split(": ")[1];
+    productDelete._id = _body.message.split(": ")[1];
     //console.log(product._id)
     expect(_body.statusCode).to.be.equals(201);
   });
@@ -158,8 +158,6 @@ describe("Testeando eVolución API", function () {
       .set("Cookie", token);
 
     const { _body } = response;
-
-    // Validamos que la respuesta sea correcta.
     expect(_body.statusCode).to.be.equals(201);
   });
   it("Leemos el carrito del usuario.", async () => {
@@ -171,6 +169,27 @@ describe("Testeando eVolución API", function () {
     const { _body } = response;
     expect(_body.statusCode).to.be.equals(200);
   });
+  it("Actualización de un producto en el carrito", async () => {
+    // Obtenemos el carrito del usuario
+    const foundCart = await cartsRepository.readRepository({
+      user_id: userComun._id,
+    });
+  
+    // Asegúrate de que el carrito no esté vacío antes de proceder
+    if (foundCart.length > 0) {
+      const cartId = foundCart[0]._id.toString();
+      const updatedQuantity = 3; // Nueva cantidad para el producto
+  
+      // Realiza la solicitud PUT para actualizar la cantidad del producto en el carrito
+      const response = await requester
+        .put(`/carts/${cartId}`)
+        .send({ product_id: product._id, quantity: updatedQuantity })
+        .set("Cookie", token);
+  
+      const { _body } = response;
+      expect(_body.statusCode).to.be.equals(200);
+    } 
+  }); 
 
   it("Vaciar el carrito.", async () => {
     const response = await requester.delete("/carts/all").set("Cookie", token);
@@ -178,14 +197,6 @@ describe("Testeando eVolución API", function () {
     expect(_body.statusCode).to.be.equals(200);
   });
 
-  /* it("Eliminación de un producto por parte del usuario admin", async () => {
-    const foundProduct = await productsRepository.readByRepository({
-      title: product.title,
-    });
-    const response = await requester
-      .delete("/products/" + foundProduct._id)
-      .set("Cookie", token);
-    const { _body } = response;
-    expect(_body.statusCode).to.be.equals(200);
-  }); */
+  
+
 });

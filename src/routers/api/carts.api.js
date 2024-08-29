@@ -8,7 +8,7 @@ class CartsRouter extends CustomRouter {
     this.create("/", ["PUBLIC", "USER", "PREM"], isProductOwner, create);
     this.read("/", ["PUBLIC", "USER", "PREM"], read);
     this.read("/:uid", ["USER", "PREM"], readOne);
-    this.update("/:cid", ["USER", "PREM"], update);
+    this.update("/:cid", ["USER", "PREM", "ADMIN"], update);
     this.destroy("/all", ["PREM", "USER"], destroyAll);
     this.destroy("/:pid", ["PUBLIC"], destroy);
   }

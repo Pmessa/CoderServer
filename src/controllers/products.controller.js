@@ -16,7 +16,7 @@ class ProductController {
         const user_id = req.user._id;
         const isMe = req.path == "/me" ? user_id : { $ne: user_id };
         const filter = { supplier_id: isMe };
-        console.log(filter);
+        //console.log(filter);
         all = await readService(filter);
       } else if (req.user && req.user.role == 2 && category) {
         const user_id = req.user._id;

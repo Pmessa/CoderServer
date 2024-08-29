@@ -55,6 +55,7 @@ async function update(req, res, next) {
     const { cid } = req.params;
     const data = req.body;
     const one = await updateService(cid, data);
+    //console.log(one)
     return res.json({
       statusCode: 200,
       message: one,

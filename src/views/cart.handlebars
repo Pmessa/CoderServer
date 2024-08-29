@@ -29,6 +29,10 @@
             class="btn btn-sm btn-danger remove-btn"
             name="{{this._id}}"
           >Eliminar</button>
+            <button
+            class="btn btn-sm btn-danger actualizar-btn"
+            name="{{this._id}}"
+          >Actualizar</button>
         </div>
       </div>
     {{/each}}
@@ -106,6 +110,18 @@
       calculateTotal();
     });
   });
+  
+  // Event listener para actualizar un producto
+  document.querySelectorAll('.actualizar-btn').forEach(item => {
+  item.addEventListener('click', async event => { 
+    const card = item.closest('.card');
+    const quantityInput = card.querySelector('.quantity-input');
+    const quantity = quantityInput.value;
+    await fetch("/api/carts/" +
+  event.target.name, { method: "PUT", headers: { "Content-Type":
+  "application/json" }, body: 
+    JSON.stringify({quantity: Number(quantity)})
+   }); }); }); 
 
   // Event listener para actualizar el total al cambiar la cantidad
   document.querySelectorAll('.quantity-input').forEach(input => {
