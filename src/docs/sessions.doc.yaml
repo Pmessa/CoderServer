@@ -1,0 +1,248 @@
+paths:
+  /api/sessions/register:
+    post:
+      tags:
+        - Sessions
+      summary: Registra un nuevo usuario
+      description: Registra un nuevo usuario con la información personal y las credenciales.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - email
+                - password
+                - verifyCode
+              properties:
+                name:
+                  type: string
+                  example: Carlos
+                email:
+                  type: string
+                  example: carlos@gmail.com
+                password:
+                  type: string
+                  example: 123
+      responses:
+        '201':
+          description: User created successfully!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 201
+                  message:
+                    type: string
+                    example: User created successfully!
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Validation error
+                  errors:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: "\"name\" es un campo requerido."
+                      lastName:
+                        type: string
+                        example: "\"lastName\" es un campo requerido."
+                      dni:
+                        type: string
+                        example: "\"DNI\" debe ser un número sin puntos."
+                      blockAndLot:
+                        type: string
+                        example: "\"Manzana y Lote\" debe estar en formato MMLL donde MM es número de Manzana y LL número de Lote"
+                      phone:
+                        type: string
+                        example: "\"Teléfono\" debe ser un número de 10 dígitos."
+                      email:
+                        type: string
+                        example: "\"email\" debe ser válido."
+                      password:
+                        type: string
+                        example: "\"Contraseña\" debe tener al menos 8 caracteres y 1 letra mayusculas y al menos 1 número."
+        '401':
+          description: Email already registered
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Email already registered! Use another one
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: El email ingresado ya fue registrado, utilice otro
+        '500':
+          description: Error del Servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: inter
+                    example: 500
+                  message:
+                    type: string
+                    example: Internal Server Error
+  
+  /api/sessions/login:
+    post:
+      tags:
+        - Sessions
+      summary: Iniciar sesión de usuario
+      description: Permite iniciar sesión a un usuario con su email y contraseña.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  example: user@example.com
+                password:
+                  type: string
+                  example: Password123
+            examples:
+              admin:
+                summary: Ejemplo de inicio de sesión como administrador
+                value:
+                  email: juanconizza@gmail.com
+                  password: Audio123
+              verifiedUser:
+                summary: Ejemplo de inicio de sesión como usuario verificado
+                value:
+                  email: tecnoemprendetv@gmail.com
+                  password: Audio123
+              unverifiedUser:
+                summary: Ejemplo de inicio de sesión como usuario no verificado
+                value:
+                  email: mariagarcia33@gmail.com
+                  password: Maria123
+      responses:
+        '200':
+          description: Inicio de sesión exitoso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: Logged in!
+          headers:
+            Set-Cookie:
+              description: El token JWT almacenado en una cookie
+              schema:
+                type: string
+        '401':
+          description: Credenciales inválidas
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Invalid credentials
+                  errors:
+                    type: object
+                    example: {}
+        '403':
+          description: Cuenta no verificada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Account not verified
+                  errors:
+                    type: object
+                    example: {}
+        '500':
+          description: Error del Servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: inter
+                    example: 500
+                  message:
+                    type: string
+                    example: Internal Server Error
+  /api/sessions/logout:
+    post:
+      tags:
+        - Sessions
+      summary: Cierra la sesión de un usuario
+      description: Cierra la sesión de un usuario al eliminar la cookie del token JWT.
+      responses:
+        '200':
+          description: Cierre de sesión exitoso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: Signed out!
+        '401':
+          description: Error de autenticación
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                  message:
+                    type: string
+                    example: Bad auth from policies!
+        '500':
+          description: Error del Servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                  message:
+                    type: string
+                    example: Internal Server Error                    

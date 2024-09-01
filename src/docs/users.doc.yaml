@@ -1,0 +1,512 @@
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: "66a6c8dcb8b291dfe185a772"
+        photo:
+          type: string
+          description: URL of the user's profile picture
+          example: "https://cdn-icons-png.freepik.com/512/266/266033.png"
+        email:
+          type: string
+          description: User's email address
+          example: "user@example.com"
+        password:
+          type: string
+          description: User's password
+          example: "$2b$10$et2GUB4GMQIZzKdsmPSUBes5LEj.mSSUkSvpvUFiyOEz/v1P2VF/S"
+        role:
+          type: integer
+          format: int64
+          description: User role identifier (0 for basic USER, 1 for ADMIN, 2 for PREM)
+          example: 1
+        verify:
+          type: boolean
+          description: Code used for email verification
+          example: true
+        verifyCode:
+          type: string
+          description: Indicates if the user's email is verified
+          example: "123456"
+        name: 
+          type: string
+          description: "name for user"
+          example: "Sebas"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2024-07-08T12:39:54.145+00:00"
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2024-07-08T12:39:54.145+00:00"
+        __v:
+          type: integer
+          example: 0
+      required:
+        - name
+        - email
+        - password
+        - verifyCode
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: token
+paths:
+  /api/users:
+    get:
+      tags:
+        - Users
+      summary: Obtener todos los usuarios
+      description: Obtiene una lista de todos los usuarios. Puede filtrar por rol usando el parámetro de consulta `role`.
+      parameters:
+        - name: role
+          in: query
+          description: Filtro opcional para el rol del usuario. 0 = User, 1 = Admin, 2 = Prem
+          required: false
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Lista de usuarios obtenida exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 200
+                  response:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+                example:
+                  statusCode: 200
+                  response:
+                    - _id: "66a6c8dcb8b291dfe185a772"
+                      photo: "https://cdn-icons-png.freepik.com/512/266/266033.png"
+                      email: "sebasavila81@gmail.com"
+                      password: "$2b$10$O8jnI7F74Dm.XLlDdLaDl.HaVgzkcRp0FgTK8yvy0nLdn/I2M9sk6"
+                      role: 2
+                      verify: true
+                      verifyCode: "158535"
+                      name: "Sebas"
+                      createdAt: "2024-08-20T15:38:59.260Z"
+                      updatedAt: "2024-08-20T15:39:25.001Z"
+                      __v: 0
+        '401':
+          description: Error de autenticación
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                  message:
+                    type: string
+                    example: "Bad auth from policies!"
+        '403':
+          description: prohibido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 403
+                  message:
+                    type: string
+                    example: "Forbidden from poliecies!"
+        '404':
+          description: No hay usuarios para mostrar
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                  response:
+                    type: null
+                  message:
+                    type: string
+                    example: "Not found docs"
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                  message:
+                    type: string
+                    example: "Server Error"
+
+    post:
+      tags:
+        - Users
+      security:
+        - cookieAuth: []  
+      summary: Crear un nuevo usuario (solo administradores)
+      description: Crea un nuevo usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "Jose"
+                email:
+                  type: string
+                  example: "swagger@gmail.com"
+                password:
+                  type: string
+                  example: "Password123"
+              required:
+                - email
+                - password
+      responses:
+        '201':
+          description: Usuario creado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 201
+                  response:
+                    type: string
+                    example: "66d4b31f8655a1cf1d7e1b10"
+                  message:
+                    type: string
+                    example: "User created successfully!"
+        '403':
+          description: Prohibido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 403
+                  message:
+                    type: string
+                    example: "Forbidden from poliecies!"
+        '401':
+          description: Autenticación fallida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                  message:
+                    type: string
+                    example: "Bad auth from policies!"
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                  message:
+                    type: string
+                    example: "Server Error"
+
+  /api/users/{uid}:
+    get:
+      tags:
+        - Users
+      summary: Obtener usuario por ID
+      description: Obtiene la información de un usuario específico utilizando su ID.
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: ID del usuario
+          schema:
+            type: string
+            example: "66a6c8dcb8b291dfe185a772"
+      responses:
+        '200':
+          description: Usuario encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 200
+                  response:
+                    $ref: '#/components/schemas/User'
+                example:
+                  statusCode: 200
+                  response:
+                    _id: "66a6c8dcb8b291dfe185a772"
+                    photo: "https://cdn-icons-png.freepik.com/512/266/266033.png"
+                    email: "sebasavila81@gmail.com"
+                    password: "$2b$10$O8jnI7F74Dm.XLlDdLaDl.HaVgzkcRp0FgTK8yvy0nLdn/I2M9sk6"
+                    role: 2
+                    verify: true
+                    verifyCode: "158535"
+                    name: "Sebas"
+                    createdAt: "2024-08-20T15:38:59.260Z"
+                    updatedAt: "2024-08-20T15:39:25.001Z"
+                    __v: 0
+        '401':
+          description: Error de autenticación
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                  message:
+                    type: string
+                    example: "Bad auth from policies!"
+        '404':
+          description: Usuario no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                  response:
+                    type: null
+                  message:
+                    type: string
+                    example: "User not found"
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+
+    /api/users/{uid}:
+    put:
+      tags:
+        - Users
+      summary: Actualizar usuario
+      description: Actualiza la información de un usuario específico utilizando su ID 
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: ID del usuario
+          schema:
+            type: string
+            example: "66a6c8dcb8b291dfe185a772"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+            example:
+              name: "Sebas Avila"
+      responses:
+        '200':
+          description: Usuario actualizado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 200
+                  response:
+                    $ref: '#/components/schemas/User'
+                example:
+                  statusCode: 200
+                  response:
+                    _id: "66a6c8dcb8b291dfe185a772"
+                    photo: "https://cdn-icons-png.freepik.com/512/266/266033.png"
+                    email: "sebasavila81@gmail.com"
+                    password: "$2b$10$O8jnI7F74Dm.XLlDdLaDl.HaVgzkcRp0FgTK8yvy0nLdn/I2M9sk6"
+                    role: 2
+                    verify: true
+                    verifyCode: "158535"
+                    name: "Sebas Avila"
+                    createdAt: "2024-08-20T15:38:59.260Z"
+                    updatedAt: "2024-08-20T15:39:25.001Z"
+                    __v: 0
+        '401':
+          description: Error de autenticación
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                  message:
+                    type: string
+                    example: "Bad auth from policies!"
+        '403':
+          description: Prohibido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Forbidden from poliecies!"
+        '404':
+          description: Usuario no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                  error:
+                    type: string
+                    example: "User with ID 66a6c8dcb8b291dfe185a772 not found."
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                  message:
+                    type: string
+                    example: "Server Error"
+
+    delete:
+      tags:
+        - Users
+      summary: Eliminar usuario
+      description: Elimina un usuario específico utilizando su ID
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: ID del usuario
+          schema:
+            type: string
+            example: "66d4b31f8655a1cf1d7e1b10"
+      responses:
+        '200':
+          description: Usuario eliminado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 200
+                  response:
+                    $ref: '#/components/schemas/User'
+                example:
+                  statusCode: 200
+                  response:
+                    _id: "66d4b31f8655a1cf1d7e1b10"
+                    photo: "https://cdn-icons-png.freepik.com/512/266/266033.png"
+                    email: "user@example.com"
+                    password: "$2b$10$cRaBMwH87WgYGxSASkXwMegGyQtWdJytNuLUR.2ZHGkTdzzPviHIi"
+                    role: 0
+                    verify: true
+                    verifyCode: "87af19c8627211c9d2ad175c"
+                    name: "Jose"
+                    createdAt: "2024-08-20T15:38:59.260Z"
+                    updatedAt: "2024-08-20T15:39:25.001Z"
+                    __v: 0
+                    
+        '401':
+          description: Error de autenticación
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                  message:
+                    type: string
+                    example: "Bad auth from policies!"
+        '403':
+          description: prohibido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Forbidden from poliecies!"
+        '404':
+          description: Usuario no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404                  
+                  message:
+                    type: string
+                    example: "User with ID 66d4b31f8655a1cf1d7e1b10 not found."
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                  message:
+                    type: string
+                    example: "Server error"

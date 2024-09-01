@@ -37,3 +37,5 @@
 2024-08-13 10:21:29 [33mERROR[39m: GET / undefined - 10:21:29 - invalid signature
 2024-08-13 10:21:44 [33mERROR[39m: GET / undefined - 10:21:44 - invalid signature
 2024-08-13 10:23:02 [33mERROR[39m: GET / undefined - 10:23:02 - invalid signature
+2024-09-01 13:57:02 [33mERROR[39m: PUT /662b82844f0e7281f0c24dfa 403 - 13:57:02 - Forbidden from poliecies!
+2024-09-01 14:01:10 [33mERROR[39m: PUT /662b82844f0e7281f0c24dfa 403 - 14:01:10 - Forbidden from poliecies!

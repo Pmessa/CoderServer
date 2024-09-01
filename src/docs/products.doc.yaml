@@ -67,6 +67,8 @@ components:
         message:
           type: object
           description: Object with the requested data 
+          items:
+            $ref: '#/components/schemas/Products'
       example:
         statusCode: 200
         message:
