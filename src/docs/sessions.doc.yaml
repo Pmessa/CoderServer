@@ -15,7 +15,7 @@ paths:
                 - name
                 - email
                 - password
-                - verifyCode
+                - verifyCode             
               properties:
                 name:
                   type: string
@@ -26,6 +26,11 @@ paths:
                 password:
                   type: string
                   example: 123
+      securitySchemes:
+        cookieAuth:
+          type: apiKey
+          in: cookie
+          name: token              
       responses:
         '201':
           description: User created successfully!
@@ -39,7 +44,7 @@ paths:
                     example: 201
                   message:
                     type: string
-                    example: User created successfully!
+                    example: Registered!
         '401':
           description: Bad auth from register!
           content:
@@ -82,26 +87,10 @@ paths:
               properties:
                 email:
                   type: string
-                  example: user@example.com
+                  example: sebasavila81@gmail.com
                 password:
                   type: string
-                  example: Password123
-            examples:
-              admin:
-                summary: Ejemplo de inicio de sesión como administrador
-                value:
-                  email: juanconizza@gmail.com
-                  password: Audio123
-              verifiedUser:
-                summary: Ejemplo de inicio de sesión como usuario verificado
-                value:
-                  email: tecnoemprendetv@gmail.com
-                  password: Audio123
-              unverifiedUser:
-                summary: Ejemplo de inicio de sesión como usuario no verificado
-                value:
-                  email: mariagarcia33@gmail.com
-                  password: Maria123
+                  example: 123
       responses:
         '200':
           description: Inicio de sesión exitoso
@@ -160,7 +149,7 @@ paths:
                   message:
                     type: string
                     example: Internal Server Error
-  /api/sessions/logout:
+  /api/sessions/signout:
     post:
       tags:
         - Sessions
