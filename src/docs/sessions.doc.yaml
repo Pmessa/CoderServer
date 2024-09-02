@@ -40,42 +40,8 @@ paths:
                   message:
                     type: string
                     example: User created successfully!
-        '400':
-          description: Validation error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Validation error
-                  errors:
-                    type: object
-                    properties:
-                      name:
-                        type: string
-                        example: "\"name\" es un campo requerido."
-                      lastName:
-                        type: string
-                        example: "\"lastName\" es un campo requerido."
-                      dni:
-                        type: string
-                        example: "\"DNI\" debe ser un número sin puntos."
-                      blockAndLot:
-                        type: string
-                        example: "\"Manzana y Lote\" debe estar en formato MMLL donde MM es número de Manzana y LL número de Lote"
-                      phone:
-                        type: string
-                        example: "\"Teléfono\" debe ser un número de 10 dígitos."
-                      email:
-                        type: string
-                        example: "\"email\" debe ser válido."
-                      password:
-                        type: string
-                        example: "\"Contraseña\" debe tener al menos 8 caracteres y 1 letra mayusculas y al menos 1 número."
         '401':
-          description: Email already registered
+          description: Bad auth from register!
           content:
             application/json:
               schema:
@@ -83,13 +49,7 @@ paths:
                 properties:
                   error:
                     type: string
-                    example: Email already registered! Use another one
-                  errors:
-                    type: object
-                    properties:
-                      email:
-                        type: string
-                        example: El email ingresado ya fue registrado, utilice otro
+                    example: Bad auth from register!
         '500':
           description: Error del Servidor
           content:
@@ -102,7 +62,7 @@ paths:
                     example: 500
                   message:
                     type: string
-                    example: Internal Server Error
+                    example: Server Error
   
   /api/sessions/login:
     post:

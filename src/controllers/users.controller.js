@@ -49,9 +49,7 @@ class UsersController {
       if (one) {
         return res.response200(one);
       } else {
-        const error = new Error("Not found!");
-        error.statusCode = 404;
-        throw error;
+        res.error404();
       }
     } catch (error) {
       return next(error);
@@ -64,9 +62,7 @@ class UsersController {
       if (one) {
         return res.response200(one);
       } else {
-        const error = new Error("Not found!");
-        error.statusCode = 404;
-        throw error;
+        res.error404();
       }
     } catch (error) {
       return next(error);

@@ -13,7 +13,6 @@ import usersRepository from "../../repositories/users.rep.js";
 class UsersRouter extends CustomRouter {
   init() {
     this.read("/", ["USER", "PREM", "ADMIN"], read_user);
-
     this.read("/register", ["PUBLIC"], register_user);
     this.read("/login", ["PUBLIC"], login_user);
     this.read("/verify", ["PUBLIC"], verify_user);
