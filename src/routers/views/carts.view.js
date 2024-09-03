@@ -65,6 +65,7 @@ async function cart_create(req, res, next) {
     const user_id = req.user._id;
     const userEmail = req.user.email;
     const { product } = req.body;
+    /*
     const result = await fetch(
       `${req.protocol}://${req.get("host")}/api/carts/`,
       {
@@ -78,7 +79,13 @@ async function cart_create(req, res, next) {
           token: req.cookies.token,
         }),
       }
-    );
+    );*/
+    const result = await cartsRepository.createRepository(
+      {
+        product_id: product,
+        user_id: user_id,
+        token: req.cookies.token,
+      })
     const carrito = await cartsRepository.readRepository({ user_id: user_id });
     const products = carrito;
     let productsFinal = [];

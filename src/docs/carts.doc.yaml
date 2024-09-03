@@ -39,6 +39,11 @@ components:
         - product_id
         - quantity
         - state
+  securitySchemes:
+    cookieAuth: 
+      type: apiKey
+      in: cookie
+      name: token
 paths:
   /api/carts:
     get:
@@ -106,7 +111,7 @@ paths:
                     type: null
                   message:
                     type: string
-                    example: "Not found carts"
+                    example: "Cart not found!"
         '500':
           description: Error del servidor
           content:
@@ -119,7 +124,7 @@ paths:
                     example: 500
                   message:
                     type: string
-                    example: "Server Error"
+                    example: "Internal Server Error"
     post:
       tags:
         - Carts
@@ -170,6 +175,19 @@ paths:
                   message:
                     type: string
                     example: "Cart created successfully!"
+        '400':
+          description: Error de petición
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 400
+                  message:
+                    type: string
+                    example: "You own this product"
         '401':
           description: Autenticación fallida
           content:
@@ -200,8 +218,8 @@ paths:
     get:
       tags:
         - Carts
-      summary: Obtener carrito por ID
-      description: Obtiene la información de un carrito específico utilizando su ID.
+      summary: Obtener carrito por ID de usuario
+      description: Obtiene la información de un carrito específico utilizando el ID del usuario al cual pertenece.
       parameters:
         - name: cid
           in: path
@@ -318,8 +336,8 @@ paths:
                     state: "paid"
                     createdAt: "2024-08-20T15:38:59.260Z"
                     updatedAt: "2024-08-20T15:39:25.001Z"
-        '401':
-          description: Error de autenticación
+        '400':
+          description: Error de petición
           content:
             application/json:
               schema:
@@ -327,12 +345,12 @@ paths:
                 properties:
                   statusCode:
                     type: integer
-                    example: 401
+                    example: 400
                   message:
                     type: string
-                    example: "Bad auth from policies!"
-        '404':
-          description: Carrito no encontrado
+                    example: "Error de petición! Producto no encontrado."
+        '403':
+          description: Error de permisos
           content:
             application/json:
               schema:
@@ -345,7 +363,7 @@ paths:
                     type: null
                   message:
                     type: string
-                    example: "Cart not found"
+                    example: "Forbidden from policies!"
         '500':
           description: Error del servidor
           content:
@@ -389,7 +407,7 @@ paths:
                   message:
                     type: string
                     example: "Cart deleted successfully!"
-        '401':
+        '403':
           description: Error de autenticación
           content:
             application/json:
@@ -398,10 +416,10 @@ paths:
                 properties:
                   statusCode:
                     type: integer
-                    example: 401
+                    example: 403
                   message:
                     type: string
-                    example: "Bad auth from policies!"
+                    example: "Forbidden from policies!"
         '404':
           description: Carrito no encontrado
           content:

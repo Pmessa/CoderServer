@@ -26,7 +26,7 @@ socket.on("products", (data) => {
   const pid = document.querySelector("#pid").value
   //console.log("asd "+pid)
   //socket.emit("createProduct", { title, photo, category, stock, price });
-  const result = fetch("http://localhost:8080/api/products/"+pid, {
+  const result = fetch("/api/products/"+pid, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +43,7 @@ document.querySelector("#update").addEventListener("click", (event) => {
   const pid = document.querySelector("#pid").value
   //console.log("asd "+pid)
   //socket.emit("createProduct", { title, photo, category, stock, price });
-  const result = fetch("http://localhost:8080/api/products/"+pid, {
+  const result = fetch("/api/products/"+pid, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

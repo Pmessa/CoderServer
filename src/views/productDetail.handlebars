@@ -41,8 +41,7 @@
 <script>
   document.querySelector("#delete").addEventListener("click", (event) => { 
   const product = document.querySelector('[name="product"]').value;
-  console.log(product)
-  const result = fetch("http://localhost:8080/api/products/"+product, {
+  const result = fetch("/api/products/"+product, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

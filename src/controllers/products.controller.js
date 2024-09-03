@@ -29,9 +29,7 @@ class ProductController {
       if (all.length > 0) {
         return res.response200(all);
       } else {
-        const error = new Error("Not found!");
-        error.statusCode = 404;
-        throw error;
+        return res.error404();
       }
     } catch (error) {
       return next(error);
@@ -78,7 +76,13 @@ class ProductController {
         prevPage: all.prevPage,
         nextPage: all.nextPage,
       };
-      return res.paginate(all.docs, info);
+
+      //compruebo y sino devuelvo el error correspondiente
+      if (all) {
+        return res.paginate(all.docs, info);
+      } else {
+        return res.error404()
+      }
     } catch (error) {
       return next(error);
     }
@@ -86,26 +90,28 @@ class ProductController {
   async readOne(req, res, next) {
     try {
       const { pid } = req.params;
-      //console.log("asd " + pid)
       const one = await readOneService(pid);
       if (one) {
         return res.response200(one);
       } else {
-        const error = new Error("NOT FOUND");
-        error.statusCode = 404;
-        throw error;
+        return res.error400("ID de producto no encontrado")
       }
     } catch (error) {
-      return next(error);
+        return next(error);
     }
   }
   async create(req, res, next) {
     try {
       const data = req.body;
+      data.supplier_id = req.user._id
       const one = await createService(data);
-      return res.message201("CREATED ID: " + one._id);
-      //console.log(data)
+      if (one) {
+        return res.message201("CREATED ID: " + one._id);
+      } else {
+        return res.error400()
+      }
     } catch (error) {
+      console.log(error)
       return next(error);
     }
   }
@@ -114,7 +120,11 @@ class ProductController {
       const { pid } = req.params;
       const data = req.body;
       const one = await updateService(pid, data);
-      return res.response200(one);
+      if (one) {
+        return res.response200(one);
+      } else {
+        return res.error400()
+      }
     } catch (error) {
       return next(error);
     }
@@ -123,7 +133,11 @@ class ProductController {
     try {
       const { pid } = req.params;
       const one = await destroyService(pid);
-      return res.response200(one);
+      if (one) {
+        return res.response200(one);
+      } else {
+        return res.error400()
+      }
     } catch (error) {
       return next(error);
     }

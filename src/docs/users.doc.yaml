@@ -211,19 +211,6 @@ paths:
                   message:
                     type: string
                     example: "Forbidden from poliecies!"
-        '401':
-          description: Autenticación fallida
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                    example: 401
-                  message:
-                    type: string
-                    example: "Bad auth from policies!"
         '500':
           description: Error del servidor
           content:
@@ -279,19 +266,6 @@ paths:
                     createdAt: "2024-08-20T15:38:59.260Z"
                     updatedAt: "2024-08-20T15:39:25.001Z"
                     __v: 0
-        '401':
-          description: Error de autenticación
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                    example: 401
-                  message:
-                    type: string
-                    example: "Bad auth from policies!"
         '404':
           description: Usuario no encontrado
           content:
@@ -370,19 +344,6 @@ paths:
                     createdAt: "2024-08-20T15:38:59.260Z"
                     updatedAt: "2024-08-20T15:39:25.001Z"
                     __v: 0
-        '401':
-          description: Error de autenticación
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                    example: 401
-                  message:
-                    type: string
-                    example: "Bad auth from policies!"
         '403':
           description: Prohibido
           content:
@@ -460,20 +421,6 @@ paths:
                     createdAt: "2024-08-20T15:38:59.260Z"
                     updatedAt: "2024-08-20T15:39:25.001Z"
                     __v: 0
-                    
-        '401':
-          description: Error de autenticación
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                    example: 401
-                  message:
-                    type: string
-                    example: "Bad auth from policies!"
         '403':
           description: prohibido
           content:

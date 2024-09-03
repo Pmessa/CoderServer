@@ -26,7 +26,7 @@ document.querySelector("#create").addEventListener("click", (event) => {
   const supplier_id = document.querySelector("#user_id").value;
   //console.log(supplier_id)
   //socket.emit("createProduct", { title, photo, category, stock, price });
-  const result = fetch("http://localhost:8080/api/products", {
+  const result = fetch("/api/products", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

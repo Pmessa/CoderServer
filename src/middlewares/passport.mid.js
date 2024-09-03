@@ -35,7 +35,7 @@ passport.use(
         req.body.password = hashPassword; */
         //const data = new UsersDTO(req.body);
         const user = await usersRepository.createRepository(req.body);
-        console.log("send email")
+        //console.log("send email")
         await sendEmail({ to: email, name: user.name, code: user.verifyCode });
 
         return done(null, user);

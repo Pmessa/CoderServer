@@ -16,14 +16,15 @@ async function create(req, res, next) {
 async function read(req, res, next) {
   try {
     const { user_id } = req.query;
-    const all = await readService(user_id);
+    console.log(req.user)
+    const all = await readService({user_id});
     if (all.length > 0) {
       return res.json({
         statusCode: 200,
         response: all,
       });
     } else {
-      const error = new Error("Not found!");
+      const error = new Error("Cart not found!");
       error.statusCode = 404;
       throw error;
     }
@@ -42,7 +43,7 @@ async function readOne(req, res, next) {
         success: true,
       });
     } else {
-      const error = new Error("NOT FOUND");
+      const error = new Error("Cart not found");
       error.statusCode = 404;
       throw error;
     }
@@ -55,23 +56,34 @@ async function update(req, res, next) {
     const { cid } = req.params;
     const data = req.body;
     const one = await updateService(cid, data);
-    //console.log(one)
+    if (one){
+      if(one.user_id.toString() == req.user._id){
     return res.json({
       statusCode: 200,
-      message: one,
-    });
+      response: one,
+    })} else if(one.user_id != req.user._id){
+      res.error403()
+    }} else {
+    return res.error400("Carrito no encontrado")
+    }
   } catch (error) {
     return next(error);
   }
 }
 async function destroy(req, res, next) {
   try {
-    const { pid } = req.params;
-    const one = await destroyService(pid);
+    const { cid } = req.params;
+    const one = await destroyService(cid);
+    if (one){
+      if(one.user_id.toString() == req.user._id){
     return res.json({
       statusCode: 200,
       response: one,
-    });
+    })} else if(one.user_id != req.user._id){
+      res.error403()
+    }} else {
+    return res.error400("Carrito no encontrado")
+    }
   } catch (error) {
     return next(error);
   }

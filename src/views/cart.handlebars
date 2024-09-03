@@ -51,6 +51,7 @@
 
 <script>
   // Event listener para eliminar un producto
+  /*
   document.querySelectorAll('.remove-btn').forEach(item => {
     item.addEventListener('click', async event => {
       await fetch("/carts/" + event.target.name, { 
@@ -61,7 +62,7 @@
       });
       event.target.closest('.card').remove();
     });
-  });
+  });*/
 
   // Event listener para finalizar compra
   document.getElementById('checkout-btn').addEventListener('click', async event => {

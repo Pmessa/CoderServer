@@ -5,6 +5,7 @@ import CustomRouter from "../CustomRouter.js";
 //import dao from "../../dao/dao.factory.js"
 import productsRepository from "../../repositories/products.rep.js";
 import passportCb from "../../middlewares/passportCb.mid.js";
+import errorHandler from "../../middlewares/errorHandler.mid.js";
 //const { products } = dao;
 class ProductsRouter extends CustomRouter {
   init() {

@@ -45,6 +45,16 @@ paths:
                   message:
                     type: string
                     example: Registered!
+        '400':
+          description: validation error!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Please enter email and password
         '401':
           description: Bad auth from register!
           content:
@@ -110,7 +120,7 @@ paths:
               description: El token JWT almacenado en una cookie
               schema:
                 type: string
-        '401':
+        '400':
           description: Credenciales inválidas
           content:
             application/json:
@@ -169,7 +179,7 @@ paths:
                   message:
                     type: string
                     example: Signed out!
-        '401':
+        '403':
           description: Error de autenticación
           content:
             application/json:
@@ -178,7 +188,7 @@ paths:
                 properties:
                   statusCode:
                     type: integer
-                    example: 401
+                    example: 403
                   message:
                     type: string
                     example: Bad auth from policies!

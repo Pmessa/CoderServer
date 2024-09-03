@@ -4,7 +4,10 @@ import productsRepository from "../repositories/products.rep.js";
 async function isProductOwner(req, res, next) {
   try {
     let token = req.body.token;
-    //console.log(token)
+    if (!token){
+      token = req.cookies["token"];
+    }
+    console.log(req.body)
     token = verifyToken(token);
     const { _id, role } = token;
     const { product_id } = req.body;
@@ -12,7 +15,7 @@ async function isProductOwner(req, res, next) {
     if (one.supplier_id._id != _id) {
       return next();
     } else {
-      throw new Error("You do not own this product.");
+      res.error400("You own this product.")
     }
   } catch (error) {
     next(error);

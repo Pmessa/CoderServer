@@ -20,9 +20,9 @@ class ProductsRouter extends CustomRouter {
       "/",/*
       isPremOrAdmin,
       uploader.single("photo"),
-      isPhoto,
-      isPropAndDefault,*/
+      isPhoto,*/
       ["PREM", "ADMIN"],
+      isPropAndDefault,
       create
     );
     this.update("/:pid", ["ADMIN", "PREM"], isPremOrAdmin, update);
