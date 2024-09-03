@@ -88,7 +88,7 @@ class CustomRouter {
             policies.includes("ADMIN"))) //||
        // (policies.includes("USER") && policies.includes("PREM"))
       ) {
-        console.log(policies)
+        //console.log(policies)
         const token = req.cookies["token"];
         //console.log("token: ",token)
         if (token) {

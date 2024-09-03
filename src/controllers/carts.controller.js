@@ -16,7 +16,7 @@ async function create(req, res, next) {
 async function read(req, res, next) {
   try {
     const { user_id } = req.query;
-    console.log(req.user)
+    //console.log(req.user)
     const all = await readService({user_id});
     if (all.length > 0) {
       return res.json({
@@ -35,17 +35,17 @@ async function read(req, res, next) {
 async function readOne(req, res, next) {
   try {
     const { uid } = req.params;
+    //console.log(uid)
     const one = await readService({user_id: uid});
-    if (one) {
-      return res.json({
-        statusCode: 200,
-        response: one,
-        success: true,
-      });
-    } else {
-      const error = new Error("Cart not found");
-      error.statusCode = 404;
-      throw error;
+    if (one){
+      if(uid == req.user._id){
+    return res.json({
+      statusCode: 200,
+      response: one,
+    })} else if(uid!= req.user._id){
+      res.error403()
+    }} else {
+    return res.error400("Carrito no encontrado")
     }
   } catch (error) {
     return next(error);

@@ -10,7 +10,7 @@ import errorHandler from "../../middlewares/errorHandler.mid.js";
 class ProductsRouter extends CustomRouter {
   init() {
     this.read("/paginate", ["PUBLIC", "USER"], read_paginate);
-    this.read("/me", ["PREM"], read_paginate);
+    this.read("/me", ["PUBLIC", "USER", "PREM"], read_paginate);
     this.read("/register", ["PUBLIC", "USER", "PREM"], registerProducts);
     this.read("/update/:pid", ["PUBLIC", "USER", "PREM"], updateProducts);
     this.read("/:pid", ["PUBLIC", "USER", "PREM"], read_one);
@@ -91,6 +91,7 @@ async function read_paginate(req, res, next) {
         req.path
       }?limit=${limit}&page=${page}&supplier=${supplier_id}`
     );
+    console.log(response)
     if (!response.ok) {
       throw new Error("Failed to fetch data");
     }

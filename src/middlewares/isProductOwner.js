@@ -7,7 +7,7 @@ async function isProductOwner(req, res, next) {
     if (!token){
       token = req.cookies["token"];
     }
-    console.log(req.body)
+    //console.log(req.body)
     token = verifyToken(token);
     const { _id, role } = token;
     const { product_id } = req.body;

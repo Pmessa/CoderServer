@@ -111,7 +111,7 @@ class ProductController {
         return res.error400()
       }
     } catch (error) {
-      console.log(error)
+      //console.log(error)
       return next(error);
     }
   }

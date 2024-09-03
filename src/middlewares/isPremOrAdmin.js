@@ -8,7 +8,7 @@ async function isPremOrAdmin(req, res, next) {
     const { _id, role } = token;
     const { pid } = req.params;
     const one = await productsRepository.readOneRepository(pid);
-    console.log(role)
+    //console.log(role)
     if (role==1){
         return next()
     }

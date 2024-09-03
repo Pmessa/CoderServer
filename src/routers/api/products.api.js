@@ -11,7 +11,7 @@ class ProductsRouter extends CustomRouter {
   init(){
 
     this.read("/", ["PUBLIC", "USER"], read);
-    this.read("/me", ["PUBLIC", "PREM"], paginate);
+    this.read("/me", ["PREM"], paginate);
     //this.read("/products/real", ["PUBLIC", "USER"], read);
     this.read("/paginate", ["PUBLIC"], paginate);
     //this.read("/paginate", ["PREM"], paginate);
