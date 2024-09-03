@@ -13,6 +13,3 @@
 [31mFATAL[39m: Este es un mensaje de log FATAL
 [33mERROR[39m: Este es un mensaje de log ERROR
 2024-07-10 20:20:12 [33mERROR[39m: POST /api/sessions/login 401 - 20:20:12 - Bad auth from login!
-2024-08-12 12:18:32 [33mERROR[39m: POST /api/sessions/login 400 - 12:18:32 - Invalid Credentials
-2024-08-12 12:18:38 [33mERROR[39m: POST /api/sessions/login 400 - 12:18:38 - Invalid Credentials
-2024-08-12 12:19:35 [33mERROR[39m: POST /api/sessions/login 400 - 12:19:35 - Invalid Credentials
