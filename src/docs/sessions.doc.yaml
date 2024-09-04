@@ -55,16 +55,6 @@ paths:
                   error:
                     type: string
                     example: Please enter email and password
-        '401':
-          description: Bad auth from register!
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    example: Bad auth from register!
         '500':
           description: Error del Servidor
           content:
@@ -133,19 +123,6 @@ paths:
                   errors:
                     type: object
                     example: {}
-        '403':
-          description: Cuenta no verificada
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    example: Account not verified
-                  errors:
-                    type: object
-                    example: {}
         '500':
           description: Error del Servidor
           content:
@@ -191,7 +168,7 @@ paths:
                     example: 403
                   message:
                     type: string
-                    example: Bad auth from policies!
+                    example: forbidden from policies!
         '500':
           description: Error del Servidor
           content:

@@ -4,6 +4,7 @@ import { Router } from "express";
 import CustomRouter from "../CustomRouter.js";
 //import dao from "../../dao/dao.factory.js"
 import productsRepository from "../../repositories/products.rep.js";
+import environment from "../../utils/env.util.js";
 import passportCb from "../../middlewares/passportCb.mid.js";
 import errorHandler from "../../middlewares/errorHandler.mid.js";
 //const { products } = dao;
@@ -87,7 +88,7 @@ async function read_paginate(req, res, next) {
 
     //console.log(supplier_id)
     const response = await fetch(
-      `${req.protocol}://${req.get("host")}/api/products${
+      `${environment.HOST}:${environment.PORT}/api/products${
         req.path
       }?limit=${limit}&page=${page}&supplier=${supplier_id}`
     );
@@ -129,9 +130,7 @@ async function read_category(req, res, next) {
   try {
     const { category } = req.params;
     const response = await fetch(
-      `${req.protocol}://${req.get(
-        "host"
-      )}/api/products/paginate?category=${category}`
+      `${environment.HOST}:${environment.PORT}/api/products/paginate?category=${category}`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch data");

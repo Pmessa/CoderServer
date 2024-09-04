@@ -5,8 +5,7 @@ import usersRepository from "../../src/repositories/users.rep.js";
 import productsRepository from "../../src/repositories/products.rep.js";
 import cartsRepository from "../../src/repositories/carts.rep.js";
 
-const requester = supertest(`http://localhost:${environment.PORT}/api`);
-
+const requester = supertest(`${environment.HOST}:${environment.PORT}/api`);
 // PARA PODER USAR EL SUPERTEST Debe modificar en el dto en la propiedad verify agregar "data.verify || false".
 
 describe("Testeando eVolución API", function () {
@@ -162,16 +161,15 @@ describe("Testeando eVolución API", function () {
   });
 
   it("Leemos el carrito del usuario.", async () => {
-    /*const foundCart = await cartsRepository.readRepository(
-      { user_id: userComun._id }
-    );*/
-    console.log(token)
-    const response = await requester.get("/carts/" + userComun._id);
+    const response = await requester
+    .get("/carts/" + userComun._id)
+    .set("Cookie", token);
+
     const { _body } = response;
     console.log(_body)
-    expect(_body.statusCode).to.be.equals(403);
+    expect(_body.statusCode).to.be.equals(200);
   });
-/*
+
   it("Actualización de un producto en el carrito", async () => {
     // Obtenemos el carrito del usuario
     const foundCart = await cartsRepository.readRepository({
@@ -199,7 +197,4 @@ describe("Testeando eVolución API", function () {
     const { _body } = response;
     expect(_body.statusCode).to.be.equals(200);
   });
-
-  
-*/
 });

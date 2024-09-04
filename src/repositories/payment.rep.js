@@ -2,6 +2,7 @@
 import Stripe from "stripe";
 import cartsManager from "../dao/mongo/managers/CartsManager.mongo.js";
 import CheckoutProduct from "../dto/checkoutProduct.dto.js";
+import environment from "../utils/env.util.js"
 
 const stripe = new Stripe(process.env.STRIPE_KEY_SECRET);
 
@@ -14,7 +15,7 @@ const createPaymentRepository = async (user_id) => {
     //console.log(productsOnCart);
     const line_items = productsOnCart;
     const mode = "payment";
-    const success_url = "http://localhost:8080/thanks";
+    const success_url = `${environment.HOST}:${environment.PORT}/thanks`;
     const intent = await stripe.checkout.sessions.create({
       line_items,
       mode,
@@ -25,6 +26,5 @@ const createPaymentRepository = async (user_id) => {
     throw error;
   }
 };
-
 
 export { createPaymentRepository };

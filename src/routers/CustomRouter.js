@@ -57,12 +57,12 @@ class CustomRouter {
         message: "Forbidden from poliecies!",
       });
     };
-    res.error404 = () => {
+    res.error404 = (message) => {
       const errorMessage = `${req.method} ${
         req.url
-      } 404 - ${new Date().toLocaleTimeString()} - Not found docs`;
+      } 404 - ${new Date().toLocaleTimeString()} - (Not found docs`;
       winston.ERROR(errorMessage);
-       res.json({ statusCode: 404, message: "Not found docs" });
+       res.json({ statusCode: 404, message: message ? message : "Not found docs" });
     };
     res.error500 = () => {
       const errorMessage = `${req.method} ${

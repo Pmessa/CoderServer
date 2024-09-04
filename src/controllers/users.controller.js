@@ -22,7 +22,7 @@ class UsersController {
       if (all.length > 0) {
         return res.response200(all);
       } else {
-        res.error404();
+        res.error404("Not found users!");
       }
     } catch (error) {
       return next(error);
@@ -35,7 +35,7 @@ class UsersController {
       if (one) {
         return res.response200(one);
       } else {
-        res.error404();
+        res.error404("User not found!");
       }
     } catch (error) {
       return next(error);
@@ -49,7 +49,7 @@ class UsersController {
       if (one) {
         return res.response200(one);
       } else {
-        res.error404();
+        res.error404("User not found!");
       }
     } catch (error) {
       return next(error);
@@ -62,7 +62,7 @@ class UsersController {
       if (one) {
         return res.response200(one);
       } else {
-        res.error404();
+        res.error404("User not found!");
       }
     } catch (error) {
       return next(error);
@@ -73,4 +73,3 @@ class UsersController {
 const userController = new UsersController();
 
 export const { create, read, readOne, update, destroy } = userController;
-

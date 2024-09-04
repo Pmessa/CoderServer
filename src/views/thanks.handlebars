@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 
 <div class="container d-flex flex-row flex-wrap justify-content-between" style="width:100%;">
-  <h1 class="w-100 text-center text-success">THANKS</h1>
+  <h1 class="w-100 text-center text-success">Vaciando carrito...</h1>
   
   </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+
+await fetch("/carts/all", { 
+      method: "DELETE", 
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(document.querySelector('.text-success').innerHTML='THANKS!');
+    })
+</script>

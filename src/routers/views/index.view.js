@@ -4,10 +4,12 @@
 import usersRouter from "./users.view.js";
 import productsRouter from "./products.view.js";
 import cartsRouter from "./carts.view.js";
+import environment from "../../utils/env.util.js";
 import { paginate } from "mongoose-paginate-v2";
 import CustomRouter from "../CustomRouter.js";
 import passportCb from "../../middlewares/passportCb.mid.js";
 import { readOne } from "../../controllers/users.controller.js";
+
 
 //import productDetailRouter from "./product.detail.view.js";
 
@@ -16,7 +18,7 @@ class IndexRouter extends CustomRouter {
     this.use("/users", usersRouter);
     this.use("/carts", cartsRouter);
     this.use("/products/real", productsRouter);
-    this.read("/thanks", ["PUBLIC"], thanks);
+    this.read("/thanks", ["USER","PREM"], thanks);
     this.use("/:pid", productsRouter);
     this.read("/", ["PUBLIC", "USER"], read_index);
   }
@@ -24,7 +26,7 @@ class IndexRouter extends CustomRouter {
 
 async function thanks(req, res, next) {
   try {
-    return res.render("thanks");
+    return res.render("thanks", { user: req.user, user_id: req.user._id });
   } catch (error) {
     return next(error);
   }
@@ -40,15 +42,11 @@ async function read_index(req, res, next) {
     if (req.user && req.user.role == 2) {
       supplier_id = req.user._id;
       response = await fetch(
-        `${req.protocol}://${req.get(
-          "host"
-        )}/api/products/paginate?limit=${limit}&page=${page}&supplier=${supplier_id}`
+        `${environment.HOST}:${environment.PORT}/api/products/paginate?limit=${limit}&page=${page}&supplier=${supplier_id}`
       );
     } else {
       response = await fetch(
-        `${req.protocol}://${req.get(
-          "host"
-        )}/api/products/paginate?limit=${limit}&page=${page}`
+        `${environment.HOST}:${environment.PORT}/api/products/paginate?limit=${limit}&page=${page}`
       );
     }
 
