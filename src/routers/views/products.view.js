@@ -88,7 +88,7 @@ async function read_paginate(req, res, next) {
 
     //console.log(supplier_id)
     const response = await fetch(
-      `${environment.HOST}${environment.PORT && ":"+environment.PORT}/api/products${
+      `${environment.HOST}${environment.HOST_PORT ? ":"+environment.HOST_PORT : ''}/api/products${
         req.path
       }?limit=${limit}&page=${page}&supplier=${supplier_id}`
     );
@@ -130,7 +130,7 @@ async function read_category(req, res, next) {
   try {
     const { category } = req.params;
     const response = await fetch(
-      `${environment.HOST}${environment.PORT && ":"+environment.PORT}/api/products/paginate?category=${category}`
+      `${environment.HOST}${environment.HOST_PORT ? ":"+environment.HOST_PORT : ''}/api/products/paginate?category=${category}`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch data");

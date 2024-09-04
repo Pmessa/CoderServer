@@ -15,7 +15,7 @@ const createPaymentRepository = async (user_id) => {
     //console.log(productsOnCart);
     const line_items = productsOnCart;
     const mode = "payment";
-    const success_url = `${environment.HOST}${environment.PORT && ":"+environment.PORT}/thanks`;
+    const success_url = `${environment.HOST}${environment.HOST_PORT ? ":"+environment.HOST_PORT : ''}/thanks`;
     const intent = await stripe.checkout.sessions.create({
       line_items,
       mode,

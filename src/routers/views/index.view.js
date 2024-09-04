@@ -45,18 +45,18 @@ async function read_index(req, res, next) {
     const limit = 25;
     let supplier_id = null;
     let response = null;
-    console.log(`${environment.HOST}${environment.PORT && ":"+environment.PORT}/api/products/`)
+    console.log(`${environment.HOST}${environment.HOST_PORT ? ":"+environment.HOST_PORT : ''}/api/products/`)
 
     
 
     if (req.user && req.user.role == 2) {
       supplier_id = req.user._id;
       response = await fetch(
-        `${environment.HOST}${environment.PORT && ":"+environment.PORT}/api/products/paginate?limit=${limit}&page=${page}&supplier=${supplier_id}`
+        `${environment.HOST}${environment.HOST_PORT ? ":"+environment.HOST_PORT : ''}/api/products/paginate?limit=${limit}&page=${page}&supplier=${supplier_id}`
       );
     } else {
       response = await fetch(
-        `${environment.HOST}${environment.PORT && ":"+environment.PORT}/api/products/paginate?limit=${limit}&page=${page}`
+        `${environment.HOST}${environment.HOST_PORT ? ":"+environment.HOST_PORT : ''}/api/products/paginate?limit=${limit}&page=${page}`
       );
     }
 

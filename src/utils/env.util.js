@@ -10,6 +10,7 @@ config({ path });
 const environment = {
   PORT: process.env.PORT,
   HOST: process.env.HOST,
+  HOST_PORT: process.env.HOST_PORT,
   MONGO_URI: process.env.MONGO_URI,
   SECRET_COOKIE: process.env.SECRET_COOKIE,
   SECRET_SESSION: process.env.SECRET_SESSION,
