@@ -82,7 +82,7 @@ class CustomRouter {
       )
         return next();
       if (
-        (policies.includes("PUBLIC") &&
+        (
           policies.includes("USER") ||
             policies.includes("PREM") ||
             policies.includes("ADMIN")) //||

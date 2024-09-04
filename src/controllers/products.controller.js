@@ -12,6 +12,7 @@ class ProductController {
     try {
       const { category } = req.query;
       let all;
+      
       if (req.user && req.user.role == 2) {
         const user_id = req.user._id;
         const isMe = req.path == "/me" ? user_id : { $ne: user_id };
@@ -40,10 +41,10 @@ class ProductController {
       const filter = {};
       const opts = { sort: "title" };
 
-      if (req.query.limit) {
+      if (req.query.limit!='undefined') {
         opts.limit = req.query.limit;
       }
-      if (req.query.page) {
+      if (req.query.page!='undefined') {
         opts.page = req.query.page;
       }
       if (req.query.user_id) {
@@ -52,14 +53,14 @@ class ProductController {
       if (req.query.category) {
         filter.category = req.query.category;
       }
-      if (req.query.supplier) {
+      if (req.query.supplier!='null') {
         if (req.path == "/paginate") {
           filter.supplier_id = { $ne: req.query.supplier };
         } else if (req.path == "/me") {
           filter.supplier_id = { $eq: req.query.supplier };
         }
       }
-      //console.log(req.query)
+      
       const all = await paginateService({ filter, opts });
 
       const finalPages = [];

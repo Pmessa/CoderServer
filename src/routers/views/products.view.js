@@ -84,7 +84,7 @@ async function read_paginate(req, res, next) {
   try {
     const { page, limit } = req.query;
     let supplier_id = null;
-    req.user ? (supplier_id = req.user._id) : req.query.supplier_id.toString();
+    //req.user ? (supplier_id = req.user._id) : req.query.supplier_id.toString();
     //console.log(req.path)
     const response = await fetch(
       `${environment.HOST}${environment.HOST_PORT ? ":"+environment.HOST_PORT : ''}/api/products${
