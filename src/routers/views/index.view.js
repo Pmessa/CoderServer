@@ -45,6 +45,7 @@ async function read_index(req, res, next) {
     const limit = 25;
     let supplier_id = null;
     let response = null;
+    console.log(`${environment.HOST}${environment.PORT && ":"+environment.PORT}/api/products/`)
 
     
 
