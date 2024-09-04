@@ -1,0 +1,337 @@
+components:
+  schemas:
+    Products:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Product title
+        photo:
+          type: string
+          description: Product photo from URL          
+        category:
+          type: string
+          description: Product category
+        price:
+          type: integer
+          format: int64
+          description: Product price
+        stock:
+          type: integer
+          format: int64
+          description: Product Stock
+      example:
+        title: Sopa de Verduras
+        photo: https://www.comedera.com/wp-content/uploads/2013/05/sopa-de-verduras-1.jpg
+        category: Sopas
+        price: 1500
+        stock: 10
+  responses:
+    Message200:
+      type: object   
+      properties:
+        statusCode:
+            type: integer
+            format: int32
+            description: Status code from success
+        response:
+            type: string
+            description: Response message from success  
+      example:
+            statusCode: 200
+            response:
+            - _id: 662b82844f0e7281f0c24dfa
+              title: Sopa de Verduras
+              photo: https://www.comedera.com/wp-content/uploads/2013/05/sopa-de-verduras-1.jpg 
+              category: Sopas
+              price: 1500
+              stock: 10
+    Message201:
+      type: object
+      properties:
+        statusCode: 
+            type: integer
+            format: int32
+        message: 
+            type: string      
+      example: 
+          statusCode: 201
+          message: created succesfully              
+    Response200:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+          description: The status code corresponding to success returning data
+        message:
+          type: object
+          description: Object with the requested data 
+      example:
+        statusCode: 200
+        message:
+          - _id: 662b82844f0e7281f0c24dfa
+            title: Sopa de Verduras
+            photo: https://www.comedera.com/wp-content/uploads/2013/05/sopa-de-verduras-1.jpg
+            category: Sopas
+            price: 1500
+            stock: 10        
+    Paginate:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+          description: The status code corresponding to the success of paginated data
+        response:
+          type: string
+          description: 
+        info:
+          type: object
+          description: Paginated Data
+      example:
+        statusCode: 200
+        message:
+          - _id: 662b82844f0e7281f0c24dfa
+            title: Sopa de Verduras
+            photo: https://www.comedera.com/wp-content/uploads/2013/05/sopa-de-verduras-1.jpg 
+            category: Sopas
+            price: 1500
+            stock: 10
+          - _id: 662b82844f0e7281f0c24df5
+            title: Galletas de Avena y Pasas
+            photo: https://galletasavena.com/wp-content/uploads/2018/08/6.-galletas-de-avena-y-pasas.jpg
+            category: snacks
+            price: 1500
+            stock: 10
+    Error400:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+      example:
+        statusCode: 400
+        message: No token provided
+    Error401:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+      example:
+        statusCode: 401 
+        message: Bad auth from policies!
+    Error403:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+      example:
+        statusCode: 403
+        message: Forbidden from poliecies!
+    Error404:    
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+      example:
+        statusCode: 404
+        message: Not found docs
+    Error500:    
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+      example:
+        statusCode: 500
+        message: Server Error    
+  securitySchemes:
+    cookieAuth: 
+      type: apiKey
+      in: cookie
+      name: token
+paths:
+  /api/products:
+    post: 
+      summary: Endpoint to create a new product
+      tags: 
+        - Products
+      security: 
+        - cookieAuth: []
+      requestBody:
+        required: true
+        description: Data to create a new product
+        content: 
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Products'
+      responses:
+        201:
+          description: Created
+          content: 
+            application/json: 
+              schema: 
+                $ref: '#/components/responses/Message201'
+        400:
+          description: No token
+          content: 
+            application/json:
+              schema: 
+                $ref: '#/components/responses/Error400'
+  /api/products/:
+    get:
+      summary: Endpoint to get all products
+      tags:
+        - Products
+      responses:
+        '200':
+          description: Products get success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Message200'
+  /api/products/{pid}:
+    get:
+      summary: Endpoint to get product by ID
+      tags:
+        - Products
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Unique identifier of the product to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product get success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200'       
+        '400':
+          description: Invalid or incomplete data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error400'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error500'         
+    put:
+      summary: Endpoint to update a product by ID
+      tags:
+        - Products
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Unique identifier of the product to update
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Products'
+      responses:
+        '200':
+          description: Successfully updated the product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200'
+        '400':
+          description: Invalid or incomplete data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error400'
+        '401':
+          description: Authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error401'
+        '403':
+          description: Authorization failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error403'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'
+    delete:
+      summary: Endpoint to delete a product by ID
+      tags:
+        - Products
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Unique identifier of the product to delete
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully updated the product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Response200'
+        '400':
+          description: Invalid or incomplete data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error400'
+        '401':
+          description: Authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error401'
+        '403':
+          description: Authorization failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error403'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Error404'                                                      

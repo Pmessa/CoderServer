@@ -1,0 +1,25 @@
+config:
+<<<<<<< HEAD
+  plugins:
+    metrics-by-endpoint: {}
+  target: http://localhost:8080/api
+=======
+  pluggins:
+    metrics-by-endpoint : {}
+  target: /api
+>>>>>>> c1026e59073cd36058bcdd5a4302db91096e0ff7
+  phases:
+    - duration: 10
+      arrivalRate: 50
+scenarios:
+  - name: login
+    flow:
+      - log: login
+      - post:
+          url: /sessions/login
+          json:
+            email: sebasavila81@gmail.com
+            password: 123
+      - log: read all products
+      - get:
+          url: /products

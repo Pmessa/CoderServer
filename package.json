@@ -12,17 +12,28 @@
     "argv": "nodemon ./server.js -p 8080 --env=prod --persistence memory",
     "memory": "nodemon ./server.js -p 8081 --env=prod --persistence memory",
     "fs": "node ./server.js -p 8082 --env=prod --persistence fs",
-    "products": "node ./src/mocks/products.mock.js --env dev"
+    "products": "node ./src/mocks/products.mock.js --env dev",
+    "flow": "artillery run ./test/artillery/flow.yaml -o ./test/artillery/flow.json",
+    "report": "artillery report ./test/artillery/flow.json",
+    "mocha": "mocha ./test/mocha",
+    "chai": "mocha ./test/chai",
+    "super": "mocha ./test/supertest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
-    "nodemon": "^3.1.0"
+    "chai": "^5.1.1",
+    "mocha": "^10.7.0",
+    "nodemon": "^3.1.0",
+    "supertest": "^7.0.0"
   },
   "dependencies": {
+    "artillery": "^2.0.19",
+    "artillery-plugin-metrics-by-endpoint": "^1.10.0",
     "bcrypt": "^5.1.1",
+    "chai": "^5.1.1",
     "commander": "^12.1.0",
     "compression": "^1.7.4",
     "connect-mongo": "^5.1.0",
@@ -34,6 +45,7 @@
     "express-session": "^1.18.0",
     "handlebars": "^4.7.8",
     "jsonwebtoken": "^9.0.2",
+    "mocha": "^10.7.0",
     "mongoose": "^8.3.2",
     "mongoose-paginate-v2": "^1.8.1",
     "morgan": "^1.10.0",
@@ -44,6 +56,9 @@
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
     "session-file-store": "^1.5.0",
-    "socket.io": "^4.7.5"
+    "socket.io": "^4.7.5",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "winston": "^3.13.0"
   }
 }

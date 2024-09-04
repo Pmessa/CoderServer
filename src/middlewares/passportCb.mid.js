@@ -14,7 +14,7 @@ function passportCb(strategy) {
       }
       if (user) {
         req.user = user;
-        console.log(req.user)
+        //(req.user)
         return next();
       }
       return next()
