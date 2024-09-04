@@ -62,7 +62,7 @@ paths:
       tags:
         - Users
       summary: Obtener todos los usuarios
-      description: Obtiene una lista de todos los usuarios. Puede filtrar por rol usando el parámetro de consulta `role`.
+      description: Obtiene una lista de todos los usuarios por rol usando el parámetro de consulta `role`.
       parameters:
         - name: role
           in: query
@@ -100,32 +100,6 @@ paths:
                       createdAt: "2024-08-20T15:38:59.260Z"
                       updatedAt: "2024-08-20T15:39:25.001Z"
                       __v: 0
-        '401':
-          description: Error de autenticación
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                    example: 401
-                  message:
-                    type: string
-                    example: "Bad auth from policies!"
-        '403':
-          description: prohibido
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                    example: 403
-                  message:
-                    type: string
-                    example: "Forbidden from poliecies!"
         '404':
           description: No hay usuarios para mostrar
           content:
@@ -140,7 +114,7 @@ paths:
                     type: null
                   message:
                     type: string
-                    example: "Not found docs"
+                    example: "Not found users"
         '500':
           description: Error del servidor
           content:
