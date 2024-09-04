@@ -74,19 +74,16 @@ async function destroy(req, res, next) {
   try {
     const { cid } = req.params;
     const one = await destroyService(cid);
-    console.log(req.user._id);
-    console.log(one.user_id);
+
     
     
     if (one){
-      if(one.user_id.toString() == req.user._id.toString()){
+
     return res.json({
       statusCode: 200,
       response: one,
-    })} else if(one.user_id.toString() != req.user._id.toString()){
-      res.error403()
-    }} else {
-    return res.error400("Carrito no encontrado")
+    }) } else {
+    return res.error404("Carrito no encontrado")
     }
   } catch (error) {
     return next(error);

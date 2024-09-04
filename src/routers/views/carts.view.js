@@ -24,7 +24,7 @@ class CartsRouter extends CustomRouter {
     this.create("/", ["PUBLIC", "USER", "PREM"], cart_create);
     this.update("/:cid", ["USER", "PREM", "ADMIN"], update);
     this.destroy("/all", ["USER", "PREM"], destroyAll);
-    this.destroy("/:pid", ["PUBLIC"], destroy);
+    this.destroy("/:cid", ["PUBLIC"], destroy);
   }
 }
 const cartsRouter = new CartsRouter();

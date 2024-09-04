@@ -39,6 +39,7 @@
   </div>
 </form>
 <script>
+  if (document.querySelector("#delete")){
   document.querySelector("#delete").addEventListener("click", (event) => { 
   const product = document.querySelector('[name="product"]').value;
   const result = fetch("/api/products/"+product, {
@@ -47,5 +48,5 @@
       "Content-Type": "application/json",
     },
   }).then(window.location.href="/")
-})
+})}
 </script>

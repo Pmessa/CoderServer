@@ -11,7 +11,7 @@ import errorHandler from "../../middlewares/errorHandler.mid.js";
 class ProductsRouter extends CustomRouter {
   init() {
     this.read("/paginate", ["PUBLIC", "USER"], read_paginate);
-    this.read("/me", ["PUBLIC", "USER", "PREM"], read_paginate);
+    this.read("/me", ["PREM"], read_paginate);
     this.read("/register", ["PUBLIC", "USER", "PREM"], registerProducts);
     this.read("/update/:pid", ["PUBLIC", "USER", "PREM"], updateProducts);
     this.read("/:pid", ["PUBLIC", "USER", "PREM"], read_one);
@@ -85,14 +85,13 @@ async function read_paginate(req, res, next) {
     const { page, limit } = req.query;
     let supplier_id = null;
     req.user ? (supplier_id = req.user._id) : req.query.supplier_id.toString();
-
-    //console.log(supplier_id)
+    //console.log(req.path)
     const response = await fetch(
       `${environment.HOST}${environment.HOST_PORT ? ":"+environment.HOST_PORT : ''}/api/products${
         req.path
       }?limit=${limit}&page=${page}&supplier=${supplier_id}`
     );
-    console.log(response)
+    //console.log(response)
     if (!response.ok) {
       throw new Error("Failed to fetch data");
     }
