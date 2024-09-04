@@ -5,7 +5,7 @@ import usersRepository from "../../src/repositories/users.rep.js";
 import productsRepository from "../../src/repositories/products.rep.js";
 import cartsRepository from "../../src/repositories/carts.rep.js";
 
-const requester = supertest(`${environment.HOST}:${environment.PORT}/api`);
+const requester = supertest(`${environment.HOST}${environment.PORT && ":"+environment.PORT}/api`);
 // PARA PODER USAR EL SUPERTEST Debe modificar en el dto en la propiedad verify agregar "data.verify || false".
 
 describe("Testeando eVolución API", function () {

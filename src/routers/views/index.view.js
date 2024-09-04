@@ -23,7 +23,15 @@ class IndexRouter extends CustomRouter {
     this.read("/", ["PUBLIC", "USER"], read_index);
   }
 }
-
+function getBaseURL() {
+  // Verifica si el host es 'localhost', lo cual indica que estás en desarrollo
+  if (process.env.HOST.includes('localhost')) {
+    return `${process.env.HOST}:${process.env.PORT}`;
+  } else {
+    // En producción solo utiliza el host, ya que normalmente ya incluye el protocolo y no se necesita el puerto
+    return `${process.env.HOST}`;
+  }
+}
 async function thanks(req, res, next) {
   try {
     return res.render("thanks", { user: req.user, user_id: req.user._id });
@@ -34,19 +42,20 @@ async function thanks(req, res, next) {
 async function read_index(req, res, next) {
   try {
     const page = 1;
-
     const limit = 25;
     let supplier_id = null;
     let response = null;
 
+    
+
     if (req.user && req.user.role == 2) {
       supplier_id = req.user._id;
       response = await fetch(
-        `${environment.HOST}:${environment.PORT}/api/products/paginate?limit=${limit}&page=${page}&supplier=${supplier_id}`
+        `${environment.HOST}${environment.PORT && ":"+environment.PORT}/api/products/paginate?limit=${limit}&page=${page}&supplier=${supplier_id}`
       );
     } else {
       response = await fetch(
-        `${environment.HOST}:${environment.PORT}/api/products/paginate?limit=${limit}&page=${page}`
+        `${environment.HOST}${environment.PORT && ":"+environment.PORT}/api/products/paginate?limit=${limit}&page=${page}`
       );
     }
 
