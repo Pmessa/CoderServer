@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 
 <h1 class="p-2 text-center text-success w-100">PRODUCTS</h1>
-<section class="d-flex">
+<section class="d-flex justify-content-center">
   <article id="register" class="w-50">
-    <h1 class="text-center">NEW PRODUCT</h1>
+    <h1 class="text-center">UPDATE PRODUCT</h1>
     <form class="d-flex flex-column m-5" method="POST" action="/products/register">
       <label for="title">Titulo: </label>
-      <input class="m-2" type="text" name="title" id="title" placeholder="Ingrese el título" />
+      <input class="m-2" type="text" name="title" id="title" value="{{title}}" />
       <label for="photo">Imagen: </label>
-      <input class="m-2" type="text" name="photo" id="photo" placeholder="Ingrese la URL de la imágen" />
+      <input class="m-2" type="text" name="photo" id="photo" value="{{photo}}" />
       <input type="hidden" id="user_id" value={{user_id}} />
+      <input type="hidden" id="pid" value={{pid}} />
       {{! <label for="category">Categoría: </label>
       <input class="m-2" type="text" name="category" id="category" placeholder="Ingrese la categoría" /> }}
       <label for="category">Categoría: </label>
@@ -34,17 +35,17 @@
       <!-- Agrega más opciones según sea necesario -->
       </select>
       <label for="stock">Stock: </label>
-      <input class="m-2" type="number" name="stock" id="stock" placeholder="Ingrese el stock" />
+      <input class="m-2" type="number" name="stock" id="stock" value="{{stock}}" />
       <label for="price">Precio: </label>
-      <input class="m-2" type="number" name="price" id="price" placeholder="Ingrese el precio" />
+      <input class="m-2" type="number" name="price" id="price" value="{{price}}" />
 
-      <input class="btn btn-success" style=" width:50%; margin:2rem auto; border-radius:8px;" type="button"
-        value="CREAR PRODUCTO" id="create" />
+      <input class="btn btn-warning" style=" width:50%; margin:2rem auto; border-radius:8px;" type="button"
+        value="ACTUALIZAR PRODUCTO" id="update" />
 
     </form>
   </article>
-  <article id="products" class="d-flex flex-wrap w-50"></article>
+  
 </section>
 
 <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
-<script src="/scripts/realProducts.js"></script>
+<script src="/scripts/updateProducts.js"></script>

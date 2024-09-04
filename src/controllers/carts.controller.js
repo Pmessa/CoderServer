@@ -16,14 +16,15 @@ async function create(req, res, next) {
 async function read(req, res, next) {
   try {
     const { user_id } = req.query;
-    const all = await readService(user_id);
+    //console.log(req.user)
+    const all = await readService({user_id});
     if (all.length > 0) {
       return res.json({
         statusCode: 200,
         response: all,
       });
     } else {
-      const error = new Error("Not found!");
+      const error = new Error("Cart not found!");
       error.statusCode = 404;
       throw error;
     }
@@ -33,18 +34,18 @@ async function read(req, res, next) {
 }
 async function readOne(req, res, next) {
   try {
-    const { cid } = req.params;
-    const one = await readOneService(cid);
-    if (one) {
-      return res.json({
-        statusCode: 200,
-        response: one,
-        success: true,
-      });
-    } else {
-      const error = new Error("NOT FOUND");
-      error.statusCode = 404;
-      throw error;
+    const { uid } = req.params;
+    console.log(req.user, uid)
+    const one = await readService({user_id: uid});
+    if (one){
+      if(uid == req.user._id.toString()){
+    return res.json({
+      statusCode: 200,
+      response: one,
+    })} else if(uid != req.user._id.toString()){
+      res.error403()
+    }} else {
+    return res.error400("Carrito no encontrado")
     }
   } catch (error) {
     return next(error);
@@ -55,22 +56,38 @@ async function update(req, res, next) {
     const { cid } = req.params;
     const data = req.body;
     const one = await updateService(cid, data);
+    if (one){
+      if(one.user_id.toString() == req.user._id.toString()){
     return res.json({
       statusCode: 200,
-      message: one,
-    });
+      response: one,
+    })} else if(one.user_id.toString() != req.user._id.toString()){
+      res.error403()
+    }} else {
+    return res.error400("Carrito no encontrado")
+    }
   } catch (error) {
     return next(error);
   }
 }
 async function destroy(req, res, next) {
   try {
-    const { pid } = req.params;
-    const one = await destroyService(pid);
+    const { cid } = req.params;
+    const one = await destroyService(cid);
+    console.log(req.user._id);
+    console.log(one.user_id);
+    
+    
+    if (one){
+      if(one.user_id.toString() == req.user._id.toString()){
     return res.json({
       statusCode: 200,
       response: one,
-    });
+    })} else if(one.user_id.toString() != req.user._id.toString()){
+      res.error403()
+    }} else {
+    return res.error400("Carrito no encontrado")
+    }
   } catch (error) {
     return next(error);
   }

@@ -12,7 +12,7 @@ const schema = new Schema(
     role: { type: Number, default: 0, index: true },
     verify: { type: Boolean, default: false},
     verifyCode: { type: String, required: true},
-    name: { type: String, require: true }
+    name: { type: String, required: true }
   },
   {
     timestamps: true,

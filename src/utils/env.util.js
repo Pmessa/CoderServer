@@ -9,6 +9,7 @@ config({ path });
 
 const environment = {
   PORT: process.env.PORT,
+  HOST: process.env.HOST,
   MONGO_URI: process.env.MONGO_URI,
   SECRET_COOKIE: process.env.SECRET_COOKIE,
   SECRET_SESSION: process.env.SECRET_SESSION,
@@ -16,7 +17,10 @@ const environment = {
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
   GOOGLE_EMAIL: process.env.GOOGLE_EMAIL,
-  GOOGLE_PASSWORD: process.env.GOOGLE_PASSWORD
+  GOOGLE_PASSWORD: process.env.GOOGLE_PASSWORD,
+  STRIPE_KEY: process.env.STRIPE_KEY,
+  STRIPE_KEY_SECRET: process.env.STRIPE_KEY_SECRET
+
 };
 
 export default environment;

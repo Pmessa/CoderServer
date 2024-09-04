@@ -37,14 +37,14 @@ class CustomRouter {
         req.url
       } 400 - ${new Date().toLocaleTimeString()} - ${message}`;
       winston.ERROR(errorMessage);
-      return res.json({ statusCode: 400, message: message });
+       res.json({ statusCode: 400, message: 'Error de petición: '+errorMessage });
     };
     res.error401 = () => {
       const errorMessage = `${req.method} ${
         req.url
       } 401 - ${new Date().toLocaleTimeString()} - Bad auth from poliecies!}`;
       winston.ERROR(errorMessage);
-      return res.json({ statusCode: 401, message: "Bad auth from poliecies!" });
+       res.json({ statusCode: 401, message: "Bad auth from poliecies!" });
     };
 
     res.error403 = () => {
@@ -52,25 +52,43 @@ class CustomRouter {
         req.url
       } 403 - ${new Date().toLocaleTimeString()} - Forbidden from poliecies!`;
       winston.ERROR(errorMessage);
-      return res.json({
+       res.json({
         statusCode: 403,
         message: "Forbidden from poliecies!",
       });
     };
-    res.error404 = () => {
+    res.error404 = (message) => {
       const errorMessage = `${req.method} ${
         req.url
-      } 404 - ${new Date().toLocaleTimeString()} - Not found docs`;
+      } 404 - ${new Date().toLocaleTimeString()} - (Not found docs`;
       winston.ERROR(errorMessage);
-      return res.json({ statusCode: 404, message: "Not found docs" });
+       res.json({ statusCode: 404, message: message ? message : "Not found docs" });
+    };
+    res.error500 = () => {
+      const errorMessage = `${req.method} ${
+        req.url
+      } 500 - ${new Date().toLocaleTimeString()} - Internal server error`;
+      winston.ERROR(errorMessage);
+       res.json({ statusCode: 500, message: "Internal server error" });
     };
     return next();
   };
   policies = (policies) => async (req, res, next) => {
     try {
-      if (policies.includes("PUBLIC") && !policies.includes("USER"))
+      if (
+        policies.includes("PUBLIC") &&
+        !policies.includes("USER") &&
+        !policies.includes("PREM")
+      )
         return next();
-      if (policies.includes("PUBLIC") && policies.includes("USER")) {
+      if (
+        (policies.includes("PUBLIC") &&
+          (policies.includes("USER") ||
+            policies.includes("PREM") ||
+            policies.includes("ADMIN"))) //||
+       // (policies.includes("USER") && policies.includes("PREM"))
+      ) {
+        //console.log(policies)
         const token = req.cookies["token"];
         //console.log("token: ",token)
         if (token) {
@@ -90,7 +108,8 @@ class CustomRouter {
       const { email, role, _id } = dataOfToken;
       if (
         (policies.includes("USER") && role === 0) ||
-        (policies.includes("ADMIN") && role === 1)
+        (policies.includes("ADMIN") && role === 1) ||
+        (policies.includes("PREM") && role === 2)
       ) {
         const user = await usersRepository.readByEmailRepository(email);
         req.user = user;
@@ -99,7 +118,11 @@ class CustomRouter {
       }
       return res.error403();
     } catch (error) {
-      return next(error);
+      if (error.name === 'JsonWebTokenError' && error.message === 'jwt must be provided') {
+        return res.error403();
+      } else {
+        return next(error);
+      }
     }
   };
 

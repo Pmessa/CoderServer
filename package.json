@@ -17,7 +17,8 @@
     "report": "artillery report ./test/artillery/flow.json",
     "mocha": "mocha ./test/mocha",
     "chai": "mocha ./test/chai",
-    "super": "mocha ./test/supertest"
+    "super": "mocha ./test/supertest --env dev --persistence mongo",
+    "dbMod": "node ./src/updateDb.js"
   },
   "keywords": [],
   "author": "",
@@ -57,6 +58,7 @@
     "passport-local": "^1.0.0",
     "session-file-store": "^1.5.0",
     "socket.io": "^4.7.5",
+    "stripe": "^16.8.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "winston": "^3.13.0"

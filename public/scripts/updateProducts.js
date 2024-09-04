@@ -1,6 +1,5 @@
 /* const socket = io();
 socket.on("products", (data) => {
-  //console.log(data);
   let template = ``;
   template = data
     .map(
@@ -17,17 +16,35 @@ socket.on("products", (data) => {
   document.querySelector("#products").innerHTML = template;
 }); */
 
-document.querySelector("#create").addEventListener("click", (event) => {
+
   const title = document.querySelector("#title").value;
   const photo = document.querySelector("#photo").value;
   const category = document.querySelector("#category").value;
   const stock = document.querySelector("#stock").value;
   const price = document.querySelector("#price").value;
   const supplier_id = document.querySelector("#user_id").value;
-  //console.log(supplier_id)
+  const pid = document.querySelector("#pid").value
+  //console.log("asd "+pid)
   //socket.emit("createProduct", { title, photo, category, stock, price });
-  const result = fetch("/api/products", {
-    method: "POST",
+  const result = fetch("/api/products/"+pid, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    }
+  })
+
+document.querySelector("#update").addEventListener("click", (event) => {
+  const title = document.querySelector("#title").value;
+  const photo = document.querySelector("#photo").value;
+  const category = document.querySelector("#category").value;
+  const stock = document.querySelector("#stock").value;
+  const price = document.querySelector("#price").value;
+  const supplier_id = document.querySelector("#user_id").value;
+  const pid = document.querySelector("#pid").value
+  //console.log("asd "+pid)
+  //socket.emit("createProduct", { title, photo, category, stock, price });
+  const result = fetch("/api/products/"+pid, {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
@@ -38,5 +55,6 @@ document.querySelector("#create").addEventListener("click", (event) => {
       stock, 
       price,
       supplier_id
-    })}).then(window.location.href="/")
+    })
+  }).then(window.location.href="/")
 });

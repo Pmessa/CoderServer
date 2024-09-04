@@ -1,15 +1,16 @@
+import isProductOwner from "../../middlewares/isProductOwner.js";
 import CustomRouter from "../CustomRouter.js";
 //import cartsManager from "../../dao/fs/CartsManager.fs.js";
 import { read, readOne, create, update, destroy, destroyAll } from "./../../controllers/carts.controller.js"
 
 class CartsRouter extends CustomRouter {
   init() {
-    this.create("/", ["PUBLIC"], create);
-    this.read("/", ["PUBLIC"], read);
-    this.read("/:pid", ["USER"], readOne);
-    this.update("/:pid", ["USER"], update);
-    this.destroy("/all", ["PUBLIC"], destroyAll);
-    this.destroy("/:pid", ["PUBLIC"], destroy);
+    this.create("/", ["USER", "PREM"], isProductOwner, create);
+    this.read("/", ["USER", "PREM"], read);
+    this.read("/:uid", ["USER", "PREM"], readOne);
+    this.update("/:cid", ["USER", "PREM"], update);
+    this.destroy("/all", ["PREM", "USER"], destroyAll);
+    this.destroy("/:cid", ["USER", "PREM"], destroy);
   }
 }
 

@@ -1,0 +1,451 @@
+components:
+  schemas:
+    Cart:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: "66a6c8dcb8b291dfe185a772"
+        user_id:
+          type: string
+          description: ID del usuario asociado con el carrito
+          example: "66a6c8dcb8b291dfe185a773"
+        product_id:
+          type: string
+          description: ID del producto añadido al carrito
+          example: "66a6c8dcb8b291dfe185a774"
+        quantity:
+          type: integer
+          description: Cantidad de productos en el carrito
+          example: 3
+        state:
+          type: string
+          description: Estado del carrito
+          enum:
+            - reserved
+            - paid
+            - delivered
+          example: "reserved"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2024-08-20T15:38:59.260Z"
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2024-08-20T15:39:25.001Z"
+      required:
+        - user_id
+        - product_id
+        - quantity
+        - state
+  securitySchemes:
+    cookieAuth: 
+      type: apiKey
+      in: cookie
+      name: token
+paths:
+  /api/carts:
+    get:
+      tags:
+        - Carts
+      summary: Obtener todos los carritos
+      description: Obtiene una lista de todos los carritos. Puede filtrar por `user_id` usando el parámetro de consulta `user_id`.
+      parameters:
+        - name: user_id
+          in: query
+          description: Filtro opcional para el ID del usuario
+          required: false
+          schema:
+            type: string
+            example: "66a6c8dcb8b291dfe185a773"
+      responses:
+        '200':
+          description: Lista de carritos obtenida exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 200
+                  response:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Cart'
+                example:
+                  statusCode: 200
+                  response:
+                    - _id: "66a6c8dcb8b291dfe185a772"
+                      user_id: "66a6c8dcb8b291dfe185a773"
+                      product_id: "66a6c8dcb8b291dfe185a774"
+                      quantity: 3
+                      state: "reserved"
+                      createdAt: "2024-08-20T15:38:59.260Z"
+                      updatedAt: "2024-08-20T15:39:25.001Z"
+        '401':
+          description: Error de autenticación
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                  message:
+                    type: string
+                    example: "Bad auth from policies!"
+        '404':
+          description: No hay carritos para mostrar
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                  response:
+                    type: null
+                  message:
+                    type: string
+                    example: "Cart not found!"
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+    post:
+      tags:
+        - Carts
+      security:
+        - cookieAuth: []  
+      summary: Crear un nuevo carrito
+      description: Crea un nuevo carrito
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  example: "66c5f614245f8dace4823a45"
+                product_id:
+                  type: string
+                  example: "6683f241fe2a81b4354dc70a"
+                quantity:
+                  type: integer
+                  example: 2
+                state:
+                  type: string
+                  enum:
+                    - reserved
+                    - paid
+                    - delivered
+                  example: "reserved"
+              required:
+                - user_id
+                - product_id
+      responses:
+        '201':
+          description: Carrito creado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 201
+                  response:
+                    type: string
+                    example: "66d4b31f8655a1cf1d7e1b10"
+                  message:
+                    type: string
+                    example: "Cart created successfully!"
+        '400':
+          description: Error de petición
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 400
+                  message:
+                    type: string
+                    example: "You own this product"
+        '401':
+          description: Autenticación fallida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                  message:
+                    type: string
+                    example: "Bad auth from policies!"
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                  message:
+                    type: string
+                    example: "Server Error"
+  /api/carts/{cid}:
+    get:
+      tags:
+        - Carts
+      summary: Obtener carrito por ID de usuario
+      description: Obtiene la información de un carrito específico utilizando el ID del usuario al cual pertenece.
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: ID del carrito
+          schema:
+            type: string
+            example: "66c5f614245f8dace4823a45"
+      responses:
+        '200':
+          description: Carrito encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 200
+                  response:
+                    $ref: '#/components/schemas/Cart'
+                example:
+                  statusCode: 200
+                  response:
+                    _id: "66a6c8dcb8b291dfe185a772"
+                    user_id: "66a6c8dcb8b291dfe185a773"
+                    product_id: "66a6c8dcb8b291dfe185a774"
+                    quantity: 2
+                    state: "reserved"
+                    createdAt: "2024-08-20T15:38:59.260Z"
+                    updatedAt: "2024-08-20T15:39:25.001Z"
+        '401':
+          description: Error de autenticación
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                  message:
+                    type: string
+                    example: "Bad auth from policies!"
+        '404':
+          description: Carrito no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                  response:
+                    type: null
+                  message:
+                    type: string
+                    example: "Cart not found"
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                  message:
+                    type: string
+                    example: "Server Error"
+    put:
+      tags:
+        - Carts
+      summary: Actualizar carrito
+      description: Actualiza la información de un carrito específico utilizando su ID.
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: ID del carrito
+          schema:
+            type: string
+            example: "66d5a882c10b0c7bed41c665"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cart'
+            example:
+              quantity: 5
+      responses:
+        '200':
+          description: Carrito actualizado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 200
+                  response:
+                    $ref: '#/components/schemas/Cart'
+                example:
+                  statusCode: 200
+                  response:
+                    _id: "66a6c8dcb8b291dfe185a772"
+                    user_id: "66a6c8dcb8b291dfe185a773"
+                    product_id: "66a6c8dcb8b291dfe185a774"
+                    quantity: 5
+                    state: "paid"
+                    createdAt: "2024-08-20T15:38:59.260Z"
+                    updatedAt: "2024-08-20T15:39:25.001Z"
+        '400':
+          description: Error de petición
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 400
+                  message:
+                    type: string
+                    example: "Error de petición! Producto no encontrado."
+        '403':
+          description: Error de permisos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                  response:
+                    type: null
+                  message:
+                    type: string
+                    example: "Forbidden from policies!"
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                  message:
+                    type: string
+                    example: "Server Error"
+    delete:
+      tags:
+        - Carts
+      summary: Eliminar carrito
+      description: Elimina un carrito específico utilizando su ID.
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          description: ID del carrito
+          schema:
+            type: string
+            example: "66d5a887c10b0c7bed41c675"
+      responses:
+        '200':
+          description: Carrito eliminado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 200
+                  response:
+                    type: string
+                    example: "Cart deleted"
+                  message:
+                    type: string
+                    example: "Cart deleted successfully!"
+        '403':
+          description: Error de autenticación
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 403
+                  message:
+                    type: string
+                    example: "Forbidden from policies!"
+        '404':
+          description: Carrito no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                  response:
+                    type: null
+                  message:
+                    type: string
+                    example: "Cart not found"
+        '500':
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                  message:
+                    type: string
+                    example: "Server Error"
+

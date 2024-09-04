@@ -4,6 +4,7 @@ class Service {
   }
   createService = async (data) => {
     try {
+      console.log(data)
       const one = await this.repository.createRepository(data);
       return one;
     } catch (error) {
@@ -15,6 +16,9 @@ class Service {
       const all = await this.repository.readRepository(filter);
       return all;
     } catch (error) {
+      if (error.name === 'CastError' || error.kind === 'ObjectId') {
+        return null;
+      }
       throw error;
     }
   };
@@ -23,6 +27,9 @@ class Service {
       const one = await this.repository.readOneRepository(uid);
       return one;
     } catch (error) {
+      if (error.name === 'CastError' || error.kind === 'ObjectId') {
+        return null;
+      }
       throw error;
     }
   };
@@ -31,6 +38,9 @@ class Service {
       const one = await this.repository.readByEmailRepository(email);
       return one;
     } catch (error) {
+      if (error.name === 'CastError' || error.kind === 'ObjectId') {
+        return null;
+      }
      throw error      
     }
   }
@@ -39,6 +49,9 @@ class Service {
       const one = await this.repository.updateRepository(uid, data);
       return one;
     } catch (error) {
+      if (error.name === 'CastError' || error.kind === 'ObjectId') {
+        return null;
+      }
       throw error;
     }
   };
@@ -47,6 +60,9 @@ class Service {
       const one = await this.repository.destroyRepository(uid);
       return one;
     } catch (error) {
+      if (error.name === 'CastError' || error.kind === 'ObjectId') {
+        return null;
+      }
       throw error;
     }
   };
