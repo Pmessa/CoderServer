@@ -84,20 +84,19 @@ async function read_paginate(req, res, next) {
   try {
     const { page, limit } = req.query;
     let supplier_id = null;
-    //req.user ? (supplier_id = req.user._id) : req.query.supplier_id.toString();
-    //console.log(req.path)
+    req.user ? (supplier_id = req.user._id) : supplier_id = null//req.query.supplier_id.toString();
     const response = await fetch(
       `${environment.HOST}${environment.HOST_PORT ? ":"+environment.HOST_PORT : ''}/api/products${
         req.path
       }?limit=${limit}&page=${page}&supplier=${supplier_id}`
     );
-    //console.log(response)
+    //console.log(response.json())
     if (!response.ok) {
       throw new Error("Failed to fetch data");
     }
     const fetchedDocs = await response.json();
 
-    //console.log(req.user)
+    //console.log(fetchedDocs.supplier_id)
 
     if (req.user) {
       const user_id = req.user._id;

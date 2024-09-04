@@ -57,7 +57,9 @@ class ProductController {
         if (req.path == "/paginate") {
           filter.supplier_id = { $ne: req.query.supplier };
         } else if (req.path == "/me") {
+          
           filter.supplier_id = { $eq: req.query.supplier };
+          console.log(filter.supplier_id)
         }
       }
       
